@@ -88,24 +88,13 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowserTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BrowserTest.Designer.cs">
-      <DependentUpon>BrowserTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="CheckList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CheckList.Designer.cs">
       <DependentUpon>CheckList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Comments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Comments.Designer.cs">
-      <DependentUpon>Comments.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ConfigFile.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ContextMenus.cs" />
     <Compile Include="Controls\CommitedFilesSelection.cs">
@@ -230,6 +219,7 @@
     <Compile Include="Controls\TransparentControl.Designer.cs">
       <DependentUpon>TransparentControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL.cs" />
     <Compile Include="GlobalHotkey.cs" />
     <Compile Include="ProcessIcon.cs" />
     <Compile Include="ProfileConfigItem.cs" />
@@ -259,21 +249,9 @@
     <Compile Include="Controls\TaskItem.Designer.cs">
       <DependentUpon>TaskItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimeTracking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TimeTracking.Designer.cs">
-      <DependentUpon>TimeTracking.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="BrowserTest.resx">
-      <DependentUpon>BrowserTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CheckList.resx">
       <DependentUpon>CheckList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Comments.resx">
-      <DependentUpon>Comments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CommitedFilesSelection.resx">
       <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
@@ -343,13 +321,7 @@
     <EmbeddedResource Include="Controls\TaskItem.resx">
       <DependentUpon>TaskItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeTracking.resx">
-      <DependentUpon>TimeTracking.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="checklists\start\test.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="icons\tornado14Logo.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -398,9 +370,6 @@
     <Content Include="checklists\start.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="checklists\start\Template1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\logoSmall16.ico" />
     <None Include="icons\logo.png">

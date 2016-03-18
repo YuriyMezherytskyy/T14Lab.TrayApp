@@ -21,20 +21,8 @@ namespace Tornado14.TrayApp
                 starter.InitStarter(pi);
                 starter.Show();
 
-                //TimeTracking t = new TimeTracking();
-                //t.Show();
-
-                //Comments comments = new Comments();
-                //comments.Show();
-                //GlassForm g = new GlassForm();
-                //g.Show();                
-
-                //CheckList c = new CheckList();
-                //c.Show();
                 ProjectExplorer p = new ProjectExplorer();
                 Application.Run(p);
-
-
             }
         }
     }

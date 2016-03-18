@@ -10,29 +10,29 @@ namespace Tornado14.TrayApp
     public class ProcessIcon : IDisposable
     {
         Starter starter;
-        private NotifyIcon ni;
+        private NotifyIcon notifyIcon;
 
-        public NotifyIcon Ni
+        public NotifyIcon NotifyIcon
         {
-            get { return ni; }
-            set { ni = value; }
+            get { return notifyIcon; }
+            set { notifyIcon = value; }
         }
 
         public ProcessIcon()
         {
-            ni = new NotifyIcon();
+            notifyIcon = new NotifyIcon();
         }
 
         internal void Display()
         {
-            ni.MouseClick += new MouseEventHandler(ni_MouseClick);
+            notifyIcon.MouseClick += new MouseEventHandler(ni_MouseClick);
             DirectoryInfo iconsFolder = new DirectoryInfo(Application.StartupPath + "\\icons");
             Icon trayIcon = new Icon(iconsFolder.FullName + "\\trayIcon.ico");
-            ni.Icon = trayIcon;
-            ni.Visible = true;
+            notifyIcon.Icon = trayIcon;
+            notifyIcon.Visible = true;
 
             string profile = "start.xml";
-            new ContextMenus().create(profile, ni);
+            new ContextMenus().create(profile, notifyIcon);
             //ni.ShowBalloonTip(3000, "Text 1", "Text 2", ToolTipIcon.Info);
         }
 
@@ -51,13 +51,13 @@ namespace Tornado14.TrayApp
                 }
                 starter = new Starter();
                 starter.Show();
-
+                starter.BringToFront();
             }
         }
 
         public void Dispose()
         {
-            ni.Dispose();
+            notifyIcon.Dispose();
         }
     }
 }

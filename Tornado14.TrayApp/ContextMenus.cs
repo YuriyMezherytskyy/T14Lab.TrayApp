@@ -184,6 +184,7 @@ namespace Tornado14.TrayApp
 
     internal ContextMenuStrip create(string profileFileName)
     {
+      // Design
       List<string> errors = new List<string>();
       ToolStripMenuItem item;
       mainMenu.ImageScalingSize = new Size(32, 32);
@@ -191,6 +192,7 @@ namespace Tornado14.TrayApp
       mainMenu.ForeColor = Settings.Default.foreColor;
       mainMenu.Renderer = new MyRenderer(new MainColorTable());
 
+      // Logo
       item = new ToolStripMenuItem();
       item.BackgroundImage = Image.FromFile(Path.Combine(iconsFolder.FullName, "logo.png"));
       item.BackgroundImageLayout = ImageLayout.None;
@@ -199,13 +201,12 @@ namespace Tornado14.TrayApp
       item.Height = 67;
       item.Width = 200;
       item.BackColor = Settings.Default.backColor;
-
       item.Padding = new Padding(0, 0, 0, 7);
       item.Click += new EventHandler(itemLogo_Click);
-
       mainMenu.Items.Add(item);
 
 
+      // Profile Selector Dropdown
       ToolStripMenuItem profileSelector = new ToolStripMenuItem();
       profileSelector.ShowShortcutKeys = false;
       profileSelector.Text = "Profile";
@@ -217,35 +218,22 @@ namespace Tornado14.TrayApp
       profileSelector.DropDown.BackColor = Settings.Default.subItemBackColor;
       //profileSelector.DropDown.Renderer = new MyRenderer();
 
-
-
-      foreach (FileInfo configurationFile in profilesFolder.GetFiles())
+      // Menus Items
+      DAL configDAL = new DAL(Application.StartupPath, Settings.Default.DataFolder);
+      foreach (ConfigFile configurationFile in configDAL.allConfigFiles)
       {
-        if (configurationFile.Extension == ".xml")
-        {
-          profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, configurationFile.Name, "source_code_filled1.png", configurationFile.Name, subItemMenuItem_Click));
-        }
+        profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, configurationFile.File.Name, "source_code_filled1.png", configurationFile.File.Name, subItemMenuItem_Click));
       }
 
-
-      foreach (FileInfo configurationFile in dataFolderProfiles.GetFiles())
-      {
-        if (configurationFile.Extension == ".xml")
-        {
-          profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, configurationFile.Name, "source_code_filled.png", configurationFile.Name, subItemMenuItem_Click));
-        }
-      }
-      ToolStripSeparator s = new ToolStripSeparator();
+      // Custom Menu Items
       profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, "Open local config folder", "LocalFolder.png", profilesFolder.FullName, openFolderEventHandler));
       profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, "Open network config folder", "NetworkFolder.png", dataFolderProfiles.FullName, openFolderEventHandler));
       profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, "Open icons folder", "NetworkFolder.png", iconsFolder.FullName, openFolderEventHandler));
       profileSelector.DropDown.Items.Add(createToolStrimMenuItem(iconsFolder, "App config folder", "support.png", Environment.CurrentDirectory, openFolderEventHandler));
-
+      mainMenu.Items.Add(profileSelector);
 
       //profileSelector.DropDown.ItemClicked += new ToolStripItemClickedEventHandler(profileSelectionDropDown_ItemClicked);
-      mainMenu.Items.Add(profileSelector);
       //profileSelector.DropDown.ForeColor = Color.White;
-
       //mainMenu.Items.Add(new ToolStripSeparator());
 
 

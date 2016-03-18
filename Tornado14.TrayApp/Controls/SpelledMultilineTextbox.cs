@@ -170,11 +170,6 @@ namespace Tornado14.TrayApp.Controls
             toolStripLabelStatus.Text = "Not checked";
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            BrowserTest b = new BrowserTest();
-            b.Show();
-        }
 
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
