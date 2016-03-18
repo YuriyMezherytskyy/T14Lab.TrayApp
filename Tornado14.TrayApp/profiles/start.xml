@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfProfileConfigItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--
+apps shortcuts
+<app>explorer</app>
+<app>excel</app>
+<app>C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe</app>
+
+-->
+<!-- App -->
+    <ProfileConfigItem>
+        <key>1</key> <!-- unique -->
+        <displayName>Explorer</displayName>
+        <group>Gruppe2</group> <!-- apps with the same group will be shown bundled with separator -->
+        <app>explorer</app> <!-- path to executable file -->
+        <parameter></parameter> <!-- params/arguments -->
+        <icon>eldorado\appliance\031.png</icon>
+    </ProfileConfigItem>
+
+    <!-- "Directory" group Apps in Dropdown  -->
+    <ProfileConfigItem>
+        <group>myApps</group>
+        <icon>basic\\001.png</icon>
+        <displayName>Browser</displayName>
+        <subItems>
+            <ProfileConfigItem>
+                <displayName>SPP Params Folder</displayName>
+                <icon>basic\001.png</icon>
+                <app>explorer</app>
+                <parameter>D:\Develop\SVN\SolPlusPlus\trunk\SPP_Definitionen</parameter>
+            </ProfileConfigItem>
+            <ProfileConfigItem>
+                <displayName>Deployment Target Folder</displayName>
+                <icon>eldorado\appliance\018.png</icon>
+                <app>explorer</app>
+                <parameter>Y:\Projekte\SolPlusPlus\aktueller Stand</parameter>
+            </ProfileConfigItem>
+        </subItems>
+    </ProfileConfigItem>
+
+</ArrayOfProfileConfigItem>
+

@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FA7F459-2ADE-45D1-BB81-5DB559F2D0E2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tornado14.TrayApp</RootNamespace>
+    <AssemblyName>Tornado14.TrayApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>books1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.StringTemplate">
+      <HintPath>..\packages\Antlr4.StringTemplate.4.0.6.9004\lib\net35\Antlr4.StringTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.1, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\KryptonGrid\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="JDHSoftware.Krypton.Toolkit.KryptonOutlookGrid, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\KryptonGrid\JDHSoftware.Krypton.Toolkit.KryptonOutlookGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ScintillaNET, Version=2.6.0.0, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\text\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid, Version=4.40.5470.23478, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\sourceGrid\SourceGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrowserTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrowserTest.Designer.cs">
+      <DependentUpon>BrowserTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckList.Designer.cs">
+      <DependentUpon>CheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comments.Designer.cs">
+      <DependentUpon>Comments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="ContextMenus.cs" />
+    <Compile Include="Controls\CommitedFilesSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitedFilesSelection.Designer.cs">
+      <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommitInfo.cs" />
+    <Compile Include="Controls\EditTaskDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\EditTaskDialog.Designer.cs">
+      <DependentUpon>EditTaskDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IStandardPanel.cs" />
+    <Compile Include="Controls\NewTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\NewTask.Designer.cs">
+      <DependentUpon>NewTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectDeployApplicationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectDeployApplicationPanel.Designer.cs">
+      <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectDeployWebPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectDeployWebPanel.Designer.cs">
+      <DependentUpon>ProjectDeployWebPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectDetailsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectDetailsPanel.Designer.cs">
+      <DependentUpon>ProjectDetailsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectDevelopPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectDevelopPanel.Designer.cs">
+      <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectFeaturesPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectFeaturesPanel.Designer.cs">
+      <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectGridPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProjectGridPanel.Designer.cs">
+      <DependentUpon>ProjectGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ReportPanel.Designer.cs">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReportScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ReportScreen.Designer.cs">
+      <DependentUpon>ReportScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpelledMultilineTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SpelledMultilineTextbox.Designer.cs">
+      <DependentUpon>SpelledMultilineTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SprintGridPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SprintGridPanel.Designer.cs">
+      <DependentUpon>SprintGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SprintKanbanPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SprintKanbanPanel.Designer.cs">
+      <DependentUpon>SprintKanbanPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StandardGridPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SyntaxRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskEditor.Designer.cs">
+      <DependentUpon>TaskEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskPlanningPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskPlanningPanel.Designer.cs">
+      <DependentUpon>TaskPlanningPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskSearchPanel.Designer.cs">
+      <DependentUpon>TaskSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TasksGridPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TasksGridPanel.Designer.cs">
+      <DependentUpon>TasksGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TransparentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparentControl.Designer.cs">
+      <DependentUpon>TransparentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalHotkey.cs" />
+    <Compile Include="ProcessIcon.cs" />
+    <Compile Include="ProfileConfigItem.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectExplorer.Designer.cs">
+      <DependentUpon>ProjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Starter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Starter.Designer.cs">
+      <DependentUpon>Starter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TaskItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TaskItem.Designer.cs">
+      <DependentUpon>TaskItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeTracking.Designer.cs">
+      <DependentUpon>TimeTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="BrowserTest.resx">
+      <DependentUpon>BrowserTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckList.resx">
+      <DependentUpon>CheckList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comments.resx">
+      <DependentUpon>Comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommitedFilesSelection.resx">
+      <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EditTaskDialog.resx">
+      <DependentUpon>EditTaskDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NewTask.resx">
+      <DependentUpon>NewTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProjectDeployApplicationPanel.resx">
+      <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProjectDetailsPanel.resx">
+      <DependentUpon>ProjectDetailsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProjectDevelopPanel.resx">
+      <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProjectFeaturesPanel.resx">
+      <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProjectGridPanel.resx">
+      <DependentUpon>ProjectGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ReportPanel.resx">
+      <DependentUpon>ReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ReportScreen.resx">
+      <DependentUpon>ReportScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpelledMultilineTextbox.resx">
+      <DependentUpon>SpelledMultilineTextbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SprintGridPanel.resx">
+      <DependentUpon>SprintGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SprintKanbanPanel.resx">
+      <DependentUpon>SprintKanbanPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StandardGridPanel.resx">
+      <DependentUpon>StandardGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaskEditor.resx">
+      <DependentUpon>TaskEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaskPlanningPanel.resx">
+      <DependentUpon>TaskPlanningPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaskSearchPanel.resx">
+      <DependentUpon>TaskSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TasksGridPanel.resx">
+      <DependentUpon>TasksGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectExplorer.resx">
+      <DependentUpon>ProjectExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Starter.resx">
+      <DependentUpon>Starter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TaskItem.resx">
+      <DependentUpon>TaskItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeTracking.resx">
+      <DependentUpon>TimeTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="checklists\start\test.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="icons\tornado14Logo.psd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Solutronic.Task.Project.datasource" />
+    <None Include="Properties\DataSources\Solutronic.Task.SolutionProject.datasource" />
+    <None Include="Properties\DataSources\Solutronic.Task.Sprint.datasource" />
+    <None Include="Properties\DataSources\Solutronic.Task.Todo.datasource" />
+    <None Include="Properties\DataSources\Solutronic.TrayApp.Controls.CommitInfo.datasource" />
+    <None Include="Properties\DataSources\Tornado14.Task.Checklist.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\help" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tear_off_calendar.png" />
+    <None Include="Resources\time.png" />
+    <None Include="Resources\planner.png" />
+    <None Include="Resources\to_do1.png" />
+    <None Include="Resources\outline1.png" />
+    <None Include="Resources\synchronize1.png" />
+    <None Include="Resources\checklist.png" />
+    <None Include="Resources\system_task.png" />
+    <None Include="Resources\date_span2.png" />
+    <None Include="Resources\idea1.png" />
+    <None Include="Resources\synchronize.png" />
+    <None Include="Resources\outline.png" />
+    <None Include="Resources\to_do.png" />
+    <None Include="Resources\date_span11.png" />
+    <None Include="Resources\idea.png" />
+    <None Include="Resources\date_span1.png" />
+    <None Include="Resources\date_span.png" />
+    <None Include="Resources\todo_list.png" />
+    <None Include="Resources\workflow.png" />
+    <None Include="Resources\serial_tasks.png" />
+    <None Include="Resources\t14lab_Logo16.ico" />
+    <Content Include="books.ico" />
+    <Content Include="books1.ico" />
+    <Content Include="checklists\start.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="checklists\start\Template1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\logoSmall16.ico" />
+    <None Include="icons\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="icons\logoSmall16.ico" />
+    <Content Include="icons\books.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\books1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\Bütema_logoSmall16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\logoSmall32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\t14lab_Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\t14lab_Logo16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\tornado1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\tornado3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\trayIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\trayIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\LocalFolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\NetworkFolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\source_code.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\source_code_filled.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\source_code_filled1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\stern.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\support.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\xml1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\_defaulticons\xml2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\KryptonGrid\ComponentFactory.Krypton.Toolkit.dll" />
+    <Content Include="lib\KryptonGrid\JDHSoftware.Krypton.Toolkit.KryptonOutlookGrid.dll" />
+    <Content Include="lib\sourceGrid\SourceGrid.dll" />
+    <Content Include="lib\sourceGrid\SourceGrid.pdb" />
+    <Content Include="lib\sourceGrid\SourceGrid.xml" />
+    <Content Include="lib\text\License.txt" />
+    <Content Include="lib\text\ReadMe.htm" />
+    <Content Include="lib\text\SciLexer.dll" />
+    <Content Include="lib\text\SciLexer64.dll" />
+    <Content Include="lib\text\ScintillaNET.dll" />
+    <Content Include="lib\text\ScintillaNET.pdb" />
+    <Content Include="lib\text\ScintillaNET.xml" />
+    <Content Include="profiles\start.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\Save-32 %286%29.png" />
+    <None Include="Resources\Save-32-Red.png" />
+    <None Include="Resources\Save-32-LightBlue.png" />
+    <None Include="Resources\Arrowhead-Right-32.png" />
+    <None Include="Resources\Delete-32 %282%29.png" />
+    <None Include="Resources\6887640-carbon-fiber-wallpaper.jpg" />
+    <None Include="Resources\dark-metal-texture.jpg" />
+    <None Include="Resources\header.jpg" />
+    <None Include="Resources\header1.jpg" />
+    <None Include="Resources\header3.jpg" />
+    <None Include="Resources\header2.jpg" />
+    <None Include="Resources\header4.jpg" />
+    <None Include="Resources\console.ico" />
+    <None Include="Resources\console1.ico" />
+    <None Include="Resources\save-as-32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GanttChart\GanttChart.csproj">
+      <Project>{F98F97D5-4F29-4531-AD05-D90F8E84C9AA}</Project>
+      <Name>GanttChart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar.csproj">
+      <Project>{25649F08-3046-4891-ADB8-7EA787B57063}</Project>
+      <Name>System.Windows.Forms.Calendar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tornado14.Task\Tornado14.Task.csproj">
+      <Project>{45d49335-f50e-415f-aeef-786675c6d0c5}</Project>
+      <Name>Tornado14.Task</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tornado14Lab.Utils\Tornado14Lab.Utils.csproj">
+      <Project>{8F4BBEED-1AE9-47F8-B9CF-57C6AA1264A7}</Project>
+      <Name>Tornado14Lab.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="lib\KryptonGrid\fr\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

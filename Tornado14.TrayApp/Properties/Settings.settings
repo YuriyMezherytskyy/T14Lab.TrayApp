@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tornado14.TrayApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DataFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y:\DATA\</Value>
+    </Setting>
+    <Setting Name="backColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">30, 30, 30</Value>
+    </Setting>
+    <Setting Name="subItemBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">30, 30, 30</Value>
+    </Setting>
+    <Setting Name="borderColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="SubItemBorderColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="foreColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="subItemForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="selectedBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="subItemSelectedBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">63, 63, 63</Value>
+    </Setting>
+    <Setting Name="groupColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">44, 106, 94</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

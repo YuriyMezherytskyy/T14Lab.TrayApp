@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Tornado14.Task.Todo">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIICAAAEAAggAAIAAAAAAgAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Todo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Tornado14.Task.Project">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAggAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tornado14.Task.Sprint">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICCAAAAAAggAAIAAAAAAAAwAAAAAAAAIAAAAEAAAAA=</HashCode>
+      <FileName>Sprint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tornado14.Task.KanbanPosition">
+    <Position X="5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAgAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KanbanPosition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Tornado14.Task.Status">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABICAAAAQAAAAAAAAAAAAAAAAAAAAAAIAAACACAABA=</HashCode>
+      <FileName>Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

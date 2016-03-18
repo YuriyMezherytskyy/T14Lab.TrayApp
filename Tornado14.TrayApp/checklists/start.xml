@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfChecklistItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ChecklistItem>
+    <Nummer></Nummer>
+    <SetupJa>false</SetupJa>
+    <Aufgabe></Aufgabe>
+    <Hilfe>
+      <Programm>iexplore.exe</Programm>
+      <Parameter>http://www.google.de</Parameter>
+    </Hilfe>
+  </ChecklistItem>
+
+  <ChecklistItem>
+    <Nummer>1</Nummer>
+    <SetupJa>true</SetupJa>
+    <Aufgabe>Aufgabe 1</Aufgabe>
+    <Hilfe>
+      <Programm>iexplore.exe</Programm>
+      <Parameter>http://www.google.de</Parameter>
+    </Hilfe>
+  </ChecklistItem>
+
+
+  <ChecklistItem>
+    <Nummer>1a</Nummer>
+    <SetupJa>false</SetupJa>
+    <Aufgabe>Aufgabe 1a</Aufgabe>
+    <Funktion>
+      <Name>1aaa</Name>
+      <Programm></Programm>
+      <Parameter></Parameter>
+      <ResultatList></ResultatList>
+    </Funktion>
+  </ChecklistItem>
+
+  <ChecklistItem>
+    <Nummer>2</Nummer>
+    <SetupJa>true</SetupJa>
+    <Aufgabe>Aufgabe 2</Aufgabe>
+
+    <Hilfe>
+      <Programm></Programm>
+      <Parameter></Parameter>
+    </Hilfe>
+    <Funktion>
+      <Name>sdff</Name>
+      <Programm>test.bat</Programm>
+      <Parameter></Parameter>
+      <ResultatList>
+        <Resultat>
+          <ResultatCode>100</ResultatCode>
+          <Template></Template>
+          <Disable></Disable>
+          <Enable></Enable>
+        </Resultat>
+        <Resultat>
+          <ResultatCode>200</ResultatCode>
+          <Template></Template>
+          <Disable></Disable>
+          <Enable></Enable>
+        </Resultat>
+      </ResultatList>
+    </Funktion>
+  </ChecklistItem>
+
+  <ChecklistItem>
+    <Nummer>3</Nummer>
+    <SetupJa>true</SetupJa>
+    <Aufgabe>Aufgabe 3</Aufgabe>
+    <Hilfe>iexplore.exe http://www.google.de</Hilfe>
+    <Funktion></Funktion>
+  </ChecklistItem>
+
+</ArrayOfChecklistItem>

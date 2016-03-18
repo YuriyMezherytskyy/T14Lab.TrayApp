@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25649F08-3046-4891-ADB8-7EA787B57063}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Windows.Forms.Calendar</RootNamespace>
+    <AssemblyName>System.Windows.Forms.Calendar</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalendarColorTable.cs" />
+    <Compile Include="CalendarDayEventArgs.cs" />
+    <Compile Include="CalendarDayTop.cs">
+    </Compile>
+    <Compile Include="CalendarHighlightRange.cs" />
+    <Compile Include="CalendarItemCancelEventArgs.cs" />
+    <Compile Include="CalendarItemEventArgs.cs" />
+    <Compile Include="CalendarItemImageAlign.cs" />
+    <Compile Include="CalendarLoadEventArgs.cs" />
+    <Compile Include="CalendarProfessionalRenderer.cs">
+    </Compile>
+    <Compile Include="CalendarRenderer.cs" />
+    <Compile Include="Calendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CalendarDay.cs" />
+    <Compile Include="CalendarDaysMode.cs" />
+    <Compile Include="CalendarItem.cs" />
+    <Compile Include="CalendarItemCollection.cs" />
+    <Compile Include="CalendarRendererDayEventArgs.cs">
+    </Compile>
+    <Compile Include="CalendarRendererEventArgs.cs" />
+    <Compile Include="CalendarRendererBoxEventArgs.cs">
+    </Compile>
+    <Compile Include="CalendarRendererItemBoundsEventArgs.cs">
+    </Compile>
+    <Compile Include="CalendarRendererItemEventArgs.cs" />
+    <Compile Include="CalendarRendererTimeUnitEventArgs.cs">
+    </Compile>
+    <Compile Include="CalendarSelectableElement.cs" />
+    <Compile Include="CalendarSystemRenderer.cs" />
+    <Compile Include="CalendarTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CalendarTimeScale.cs" />
+    <Compile Include="CalendarTimeScaleUnit.cs" />
+    <Compile Include="CalendarWeek.cs" />
+    <Compile Include="ICalendarSelectableElement.cs" />
+    <Compile Include="ISelectableElement.cs" />
+    <Compile Include="MonthViewBoxEventArgs.cs" />
+    <Compile Include="MonthViewDay.cs" />
+    <Compile Include="MonthViewMontEventArgs.cs" />
+    <Compile Include="MonthViewMonth.cs" />
+    <Compile Include="MonthView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
