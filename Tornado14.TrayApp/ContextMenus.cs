@@ -460,7 +460,7 @@ namespace Tornado14.TrayApp
         if (appConfig.asAdministrator)
         {
           pi.Verb = "runas";
-        }
+        } 
         Process.Start(pi);
       }
       catch (Exception ex)
