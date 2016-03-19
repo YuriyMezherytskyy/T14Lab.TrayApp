@@ -9,8 +9,8 @@ apps shortcuts
 -->
   <!-- App -->
   <ProfileConfigItem>
-    <displayName>Explorer</displayName>
-    <group>Gruppe2</group>
+    <displayName>2 Explorer</displayName>
+    <group>global</group>
     <!-- apps with the same group will be shown bundled with separator -->
     <app>explorer</app>
     <!-- path to executable file -->
@@ -22,28 +22,18 @@ apps shortcuts
 
   <!-- "Directory" group Apps in Dropdown  -->
   <ProfileConfigItem>
-    <group>myApps</group>
+    <group>global</group>
     <icon>basic\\001.png</icon>
-    <displayName>Browser</displayName>
+    <displayName>2 Browser</displayName>
     <subItems>
       <ProfileConfigItem>
-        <displayName>startAll</displayName>
-      </ProfileConfigItem>
-
-      <ProfileConfigItem>
-        <displayName>SPP Params Folde444444456 defh dfh dfr</displayName>
-        <icon>basic\001.png</icon>
-        <app>explorer</app>
-        <parameter>c:\</parameter>
-      </ProfileConfigItem>
-      <ProfileConfigItem>
-        <displayName>SPP Params Folder45454545</displayName>
+        <displayName>2 SPP Params Folder45454545</displayName>
         <icon>basic\001.png</icon>
         <app>explorer</app>
         <parameter>D:\Develop\SVN\SolPlusPlus\trunk\SPP_Definitionen</parameter>
       </ProfileConfigItem>
       <ProfileConfigItem>
-        <displayName>SPP Params Folder555</displayName>
+        <displayName>1SPP Params Folder555</displayName>
         <icon>basic\001.png</icon>
         <app>explorer</app>
         <parameter>D:\Develop\SVN\SolPlusPlus\trunk\SPP_Definitionen</parameter>
@@ -53,7 +43,7 @@ apps shortcuts
       </ProfileConfigItem>
 
       <ProfileConfigItem>
-        <displayName>Deployment Target Folder</displayName>
+        <displayName>1Deployment Target Folder</displayName>
         <icon>eldorado\appliance\018.png</icon>
         <app>explorer</app>
         <parameter>Y:\Projekte\SolPlusPlus\aktueller Stand</parameter>

@@ -21,8 +21,9 @@ namespace Tornado14.TrayApp
                 starter.InitStarter(pi);
                 starter.Show();
 
-                ProjectExplorer p = new ProjectExplorer();
-                Application.Run(p);
+                //ProjectExplorer p = new ProjectExplorer();
+                //p.Show();
+                Application.Run(starter);
             }
         }
     }

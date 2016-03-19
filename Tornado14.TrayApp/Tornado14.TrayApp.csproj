@@ -423,7 +423,7 @@
     <Content Include="icons\_defaulticons\source_code_filled.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="icons\_defaulticons\source_code_filled1.png">
+    <Content Include="icons\_defaulticons\start.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\_defaulticons\stern.png">
@@ -450,6 +450,10 @@
     <Content Include="lib\text\ScintillaNET.dll" />
     <Content Include="lib\text\ScintillaNET.pdb" />
     <Content Include="lib\text\ScintillaNET.xml" />
+    <Content Include="profiles\global.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="profiles\start.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

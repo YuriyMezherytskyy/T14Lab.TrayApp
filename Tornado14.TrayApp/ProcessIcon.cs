@@ -22,6 +22,7 @@ namespace Tornado14.TrayApp
         {
             notifyIcon = new NotifyIcon();
         }
+        ContextMenus cm;
 
         internal void Display()
         {
@@ -31,8 +32,7 @@ namespace Tornado14.TrayApp
             notifyIcon.Icon = trayIcon;
             notifyIcon.Visible = true;
 
-            string profile = "start.xml";
-            new ContextMenus().create(profile, notifyIcon);
+            cm = new ContextMenus().Create("start.xml", notifyIcon);
             //ni.ShowBalloonTip(3000, "Text 1", "Text 2", ToolTipIcon.Info);
         }
 
@@ -40,18 +40,10 @@ namespace Tornado14.TrayApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                /*
-                Point currentMousePosition = Cursor.Position;
-                currentMousePosition.X -= 100;
-                ni.ContextMenuStrip.Show(currentMousePosition);
-                */
-                if (starter != null) {
-                    starter.Close();
-                    starter = null;
-                }
-                starter = new Starter();
-                starter.Show();
-                starter.BringToFront();
+                cm.LoadSettingsContextMenu();
+            } else if (e.Button == MouseButtons.Right)
+            {
+                cm.LoadLastSelectedProfile();
             }
         }
 
