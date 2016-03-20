@@ -240,11 +240,11 @@ namespace System.Windows.Forms.Calendar
             _maximumViewDays = 35;
             
             HighlightRanges = new CalendarHighlightRange[] { 
-                new CalendarHighlightRange( DayOfWeek.Monday, new TimeSpan(8,0,0), new TimeSpan(17,0,0)),
-                new CalendarHighlightRange( DayOfWeek.Tuesday, new TimeSpan(8,0,0), new TimeSpan(17,0,0)),
-                new CalendarHighlightRange( DayOfWeek.Wednesday, new TimeSpan(8,0,0), new TimeSpan(17,0,0)),
-                new CalendarHighlightRange( DayOfWeek.Thursday, new TimeSpan(8,0,0), new TimeSpan(17,0,0)),
-                new CalendarHighlightRange( DayOfWeek.Friday, new TimeSpan(8,0,0), new TimeSpan(17,0,0)),
+                new CalendarHighlightRange( DayOfWeek.Monday, new TimeSpan(9,0,0), new TimeSpan(18,0,0)),
+                new CalendarHighlightRange( DayOfWeek.Tuesday, new TimeSpan(9,0,0), new TimeSpan(18,0,0)),
+                new CalendarHighlightRange( DayOfWeek.Wednesday, new TimeSpan(9,0,0), new TimeSpan(18,0,0)),
+                new CalendarHighlightRange( DayOfWeek.Thursday, new TimeSpan(9,0,0), new TimeSpan(18,0,0)),
+                new CalendarHighlightRange( DayOfWeek.Friday, new TimeSpan(9,0,0), new TimeSpan(18,0,0)),
             };
 
             _timeScale = CalendarTimeScale.ThirtyMinutes;

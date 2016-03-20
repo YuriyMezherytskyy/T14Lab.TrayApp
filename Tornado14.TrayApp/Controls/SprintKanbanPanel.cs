@@ -98,14 +98,7 @@ namespace Tornado14.TrayApp.Controls
 
             ApplyTheme();
             splitContainerKanban.SplitterDistance = 0;
-            this.ToolStripButtonSave = toolStripButtonSaveKanban;
             checkBox4.Checked = false;
-        }
-
-        public void Refresh()
-        {
-            dataGridViewKanbanTasks.DataSource = new object();
-            dataGridViewKanbanTasks.DataSource = todoBindingSource;
         }
 
         List<Panel> panels = new List<Panel>();
@@ -307,8 +300,7 @@ namespace Tornado14.TrayApp.Controls
 
         private void toolStripButtonSaveKanban_Click_1(object sender, EventArgs e)
         {
-            parentPanel.SaveSprints();
-            parentPanel.SaveTasks();
+            parentPanel.Save();
         }
 
         private void dataGridViewKanbanTasks_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -373,6 +365,12 @@ namespace Tornado14.TrayApp.Controls
 
         private void ShowSprintKanban(Sprint sprint)
         {
+            panelColumn1.Visible = false;
+            panelColumn2.Visible = false;
+            panelColumn3.Visible = false;
+            panelColumn4.Visible = false;
+            panelColumn5.Visible = false;
+
             flowLayoutPanelProjectList.Controls.Clear();
             panelColumn1.Controls.Clear();
             panelColumn2.Controls.Clear();
@@ -474,6 +472,11 @@ namespace Tornado14.TrayApp.Controls
                     }
                 }
             }
+            panelColumn1.Visible = true;
+            panelColumn2.Visible = true;
+            panelColumn3.Visible = true;
+            panelColumn4.Visible = true;
+            panelColumn5.Visible = true;
         }
 
 

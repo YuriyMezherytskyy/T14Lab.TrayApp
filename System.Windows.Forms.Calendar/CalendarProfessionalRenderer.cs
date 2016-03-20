@@ -29,39 +29,45 @@ namespace System.Windows.Forms.Calendar
             : base(c)
         {
             
-            ColorTable.Background = FromHex("#E3EFFF");
-            ColorTable.DayBackgroundEven = FromHex("#A5BFE1");
-            ColorTable.DayBackgroundOdd = FromHex("#FFFFFF");
-            ColorTable.DayBackgroundSelected = FromHex("#E6EDF7");
-            ColorTable.DayBorder = FromHex("#5D8CC9");
-            ColorTable.DayHeaderBackground = FromHex("#DFE8F5");
-            ColorTable.DayHeaderText = Color.Black;
-            ColorTable.DayHeaderSecondaryText = Color.Black;
-            ColorTable.DayTopBorder = FromHex("#5D8CC9");
-            ColorTable.DayTopSelectedBorder = FromHex("#5D8CC9");
-            ColorTable.DayTopBackground = FromHex("#A5BFE1");
+            ColorTable.Background = FromHex("#1e1e1e");//Dark0
+            ColorTable.DayBackgroundEven = FromHex("#252526");//Dark1
+            ColorTable.DayBackgroundOdd = FromHex("#1e1e1e");//Dark0
+
+            ColorTable.DayBackgroundSelected = Color.Red;
+            ColorTable.DayBorder = FromHex("#2b655a"); //Green
+            ColorTable.DayHeaderBackground = Color.Blue;
+            ColorTable.DayHeaderText = Color.Red;
+            ColorTable.DayHeaderSecondaryText = Color.Pink;
+            ColorTable.DayTopBorder = FromHex("#2b655a"); //Green
+            ColorTable.DayTopSelectedBorder = Color.Purple;
+            ColorTable.DayTopBackground = FromHex("#252526");//Dark1
             ColorTable.DayTopSelectedBackground = FromHex("#294C7A");
-            ColorTable.ItemBorder = FromHex("#5D8CC9");
-            ColorTable.ItemBackground = FromHex("#C0D3EA");
-            ColorTable.ItemText = Color.Black;
-            ColorTable.ItemSecondaryText = FromHex("#294C7A");
+
+            ColorTable.ItemBorder = Color.Pink;
+            
+            ColorTable.ItemBackground = Color.YellowGreen;
+            ColorTable.ItemText = Color.White;
+            ColorTable.ItemSecondaryText = Color.White;
             ColorTable.ItemSelectedBorder = Color.Black;
             ColorTable.ItemSelectedBackground = FromHex("#C0D3EA");
-            ColorTable.ItemSelectedText = Color.Black;
-            ColorTable.WeekHeaderBackground = FromHex("#DFE8F5");
-            ColorTable.WeekHeaderBorder = FromHex("#5D8CC9");
-            ColorTable.WeekHeaderText = FromHex("#5D8CC9");
-            ColorTable.TodayBorder = FromHex("#EE9311");
-            ColorTable.TodayTopBackground = FromHex("#EE9311");
-            ColorTable.TimeScaleLine = FromHex("#6593CF");
-            ColorTable.TimeScaleHours = FromHex("#6593CF");
-            ColorTable.TimeScaleMinutes = FromHex("#6593CF");
-            ColorTable.TimeUnitBackground = FromHex("#E6EDF7");
-            ColorTable.TimeUnitHighlightedBackground = Color.White;
-            ColorTable.TimeUnitSelectedBackground = FromHex("#294C7A");
-            ColorTable.TimeUnitBorderLight = FromHex("#D5E1F1");
-            ColorTable.TimeUnitBorderDark = FromHex("#A5BFE1");
-            ColorTable.WeekDayName = FromHex("#6593CF");
+            ColorTable.ItemSelectedText = Color.White;
+
+            ColorTable.WeekHeaderBackground = FromHex("#1e1e1e");//Dark0
+            ColorTable.WeekHeaderBorder = FromHex("#2b655a");//Green
+            ColorTable.WeekHeaderText = FromHex("#2b655a");//Green
+
+            ColorTable.TodayBorder = FromHex("#2b655a");//Green
+            ColorTable.TodayTopBackground = Color.Green;
+
+            ColorTable.TimeScaleLine = FromHex("#2b655a");// Green
+            ColorTable.TimeScaleHours = Color.White;//
+            ColorTable.TimeScaleMinutes = Color.White;//
+            ColorTable.TimeUnitBackground = FromHex("#1e1e1e");//Dark0
+            ColorTable.TimeUnitHighlightedBackground = FromHex("#2a2a2a");//
+            ColorTable.TimeUnitSelectedBackground = FromHex("#2b655a");//Green
+            ColorTable.TimeUnitBorderLight = FromHex("#1a1a1b");//Dark2
+            ColorTable.TimeUnitBorderDark = FromHex("#252526");//Dark1
+            ColorTable.WeekDayName = FromHex("#2b655a");//Green
 
             SelectedItemBorder = 2f;
             ItemRoundness = 5;

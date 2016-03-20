@@ -120,31 +120,4 @@
   <metadata name="sprintBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolStripSprints.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1033, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripButtonSaveSprints.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACsSURBVFhHYxgFo2AUjAJCoPzw9/dVB///rz385yCIX3vw
-        9/Gaw//+t53+7QZWgAXU7P9zEqLn73+oEPkAmwNA/OYTow6gvwNOTr7+VWrS+Q9mUy5+spty5bsKiI8N
-        1xz8c57qDiAHjzpg1AGjDqCuA/b/etp46FcWMbj64O/7VHdAzaE/l+v//2ciBtOkJKw6+O9/DdBAYjBI
-        LQ0cQDqmigNGwSgYBcMcMDAAAAKdwuA0JcgpAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="toolStripButtonRestoreSprints.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHGSURBVFhH7ZS/S8NAFMeLiBQHcSgixVHEv0CcnB06+Qfo
-        IghpEvuDSp2CiIPaxdGpiBSpbdLE2qp1yOhgRWrbu2sROjmKiIiIQ82dL5JiimBqp3zgC5f33t1778g7
-        j4uLi0svaLelAVj2D6KF53FWyOOjlSec5doVefkZK3wBaZEAhPSOSlGagKWndiwNoZxwSJN2E8qJ6ZYu
-        eWGLc7AiHCAtukDXRBFSNMltlnszEm2S8/Xpcnl/GBXiUzgnbuBU8JUVoYgZtrkXIIU/owmJGt4ykzfU
-        6By4O0BaePa7CCjaMXWZv6YHmiJG5+CyhaihOI2ry4IOJmdUM8GWtYBGfm0GXLbgkuRnsTL3DiZnYJl/
-        sRZg3EjF+MlGwf0DOpYoufRBY8H0d1qtpNea3BS93m5/+v2FNMbijCLA9HdoN2U94bOTrkuDENYB0kSe
-        FaAEr8DUP9g4wuPUUMOLYO4fRBF3v7oXLnvyRNMJMEXUSATMXcGlmJ/kVkPNojQCJmewbkDNX+b/X7Ar
-        4C4TekAy91hVYoFampuka1tlBI0d4oSb0rbfVLO4x661drozTr+NKfDSSbDGWFU+SfjYIS4uLi5d8Xg+
-        AUv6ZqmaaiZNAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

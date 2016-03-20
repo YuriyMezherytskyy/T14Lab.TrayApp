@@ -29,6 +29,9 @@ namespace Tornado14.TrayApp
 
         private List<IStandardPanel> panels = new List<IStandardPanel>();
         private DirectoryInfo iconsFolder = new DirectoryInfo(Path.Combine(Application.StartupPath, "icons"));
+        private string sprintXMLFilePath;
+        private string todoXMLFilePath;
+        private string projectXMLFilePath;
 
         public ProjectExplorer()
         {
@@ -64,33 +67,43 @@ namespace Tornado14.TrayApp
 
         private void ReadXMLFiles()
         {
-            sprintGridPanel1.DataFilePath = Path.Combine(dataFolder.FullName, "sprints.xml");
-            sprintGridPanel1.BindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Sprint>(sprintGridPanel1.DataFilePath);
+            SortableBindingList<Sprint> allSprints = SortableBindingListHelper.GetBindingListFromXmlFile<Sprint>(sprintXMLFilePath);
+            SortableBindingList<Todo> allTodos = SortableBindingListHelper.GetBindingListFromXmlFile<Todo>(todoXMLFilePath);
+            SortableBindingList<Project> allProjects = SortableBindingListHelper.GetBindingListFromXmlFile<Project>(projectXMLFilePath);
 
-            tasksGridPanel1.DataFilePath = Path.Combine(dataFolder.FullName, "todos.xml");
-            tasksGridPanel1.BindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Todo>(tasksGridPanel1.DataFilePath);
+            projectBindingSource.DataSource = allProjects;
+            sprintBindingSource.DataSource = allSprints;
+            todoBindingSource.DataSource = allTodos;
+
+            sprintGridPanel1.SprintBindingSource.DataSource = allSprints;
+            tasksGridPanel1.TodoBindingSource.DataSource = allTodos;
 
             // Read data from XML Files
-            projectGridPanel1.DataFilePath = Path.Combine(dataFolder.FullName, "projects.xml");
-            projectGridPanel1.SprintBindingSource.DataSource = sprintGridPanel1.BindingSource.DataSource;
-            projectGridPanel1.TodoBindingSource.DataSource = tasksGridPanel1.BindingSource.DataSource;
-            projectGridPanel1.SetDataSource(SortableBindingListHelper.GetBindingListFromXmlFile<Project>(projectGridPanel1.DataFilePath));
+            //projectBindingSource.DataSource = 
+            projectGridPanel1.SprintBindingSource.DataSource = sprintGridPanel1.SprintBindingSource.DataSource;
+            projectGridPanel1.TodoBindingSource.DataSource = tasksGridPanel1.TodoBindingSource.DataSource;
+            projectGridPanel1.SetProjectDataSource(allProjects);
 
-            tasksGridPanel1.ProjectBindingSource.DataSource = projectGridPanel1.BindingSource.DataSource;
+            tasksGridPanel1.ProjectBindingSource.DataSource = projectGridPanel1.ProjectBindingSource.DataSource;
 
-            sprintKanbanPanel1.ProjectBindingSource.DataSource = projectGridPanel1.BindingSource.DataSource;
-            sprintKanbanPanel1.TodoBindingSource.DataSource = tasksGridPanel1.BindingSource.DataSource;
-            sprintKanbanPanel1.SprintBindingSourceDataSource(sprintGridPanel1.BindingSource.DataSource);
+            sprintKanbanPanel1.ProjectBindingSource.DataSource = projectGridPanel1.ProjectBindingSource.DataSource;
+            sprintKanbanPanel1.TodoBindingSource.DataSource = tasksGridPanel1.TodoBindingSource.DataSource;
+            sprintKanbanPanel1.SprintBindingSourceDataSource(sprintGridPanel1.SprintBindingSource.DataSource);
 
-            taskPlanningPanel1.ProjectBindingSourceDataSource(projectGridPanel1.BindingSource.DataSource);
-            taskPlanningPanel1.SprintBindingSourceDataSource(sprintGridPanel1.BindingSource.DataSource);
-            taskPlanningPanel1.TodoBindingSourceDataSource(tasksGridPanel1.BindingSource.DataSource);
+            taskPlanningPanel1.ProjectBindingSourceDataSource(projectGridPanel1.ProjectBindingSource.DataSource);
+            taskPlanningPanel1.SprintBindingSourceDataSource(sprintGridPanel1.SprintBindingSource.DataSource);
+            taskPlanningPanel1.TodoBindingSourceDataSource(tasksGridPanel1.TodoBindingSource.DataSource);
         }
 
         private void SetPaths()
         {
             // Check Data Folder
             dataFolder = new DirectoryInfo(Path.Combine(Settings.Default.DataFolder, @"ProjectExplorer\"));
+
+            sprintXMLFilePath = Path.Combine(dataFolder.FullName, "sprints.xml");
+            todoXMLFilePath = Path.Combine(dataFolder.FullName, "todos.xml");
+            projectXMLFilePath = Path.Combine(dataFolder.FullName, "projects.xml");
+
             if (!dataFolder.Exists)
             {
                 dataFolder.Create();
@@ -123,17 +136,19 @@ namespace Tornado14.TrayApp
             }
         }
 
-        public void SaveSprints()
+        public void Save()
         {
-            sprintGridPanel1.SaveToXMLFile();
-        }
-        public void SaveTasks()
-        {
-            tasksGridPanel1.SaveToXMLFile();
-        }
-        public void SaveProjects()
-        {
-            projectGridPanel1.SaveToXMLFile();
+            StreamWriter projectsXMLFile = new StreamWriter(projectXMLFilePath);
+            projectsXMLFile.WriteLine(XmlSerializationHelper.Serialize(projectBindingSource.List));
+            projectsXMLFile.Close();
+
+            StreamWriter todosXMLFile = new StreamWriter(todoXMLFilePath);
+            todosXMLFile.WriteLine(XmlSerializationHelper.Serialize(todoBindingSource.List));
+            todosXMLFile.Close();
+
+            StreamWriter sprintsXMLFile = new StreamWriter(sprintXMLFilePath);
+            sprintsXMLFile.WriteLine(XmlSerializationHelper.Serialize(sprintBindingSource.List));
+            sprintsXMLFile.Close();
         }
 
         private void SetBlackTheme()
@@ -143,7 +158,7 @@ namespace Tornado14.TrayApp
             // Apply Black Theme
             BlackTheme.ApplyTheme(this);
 
-            foreach(var control in toolStripMain.Items)
+            foreach (var control in toolStripMain.Items)
             {
                 if (control.GetType() == typeof(ToolStripButton))
                 {
@@ -189,6 +204,11 @@ namespace Tornado14.TrayApp
 
         #region Events
 
+        private void toolStripButtonSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
         private void toolStripButtonKanban_Click(object sender, EventArgs e)
         {
             sprintKanbanPanel1.Refresh();
@@ -196,7 +216,7 @@ namespace Tornado14.TrayApp
             SetActiveButton((ToolStripButton)sender);
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void toolStripButtonGant_Click(object sender, EventArgs e)
         {
             SetActiveButton((ToolStripButton)sender);
         }
@@ -222,7 +242,7 @@ namespace Tornado14.TrayApp
             projectGridPanel1.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
-        
+
         private void toolStripButtonTimePlanning_Click(object sender, EventArgs e)
         {
             taskPlanningPanel1.Refresh();
@@ -230,12 +250,14 @@ namespace Tornado14.TrayApp
             SetActiveButton((ToolStripButton)sender);
         }
 
-        #endregion
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripRevert_Click(object sender, EventArgs e)
         {
             ReadXMLFiles();
         }
+
+
+
+        #endregion
 
     }
 }

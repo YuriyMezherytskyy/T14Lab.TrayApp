@@ -34,18 +34,19 @@
             System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange3 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange4 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskPlanningPanel));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.taskSearchPanel1 = new Tornado14.TrayApp.Controls.TaskSearchPanel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
+            this.label1 = new System.Windows.Forms.Label();
             this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
+            this.label2 = new System.Windows.Forms.Label();
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripKanban = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSaveKanban = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,16 +55,19 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
-            this.toolStripKanban.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 32);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -73,7 +77,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(997, 597);
+            this.splitContainer1.Size = new System.Drawing.Size(997, 629);
             this.splitContainer1.SplitterDistance = 387;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -82,11 +86,12 @@
             this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskSearchPanel1.Location = new System.Drawing.Point(0, 0);
             this.taskSearchPanel1.Name = "taskSearchPanel1";
-            this.taskSearchPanel1.Size = new System.Drawing.Size(387, 597);
+            this.taskSearchPanel1.Size = new System.Drawing.Size(387, 629);
             this.taskSearchPanel1.TabIndex = 0;
             // 
             // splitContainer2
             // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -94,14 +99,67 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.monthView1);
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.calendar1);
-            this.splitContainer2.Size = new System.Drawing.Size(606, 597);
-            this.splitContainer2.SplitterDistance = 136;
+            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.splitContainer2.Size = new System.Drawing.Size(606, 629);
+            this.splitContainer2.SplitterDistance = 241;
             this.splitContainer2.TabIndex = 2;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.checkedListBox1);
+            this.splitContainer3.Panel1.Controls.Add(this.label3);
+            this.splitContainer3.Panel1.Padding = new System.Windows.Forms.Padding(5);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.monthView1);
+            this.splitContainer3.Panel2.Controls.Add(this.label1);
+            this.splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.splitContainer3.Size = new System.Drawing.Size(606, 241);
+            this.splitContainer3.TabIndex = 5;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBox1.ForeColor = System.Drawing.Color.White;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Plan A",
+            "Plan B",
+            "TimeBooking"});
+            this.checkedListBox1.Location = new System.Drawing.Point(5, 26);
+            this.checkedListBox1.MultiColumn = true;
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(594, 17);
+            this.checkedListBox1.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 21);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Calendar";
             // 
             // monthView1
             // 
@@ -116,17 +174,29 @@
             this.monthView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monthView1.ForeColor = System.Drawing.Color.White;
             this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
-            this.monthView1.Location = new System.Drawing.Point(0, 0);
+            this.monthView1.Location = new System.Drawing.Point(5, 26);
             this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
             this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(606, 136);
+            this.monthView1.Size = new System.Drawing.Size(594, 154);
             this.monthView1.TabIndex = 1;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
             this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Time Period";
             // 
             // calendar1
             // 
@@ -134,6 +204,7 @@
             this.calendar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calendar1.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.calendar1.ForeColor = System.Drawing.Color.White;
             calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
             calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
             calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
@@ -155,11 +226,23 @@
         calendarHighlightRange3,
         calendarHighlightRange4,
         calendarHighlightRange5};
-            this.calendar1.Location = new System.Drawing.Point(0, 0);
+            this.calendar1.Location = new System.Drawing.Point(5, 26);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(606, 457);
+            this.calendar1.Size = new System.Drawing.Size(594, 351);
             this.calendar1.TabIndex = 0;
             this.calendar1.Text = "calendar1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(5, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Plan your tasks";
             // 
             // todoBindingSource
             // 
@@ -173,47 +256,11 @@
             // 
             this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
             // 
-            // toolStripKanban
-            // 
-            this.toolStripKanban.AutoSize = false;
-            this.toolStripKanban.BackColor = System.Drawing.Color.DimGray;
-            this.toolStripKanban.GripMargin = new System.Windows.Forms.Padding(4);
-            this.toolStripKanban.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripKanban.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripKanban.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonSaveKanban,
-            this.toolStripButton2});
-            this.toolStripKanban.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripKanban.Location = new System.Drawing.Point(0, 0);
-            this.toolStripKanban.Name = "toolStripKanban";
-            this.toolStripKanban.Size = new System.Drawing.Size(997, 32);
-            this.toolStripKanban.TabIndex = 8;
-            this.toolStripKanban.Text = "toolStrip1";
-            // 
-            // toolStripButtonSaveKanban
-            // 
-            this.toolStripButtonSaveKanban.ForeColor = System.Drawing.Color.White;
-            this.toolStripButtonSaveKanban.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveKanban.Image")));
-            this.toolStripButtonSaveKanban.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveKanban.Name = "toolStripButtonSaveKanban";
-            this.toolStripButtonSaveKanban.Size = new System.Drawing.Size(67, 29);
-            this.toolStripButtonSaveKanban.Text = "Save";
-            this.toolStripButtonSaveKanban.Click += new System.EventHandler(this.toolStripButtonSaveKanban_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(82, 29);
-            this.toolStripButton2.Text = "Restore";
-            // 
             // TaskPlanningPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.toolStripKanban);
             this.Name = "TaskPlanningPanel";
             this.Size = new System.Drawing.Size(997, 629);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -222,13 +269,18 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
-            this.toolStripKanban.ResumeLayout(false);
-            this.toolStripKanban.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -242,9 +294,11 @@
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource sprintBindingSource;
-        private System.Windows.Forms.ToolStrip toolStripKanban;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveKanban;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private TaskSearchPanel taskSearchPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

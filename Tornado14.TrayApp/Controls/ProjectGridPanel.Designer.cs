@@ -42,15 +42,12 @@
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.filesFolderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripProjects = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSaveProjects = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRestoreProjects = new System.Windows.Forms.ToolStripButton();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.projectFeaturesPanel1 = new Tornado14.TrayApp.Controls.ProjectFeaturesPanel();
-            this.reportPanel1 = new Tornado14.TrayApp.Controls.ReportPanel();
-            this.projectDetailsPanel1 = new Tornado14.TrayApp.Controls.ProjectDetailsPanel();
-            this.projectDeployApplicationPanel1 = new Tornado14.TrayApp.Controls.ProjectDeployApplicationPanel();
-            this.projectDevelopPanel1 = new Tornado14.TrayApp.Controls.ProjectDevelopPanel();
+            this.projectFeaturesPanel = new Tornado14.TrayApp.Controls.ProjectFeaturesPanel();
+            this.reportPanel = new Tornado14.TrayApp.Controls.ReportPanel();
+            this.projectDetailsPanel = new Tornado14.TrayApp.Controls.ProjectDetailsPanel();
+            this.projectDeployApplicationPanel = new Tornado14.TrayApp.Controls.ProjectDeployApplicationPanel();
+            this.projectDevelopPanel = new Tornado14.TrayApp.Controls.ProjectDevelopPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonDetails = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReport = new System.Windows.Forms.ToolStripButton();
@@ -65,7 +62,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).BeginInit();
-            this.toolStripProjects.SuspendLayout();
             this.panel8.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +70,6 @@
             // 
             this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
             this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.BindingSource_BindingComplete);
-            this.projectBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.projectBindingSource_ListChanged);
             this.projectBindingSource.PositionChanged += new System.EventHandler(this.BindingSource_PositionChanged);
             // 
             // sprintBindingSource
@@ -117,7 +112,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.dataGridViewProjects);
-            this.splitContainer1.Panel1.Controls.Add(this.toolStripProjects);
             // 
             // splitContainer1.Panel2
             // 
@@ -141,11 +135,11 @@
             this.pIdDataGridViewTextBoxColumn});
             this.dataGridViewProjects.DataSource = this.projectBindingSource;
             this.dataGridViewProjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewProjects.Location = new System.Drawing.Point(0, 32);
+            this.dataGridViewProjects.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewProjects.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewProjects.Name = "dataGridViewProjects";
             this.dataGridViewProjects.RowTemplate.Height = 24;
-            this.dataGridViewProjects.Size = new System.Drawing.Size(528, 538);
+            this.dataGridViewProjects.Size = new System.Drawing.Size(528, 570);
             this.dataGridViewProjects.TabIndex = 0;
             this.dataGridViewProjects.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProjects_CellValueChanged);
             this.dataGridViewProjects.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewProjects_DefaultValuesNeeded);
@@ -188,50 +182,14 @@
             this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
             this.pIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // toolStripProjects
-            // 
-            this.toolStripProjects.AutoSize = false;
-            this.toolStripProjects.BackColor = System.Drawing.Color.DimGray;
-            this.toolStripProjects.GripMargin = new System.Windows.Forms.Padding(4);
-            this.toolStripProjects.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripProjects.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripProjects.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonSaveProjects,
-            this.toolStripButtonRestoreProjects});
-            this.toolStripProjects.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripProjects.Location = new System.Drawing.Point(0, 0);
-            this.toolStripProjects.Name = "toolStripProjects";
-            this.toolStripProjects.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.toolStripProjects.Size = new System.Drawing.Size(528, 32);
-            this.toolStripProjects.TabIndex = 4;
-            this.toolStripProjects.Text = "toolStripProjects";
-            // 
-            // toolStripButtonSaveProjects
-            // 
-            this.toolStripButtonSaveProjects.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveProjects.Image")));
-            this.toolStripButtonSaveProjects.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveProjects.Name = "toolStripButtonSaveProjects";
-            this.toolStripButtonSaveProjects.Size = new System.Drawing.Size(67, 29);
-            this.toolStripButtonSaveProjects.Text = "Save";
-            this.toolStripButtonSaveProjects.Click += new System.EventHandler(this.toolStripButtonSaveProjects_Click);
-            // 
-            // toolStripButtonRestoreProjects
-            // 
-            this.toolStripButtonRestoreProjects.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRestoreProjects.Image")));
-            this.toolStripButtonRestoreProjects.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRestoreProjects.Name = "toolStripButtonRestoreProjects";
-            this.toolStripButtonRestoreProjects.Size = new System.Drawing.Size(82, 29);
-            this.toolStripButtonRestoreProjects.Text = "Restore";
-            this.toolStripButtonRestoreProjects.Click += new System.EventHandler(this.toolStripButtonRestoreProjects_Click);
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel8.Controls.Add(this.projectFeaturesPanel1);
-            this.panel8.Controls.Add(this.reportPanel1);
-            this.panel8.Controls.Add(this.projectDetailsPanel1);
-            this.panel8.Controls.Add(this.projectDeployApplicationPanel1);
-            this.panel8.Controls.Add(this.projectDevelopPanel1);
+            this.panel8.Controls.Add(this.projectFeaturesPanel);
+            this.panel8.Controls.Add(this.reportPanel);
+            this.panel8.Controls.Add(this.projectDetailsPanel);
+            this.panel8.Controls.Add(this.projectDeployApplicationPanel);
+            this.panel8.Controls.Add(this.projectDevelopPanel);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 39);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
@@ -242,46 +200,46 @@
             // 
             // projectFeaturesPanel1
             // 
-            this.projectFeaturesPanel1.Location = new System.Drawing.Point(4, 370);
-            this.projectFeaturesPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.projectFeaturesPanel1.Name = "projectFeaturesPanel1";
-            this.projectFeaturesPanel1.Size = new System.Drawing.Size(374, 84);
-            this.projectFeaturesPanel1.TabIndex = 7;
+            this.projectFeaturesPanel.Location = new System.Drawing.Point(4, 370);
+            this.projectFeaturesPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.projectFeaturesPanel.Name = "projectFeaturesPanel1";
+            this.projectFeaturesPanel.Size = new System.Drawing.Size(374, 84);
+            this.projectFeaturesPanel.TabIndex = 7;
             // 
             // reportPanel1
             // 
-            this.reportPanel1.Location = new System.Drawing.Point(4, 237);
-            this.reportPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.reportPanel1.Name = "reportPanel1";
-            this.reportPanel1.Size = new System.Drawing.Size(375, 96);
-            this.reportPanel1.TabIndex = 6;
+            this.reportPanel.Location = new System.Drawing.Point(4, 237);
+            this.reportPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.reportPanel.Name = "reportPanel1";
+            this.reportPanel.Size = new System.Drawing.Size(375, 96);
+            this.reportPanel.TabIndex = 6;
             // 
             // projectDetailsPanel1
             // 
-            this.projectDetailsPanel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectDetailsPanel1.Location = new System.Drawing.Point(4, 15);
-            this.projectDetailsPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.projectDetailsPanel1.Name = "projectDetailsPanel1";
-            this.projectDetailsPanel1.Size = new System.Drawing.Size(375, 54);
-            this.projectDetailsPanel1.TabIndex = 3;
+            this.projectDetailsPanel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectDetailsPanel.Location = new System.Drawing.Point(4, 15);
+            this.projectDetailsPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.projectDetailsPanel.Name = "projectDetailsPanel1";
+            this.projectDetailsPanel.Size = new System.Drawing.Size(375, 54);
+            this.projectDetailsPanel.TabIndex = 3;
             // 
             // projectDeployApplicationPanel1
             // 
-            this.projectDeployApplicationPanel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectDeployApplicationPanel1.Location = new System.Drawing.Point(4, 176);
-            this.projectDeployApplicationPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.projectDeployApplicationPanel1.Name = "projectDeployApplicationPanel1";
-            this.projectDeployApplicationPanel1.Size = new System.Drawing.Size(375, 54);
-            this.projectDeployApplicationPanel1.TabIndex = 5;
+            this.projectDeployApplicationPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectDeployApplicationPanel.Location = new System.Drawing.Point(4, 176);
+            this.projectDeployApplicationPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.projectDeployApplicationPanel.Name = "projectDeployApplicationPanel1";
+            this.projectDeployApplicationPanel.Size = new System.Drawing.Size(375, 54);
+            this.projectDeployApplicationPanel.TabIndex = 5;
             // 
             // projectDevelopPanel1
             // 
-            this.projectDevelopPanel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projectDevelopPanel1.Location = new System.Drawing.Point(4, 96);
-            this.projectDevelopPanel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.projectDevelopPanel1.Name = "projectDevelopPanel1";
-            this.projectDevelopPanel1.Size = new System.Drawing.Size(375, 54);
-            this.projectDevelopPanel1.TabIndex = 4;
+            this.projectDevelopPanel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.projectDevelopPanel.Location = new System.Drawing.Point(4, 96);
+            this.projectDevelopPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.projectDevelopPanel.Name = "projectDevelopPanel1";
+            this.projectDevelopPanel.Size = new System.Drawing.Size(375, 54);
+            this.projectDevelopPanel.TabIndex = 4;
             // 
             // toolStrip1
             // 
@@ -295,7 +253,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(384, 39);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButtonDetails
             // 
@@ -346,8 +303,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjects)).EndInit();
-            this.toolStripProjects.ResumeLayout(false);
-            this.toolStripProjects.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -362,21 +317,18 @@
         private System.Windows.Forms.Panel panelProjectsGray;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ToolStrip toolStripProjects;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveProjects;
-        private System.Windows.Forms.ToolStripButton toolStripButtonRestoreProjects;
         private System.Windows.Forms.DataGridView dataGridViewProjects;
-        private ProjectDetailsPanel projectDetailsPanel1;
+        private ProjectDetailsPanel projectDetailsPanel;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonDetails;
         private System.Windows.Forms.ToolStripButton toolStripButtonDevelop;
-        private ProjectDeployApplicationPanel projectDeployApplicationPanel1;
-        private ProjectDevelopPanel projectDevelopPanel1;
+        private ProjectDeployApplicationPanel projectDeployApplicationPanel;
+        private ProjectDevelopPanel projectDevelopPanel;
         private System.Windows.Forms.BindingSource sprintBindingSource;
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonReport;
-        private ReportPanel reportPanel1;
-        private ProjectFeaturesPanel projectFeaturesPanel1;
+        private ReportPanel reportPanel;
+        private ProjectFeaturesPanel projectFeaturesPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shortDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn typeDataGridViewTextBoxColumn;

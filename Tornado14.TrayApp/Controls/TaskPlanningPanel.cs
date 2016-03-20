@@ -82,14 +82,22 @@ namespace Tornado14.TrayApp.Controls
             {
                 Todo selectedTodo = (Todo)boundItem;
                 DateTime startTime;
+                DateTime endTime;
                 if (calendar1.SelectedElementStart != null)
                 {
                     startTime = calendar1.SelectedElementStart.Date;
+                    if (calendar1.SelectedElementEnd != null)
+                    {
+                        endTime = calendar1.SelectedElementEnd.Date.AddMinutes(30);
+                    } else
+                    {
+                        endTime = startTime.AddHours(2);
+                    }
                 } else
                 {
                     startTime = calendar1.ViewStart;
+                    endTime = startTime.AddHours(2);
                 }
-                DateTime endTime = startTime.AddHours(2);
 
                 CalendarItem calendarItem = new CalendarItem(calendar1, startTime, endTime, selectedTodo.ShortDescription + DateTime.Now.ToString());
                 calendarItem.Tag = selectedTodo;
@@ -104,14 +112,7 @@ namespace Tornado14.TrayApp.Controls
 
         private void toolStripButtonSaveKanban_Click(object sender, EventArgs e)
         {
-            parentPanel.SaveSprints();
-            parentPanel.SaveTasks();
-        }
-
-        public void SaveToXMLFile()
-        {
-            parentPanel.SaveSprints();
-            parentPanel.SaveTasks();
+            parentPanel.Save();
         }
     }
 }

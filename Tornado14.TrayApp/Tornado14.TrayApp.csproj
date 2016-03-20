@@ -362,6 +362,11 @@
     <None Include="Resources\help" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\save2.png" />
+    <None Include="Resources\save1.png" />
+    <None Include="Resources\undo1.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\save.png" />
     <None Include="Resources\tear_off_calendar.png" />
     <None Include="Resources\time.png" />
     <None Include="Resources\planner.png" />

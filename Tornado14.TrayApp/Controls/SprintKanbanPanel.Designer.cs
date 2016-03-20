@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SprintKanbanPanel));
             this.panelKanban = new System.Windows.Forms.Panel();
             this.panelKanbanGray = new System.Windows.Forms.Panel();
             this.splitContainerKanban = new System.Windows.Forms.SplitContainer();
@@ -84,9 +83,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxCurrentSprint = new System.Windows.Forms.ComboBox();
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripKanban = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSaveKanban = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.panelKanban.SuspendLayout();
             this.panelKanbanGray.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerKanban)).BeginInit();
@@ -106,13 +102,11 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
-            this.toolStripKanban.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelKanban
             // 
             this.panelKanban.Controls.Add(this.panelKanbanGray);
-            this.panelKanban.Controls.Add(this.toolStripKanban);
             this.panelKanban.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelKanban.Location = new System.Drawing.Point(0, 0);
             this.panelKanban.Margin = new System.Windows.Forms.Padding(2);
@@ -124,11 +118,11 @@
             // 
             this.panelKanbanGray.Controls.Add(this.splitContainerKanban);
             this.panelKanbanGray.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelKanbanGray.Location = new System.Drawing.Point(0, 32);
+            this.panelKanbanGray.Location = new System.Drawing.Point(0, 0);
             this.panelKanbanGray.Margin = new System.Windows.Forms.Padding(2);
             this.panelKanbanGray.Name = "panelKanbanGray";
             this.panelKanbanGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelKanbanGray.Size = new System.Drawing.Size(1161, 389);
+            this.panelKanbanGray.Size = new System.Drawing.Size(1161, 421);
             this.panelKanbanGray.TabIndex = 8;
             // 
             // splitContainerKanban
@@ -149,7 +143,7 @@
             this.splitContainerKanban.Panel2.Controls.Add(this.panel8);
             this.splitContainerKanban.Panel2.Controls.Add(this.panel6);
             this.splitContainerKanban.Panel2MinSize = 0;
-            this.splitContainerKanban.Size = new System.Drawing.Size(1159, 387);
+            this.splitContainerKanban.Size = new System.Drawing.Size(1159, 419);
             this.splitContainerKanban.SplitterDistance = 265;
             this.splitContainerKanban.SplitterWidth = 3;
             this.splitContainerKanban.TabIndex = 1;
@@ -163,7 +157,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(265, 387);
+            this.panel5.Size = new System.Drawing.Size(265, 419);
             this.panel5.TabIndex = 3;
             // 
             // dataGridViewKanbanTasks
@@ -181,7 +175,7 @@
             this.dataGridViewKanbanTasks.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewKanbanTasks.Name = "dataGridViewKanbanTasks";
             this.dataGridViewKanbanTasks.RowTemplate.Height = 45;
-            this.dataGridViewKanbanTasks.Size = new System.Drawing.Size(265, 291);
+            this.dataGridViewKanbanTasks.Size = new System.Drawing.Size(265, 323);
             this.dataGridViewKanbanTasks.TabIndex = 1;
             this.dataGridViewKanbanTasks.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKanbanTasks_CellClick);
             // 
@@ -293,7 +287,7 @@
             this.buttonKanBanTasksSeparator.Location = new System.Drawing.Point(0, 0);
             this.buttonKanBanTasksSeparator.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKanBanTasksSeparator.Name = "buttonKanBanTasksSeparator";
-            this.buttonKanBanTasksSeparator.Size = new System.Drawing.Size(265, 387);
+            this.buttonKanBanTasksSeparator.Size = new System.Drawing.Size(265, 419);
             this.buttonKanBanTasksSeparator.TabIndex = 2;
             this.buttonKanBanTasksSeparator.UseVisualStyleBackColor = false;
             // 
@@ -312,7 +306,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 96);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(891, 291);
+            this.panel8.Size = new System.Drawing.Size(891, 323);
             this.panel8.TabIndex = 2;
             // 
             // panel9
@@ -323,7 +317,7 @@
             this.panel9.Location = new System.Drawing.Point(1365, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(0, 291);
+            this.panel9.Size = new System.Drawing.Size(0, 323);
             this.panel9.TabIndex = 4;
             // 
             // panelColumn5
@@ -335,7 +329,7 @@
             this.panelColumn5.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn5.Name = "panelColumn5";
             this.panelColumn5.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn5.Size = new System.Drawing.Size(0, 270);
+            this.panelColumn5.Size = new System.Drawing.Size(0, 302);
             this.panelColumn5.TabIndex = 5;
             this.panelColumn5.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn5.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -357,7 +351,7 @@
             this.splitter4.Location = new System.Drawing.Point(1361, 0);
             this.splitter4.Margin = new System.Windows.Forms.Padding(2);
             this.splitter4.Name = "splitter4";
-            this.splitter4.Size = new System.Drawing.Size(4, 291);
+            this.splitter4.Size = new System.Drawing.Size(4, 323);
             this.splitter4.TabIndex = 5;
             this.splitter4.TabStop = false;
             // 
@@ -369,7 +363,7 @@
             this.panel4.Location = new System.Drawing.Point(1082, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(279, 291);
+            this.panel4.Size = new System.Drawing.Size(279, 323);
             this.panel4.TabIndex = 2;
             // 
             // panelColumn4
@@ -381,7 +375,7 @@
             this.panelColumn4.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn4.Name = "panelColumn4";
             this.panelColumn4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn4.Size = new System.Drawing.Size(279, 270);
+            this.panelColumn4.Size = new System.Drawing.Size(279, 302);
             this.panelColumn4.TabIndex = 5;
             this.panelColumn4.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn4.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -403,7 +397,7 @@
             this.splitter3.Location = new System.Drawing.Point(1078, 0);
             this.splitter3.Margin = new System.Windows.Forms.Padding(2);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(4, 291);
+            this.splitter3.Size = new System.Drawing.Size(4, 323);
             this.splitter3.TabIndex = 3;
             this.splitter3.TabStop = false;
             // 
@@ -415,7 +409,7 @@
             this.panel3.Location = new System.Drawing.Point(738, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(340, 291);
+            this.panel3.Size = new System.Drawing.Size(340, 323);
             this.panel3.TabIndex = 1;
             // 
             // panelColumn3
@@ -427,7 +421,7 @@
             this.panelColumn3.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn3.Name = "panelColumn3";
             this.panelColumn3.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn3.Size = new System.Drawing.Size(340, 270);
+            this.panelColumn3.Size = new System.Drawing.Size(340, 302);
             this.panelColumn3.TabIndex = 4;
             this.panelColumn3.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn3.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -449,7 +443,7 @@
             this.splitter2.Location = new System.Drawing.Point(734, 0);
             this.splitter2.Margin = new System.Windows.Forms.Padding(2);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(4, 291);
+            this.splitter2.Size = new System.Drawing.Size(4, 323);
             this.splitter2.TabIndex = 2;
             this.splitter2.TabStop = false;
             // 
@@ -461,7 +455,7 @@
             this.panel2.Location = new System.Drawing.Point(382, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 291);
+            this.panel2.Size = new System.Drawing.Size(352, 323);
             this.panel2.TabIndex = 0;
             // 
             // panelColumn2
@@ -473,7 +467,7 @@
             this.panelColumn2.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn2.Name = "panelColumn2";
             this.panelColumn2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn2.Size = new System.Drawing.Size(352, 270);
+            this.panelColumn2.Size = new System.Drawing.Size(352, 302);
             this.panelColumn2.TabIndex = 2;
             this.panelColumn2.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn2.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -495,7 +489,7 @@
             this.splitter1.Location = new System.Drawing.Point(378, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 291);
+            this.splitter1.Size = new System.Drawing.Size(4, 323);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -507,7 +501,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 291);
+            this.panel1.Size = new System.Drawing.Size(378, 323);
             this.panel1.TabIndex = 0;
             // 
             // panelColumn1
@@ -519,7 +513,7 @@
             this.panelColumn1.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn1.Name = "panelColumn1";
             this.panelColumn1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn1.Size = new System.Drawing.Size(378, 270);
+            this.panelColumn1.Size = new System.Drawing.Size(378, 302);
             this.panelColumn1.TabIndex = 1;
             this.panelColumn1.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn1.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -800,42 +794,6 @@
             this.sprintBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
             this.sprintBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.sprintBindingSource_ListChanged);
             // 
-            // toolStripKanban
-            // 
-            this.toolStripKanban.AutoSize = false;
-            this.toolStripKanban.BackColor = System.Drawing.Color.DimGray;
-            this.toolStripKanban.GripMargin = new System.Windows.Forms.Padding(4);
-            this.toolStripKanban.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripKanban.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripKanban.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonSaveKanban,
-            this.toolStripButton2});
-            this.toolStripKanban.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripKanban.Location = new System.Drawing.Point(0, 0);
-            this.toolStripKanban.Name = "toolStripKanban";
-            this.toolStripKanban.Size = new System.Drawing.Size(1161, 32);
-            this.toolStripKanban.TabIndex = 7;
-            this.toolStripKanban.Text = "toolStrip1";
-            // 
-            // toolStripButtonSaveKanban
-            // 
-            this.toolStripButtonSaveKanban.ForeColor = System.Drawing.Color.White;
-            this.toolStripButtonSaveKanban.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveKanban.Image")));
-            this.toolStripButtonSaveKanban.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveKanban.Name = "toolStripButtonSaveKanban";
-            this.toolStripButtonSaveKanban.Size = new System.Drawing.Size(67, 29);
-            this.toolStripButtonSaveKanban.Text = "Save";
-            this.toolStripButtonSaveKanban.Click += new System.EventHandler(this.toolStripButtonSaveKanban_Click_1);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(82, 29);
-            this.toolStripButton2.Text = "Restore";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
             // SprintKanbanPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -870,8 +828,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
-            this.toolStripKanban.ResumeLayout(false);
-            this.toolStripKanban.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -903,9 +859,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxCurrentSprint;
-        private System.Windows.Forms.ToolStrip toolStripKanban;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveKanban;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource sprintBindingSource;

@@ -22,7 +22,7 @@ namespace Tornado14.TrayApp.Controls
 
     public partial class TasksGridPanel : StandardGridPanel, IStandardPanel
     {
-        public BindingSource BindingSource
+        public BindingSource TodoBindingSource
         {
             get
             {
@@ -51,7 +51,6 @@ namespace Tornado14.TrayApp.Controls
             InitializeComponent();
 
             // Init base panel
-            this.ToolStripButtonSave = toolStripButtonSaveTasks;
 
             // Fix Grid Columns
             DataGridViewComboBoxColumn col = (DataGridViewComboBoxColumn)dataGridViewTodos.Columns[statusDataGridViewTextBoxColumn.Name];
@@ -63,8 +62,6 @@ namespace Tornado14.TrayApp.Controls
             panelTaskDetails.Dock = DockStyle.Fill;
             panelTaskDetails.BringToFront();
         }
-
-
 
         #region Events
 
@@ -91,40 +88,6 @@ namespace Tornado14.TrayApp.Controls
         {
             HasChanges = true;
         }
-
-        private void toolStripButtonSaveTodos_Click(object sender, EventArgs e)
-        {
-            SaveToXMLFile();
-        }
-
-        private void toolStripButtonRestoreTasks_Click(object sender, EventArgs e)
-        {
-            BindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Todo>(DataFilePath);
-            HasChanges = false;
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void Refresh()
-        {
-            dataGridViewTodos.DataSource = new object();
-            dataGridViewTodos.DataSource = todoBindingSource;
-
-            taskEditor1.SetDataSource((SortableBindingList<Todo>)todoBindingSource.DataSource);
-        }
-
-        public void SaveToXMLFile()
-        {
-            string data = XmlSerializationHelper.Serialize(this.BindingSource.List);
-            StreamWriter file = new StreamWriter(DataFilePath);
-            file.WriteLine(data);
-            file.Close();
-            HasChanges = false;
-        }
-
-        #endregion
 
         private void todoBindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
@@ -176,6 +139,12 @@ namespace Tornado14.TrayApp.Controls
                 HasChanges = true;
             }
         }
+
+        #endregion
+
+        #region Methods
+
+        #endregion
 
     }
 }

@@ -17,7 +17,7 @@ namespace Tornado14.TrayApp.Controls
 {
     public partial class SprintGridPanel : StandardGridPanel, IStandardPanel
     {
-        public BindingSource BindingSource
+        public BindingSource SprintBindingSource
         {
             get
             {
@@ -34,7 +34,6 @@ namespace Tornado14.TrayApp.Controls
             InitializeComponent();
 
             // Init Base panel
-            this.ToolStripButtonSave = toolStripButtonSaveSprints;
         }
 
         #region Events
@@ -65,34 +64,15 @@ namespace Tornado14.TrayApp.Controls
             }
         }
 
-        private void toolStripButtonSaveSprints_Click(object sender, EventArgs e)
-        {
-            SaveToXMLFile();
-        }
-
         private void toolStripButtonRestoreSprints_Click(object sender, EventArgs e)
         {
-            BindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Sprint>(DataFilePath);
+            SprintBindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Sprint>(DataFilePath);
             HasChanges = false;
         }
 
         private void dataGridViewSprints_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             HasChanges = true;
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void SaveToXMLFile()
-        {
-            BindingSource source = (BindingSource)dataGridViewSprints.DataSource;
-            string data = XmlSerializationHelper.Serialize(source.List);
-            StreamWriter file = new StreamWriter(DataFilePath);
-            file.WriteLine(data);
-            file.Close();
-            HasChanges = false;
         }
 
         #endregion

@@ -17,7 +17,7 @@ namespace Tornado14.TrayApp.Controls
 {
     public partial class ProjectGridPanel : StandardGridPanel, IStandardPanel
     {
-        public BindingSource BindingSource
+        public BindingSource ProjectBindingSource
         {
             get
             {
@@ -59,19 +59,18 @@ namespace Tornado14.TrayApp.Controls
         {
             InitializeComponent();
             // Init Base panel
-            this.ToolStripButtonSave = toolStripButtonSaveProjects;
 
-            projectDeployApplicationPanel1.Dock = DockStyle.Fill;
-            projectDeployApplicationPanel1.BackColor = BlackTheme.ColorDarkGray;
-            reportPanel1.Dock = DockStyle.Fill;
-            reportPanel1.BackColor = BlackTheme.ColorDarkGray;
-            projectFeaturesPanel1.Dock = DockStyle.Fill;
-            projectFeaturesPanel1.BackColor = BlackTheme.ColorDarkGray;
-            projectDevelopPanel1.Dock = DockStyle.Fill;
-            projectDevelopPanel1.BackColor = BlackTheme.ColorDarkGray;
-            projectDetailsPanel1.Dock = DockStyle.Fill;
-            projectDetailsPanel1.BackColor = BlackTheme.ColorDarkGray;
-            projectDetailsPanel1.BringToFront();
+            projectDeployApplicationPanel.Dock = DockStyle.Fill;
+            projectDeployApplicationPanel.BackColor = BlackTheme.ColorDarkGray;
+            reportPanel.Dock = DockStyle.Fill;
+            reportPanel.BackColor = BlackTheme.ColorDarkGray;
+            projectFeaturesPanel.Dock = DockStyle.Fill;
+            projectFeaturesPanel.BackColor = BlackTheme.ColorDarkGray;
+            projectDevelopPanel.Dock = DockStyle.Fill;
+            projectDevelopPanel.BackColor = BlackTheme.ColorDarkGray;
+            projectDetailsPanel.Dock = DockStyle.Fill;
+            projectDetailsPanel.BackColor = BlackTheme.ColorDarkGray;
+            projectDetailsPanel.BringToFront();
             toolStripButtonDetails.Checked = true;
 
             // Fix Grid Columns
@@ -80,19 +79,7 @@ namespace Tornado14.TrayApp.Controls
             col.ValueType = typeof(ProjectType);
         }
 
-
         #region Events
-
-        private void toolStripButtonSaveProjects_Click(object sender, EventArgs e)
-        {
-            SaveToXMLFile();
-        }
-
-        private void toolStripButtonRestoreProjects_Click(object sender, EventArgs e)
-        {
-            projectBindingSource.DataSource = SortableBindingListHelper.GetBindingListFromXmlFile<Project>(DataFilePath);
-            HasChanges = false;
-        }
 
 
         private void dataGridViewProjects_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -115,42 +102,7 @@ namespace Tornado14.TrayApp.Controls
             }
         }
 
-        #endregion
-
-        #region Methods
-
-        public void SaveToXMLFile()
-        {
-            BindingSource source = (BindingSource)dataGridViewProjects.DataSource;
-            string data = XmlSerializationHelper.Serialize(source.List);
-            StreamWriter file = new StreamWriter(DataFilePath);
-            file.WriteLine(data);
-            file.Close();
-            HasChanges = false;
-        }
-
-        #endregion
-
-        internal void SetDataSource(SortableBindingList<Project> sortableBindingList)
-        {
-            this.BindingSource.DataSource = sortableBindingList;
-
-            projectDeployApplicationPanel1.ProjectBindingSource.DataSource = this.BindingSource.DataSource;
-            projectDeployApplicationPanel1.TodoBindingSource.DataSource = this.todoBindingSource.DataSource;
-            projectDeployApplicationPanel1.SprintBindingSourceDataSource = this.sprintBindingSource.DataSource;
-            reportPanel1.ProjectBindingSource.DataSource = this.BindingSource.DataSource;
-            reportPanel1.TodoBindingSource.DataSource = this.todoBindingSource.DataSource;
-            reportPanel1.SprintBindingSourceDataSource = this.sprintBindingSource.DataSource;
-
-            projectDetailsPanel1.ProjectBindingSource.DataSource = this.BindingSource.DataSource;
-            projectDevelopPanel1.ProjectBindingSource.DataSource = this.BindingSource.DataSource;
-            this.BindingSource.PositionChanged += new EventHandler(BindingSource_PositionChanged);
-
-            projectDetailsPanel1.ProjectBindingSource.ResumeBinding();
-            this.BindingSource.BindingComplete += new BindingCompleteEventHandler(BindingSource_BindingComplete);
-        }
-
-        void BindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)
+        private void BindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
             // Check if the data source has been updated, and that no error has occured.
             if (e.BindingCompleteContext ==
@@ -160,39 +112,33 @@ namespace Tornado14.TrayApp.Controls
                 e.Binding.BindingManagerBase.EndCurrentEdit();
         }
 
-        void BindingSource_PositionChanged(object sender, EventArgs e)
+        private void BindingSource_PositionChanged(object sender, EventArgs e)
         {
-            projectDetailsPanel1.ProjectBindingSource.Position = this.BindingSource.Position;
-            projectDevelopPanel1.ProjectBindingSource.Position = this.BindingSource.Position;
-            projectDeployApplicationPanel1.ProjectBindingSource.Position = this.BindingSource.Position;
-            reportPanel1.ProjectBindingSource.Position = this.BindingSource.Position;
-            projectFeaturesPanel1.ProjectFeaturesBindingSource.DataSource = ((Project)this.BindingSource.Current).FeatureList;
-        }
-
-
-
-        private void projectBindingSource_ListChanged(object sender, ListChangedEventArgs e)
-        {
+            projectDetailsPanel.ProjectBindingSource.Position = this.ProjectBindingSource.Position;
+            projectDevelopPanel.ProjectBindingSource.Position = this.ProjectBindingSource.Position;
+            projectDeployApplicationPanel.ProjectBindingSource.Position = this.ProjectBindingSource.Position;
+            reportPanel.ProjectBindingSource.Position = this.ProjectBindingSource.Position;
+            projectFeaturesPanel.ProjectFeaturesBindingSource.DataSource = ((Project)this.ProjectBindingSource.Current).FeatureList;
         }
 
         private void toolStripDetails_Click(object sender, EventArgs e)
         {
-            projectDetailsPanel1.Dock = DockStyle.Fill;
-            projectDetailsPanel1.BringToFront();
+            projectDetailsPanel.Dock = DockStyle.Fill;
+            projectDetailsPanel.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
         private void toolStripButtonDevelop_Click(object sender, EventArgs e)
         {
-            projectDevelopPanel1.Dock = DockStyle.Fill;
-            projectDevelopPanel1.BringToFront();
+            projectDevelopPanel.Dock = DockStyle.Fill;
+            projectDevelopPanel.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
         private void toolStripButtonFeatures_Click(object sender, EventArgs e)
         {
-            projectFeaturesPanel1.Dock = DockStyle.Fill;
-            projectFeaturesPanel1.BringToFront();
+            projectFeaturesPanel.Dock = DockStyle.Fill;
+            projectFeaturesPanel.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
@@ -212,22 +158,42 @@ namespace Tornado14.TrayApp.Controls
 
         private void toolStripButtonReport_Click(object sender, EventArgs e)
         {
-            reportPanel1.Dock = DockStyle.Fill;
-            reportPanel1.BringToFront();
+            reportPanel.Dock = DockStyle.Fill;
+            reportPanel.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
         private void toolStripButtonDeploy_Click(object sender, EventArgs e)
         {
-            projectDeployApplicationPanel1.Dock = DockStyle.Fill;
-            projectDeployApplicationPanel1.BringToFront();
+            projectDeployApplicationPanel.Dock = DockStyle.Fill;
+            projectDeployApplicationPanel.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+        #endregion
 
+        #region Methods
+
+        internal void SetProjectDataSource(SortableBindingList<Project> sortableBindingList)
+        {
+            this.ProjectBindingSource.DataSource = sortableBindingList;
+
+            projectDeployApplicationPanel.ProjectBindingSource.DataSource = this.ProjectBindingSource.DataSource;
+            projectDeployApplicationPanel.TodoBindingSource.DataSource = this.todoBindingSource.DataSource;
+            projectDeployApplicationPanel.SprintBindingSourceDataSource = this.sprintBindingSource.DataSource;
+            reportPanel.ProjectBindingSource.DataSource = this.ProjectBindingSource.DataSource;
+            reportPanel.TodoBindingSource.DataSource = this.todoBindingSource.DataSource;
+            reportPanel.SprintBindingSourceDataSource = this.sprintBindingSource.DataSource;
+
+            projectDetailsPanel.ProjectBindingSource.DataSource = this.ProjectBindingSource.DataSource;
+            projectDevelopPanel.ProjectBindingSource.DataSource = this.ProjectBindingSource.DataSource;
+            this.ProjectBindingSource.PositionChanged += new EventHandler(BindingSource_PositionChanged);
+
+            projectDetailsPanel.ProjectBindingSource.ResumeBinding();
+            this.ProjectBindingSource.BindingComplete += new BindingCompleteEventHandler(BindingSource_BindingComplete);
         }
+
+        #endregion
 
     }
 }

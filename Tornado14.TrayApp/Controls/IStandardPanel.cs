@@ -7,6 +7,5 @@ namespace Tornado14.TrayApp.Controls
 {
     interface IStandardPanel
     {
-        void SaveToXMLFile();
     }
 }

@@ -38,21 +38,28 @@
             this.toolStripButtonTask = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSprint = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonProject = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripRevert = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.TaskPlanningPanel();
             this.projectGridPanel1 = new Tornado14.TrayApp.Controls.ProjectGridPanel();
             this.sprintGridPanel1 = new Tornado14.TrayApp.Controls.SprintGridPanel();
             this.tasksGridPanel1 = new Tornado14.TrayApp.Controls.TasksGridPanel();
             this.sprintKanbanPanel1 = new Tornado14.TrayApp.Controls.SprintKanbanPanel();
-            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.TaskPlanningPanel();
+            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -78,7 +85,8 @@
             this.toolStripButtonTask,
             this.toolStripButtonSprint,
             this.toolStripButtonProject,
-            this.toolStripButton1});
+            this.toolStripRevert,
+            this.toolStripButtonSave});
             this.toolStripMain.Location = new System.Drawing.Point(0, 0);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(899, 66);
@@ -125,7 +133,7 @@
             this.toolStripButtonGantt.Text = "Outline";
             this.toolStripButtonGantt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonGantt.Visible = false;
-            this.toolStripButtonGantt.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripButtonGantt.Click += new System.EventHandler(this.toolStripButtonGant_Click);
             // 
             // toolStripButtonTask
             // 
@@ -166,19 +174,34 @@
             this.toolStripButtonProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonProject.Click += new System.EventHandler(this.toolStripButtonProject_Click);
             // 
-            // toolStripButton1
+            // toolStripRevert
             // 
-            this.toolStripButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(112)))), ((int)(((byte)(50)))));
-            this.toolStripButton1.Image = global::Tornado14.TrayApp.Properties.Resources.synchronize1;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton1.Size = new System.Drawing.Size(57, 63);
-            this.toolStripButton1.Text = "Reload";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripRevert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(112)))), ((int)(((byte)(50)))));
+            this.toolStripRevert.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRevert.Image")));
+            this.toolStripRevert.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripRevert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripRevert.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.toolStripRevert.Name = "toolStripRevert";
+            this.toolStripRevert.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripRevert.Size = new System.Drawing.Size(57, 63);
+            this.toolStripRevert.Text = "Reload";
+            this.toolStripRevert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripRevert.ToolTipText = "Revert";
+            this.toolStripRevert.Click += new System.EventHandler(this.toolStripRevert_Click);
+            // 
+            // toolStripButtonSave
+            // 
+            this.toolStripButtonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(112)))), ((int)(((byte)(50)))));
+            this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
+            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripButtonSave.Size = new System.Drawing.Size(46, 63);
+            this.toolStripButtonSave.Text = "Save";
+            this.toolStripButtonSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonSave.ToolTipText = "Save";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
             // panel1
             // 
@@ -218,6 +241,18 @@
             this.pictureBox1.Size = new System.Drawing.Size(189, 66);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            // 
+            // taskPlanningPanel1
+            // 
+            this.taskPlanningPanel1.DataFilePath = null;
+            this.taskPlanningPanel1.HasChanges = false;
+            this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
+            this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.taskPlanningPanel1.Name = "taskPlanningPanel1";
+            this.taskPlanningPanel1.parentPanel = null;
+            this.taskPlanningPanel1.Size = new System.Drawing.Size(91, 413);
+            this.taskPlanningPanel1.TabIndex = 12;
+            this.taskPlanningPanel1.ToolStripButtonSave = null;
             // 
             // projectGridPanel1
             // 
@@ -263,17 +298,17 @@
             this.sprintKanbanPanel1.Size = new System.Drawing.Size(82, 413);
             this.sprintKanbanPanel1.TabIndex = 0;
             // 
-            // taskPlanningPanel1
+            // sprintBindingSource
             // 
-            this.taskPlanningPanel1.DataFilePath = null;
-            this.taskPlanningPanel1.HasChanges = false;
-            this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
-            this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.taskPlanningPanel1.Name = "taskPlanningPanel1";
-            this.taskPlanningPanel1.parentPanel = null;
-            this.taskPlanningPanel1.Size = new System.Drawing.Size(91, 413);
-            this.taskPlanningPanel1.TabIndex = 12;
-            this.taskPlanningPanel1.ToolStripButtonSave = null;
+            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
+            // 
+            // todoBindingSource
+            // 
+            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
             // 
             // ProjectExplorer
             // 
@@ -300,6 +335,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,11 +356,15 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSprint;
         private System.Windows.Forms.ToolStripButton toolStripButtonProject;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripRevert;
         private System.Windows.Forms.ToolStripButton toolStripButtonGantt;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripButton toolStripButtonTimePlanning;
         private Controls.TaskPlanningPanel taskPlanningPanel1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSave;
+        private System.Windows.Forms.BindingSource sprintBindingSource;
+        private System.Windows.Forms.BindingSource projectBindingSource;
+        private System.Windows.Forms.BindingSource todoBindingSource;
     }
 }

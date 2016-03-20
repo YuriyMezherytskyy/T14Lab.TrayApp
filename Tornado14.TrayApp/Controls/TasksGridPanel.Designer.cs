@@ -61,9 +61,6 @@
             this.filesFolderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PublicTextFilled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.toolStripTasks = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSaveTasks = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRestoreTasks = new System.Windows.Forms.ToolStripButton();
             this.panelTasks.SuspendLayout();
             this.panelTasksGray.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,13 +72,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            this.toolStripTasks.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTasks
             // 
             this.panelTasks.Controls.Add(this.panelTasksGray);
-            this.panelTasks.Controls.Add(this.toolStripTasks);
             this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTasks.Location = new System.Drawing.Point(0, 0);
             this.panelTasks.Margin = new System.Windows.Forms.Padding(0);
@@ -93,11 +88,11 @@
             // 
             this.panelTasksGray.Controls.Add(this.panel1);
             this.panelTasksGray.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTasksGray.Location = new System.Drawing.Point(0, 32);
+            this.panelTasksGray.Location = new System.Drawing.Point(0, 0);
             this.panelTasksGray.Margin = new System.Windows.Forms.Padding(2);
             this.panelTasksGray.Name = "panelTasksGray";
             this.panelTasksGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelTasksGray.Size = new System.Drawing.Size(891, 500);
+            this.panelTasksGray.Size = new System.Drawing.Size(891, 532);
             this.panelTasksGray.TabIndex = 6;
             // 
             // panel1
@@ -111,7 +106,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 498);
+            this.panel1.Size = new System.Drawing.Size(889, 530);
             this.panel1.TabIndex = 1;
             // 
             // panelTaskFeatures
@@ -307,7 +302,7 @@
             this.splitter1.Location = new System.Drawing.Point(560, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(2, 498);
+            this.splitter1.Size = new System.Drawing.Size(2, 530);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -329,7 +324,7 @@
             this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewTodos.Name = "dataGridViewTodos";
             this.dataGridViewTodos.RowTemplate.Height = 24;
-            this.dataGridViewTodos.Size = new System.Drawing.Size(560, 498);
+            this.dataGridViewTodos.Size = new System.Drawing.Size(560, 530);
             this.dataGridViewTodos.TabIndex = 0;
             this.dataGridViewTodos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTodos_CellValueChanged);
             this.dataGridViewTodos.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewTodos_DefaultValuesNeeded);
@@ -395,41 +390,6 @@
             this.PublicTextFilled.HeaderText = "PublicTextFilled";
             this.PublicTextFilled.Name = "PublicTextFilled";
             // 
-            // toolStripTasks
-            // 
-            this.toolStripTasks.AutoSize = false;
-            this.toolStripTasks.BackColor = System.Drawing.Color.DimGray;
-            this.toolStripTasks.GripMargin = new System.Windows.Forms.Padding(4);
-            this.toolStripTasks.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStripTasks.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonSaveTasks,
-            this.toolStripButtonRestoreTasks});
-            this.toolStripTasks.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripTasks.Location = new System.Drawing.Point(0, 0);
-            this.toolStripTasks.Name = "toolStripTasks";
-            this.toolStripTasks.Size = new System.Drawing.Size(891, 32);
-            this.toolStripTasks.TabIndex = 5;
-            this.toolStripTasks.Text = "toolStrip1";
-            // 
-            // toolStripButtonSaveTasks
-            // 
-            this.toolStripButtonSaveTasks.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveTasks.Image")));
-            this.toolStripButtonSaveTasks.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveTasks.Name = "toolStripButtonSaveTasks";
-            this.toolStripButtonSaveTasks.Size = new System.Drawing.Size(67, 29);
-            this.toolStripButtonSaveTasks.Text = "Save";
-            this.toolStripButtonSaveTasks.Click += new System.EventHandler(this.toolStripButtonSaveTodos_Click);
-            // 
-            // toolStripButtonRestoreTasks
-            // 
-            this.toolStripButtonRestoreTasks.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRestoreTasks.Image")));
-            this.toolStripButtonRestoreTasks.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRestoreTasks.Name = "toolStripButtonRestoreTasks";
-            this.toolStripButtonRestoreTasks.Size = new System.Drawing.Size(82, 29);
-            this.toolStripButtonRestoreTasks.Text = "Restore";
-            this.toolStripButtonRestoreTasks.Click += new System.EventHandler(this.toolStripButtonRestoreTasks_Click);
-            // 
             // TasksGridPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,8 +413,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
-            this.toolStripTasks.ResumeLayout(false);
-            this.toolStripTasks.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -464,9 +422,6 @@
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.Panel panelTasks;
         private System.Windows.Forms.Panel panelTasksGray;
-        private System.Windows.Forms.ToolStrip toolStripTasks;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveTasks;
-        private System.Windows.Forms.ToolStripButton toolStripButtonRestoreTasks;
         private System.Windows.Forms.DataGridView dataGridViewTodos;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
