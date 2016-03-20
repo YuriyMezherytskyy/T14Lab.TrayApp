@@ -223,11 +223,11 @@
             // 
             this.projectGridPanel1.DataFilePath = null;
             this.projectGridPanel1.HasChanges = true;
-            this.projectGridPanel1.Location = new System.Drawing.Point(106, 85);
+            this.projectGridPanel1.Location = new System.Drawing.Point(87, 85);
             this.projectGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.projectGridPanel1.Name = "projectGridPanel1";
             this.projectGridPanel1.parentPanel = null;
-            this.projectGridPanel1.Size = new System.Drawing.Size(78, 388);
+            this.projectGridPanel1.Size = new System.Drawing.Size(78, 413);
             this.projectGridPanel1.TabIndex = 3;
             // 
             // sprintGridPanel1
@@ -238,38 +238,42 @@
             this.sprintGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sprintGridPanel1.Name = "sprintGridPanel1";
             this.sprintGridPanel1.parentPanel = null;
-            this.sprintGridPanel1.Size = new System.Drawing.Size(69, 388);
+            this.sprintGridPanel1.Size = new System.Drawing.Size(69, 413);
             this.sprintGridPanel1.TabIndex = 2;
             // 
             // tasksGridPanel1
             // 
             this.tasksGridPanel1.DataFilePath = null;
             this.tasksGridPanel1.HasChanges = true;
-            this.tasksGridPanel1.Location = new System.Drawing.Point(309, 85);
+            this.tasksGridPanel1.Location = new System.Drawing.Point(259, 85);
             this.tasksGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tasksGridPanel1.Name = "tasksGridPanel1";
             this.tasksGridPanel1.parentPanel = null;
-            this.tasksGridPanel1.Size = new System.Drawing.Size(92, 388);
+            this.tasksGridPanel1.Size = new System.Drawing.Size(83, 413);
             this.tasksGridPanel1.TabIndex = 1;
             // 
             // sprintKanbanPanel1
             // 
             this.sprintKanbanPanel1.DataFilePath = null;
             this.sprintKanbanPanel1.HasChanges = false;
-            this.sprintKanbanPanel1.Location = new System.Drawing.Point(207, 85);
+            this.sprintKanbanPanel1.Location = new System.Drawing.Point(171, 85);
             this.sprintKanbanPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sprintKanbanPanel1.Name = "sprintKanbanPanel1";
             this.sprintKanbanPanel1.parentPanel = null;
-            this.sprintKanbanPanel1.Size = new System.Drawing.Size(64, 388);
+            this.sprintKanbanPanel1.Size = new System.Drawing.Size(82, 413);
             this.sprintKanbanPanel1.TabIndex = 0;
             // 
             // taskPlanningPanel1
             // 
-            this.taskPlanningPanel1.Location = new System.Drawing.Point(424, 85);
+            this.taskPlanningPanel1.DataFilePath = null;
+            this.taskPlanningPanel1.HasChanges = false;
+            this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
             this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.taskPlanningPanel1.Name = "taskPlanningPanel1";
-            this.taskPlanningPanel1.Size = new System.Drawing.Size(123, 629);
+            this.taskPlanningPanel1.parentPanel = null;
+            this.taskPlanningPanel1.Size = new System.Drawing.Size(91, 413);
             this.taskPlanningPanel1.TabIndex = 12;
+            this.taskPlanningPanel1.ToolStripButtonSave = null;
             // 
             // ProjectExplorer
             // 

@@ -830,7 +830,7 @@ namespace System.Windows.Forms.Calendar
         {
             base.OnPaint(e);
 
-            e.Graphics.Clear(SystemColors.Window);
+            e.Graphics.Clear(Color.FromArgb(30,30,30));
 
             for (int i = 0; i < Months.Length; i++)
             {

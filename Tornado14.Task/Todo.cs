@@ -13,6 +13,10 @@ namespace Tornado14.Task
     {
         public Guid pId { get; set; }
         public string Id { get; set; }
+        private string shortDescription;
+        public Guid ProjectPid { get; set; }
+        public Status Status { get; set; }
+        public Guid SprintPid { get; set; }
 
         public string AdditionalField1 { get; set; }
         public string AdditionalField2 { get; set; }
@@ -22,11 +26,26 @@ namespace Tornado14.Task
 
 
 
-        private string shortDescription;
+        public string CurrentState { get; set; }
+        public string Description { get; set; }
+        public string Result { get; set; }
+        public string PublicText { get; set; }
+
+        public int Progress { get; set; }
+
+        public string FilesFolder { get; set; }
+
+        public List<Guid> AlsoForProjects { get; set; }
+        public List<Guid> Features { get; set; }
+
         public string ShortDescription
         {
             get
             {
+                if (shortDescription == null)
+                {
+                    ShortDescription = string.Empty;
+                }
                 return shortDescription;
             }
             set
@@ -35,25 +54,10 @@ namespace Tornado14.Task
                 {
                     //CheckFilesFolder(value);
                 }
-                
+
                 shortDescription = value;
             }
         }
-        public string Description { get; set; }
-        public string Result { get; set; }
-        public string PublicText { get; set; }
-        public string CurrentState { get; set; }
-
-        public Status Status { get; set; }
-        public int Progress { get; set; }
-
-        public string FilesFolder { get; set; }
-
-        public Guid ProjectPid { get; set; }
-        public Guid SprintPid { get; set; }
-        public List<Guid> AlsoForProjects { get; set; }
-        public List<Guid> Features { get; set; }
-
 
         public bool PublicTextFilled
         {

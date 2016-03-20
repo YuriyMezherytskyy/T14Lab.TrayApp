@@ -110,6 +110,12 @@
     <Compile Include="Controls\EditTaskDialog.Designer.cs">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ComboBoxFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ComboBoxFilter.Designer.cs">
+      <DependentUpon>ComboBoxFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\IStandardPanel.cs" />
     <Compile Include="Controls\NewTask.cs">
       <SubType>Form</SubType>
@@ -213,6 +219,12 @@
     <Compile Include="Controls\TasksGridPanel.Designer.cs">
       <DependentUpon>TasksGridPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextBoxFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxFilter.Designer.cs">
+      <DependentUpon>TextBoxFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TransparentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -258,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\EditTaskDialog.resx">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ComboBoxFilter.resx">
+      <DependentUpon>ComboBoxFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NewTask.resx">
       <DependentUpon>NewTask.cs</DependentUpon>
@@ -306,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TasksGridPanel.resx">
       <DependentUpon>TasksGridPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TextBoxFilter.resx">
+      <DependentUpon>TextBoxFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectExplorer.resx">
       <DependentUpon>ProjectExplorer.cs</DependentUpon>

@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Tornado14.Task;
+using System.Windows.Forms.Calendar;
 
 namespace Tornado14.TrayApp.Controls
 {
@@ -70,6 +72,29 @@ namespace Tornado14.TrayApp.Controls
         public TaskPlanningPanel()
         {
             InitializeComponent();
+            taskSearchPanel1.Grid.CellDoubleClick += Grid_CellDoubleClick;
+        }
+
+        private void Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            object boundItem = taskSearchPanel1.Grid.Rows[e.RowIndex].DataBoundItem;
+            if (boundItem != null && boundItem.GetType() == typeof(Todo))
+            {
+                Todo selectedTodo = (Todo)boundItem;
+                DateTime startTime;
+                if (calendar1.SelectedElementStart != null)
+                {
+                    startTime = calendar1.SelectedElementStart.Date;
+                } else
+                {
+                    startTime = calendar1.ViewStart;
+                }
+                DateTime endTime = startTime.AddHours(2);
+
+                CalendarItem calendarItem = new CalendarItem(calendar1, startTime, endTime, selectedTodo.ShortDescription + DateTime.Now.ToString());
+                calendarItem.Tag = selectedTodo;
+                calendar1.Items.Add(calendarItem);
+            }
         }
 
         private void monthView1_SelectionChanged(object sender, EventArgs e)

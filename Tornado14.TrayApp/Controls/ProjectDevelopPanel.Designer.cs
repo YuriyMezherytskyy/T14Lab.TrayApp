@@ -190,7 +190,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(212, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 21);
+            this.label4.Size = new System.Drawing.Size(62, 21);
             this.label4.TabIndex = 25;
             this.label4.Text = "Version";
             this.label4.Visible = false;
@@ -268,7 +268,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 21);
+            this.label5.Size = new System.Drawing.Size(190, 21);
             this.label5.TabIndex = 46;
             this.label5.Text = "Visual Studio Solution File";
             // 

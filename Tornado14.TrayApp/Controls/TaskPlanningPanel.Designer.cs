@@ -74,7 +74,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(997, 597);
-            this.splitContainer1.SplitterDistance = 683;
+            this.splitContainer1.SplitterDistance = 387;
             this.splitContainer1.TabIndex = 3;
             // 
             // taskSearchPanel1
@@ -82,7 +82,7 @@
             this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskSearchPanel1.Location = new System.Drawing.Point(0, 0);
             this.taskSearchPanel1.Name = "taskSearchPanel1";
-            this.taskSearchPanel1.Size = new System.Drawing.Size(683, 597);
+            this.taskSearchPanel1.Size = new System.Drawing.Size(387, 597);
             this.taskSearchPanel1.TabIndex = 0;
             // 
             // splitContainer2
@@ -99,8 +99,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.calendar1);
-            this.splitContainer2.Size = new System.Drawing.Size(310, 597);
-            this.splitContainer2.SplitterDistance = 292;
+            this.splitContainer2.Size = new System.Drawing.Size(606, 597);
+            this.splitContainer2.SplitterDistance = 136;
             this.splitContainer2.TabIndex = 2;
             // 
             // monthView1
@@ -114,7 +114,7 @@
             this.monthView1.DaySelectedColor = System.Drawing.SystemColors.WindowText;
             this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
             this.monthView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monthView1.ForeColor = System.Drawing.Color.Black;
+            this.monthView1.ForeColor = System.Drawing.Color.White;
             this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
             this.monthView1.Location = new System.Drawing.Point(0, 0);
             this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
@@ -122,7 +122,7 @@
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(310, 292);
+            this.monthView1.Size = new System.Drawing.Size(606, 136);
             this.monthView1.TabIndex = 1;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
@@ -157,7 +157,7 @@
         calendarHighlightRange5};
             this.calendar1.Location = new System.Drawing.Point(0, 0);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(310, 301);
+            this.calendar1.Size = new System.Drawing.Size(606, 457);
             this.calendar1.TabIndex = 0;
             this.calendar1.Text = "calendar1";
             // 
