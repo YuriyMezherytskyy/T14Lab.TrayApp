@@ -457,7 +457,7 @@ namespace System.Windows.Forms.Calendar
         /// <returns></returns>
         public GraphicsPath ItemRectangle(CalendarRendererItemBoundsEventArgs evtData, Rectangle bounds)
         {
-            int pointerPadding = 5;
+            int pointerPadding = 0;
             
 
             if ((evtData.Item.Bounds.Top != evtData.Item.MinuteStartTop ||
@@ -541,7 +541,7 @@ namespace System.Windows.Forms.Calendar
 
             using (GraphicsPath r = ItemRectangle(e, bounds))
             {
-                using (LinearGradientBrush b = new LinearGradientBrush(bounds, north, south, 90))
+                using (LinearGradientBrush b = new LinearGradientBrush(bounds, south, south, 90))
                 {
                     e.Graphics.FillPath(b, r);
                 }

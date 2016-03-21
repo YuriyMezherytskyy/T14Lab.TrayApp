@@ -301,7 +301,7 @@ namespace System.Windows.Forms.Calendar
             Color b = e.Item.Selected && !e.Item.IsDragging ? ColorTable.ItemSelectedBorder : a;
             Color c = Color.FromArgb(e.Item.IsDragging ? 120 : 255, b);
 
-            ItemBorder(e, e.Bounds, c, e.Item.Selected && !e.Item.IsDragging ? SelectedItemBorder : 1f);
+            ItemBorder(e, e.Bounds, a, e.Item.Selected && !e.Item.IsDragging ? SelectedItemBorder : 1f);
             
         }
 

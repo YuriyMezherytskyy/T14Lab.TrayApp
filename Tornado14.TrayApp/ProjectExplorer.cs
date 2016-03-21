@@ -149,6 +149,8 @@ namespace Tornado14.TrayApp
             StreamWriter sprintsXMLFile = new StreamWriter(sprintXMLFilePath);
             sprintsXMLFile.WriteLine(XmlSerializationHelper.Serialize(sprintBindingSource.List));
             sprintsXMLFile.Close();
+
+            taskPlanningPanel1.SaveCalendars();
         }
 
         private void SetBlackTheme()

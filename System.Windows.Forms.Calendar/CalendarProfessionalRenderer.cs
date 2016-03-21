@@ -33,44 +33,44 @@ namespace System.Windows.Forms.Calendar
             ColorTable.DayBackgroundEven = FromHex("#252526");//Dark1
             ColorTable.DayBackgroundOdd = FromHex("#1e1e1e");//Dark0
 
-            ColorTable.DayBackgroundSelected = Color.Red;
-            ColorTable.DayBorder = FromHex("#2b655a"); //Green
+            ColorTable.DayBackgroundSelected = FromHex("#252526");
+            ColorTable.DayBorder = FromHex("#646464"); //Green 2b655a
             ColorTable.DayHeaderBackground = Color.Blue;
             ColorTable.DayHeaderText = Color.Red;
             ColorTable.DayHeaderSecondaryText = Color.Pink;
-            ColorTable.DayTopBorder = FromHex("#2b655a"); //Green
+            ColorTable.DayTopBorder = FromHex("#646464"); //Green 2b655a
             ColorTable.DayTopSelectedBorder = Color.Purple;
             ColorTable.DayTopBackground = FromHex("#252526");//Dark1
             ColorTable.DayTopSelectedBackground = FromHex("#294C7A");
 
-            ColorTable.ItemBorder = Color.Pink;
+            ColorTable.ItemBorder = Color.Black;
             
             ColorTable.ItemBackground = Color.YellowGreen;
             ColorTable.ItemText = Color.White;
             ColorTable.ItemSecondaryText = Color.White;
             ColorTable.ItemSelectedBorder = Color.Black;
-            ColorTable.ItemSelectedBackground = FromHex("#C0D3EA");
+            ColorTable.ItemSelectedBackground = FromHex("#3399ff");//Selected Blue
             ColorTable.ItemSelectedText = Color.White;
 
             ColorTable.WeekHeaderBackground = FromHex("#1e1e1e");//Dark0
-            ColorTable.WeekHeaderBorder = FromHex("#2b655a");//Green
-            ColorTable.WeekHeaderText = FromHex("#2b655a");//Green
+            ColorTable.WeekHeaderBorder = FromHex("#646464");//Green 2b655a
+            ColorTable.WeekHeaderText = FromHex("#646464");//Green 2b655a
 
-            ColorTable.TodayBorder = FromHex("#2b655a");//Green
+            ColorTable.TodayBorder = FromHex("#3399ff");// Selected Blue
             ColorTable.TodayTopBackground = Color.Green;
 
-            ColorTable.TimeScaleLine = FromHex("#2b655a");// Green
+            ColorTable.TimeScaleLine = FromHex("#646464");// Green 2b655a
             ColorTable.TimeScaleHours = Color.White;//
             ColorTable.TimeScaleMinutes = Color.White;//
             ColorTable.TimeUnitBackground = FromHex("#1e1e1e");//Dark0
             ColorTable.TimeUnitHighlightedBackground = FromHex("#2a2a2a");//
-            ColorTable.TimeUnitSelectedBackground = FromHex("#2b655a");//Green
+            ColorTable.TimeUnitSelectedBackground = FromHex("#646464");//Green 2b655a
             ColorTable.TimeUnitBorderLight = FromHex("#1a1a1b");//Dark2
             ColorTable.TimeUnitBorderDark = FromHex("#252526");//Dark1
-            ColorTable.WeekDayName = FromHex("#2b655a");//Green
+            ColorTable.WeekDayName = FromHex("#646464");//Green 2b655a
 
-            SelectedItemBorder = 2f;
-            ItemRoundness = 5;
+            SelectedItemBorder = 1f;
+            ItemRoundness = 0;
         }
 
         #endregion
@@ -140,7 +140,7 @@ namespace System.Windows.Forms.Calendar
         {
             base.OnDrawItemBorder(e);
 
-            using (Pen p = new Pen(Color.FromArgb(150, Color.White)))
+            using (Pen p = new Pen(Color.Transparent))
             {
                 e.Graphics.DrawLine(p, e.Bounds.Left + ItemRoundness, e.Bounds.Top + 1, e.Bounds.Right - ItemRoundness, e.Bounds.Top + 1); 
             }
@@ -175,13 +175,13 @@ namespace System.Windows.Forms.Calendar
                 {
                     if (!e.Item.IsOpenStart && e.IsFirst)
                     {
-                        e.Graphics.FillRectangle(Brushes.White, r1);
+                        e.Graphics.FillRectangle(Brushes.Black, r1);
                         e.Graphics.DrawRectangle(Pens.Black, r1);
                     }
 
                     if (!e.Item.IsOpenEnd && e.IsLast)
                     {
-                        e.Graphics.FillRectangle(Brushes.White, r2);
+                        e.Graphics.FillRectangle(Brushes.Black, r2);
                         e.Graphics.DrawRectangle(Pens.Black, r2);
                     }
                 } 

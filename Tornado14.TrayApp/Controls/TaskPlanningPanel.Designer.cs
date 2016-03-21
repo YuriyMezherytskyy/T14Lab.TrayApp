@@ -130,24 +130,23 @@
             this.splitContainer3.Panel2.Controls.Add(this.label1);
             this.splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer3.Size = new System.Drawing.Size(606, 241);
+            this.splitContainer3.SplitterDistance = 120;
             this.splitContainer3.TabIndex = 5;
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.ColumnWidth = 300;
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBox1.ForeColor = System.Drawing.Color.White;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Plan A",
-            "Plan B",
-            "TimeBooking"});
             this.checkedListBox1.Location = new System.Drawing.Point(5, 26);
             this.checkedListBox1.MultiColumn = true;
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(594, 17);
+            this.checkedListBox1.Size = new System.Drawing.Size(594, 87);
             this.checkedListBox1.TabIndex = 6;
+            this.checkedListBox1.SelectedValueChanged += new System.EventHandler(this.checkedListBox1_SelectedValueChanged);
             // 
             // label3
             // 
@@ -180,7 +179,7 @@
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(594, 154);
+            this.monthView1.Size = new System.Drawing.Size(594, 84);
             this.monthView1.TabIndex = 1;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
@@ -231,6 +230,11 @@
             this.calendar1.Size = new System.Drawing.Size(594, 351);
             this.calendar1.TabIndex = 0;
             this.calendar1.Text = "calendar1";
+            this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
+            this.calendar1.ItemDeleted += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDeleted);
+            this.calendar1.ItemTextEdited += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemTextEdited);
+            this.calendar1.ItemDatesChanged += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDatesChanged);
+            this.calendar1.ItemsPositioned += new System.EventHandler(this.calendar1_ItemsPositioned);
             // 
             // label2
             // 

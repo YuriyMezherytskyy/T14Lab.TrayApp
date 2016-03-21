@@ -350,6 +350,7 @@
     <None Include="Properties\DataSources\Solutronic.Task.Todo.datasource" />
     <None Include="Properties\DataSources\Solutronic.TrayApp.Controls.CommitInfo.datasource" />
     <None Include="Properties\DataSources\Tornado14.Task.Checklist.datasource" />
+    <None Include="Properties\DataSources\Tornado14.Task.TodoCalendarPosition.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

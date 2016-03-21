@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TodoCalendarPosition.cs" />
     <Compile Include="ChecklistFile.cs" />
     <Compile Include="ChecklistItem.cs" />
     <Compile Include="Funktion.cs" />

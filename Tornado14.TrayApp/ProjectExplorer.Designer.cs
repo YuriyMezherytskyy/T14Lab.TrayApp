@@ -43,7 +43,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.TaskPlanningPanel();
             this.projectGridPanel1 = new Tornado14.TrayApp.Controls.ProjectGridPanel();
             this.sprintGridPanel1 = new Tornado14.TrayApp.Controls.SprintGridPanel();
             this.tasksGridPanel1 = new Tornado14.TrayApp.Controls.TasksGridPanel();
@@ -51,6 +50,7 @@
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.TaskPlanningPanel();
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -115,8 +115,8 @@
             this.toolStripButtonTimePlanning.Margin = new System.Windows.Forms.Padding(0, 1, 30, 2);
             this.toolStripButtonTimePlanning.Name = "toolStripButtonTimePlanning";
             this.toolStripButtonTimePlanning.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.toolStripButtonTimePlanning.Size = new System.Drawing.Size(45, 63);
-            this.toolStripButtonTimePlanning.Text = "Plan A";
+            this.toolStripButtonTimePlanning.Size = new System.Drawing.Size(36, 63);
+            this.toolStripButtonTimePlanning.Text = "Plan";
             this.toolStripButtonTimePlanning.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonTimePlanning.Click += new System.EventHandler(this.toolStripButtonTimePlanning_Click);
             // 
@@ -242,18 +242,6 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // taskPlanningPanel1
-            // 
-            this.taskPlanningPanel1.DataFilePath = null;
-            this.taskPlanningPanel1.HasChanges = false;
-            this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
-            this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.taskPlanningPanel1.Name = "taskPlanningPanel1";
-            this.taskPlanningPanel1.parentPanel = null;
-            this.taskPlanningPanel1.Size = new System.Drawing.Size(91, 413);
-            this.taskPlanningPanel1.TabIndex = 12;
-            this.taskPlanningPanel1.ToolStripButtonSave = null;
-            // 
             // projectGridPanel1
             // 
             this.projectGridPanel1.DataFilePath = null;
@@ -264,6 +252,7 @@
             this.projectGridPanel1.parentPanel = null;
             this.projectGridPanel1.Size = new System.Drawing.Size(78, 413);
             this.projectGridPanel1.TabIndex = 3;
+            this.projectGridPanel1.ToolStripButtonSave = null;
             // 
             // sprintGridPanel1
             // 
@@ -275,6 +264,7 @@
             this.sprintGridPanel1.parentPanel = null;
             this.sprintGridPanel1.Size = new System.Drawing.Size(69, 413);
             this.sprintGridPanel1.TabIndex = 2;
+            this.sprintGridPanel1.ToolStripButtonSave = null;
             // 
             // tasksGridPanel1
             // 
@@ -286,6 +276,7 @@
             this.tasksGridPanel1.parentPanel = null;
             this.tasksGridPanel1.Size = new System.Drawing.Size(83, 413);
             this.tasksGridPanel1.TabIndex = 1;
+            this.tasksGridPanel1.ToolStripButtonSave = null;
             // 
             // sprintKanbanPanel1
             // 
@@ -297,6 +288,7 @@
             this.sprintKanbanPanel1.parentPanel = null;
             this.sprintKanbanPanel1.Size = new System.Drawing.Size(82, 413);
             this.sprintKanbanPanel1.TabIndex = 0;
+            this.sprintKanbanPanel1.ToolStripButtonSave = null;
             // 
             // sprintBindingSource
             // 
@@ -309,6 +301,18 @@
             // todoBindingSource
             // 
             this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+            // 
+            // taskPlanningPanel1
+            // 
+            this.taskPlanningPanel1.DataFilePath = null;
+            this.taskPlanningPanel1.HasChanges = false;
+            this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
+            this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.taskPlanningPanel1.Name = "taskPlanningPanel1";
+            this.taskPlanningPanel1.parentPanel = null;
+            this.taskPlanningPanel1.Size = new System.Drawing.Size(123, 629);
+            this.taskPlanningPanel1.TabIndex = 12;
+            this.taskPlanningPanel1.ToolStripButtonSave = null;
             // 
             // ProjectExplorer
             // 
@@ -361,10 +365,10 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripButton toolStripButtonTimePlanning;
-        private Controls.TaskPlanningPanel taskPlanningPanel1;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.BindingSource sprintBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource todoBindingSource;
+        private Controls.TaskPlanningPanel taskPlanningPanel1;
     }
 }
