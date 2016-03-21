@@ -35,18 +35,21 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panelColumn1 = new System.Windows.Forms.Panel();
             this.labelColumn1 = new System.Windows.Forms.Label();
-            this.panelColumn2 = new System.Windows.Forms.Panel();
+            this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
             this.labelColumn2 = new System.Windows.Forms.Label();
-            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTodos = new System.Windows.Forms.DataGridView();
-            this.PublicTextFilled = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filesFolderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AdditionalField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filterShortDescription = new Tornado14.TrayApp.Controls.TextBoxFilter();
             this.filterStatus = new Tornado14.TrayApp.Controls.ComboBoxFilter();
             this.filterSprint = new Tornado14.TrayApp.Controls.ComboBoxFilter();
@@ -61,9 +64,9 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.panelColumn2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
+            this.panelColumnAvailableFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // projectBindingSource
@@ -111,7 +114,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.panelColumn2);
+            this.splitContainer2.Panel2.Controls.Add(this.panelColumnAvailableFilter);
             this.splitContainer2.Panel2.Controls.Add(this.labelColumn2);
             this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer2.Size = new System.Drawing.Size(353, 674);
@@ -144,23 +147,23 @@
             this.labelColumn1.TabIndex = 2;
             this.labelColumn1.Text = "Active Filter";
             // 
-            // panelColumn2
+            // panelColumnAvailableFilter
             // 
-            this.panelColumn2.AllowDrop = true;
-            this.panelColumn2.AutoScroll = true;
-            this.panelColumn2.Controls.Add(this.filterShortDescription);
-            this.panelColumn2.Controls.Add(this.filterStatus);
-            this.panelColumn2.Controls.Add(this.filterSprint);
-            this.panelColumn2.Controls.Add(this.filterProject);
-            this.panelColumn2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelColumn2.Location = new System.Drawing.Point(5, 26);
-            this.panelColumn2.Margin = new System.Windows.Forms.Padding(2);
-            this.panelColumn2.Name = "panelColumn2";
-            this.panelColumn2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn2.Size = new System.Drawing.Size(341, 316);
-            this.panelColumn2.TabIndex = 4;
-            this.panelColumn2.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
-            this.panelColumn2.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
+            this.panelColumnAvailableFilter.AllowDrop = true;
+            this.panelColumnAvailableFilter.AutoScroll = true;
+            this.panelColumnAvailableFilter.Controls.Add(this.filterShortDescription);
+            this.panelColumnAvailableFilter.Controls.Add(this.filterStatus);
+            this.panelColumnAvailableFilter.Controls.Add(this.filterSprint);
+            this.panelColumnAvailableFilter.Controls.Add(this.filterProject);
+            this.panelColumnAvailableFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelColumnAvailableFilter.Location = new System.Drawing.Point(5, 26);
+            this.panelColumnAvailableFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.panelColumnAvailableFilter.Name = "panelColumnAvailableFilter";
+            this.panelColumnAvailableFilter.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
+            this.panelColumnAvailableFilter.Size = new System.Drawing.Size(341, 316);
+            this.panelColumnAvailableFilter.TabIndex = 4;
+            this.panelColumnAvailableFilter.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
+            this.panelColumnAvailableFilter.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
             // 
             // labelColumn2
             // 
@@ -174,9 +177,29 @@
             this.labelColumn2.TabIndex = 3;
             this.labelColumn2.Text = "Available filter";
             // 
-            // sprintBindingSource
+            // dataGridViewTodos
             // 
-            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
+            this.dataGridViewTodos.AutoGenerateColumns = false;
+            this.dataGridViewTodos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTodos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.shortDescriptionDataGridViewTextBoxColumn,
+            this.projectPidDataGridViewTextBoxColumn,
+            this.AdditionalField1,
+            this.AdditionalField2,
+            this.AdditionalField3,
+            this.AdditionalField4,
+            this.AdditionalField5,
+            this.statusDataGridViewTextBoxColumn,
+            this.pIdDataGridViewTextBoxColumn});
+            this.dataGridViewTodos.DataSource = this.todoBindingSource;
+            this.dataGridViewTodos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTodos.Location = new System.Drawing.Point(5, 26);
+            this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewTodos.Name = "dataGridViewTodos";
+            this.dataGridViewTodos.RowTemplate.Height = 24;
+            this.dataGridViewTodos.Size = new System.Drawing.Size(690, 641);
+            this.dataGridViewTodos.TabIndex = 1;
             // 
             // label1
             // 
@@ -190,56 +213,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Filtered data";
             // 
-            // dataGridViewTodos
+            // sprintBindingSource
             // 
-            this.dataGridViewTodos.AutoGenerateColumns = false;
-            this.dataGridViewTodos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTodos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.shortDescriptionDataGridViewTextBoxColumn,
-            this.projectPidDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.filesFolderDataGridViewTextBoxColumn,
-            this.pIdDataGridViewTextBoxColumn,
-            this.PublicTextFilled});
-            this.dataGridViewTodos.DataSource = this.todoBindingSource;
-            this.dataGridViewTodos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTodos.Location = new System.Drawing.Point(5, 26);
-            this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridViewTodos.Name = "dataGridViewTodos";
-            this.dataGridViewTodos.RowTemplate.Height = 24;
-            this.dataGridViewTodos.Size = new System.Drawing.Size(690, 641);
-            this.dataGridViewTodos.TabIndex = 1;
+            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
             // 
-            // PublicTextFilled
+            // idDataGridViewTextBoxColumn
             // 
-            this.PublicTextFilled.DataPropertyName = "PublicTextFilled";
-            this.PublicTextFilled.HeaderText = "PublicTextFilled";
-            this.PublicTextFilled.Name = "PublicTextFilled";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             // 
-            // pIdDataGridViewTextBoxColumn
+            // shortDescriptionDataGridViewTextBoxColumn
             // 
-            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
-            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
-            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
-            this.pIdDataGridViewTextBoxColumn.Visible = false;
-            this.pIdDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // filesFolderDataGridViewTextBoxColumn
-            // 
-            this.filesFolderDataGridViewTextBoxColumn.DataPropertyName = "FilesFolder";
-            this.filesFolderDataGridViewTextBoxColumn.HeaderText = "FilesFolder";
-            this.filesFolderDataGridViewTextBoxColumn.Name = "filesFolderDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.statusDataGridViewTextBoxColumn.Width = 130;
+            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
+            this.shortDescriptionDataGridViewTextBoxColumn.Width = 300;
             // 
             // projectPidDataGridViewTextBoxColumn
             // 
@@ -254,18 +243,53 @@
             this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
             this.projectPidDataGridViewTextBoxColumn.Width = 300;
             // 
-            // shortDescriptionDataGridViewTextBoxColumn
+            // AdditionalField1
             // 
-            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-            this.shortDescriptionDataGridViewTextBoxColumn.Width = 300;
+            this.AdditionalField1.DataPropertyName = "AdditionalField1";
+            this.AdditionalField1.HeaderText = "AdditionalField1";
+            this.AdditionalField1.Name = "AdditionalField1";
             // 
-            // idDataGridViewTextBoxColumn
+            // AdditionalField2
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.AdditionalField2.DataPropertyName = "AdditionalField2";
+            this.AdditionalField2.HeaderText = "AdditionalField2";
+            this.AdditionalField2.Name = "AdditionalField2";
+            // 
+            // AdditionalField3
+            // 
+            this.AdditionalField3.DataPropertyName = "AdditionalField3";
+            this.AdditionalField3.HeaderText = "AdditionalField3";
+            this.AdditionalField3.Name = "AdditionalField3";
+            // 
+            // AdditionalField4
+            // 
+            this.AdditionalField4.DataPropertyName = "AdditionalField4";
+            this.AdditionalField4.HeaderText = "AdditionalField4";
+            this.AdditionalField4.Name = "AdditionalField4";
+            // 
+            // AdditionalField5
+            // 
+            this.AdditionalField5.DataPropertyName = "AdditionalField5";
+            this.AdditionalField5.HeaderText = "AdditionalField5";
+            this.AdditionalField5.Name = "AdditionalField5";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.statusDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // pIdDataGridViewTextBoxColumn
+            // 
+            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
+            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
+            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
+            this.pIdDataGridViewTextBoxColumn.Visible = false;
+            this.pIdDataGridViewTextBoxColumn.Width = 130;
             // 
             // filterShortDescription
             // 
@@ -335,9 +359,9 @@
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.panelColumn2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
+            this.panelColumnAvailableFilter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,20 +375,23 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panelColumn1;
         private System.Windows.Forms.Label labelColumn1;
-        private System.Windows.Forms.Panel panelColumn2;
+        private System.Windows.Forms.Panel panelColumnAvailableFilter;
         private System.Windows.Forms.Label labelColumn2;
         private ComboBoxFilter filterProject;
         private ComboBoxFilter filterSprint;
         private ComboBoxFilter filterStatus;
         private TextBoxFilter filterShortDescription;
         private System.Windows.Forms.DataGridView dataGridViewTodos;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shortDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn projectPidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField5;
         private System.Windows.Forms.DataGridViewComboBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn filesFolderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PublicTextFilled;
-        private System.Windows.Forms.Label label1;
     }
 }

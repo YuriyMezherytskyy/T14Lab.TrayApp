@@ -23,6 +23,12 @@ namespace Tornado14.TrayApp.Controls
 
             }
         }
+        public void SetTodoBindingSource(object todoBindingSource)
+        {
+            TodoBindingSource.DataSource = todoBindingSource;
+            AddStandardFilters();
+            AddAdditionalFieldsFilters();
+        }
         public BindingSource TodoBindingSource
         {
             get
@@ -76,6 +82,14 @@ namespace Tornado14.TrayApp.Controls
             col.ValueType = typeof(Status);
 
 
+
+        
+
+        }
+
+        private void AddStandardFilters()
+        {
+
             Dictionary<int, Color> colorPool = new Dictionary<int, Color>();
             colorPool.Add(0, BlackTheme.mBlueDark2);
             colorPool.Add(1, BlackTheme.mGrayDark2);
@@ -92,14 +106,14 @@ namespace Tornado14.TrayApp.Controls
             colorPool.Add(12, BlackTheme.mBlue1);
 
             filterStatus.label.Text = "Status";
-            filterStatus.Height = 45;
+            filterStatus.Height = 60;
             filterStatus.ComboBox.DataSource = Enum.GetValues(typeof(Status));
             filterStatus.TaskColor = colorPool[0];
             filterStatus.BackColor = colorPool[0];
             filterStatus.label.ForeColor = Color.White;
             filterStatus.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
 
-            filterSprint.Height = 45;
+            filterSprint.Height = 60;
             filterSprint.label.Text = "Sprint";
             filterSprint.ComboBox.DataSource = sprintBindingSource;
             filterSprint.ComboBox.DisplayMember = "Summary";
@@ -107,7 +121,7 @@ namespace Tornado14.TrayApp.Controls
             filterSprint.BackColor = colorPool[3];
             filterSprint.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
 
-            filterProject.Height = 45;
+            filterProject.Height = 60;
             filterProject.label.Text = "Project";
             filterProject.ComboBox.DataSource = projectBindingSource;
             filterProject.ComboBox.DisplayMember = "ShortDescription";
@@ -116,13 +130,95 @@ namespace Tornado14.TrayApp.Controls
             filterProject.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
 
 
-            filterShortDescription.Height = 45;
+            filterShortDescription.Height = 60;
             filterShortDescription.label.Text = "Short Description";
             filterShortDescription.TaskColor = colorPool[4];
             filterShortDescription.BackColor = colorPool[4];
             filterShortDescription.TextBox.TextChanged += FilterTextBoxTextChanged;
 
+        }
 
+        private ComboBoxFilter CreateAdditionalFilter(string name)
+        {
+            SortableBindingList<string> allAdditionalFieldValues = new SortableBindingList<string>();
+            ComboBoxFilter additionalFieldFilter = new ComboBoxFilter();
+            additionalFieldFilter.label.Text = name;
+            additionalFieldFilter.Dock = DockStyle.Top;
+            additionalFieldFilter.Height = 45;
+            additionalFieldFilter.TaskColor = BlackTheme.BlueLight;
+            additionalFieldFilter.BackColor = BlackTheme.BlueLight;
+            additionalFieldFilter.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
+            return additionalFieldFilter;
+        }
+
+        private void AddAdditionalFieldsFilters()
+        {
+            AdditionalField1.HeaderText = "Customer";
+            AdditionalField2.HeaderText = "Work Art";
+            AdditionalField3.HeaderText = "Keyword";
+            AdditionalField4.HeaderText = "Comment";
+            AdditionalField5.Visible = false;
+
+            ComboBoxFilter additionalField1Filter = CreateAdditionalFilter("Customer");
+            ComboBoxFilter additionalField2Filter = CreateAdditionalFilter("Work Art");
+            ComboBoxFilter additionalField3Filter = CreateAdditionalFilter("Keyword");
+            ComboBoxFilter additionalField4Filter = CreateAdditionalFilter("Comment");
+            //ComboBoxFilter additionalField5Filter = CreateAdditionalFilter("Field5");
+
+            SortableBindingList<string> allAdditionalField1Values = new SortableBindingList<string>();
+            SortableBindingList<string> allAdditionalField2Values = new SortableBindingList<string>();
+            SortableBindingList<string> allAdditionalField3Values = new SortableBindingList<string>();
+            SortableBindingList<string> allAdditionalField4Values = new SortableBindingList<string>();
+            SortableBindingList<string> allAdditionalField5Values = new SortableBindingList<string>();
+            SortableBindingList<Todo> allTodos = (SortableBindingList<Todo>)todoBindingSource.DataSource;
+            foreach (Todo todo in allTodos)
+            {
+                if (!allAdditionalField1Values.Contains(todo.AdditionalField1))
+                {
+                    if (todo.AdditionalField1 != null)
+                    {
+                        allAdditionalField1Values.Add(todo.AdditionalField1);
+                    }
+                }
+                if (!allAdditionalField2Values.Contains(todo.AdditionalField2))
+                {
+                    if (todo.AdditionalField2 != null)
+                    {
+                        allAdditionalField2Values.Add(todo.AdditionalField2);
+                    }
+                }
+                if (!allAdditionalField3Values.Contains(todo.AdditionalField3))
+                {
+                    if (todo.AdditionalField3 != null)
+                    {
+                        allAdditionalField3Values.Add(todo.AdditionalField3);
+                    }
+                }
+                if (!allAdditionalField4Values.Contains(todo.AdditionalField4))
+                {
+                    if (todo.AdditionalField4 != null)
+                    {
+                        allAdditionalField4Values.Add(todo.AdditionalField4);
+                    }
+                }
+                if (!allAdditionalField5Values.Contains(todo.AdditionalField5))
+                {
+                    if (todo.AdditionalField5 != null)
+                    {
+                        allAdditionalField5Values.Add(todo.AdditionalField5);
+                    }
+                }
+            }
+            additionalField1Filter.ComboBox.DataSource = allAdditionalField1Values;
+            additionalField2Filter.ComboBox.DataSource = allAdditionalField2Values;
+            additionalField3Filter.ComboBox.DataSource = allAdditionalField3Values;
+            additionalField4Filter.ComboBox.DataSource = allAdditionalField4Values;
+            //additionalField5Filter.ComboBox.DataSource = allAdditionalField5Values;
+            panelColumnAvailableFilter.Controls.Add(additionalField1Filter);
+            panelColumnAvailableFilter.Controls.Add(additionalField2Filter);
+            panelColumnAvailableFilter.Controls.Add(additionalField3Filter);
+            panelColumnAvailableFilter.Controls.Add(additionalField4Filter);
+            //panelColumnAvailableFilter.Controls.Add(additionalField5Filter);
         }
 
         private void FilterTextBoxTextChanged(object sender, EventArgs e)
@@ -161,6 +257,25 @@ namespace Tornado14.TrayApp.Controls
                         else if (comboBoxFilter.ComboBox.SelectedValue is Status)
                         {
                             filteredList = ProjectStatusFilter(filteredList, (Status)comboBoxFilter.ComboBox.SelectedItem);
+                        } else if (comboBoxFilter.ComboBox.SelectedValue is string)
+                        {
+                            switch(comboBoxFilter.label.Text)
+                            {
+                                case "Customer":
+                                    filteredList = AdditionalField1Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+                                    break;
+                                case "Work Art":
+                                    filteredList = AdditionalField2Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+                                    break;
+                                case "Keyword":
+                                    filteredList = AdditionalField3Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+                                    break;
+                                case "Comment":
+                                    filteredList = AdditionalField4Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                 } else if (filter is TextBoxFilter && filteredList != null)
@@ -197,6 +312,31 @@ namespace Tornado14.TrayApp.Controls
         {
             //Filter Global List
             return new SortableBindingList<Todo>(todoList.Where(t => t.Status == status));
+        }
+        private SortableBindingList<Todo>AdditionalField1Filter(SortableBindingList<Todo> todoList, string value)
+        {
+            //Filter Global List
+            return new SortableBindingList<Todo>(todoList.Where(t => t.AdditionalField1 == value));
+        }
+        private SortableBindingList<Todo> AdditionalField2Filter(SortableBindingList<Todo> todoList, string value)
+        {
+            //Filter Global List
+            return new SortableBindingList<Todo>(todoList.Where(t => t.AdditionalField2 == value));
+        }
+        private SortableBindingList<Todo> AdditionalField3Filter(SortableBindingList<Todo> todoList, string value)
+        {
+            //Filter Global List
+            return new SortableBindingList<Todo>(todoList.Where(t => t.AdditionalField3 == value));
+        }
+        private SortableBindingList<Todo> AdditionalField4Filter(SortableBindingList<Todo> todoList, string value)
+        {
+            //Filter Global List
+            return new SortableBindingList<Todo>(todoList.Where(t => t.AdditionalField4 == value));
+        }
+        private SortableBindingList<Todo> AdditionalField5Filter(SortableBindingList<Todo> todoList, string value)
+        {
+            //Filter Global List
+            return new SortableBindingList<Todo>(todoList.Where(t => t.AdditionalField5 == value));
         }
 
         private void todoBindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)

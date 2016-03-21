@@ -33,7 +33,7 @@ namespace Tornado14.TrayApp.Controls
         internal void TodoBindingSourceDataSource(object dataSource)
         {
             this.TodoBindingSource.DataSource = dataSource;
-            taskSearchPanel1.TodoBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetTodoBindingSource(dataSource);
         }
 
         public BindingSource SprintBindingSource
@@ -129,15 +129,19 @@ namespace Tornado14.TrayApp.Controls
 
         private TodoCalendarPosition AddCalendarItemToCalendar(CalendarItem currentItem)
         {
-            TodoCalendarPosition newTodoCalendarPosition = new TodoCalendarPosition()
+            TodoCalendarPosition newTodoCalendarPosition = null;
+            if (checkedListBox1.SelectedItem != null)
             {
-                pId = Guid.NewGuid(),
-                StartTime = currentItem.StartDate,
-                EndTime = currentItem.EndDate,
-                Text = currentItem.Text
-                //TodopId = ((TodoCalendarPosition)currentItem.Tag).TodopId,
-            };
-            calendars[(string)checkedListBox1.SelectedItem].Add(newTodoCalendarPosition);
+                newTodoCalendarPosition = new TodoCalendarPosition()
+                {
+                    pId = Guid.NewGuid(),
+                    StartTime = currentItem.StartDate,
+                    EndTime = currentItem.EndDate,
+                    Text = currentItem.Text
+                    //TodopId = ((TodoCalendarPosition)currentItem.Tag).TodopId,
+                };
+                calendars[(string)checkedListBox1.SelectedItem].Add(newTodoCalendarPosition);
+            }
             return newTodoCalendarPosition;
         }
 
@@ -166,12 +170,13 @@ namespace Tornado14.TrayApp.Controls
                     startTime = calendar1.ViewStart;
                     endTime = startTime.AddHours(2);
                 }
-
-                CalendarItem calendarItem = new CalendarItem(calendar1, startTime, endTime, selectedTodo.ShortDescription + DateTime.Now.ToString());
-                calendarItem.Tag = selectedTodo;
-                calendar1.Items.Add(calendarItem);
-                calendarItem.Tag = AddCalendarItemToCalendar(calendarItem);
-
+                if (checkedListBox1.SelectedItem != null)
+                {
+                    CalendarItem calendarItem = new CalendarItem(calendar1, startTime, endTime, selectedTodo.ShortDescription + DateTime.Now.ToString());
+                    calendarItem.Tag = selectedTodo;
+                    calendar1.Items.Add(calendarItem);
+                    calendarItem.Tag = AddCalendarItemToCalendar(calendarItem);
+                }
             }
         }
 
