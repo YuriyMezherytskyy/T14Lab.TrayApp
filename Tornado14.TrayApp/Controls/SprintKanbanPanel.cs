@@ -15,36 +15,19 @@ namespace Tornado14.TrayApp.Controls
 {
     public partial class SprintKanbanPanel : StandardGridPanel, IStandardPanel
     {
-
-        public BindingSource TodoBindingSource
+        internal void SetTodoBindingSource(object dataSource)
         {
-            get
-            {
-                return todoBindingSource;
-            }
-            set
-            {
-                todoBindingSource = value;
-            }
+            this.todoBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetTodoBindingSource(dataSource);
         }
 
-        public BindingSource SprintBindingSource
-        {
-            get
-            {
-                return sprintBindingSource;
-            }
-            set
-            {
-                sprintBindingSource = value;
 
-            }
-        }
-
-        internal void SprintBindingSourceDataSource(object dataSource)
+        internal void SetSprintBindingSource(object dataSource)
         {
-            this.SprintBindingSource.DataSource = dataSource;
-            foreach (Sprint sprint in SprintBindingSource.List)
+            this.sprintBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetSprintBindingSource(dataSource);
+
+            foreach (Sprint sprint in sprintBindingSource.List)
             {
                 DateTime now = DateTime.Now;
                 TimeSpan ts = new TimeSpan(0, 0, 0);
@@ -68,16 +51,11 @@ namespace Tornado14.TrayApp.Controls
             }
         }
 
-        public BindingSource ProjectBindingSource
+        internal void SetProjectBindingSource(object dataSource)
         {
-            get
-            {
-                return projectBindingSource;
-            }
-            set
-            {
-                projectBindingSource = value;
-            }
+            this.projectBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetProjectBindingSource(dataSource);
+            
         }
 
         public SprintKanbanPanel()
@@ -88,12 +66,7 @@ namespace Tornado14.TrayApp.Controls
             //col1.DataSource = projectBindingSource;
             //col1.ValueType = typeof(Project);
 
-            DataGridViewComboBoxColumn col2 = (DataGridViewComboBoxColumn)dataGridViewKanbanTasks.Columns[statusDataGridViewTextBoxColumn.Name];
-            col2.DataSource = Enum.GetValues(typeof(Status));
-            col2.ValueType = typeof(Status);
-
-
-            this.comboBoxProject.DataSource = projectBindingSource;
+            taskSearchPanel1.Grid.CellClick += dataGridViewKanbanTasks_CellClick;
 
 
             ApplyTheme();
@@ -129,10 +102,8 @@ namespace Tornado14.TrayApp.Controls
             labelColumn4.Text = Status.Test.ToString();
             labelColumn5.Text = Status.Done.ToString();
 
-            labelAllTasks.ForeColor = BlackTheme.ColorTextNotifyBlue;
 
             buttonKanBanTasksSeparator.BackColor = BlackTheme.ColorLightGray2;
-            label2.ForeColor = BlackTheme.ColorText;
             label4.ForeColor = BlackTheme.ColorText;
 
             splitter1.BackColor = BlackTheme.ColorDarkGray2;
@@ -211,8 +182,8 @@ namespace Tornado14.TrayApp.Controls
                 Point p = _destination.PointToClient(new Point(e.X, e.Y));
                 var item = _destination.GetChildAtPoint(p);
                 int index = _destination.Controls.GetChildIndex(item, false);
-   
-                    list.Add(((index * 10)) - 5, data);
+
+                list.Add(((index * 10)) - 5, data);
 
                 _destination.Invalidate();
                 _source.Invalidate();
@@ -266,8 +237,8 @@ namespace Tornado14.TrayApp.Controls
                 {
                     Todo todo = (Todo)task.First();
                     todo.Status = (Status)_destination.Tag;
-                    dataGridViewKanbanTasks.DataSource = new object();
-                    dataGridViewKanbanTasks.DataSource = todoBindingSource;
+                    //dataGridViewKanbanTasks.DataSource = new object();
+                    //dataGridViewKanbanTasks.DataSource = todoBindingSource;
                 }
             }
             HasChanges = true;
@@ -305,7 +276,7 @@ namespace Tornado14.TrayApp.Controls
 
         private void dataGridViewKanbanTasks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            object boundItem = dataGridViewKanbanTasks.Rows[e.RowIndex].DataBoundItem;
+            object boundItem = taskSearchPanel1.Grid.Rows[e.RowIndex].DataBoundItem;
             if (boundItem != null && boundItem.GetType() == typeof(Todo))
             {
 
@@ -449,7 +420,7 @@ namespace Tornado14.TrayApp.Controls
                             var projectResult = from project in projects
                                                 where project.pId == kanbanItem.Task.ProjectPid
                                                 select project;
-                            
+
                             if (projectResult.Count() > 0)
                             {
                                 kanbanItem.Project = (Project)projectResult.First();
@@ -543,7 +514,7 @@ namespace Tornado14.TrayApp.Controls
             {
                 end = "s";
             }
-            button3.Text = string.Format("Paste {0} Task{1}", todoList.Count,end);
+            button3.Text = string.Format("Paste {0} Task{1}", todoList.Count, end);
         }
 
         private void button3_Click(object sender, EventArgs e)

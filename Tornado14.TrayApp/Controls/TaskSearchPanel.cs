@@ -41,34 +41,17 @@ namespace Tornado14.TrayApp.Controls
             }
         }
 
-        public BindingSource SprintBindingSource
-        {
-            get
-            {
-                return sprintBindingSource;
-            }
-            set
-            {
-                sprintBindingSource = value;
 
-            }
+        internal void SetSprintBindingSource(object dataSource)
+        {
+            this.sprintBindingSource.DataSource = dataSource;
         }
 
-        internal void SprintBindingSourceDataSource(object dataSource)
+        internal void SetProjectBindingSource(object dataSource)
         {
-            this.SprintBindingSource.DataSource = dataSource;
-        }
-
-        public BindingSource ProjectBindingSource
-        {
-            get
-            {
-                return projectBindingSource;
-            }
-            set
-            {
-                projectBindingSource = value;
-            }
+            this.projectBindingSource.DataSource = dataSource;
+            projectPidDataGridViewTextBoxColumn.DataSource = dataSource;
+            projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
         }
 
 
@@ -158,6 +141,7 @@ namespace Tornado14.TrayApp.Controls
             AdditionalField3.HeaderText = "Keyword";
             AdditionalField4.HeaderText = "Comment";
             AdditionalField5.Visible = false;
+
 
             ComboBoxFilter additionalField1Filter = CreateAdditionalFilter("Customer");
             ComboBoxFilter additionalField2Filter = CreateAdditionalFilter("Work Art");
@@ -283,7 +267,10 @@ namespace Tornado14.TrayApp.Controls
                     filteredList = ProjectShortDescriptionFilter(filteredList, ((TextBoxFilter)filter).TextBox.Text);
                 }
             }
-            dataGridViewTodos.DataSource = filteredList;
+            if (filteredList != null)
+            {
+                dataGridViewTodos.DataSource = filteredList;
+            }
         }
 
         private SortableBindingList<Todo> SprintFilter(SortableBindingList<Todo> todoList, Sprint sprint) {
@@ -366,7 +353,7 @@ namespace Tornado14.TrayApp.Controls
 
         private void comboBoxProject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SortableBindingList<Sprint> allSprints = (SortableBindingList<Sprint>)SprintBindingSource.DataSource;
+            SortableBindingList<Sprint> allSprints = (SortableBindingList<Sprint>)sprintBindingSource.DataSource;
             ComboBox selectedSprint = (ComboBox)sender;
             Sprint sprint = allSprints.Where(s => s.pId == (Guid)selectedSprint.SelectedValue).Single();
             List<Guid> sprintTasks = new List<Guid>();

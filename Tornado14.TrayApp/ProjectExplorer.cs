@@ -86,9 +86,9 @@ namespace Tornado14.TrayApp
 
             tasksGridPanel1.ProjectBindingSource.DataSource = projectGridPanel1.ProjectBindingSource.DataSource;
 
-            sprintKanbanPanel1.ProjectBindingSource.DataSource = projectGridPanel1.ProjectBindingSource.DataSource;
-            sprintKanbanPanel1.TodoBindingSource.DataSource = tasksGridPanel1.TodoBindingSource.DataSource;
-            sprintKanbanPanel1.SprintBindingSourceDataSource(sprintGridPanel1.SprintBindingSource.DataSource);
+            sprintKanbanPanel1.SetProjectBindingSource(projectGridPanel1.ProjectBindingSource.DataSource);
+            sprintKanbanPanel1.SetTodoBindingSource(tasksGridPanel1.TodoBindingSource.DataSource);
+            sprintKanbanPanel1.SetSprintBindingSource(sprintGridPanel1.SprintBindingSource.DataSource);
 
             taskPlanningPanel1.ProjectBindingSourceDataSource(projectGridPanel1.ProjectBindingSource.DataSource);
             taskPlanningPanel1.SprintBindingSourceDataSource(sprintGridPanel1.SprintBindingSource.DataSource);

@@ -52,7 +52,7 @@ namespace Tornado14.TrayApp.Controls
         internal void SprintBindingSourceDataSource(object dataSource)
         {
             this.SprintBindingSource.DataSource = dataSource;
-            taskSearchPanel1.SprintBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetSprintBindingSource(dataSource);
         }
 
         public BindingSource ProjectBindingSource
@@ -70,7 +70,7 @@ namespace Tornado14.TrayApp.Controls
         internal void ProjectBindingSourceDataSource(object dataSource)
         {
             this.ProjectBindingSource.DataSource = dataSource;
-            taskSearchPanel1.ProjectBindingSource.DataSource = dataSource;
+            taskSearchPanel1.SetProjectBindingSource(dataSource);
         }
         private Dictionary<string, SortableBindingList<TodoCalendarPosition>> calendars = new Dictionary<string, SortableBindingList<TodoCalendarPosition>>();
         DirectoryInfo dataFolder = new DirectoryInfo(Path.Combine(Settings.Default.DataFolder, @"ProjectExplorer\"));

@@ -33,17 +33,7 @@
             this.panelKanbanGray = new System.Windows.Forms.Panel();
             this.splitContainerKanban = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridViewKanbanTasks = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBoxProject = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelAllTasks = new System.Windows.Forms.Label();
+            this.taskSearchPanel1 = new Tornado14.TrayApp.Controls.TaskSearchPanel();
             this.buttonKanBanTasksSeparator = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -83,6 +73,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxCurrentSprint = new System.Windows.Forms.ComboBox();
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelKanban.SuspendLayout();
             this.panelKanbanGray.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerKanban)).BeginInit();
@@ -90,10 +82,6 @@
             this.splitContainerKanban.Panel2.SuspendLayout();
             this.splitContainerKanban.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKanbanTasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -102,6 +90,8 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelKanban
@@ -151,8 +141,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.dataGridViewKanbanTasks);
-            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.taskSearchPanel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
@@ -160,122 +149,13 @@
             this.panel5.Size = new System.Drawing.Size(265, 419);
             this.panel5.TabIndex = 3;
             // 
-            // dataGridViewKanbanTasks
+            // taskSearchPanel1
             // 
-            this.dataGridViewKanbanTasks.AutoGenerateColumns = false;
-            this.dataGridViewKanbanTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewKanbanTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.shortDescriptionDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.projectPidDataGridViewTextBoxColumn});
-            this.dataGridViewKanbanTasks.DataSource = this.todoBindingSource;
-            this.dataGridViewKanbanTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewKanbanTasks.Location = new System.Drawing.Point(0, 96);
-            this.dataGridViewKanbanTasks.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridViewKanbanTasks.Name = "dataGridViewKanbanTasks";
-            this.dataGridViewKanbanTasks.RowTemplate.Height = 45;
-            this.dataGridViewKanbanTasks.Size = new System.Drawing.Size(265, 323);
-            this.dataGridViewKanbanTasks.TabIndex = 1;
-            this.dataGridViewKanbanTasks.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKanbanTasks_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // shortDescriptionDataGridViewTextBoxColumn
-            // 
-            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-            this.shortDescriptionDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // projectPidDataGridViewTextBoxColumn
-            // 
-            this.projectPidDataGridViewTextBoxColumn.DataPropertyName = "ProjectPid";
-            this.projectPidDataGridViewTextBoxColumn.DataSource = this.projectBindingSource;
-            this.projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
-            this.projectPidDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.projectPidDataGridViewTextBoxColumn.HeaderText = "Project";
-            this.projectPidDataGridViewTextBoxColumn.Name = "projectPidDataGridViewTextBoxColumn";
-            this.projectPidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
-            this.projectPidDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
-            this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
-            this.projectBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.projectBindingSource_ListChanged);
-            // 
-            // todoBindingSource
-            // 
-            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
-            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
-            this.todoBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.todoBindingSource_ListChanged);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.comboBoxProject);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.labelAllTasks);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(265, 96);
-            this.panel7.TabIndex = 3;
-            // 
-            // comboBoxProject
-            // 
-            this.comboBoxProject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxProject.BackColor = System.Drawing.Color.White;
-            this.comboBoxProject.DataSource = this.projectBindingSource;
-            this.comboBoxProject.DisplayMember = "pId";
-            this.comboBoxProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxProject.FormattingEnabled = true;
-            this.comboBoxProject.IntegralHeight = false;
-            this.comboBoxProject.ItemHeight = 20;
-            this.comboBoxProject.Location = new System.Drawing.Point(80, 32);
-            this.comboBoxProject.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxProject.Name = "comboBoxProject";
-            this.comboBoxProject.Size = new System.Drawing.Size(202, 28);
-            this.comboBoxProject.TabIndex = 5;
-            this.comboBoxProject.ValueMember = "pId";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 40);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Project:";
-            // 
-            // labelAllTasks
-            // 
-            this.labelAllTasks.AutoSize = true;
-            this.labelAllTasks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAllTasks.Location = new System.Drawing.Point(4, 8);
-            this.labelAllTasks.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
-            this.labelAllTasks.Name = "labelAllTasks";
-            this.labelAllTasks.Size = new System.Drawing.Size(68, 21);
-            this.labelAllTasks.TabIndex = 2;
-            this.labelAllTasks.Text = "All Tasks";
+            this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskSearchPanel1.Location = new System.Drawing.Point(0, 0);
+            this.taskSearchPanel1.Name = "taskSearchPanel1";
+            this.taskSearchPanel1.Size = new System.Drawing.Size(265, 419);
+            this.taskSearchPanel1.TabIndex = 0;
             // 
             // buttonKanBanTasksSeparator
             // 
@@ -794,6 +674,18 @@
             this.sprintBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
             this.sprintBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.sprintBindingSource_ListChanged);
             // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
+            this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
+            this.projectBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.projectBindingSource_ListChanged);
+            // 
+            // todoBindingSource
+            // 
+            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.sprintBindingSource_BindingComplete);
+            this.todoBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.todoBindingSource_ListChanged);
+            // 
             // SprintKanbanPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,11 +701,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerKanban)).EndInit();
             this.splitContainerKanban.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKanbanTasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -828,6 +715,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -837,12 +726,6 @@
         private System.Windows.Forms.Panel panelKanban;
         private System.Windows.Forms.Panel panelKanbanGray;
         private System.Windows.Forms.SplitContainer splitContainerKanban;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridViewKanbanTasks;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox comboBoxProject;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelAllTasks;
         private System.Windows.Forms.Button buttonKanBanTasksSeparator;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panelColumn4;
@@ -862,10 +745,6 @@
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource sprintBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shortDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn projectPidDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button ShowKanban;
         private System.Windows.Forms.Label labelDaysLeft;
         private System.Windows.Forms.Panel panel8;
@@ -888,5 +767,7 @@
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Panel panel5;
+        private TaskSearchPanel taskSearchPanel1;
     }
 }
