@@ -30,34 +30,6 @@ namespace Tornado14.TrayApp.Controls
             set
             {
                 hasChanges = value;
-                if  (toolStripButtonSave != null)
-                {
-                    if (value)
-                    {
-                        toolStripButtonSave.ForeColor = BlackTheme.ColorRedLight;
-                        toolStripButtonSave.Image = Resources.Save_32_Red;
-                    }
-                    else
-                    {
-                        toolStripButtonSave.ForeColor = BlackTheme.ColorText;
-                        toolStripButtonSave.Image = Resources.Save_32_LightBlue;
-                    }
-                }
-            }
-        }
-
-        private ToolStripButton toolStripButtonSave;
-
-        public ToolStripButton ToolStripButtonSave
-        {
-            get { return toolStripButtonSave; }
-            set { 
-                toolStripButtonSave = value;
-                if (toolStripButtonSave != null)
-                {
-                    toolStripButtonSave.ForeColor = BlackTheme.ColorText;
-                    toolStripButtonSave.Image = Resources.Save_32_LightBlue;
-                }
             }
         }
 
