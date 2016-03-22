@@ -54,6 +54,9 @@
       this.panel2.Padding = new System.Windows.Forms.Padding(5);
       this.panel2.Size = new System.Drawing.Size(337, 58);
       this.panel2.TabIndex = 50;
+      this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseDown);
+      this.panel2.MouseLeave += new System.EventHandler(this.Filter_MouseLeave);
+      this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseMove);
       // 
       // textBox
       // 

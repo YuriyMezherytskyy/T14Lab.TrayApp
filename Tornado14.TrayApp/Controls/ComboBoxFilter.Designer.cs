@@ -45,10 +45,14 @@
       this.panel2.Padding = new System.Windows.Forms.Padding(5);
       this.panel2.Size = new System.Drawing.Size(337, 60);
       this.panel2.TabIndex = 13;
+      this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseDown);
+      this.panel2.MouseLeave += new System.EventHandler(this.Filter_MouseLeave);
+      this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseMove);
       // 
       // comboBoxProject
       // 
       this.comboBoxProject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+      this.comboBoxProject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
       this.comboBoxProject.BackColor = System.Drawing.Color.White;
       this.comboBoxProject.DisplayMember = "pId";
       this.comboBoxProject.Dock = System.Windows.Forms.DockStyle.Top;
@@ -94,8 +98,6 @@
       this.DoubleBuffered = true;
       this.Name = "ComboBoxFilter";
       this.Size = new System.Drawing.Size(337, 60);
-      this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseDown);
-      this.MouseLeave += new System.EventHandler(this.Filter_MouseLeave);
       this.Resize += new System.EventHandler(this.ComboBoxFilter_Resize);
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
