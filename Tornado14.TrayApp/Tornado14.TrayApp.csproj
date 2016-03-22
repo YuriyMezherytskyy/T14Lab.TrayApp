@@ -340,6 +340,7 @@
       <DependentUpon>TaskItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="deployment\DeployLocal.bat" />
     <None Include="icons\tornado14Logo.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

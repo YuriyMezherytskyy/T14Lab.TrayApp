@@ -155,6 +155,7 @@ namespace Tornado14.TrayApp.Controls
     {
       TaskItem data = (TaskItem)e.Data.GetData(typeof(TaskItem));
       Panel _destination = (Panel)sender;
+      VScrollProperties lastScrollPosition = _destination.VerticalScroll;
       Control _source = (Panel)data.Parent;
 
       SortedDictionary<int, Control> list = new SortedDictionary<int, Control>();
@@ -242,6 +243,7 @@ namespace Tornado14.TrayApp.Controls
         }
       }
       HasChanges = true;
+      _destination.ScrollControlIntoView(data);
     }
 
     void flowLayoutPanel_DragEnter(object sender, DragEventArgs e)
