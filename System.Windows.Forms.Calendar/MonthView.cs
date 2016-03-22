@@ -604,6 +604,7 @@ namespace System.Windows.Forms.Calendar
 
             if (!e.TextColor.IsEmpty && !string.IsNullOrEmpty(e.Text))
             {
+                e.TextColor = Color.White;
                 TextRenderer.DrawText(e.Graphics, e.Text, e.Font != null ? e.Font : Font, e.Bounds, e.TextColor, e.TextFlags);
             }
 

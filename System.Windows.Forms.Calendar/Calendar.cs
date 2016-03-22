@@ -252,7 +252,7 @@ namespace System.Windows.Forms.Calendar
 
 
             _itemsDateFormat = "dd/MMM";
-            _itemsTimeFormat = "hh:mm tt";
+            _itemsTimeFormat = "HH:mm";
             _allowItemEdit = true;
             _allowNew = true;
             _allowItemResize = true;
@@ -1263,51 +1263,52 @@ namespace System.Windows.Forms.Calendar
 
             if (span.Days < 1 || span.Days > MaximumViewDays)
             {
-                throw new Exception("Days between ViewStart and ViewEnd should be between 1 and MaximumViewDays");
+                //throw new Exception("Days between ViewStart and ViewEnd should be between 1 and MaximumViewDays");
             }
+            else {
 
-            if (span.Days > MaximumFullDays)
-            {
-                SetDaysMode(CalendarDaysMode.Short);
-                preDays = (new int[] { 0, 1, 2, 3, 4, 5, 6 })[(int)ViewStart.DayOfWeek] - (int)FirstDayOfWeek;
-                span = span.Add(new TimeSpan(preDays, 0, 0, 0));
-
-                while (span.Days % 7 != 0)
-                    span = span.Add(new TimeSpan(1, 0, 0, 0));
-            }
-            else
-            {
-                SetDaysMode(CalendarDaysMode.Expanded);
-            }
-
-            _days = new CalendarDay[span.Days];
-
-            for (int i = 0; i < Days.Length; i++)
-                Days[i] = new CalendarDay(this, ViewStart.AddDays(-preDays + i), i);
-
-
-            //Weeks
-            if (DaysMode == CalendarDaysMode.Short)
-            {
-                List<CalendarWeek> weeks = new List<CalendarWeek>();
-
-                for (int i = 0; i < Days.Length; i++)
+                if (span.Days > MaximumFullDays)
                 {
-                    if (Days[i].Date.DayOfWeek == FirstDayOfWeek)
-                    {
-                        weeks.Add(new CalendarWeek(this, Days[i].Date));
-                    }
+                    SetDaysMode(CalendarDaysMode.Short);
+                    preDays = (new int[] { 0, 1, 2, 3, 4, 5, 6 })[(int)ViewStart.DayOfWeek] - (int)FirstDayOfWeek;
+                    span = span.Add(new TimeSpan(preDays, 0, 0, 0));
+
+                    while (span.Days % 7 != 0)
+                        span = span.Add(new TimeSpan(1, 0, 0, 0));
+                }
+                else
+                {
+                    SetDaysMode(CalendarDaysMode.Expanded);
                 }
 
-                _weeks = weeks.ToArray();
-            }
-            else
-            {
-                _weeks = new CalendarWeek[] { };
-            }
+                _days = new CalendarDay[span.Days];
 
-            UpdateHighlights();
+                for (int i = 0; i < Days.Length; i++)
+                    Days[i] = new CalendarDay(this, ViewStart.AddDays(-preDays + i), i);
 
+
+                //Weeks
+                if (DaysMode == CalendarDaysMode.Short)
+                {
+                    List<CalendarWeek> weeks = new List<CalendarWeek>();
+
+                    for (int i = 0; i < Days.Length; i++)
+                    {
+                        if (Days[i].Date.DayOfWeek == FirstDayOfWeek)
+                        {
+                            weeks.Add(new CalendarWeek(this, Days[i].Date));
+                        }
+                    }
+
+                    _weeks = weeks.ToArray();
+                }
+                else
+                {
+                    _weeks = new CalendarWeek[] { };
+                }
+
+                UpdateHighlights();
+            }
         }
 
         /// <summary>

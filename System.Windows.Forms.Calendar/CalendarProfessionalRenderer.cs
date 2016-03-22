@@ -65,8 +65,8 @@ namespace System.Windows.Forms.Calendar
             ColorTable.TimeUnitBackground = FromHex("#1e1e1e");//Dark0
             ColorTable.TimeUnitHighlightedBackground = FromHex("#2a2a2a");//
             ColorTable.TimeUnitSelectedBackground = FromHex("#646464");//Green 2b655a
-            ColorTable.TimeUnitBorderLight = FromHex("#1a1a1b");//Dark2
-            ColorTable.TimeUnitBorderDark = FromHex("#252526");//Dark1
+            ColorTable.TimeUnitBorderLight = FromHex("#252526");//Dark2
+            ColorTable.TimeUnitBorderDark = FromHex("#1a1a1b");//Dark1
             ColorTable.WeekDayName = FromHex("#646464");//Green 2b655a
 
             SelectedItemBorder = 1f;

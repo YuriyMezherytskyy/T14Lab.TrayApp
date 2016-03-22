@@ -79,15 +79,18 @@ namespace Tornado14.TrayApp.Controls
       InitializeComponent();
       taskSearchPanel1.Grid.CellDoubleClick += Grid_CellDoubleClick;
 
-
-      foreach (FileInfo calendarFile in dataFolder.GetFiles("calendar*.xml"))
-      {
-        if (!calendars.ContainsKey(calendarFile.Name))
-        {
-          calendars.Add(calendarFile.Name, null);
-        }
-        checkedListBox1.Items.Add(calendarFile.Name);
-      }
+            if (dataFolder.Exists)
+            {
+                foreach (FileInfo calendarFile in dataFolder.GetFiles("calendar*.xml"))
+                {
+                    if (!calendars.ContainsKey(calendarFile.Name))
+                    {
+                        calendars.Add(calendarFile.Name, null);
+                    }
+                    checkedListBox1.Items.Add(calendarFile.Name);
+                }
+            }
+            calendar1.TimeUnitsOffset = -15;
     }
 
     internal void SaveCalendars()

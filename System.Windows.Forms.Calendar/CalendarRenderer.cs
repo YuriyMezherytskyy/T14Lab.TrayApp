@@ -985,6 +985,10 @@ namespace System.Windows.Forms.Calendar
                 {
                     CalendarDay dayStart = item.DayStart;
                     CalendarDay dayEnd = item.DayEnd;
+                    if (dayStart == null)
+                    {
+                        continue;
+                    }
                     item.ClearBounds();
 
                     for (int i = dayStart.Index; i <= dayEnd.Index; i++)
@@ -1000,7 +1004,10 @@ namespace System.Windows.Forms.Calendar
                 {
                     CalendarDay dayStart = item.DayStart;
                     CalendarDay dayEnd = item.DayEnd;
-
+                    if (dayStart == null)
+                    {
+                        continue;
+                    }
                     PlaceInMatrix(ref matix, curIndex + 1, dayStart.Index, dayEnd.Index);
                     curIndex++;
                 }
@@ -1179,6 +1186,7 @@ namespace System.Windows.Forms.Calendar
         /// <param name="e"></param>
         protected virtual void DrawStandarBoxText(CalendarRendererBoxEventArgs e)
         {
+            //e.TextColor = Color.White;
             TextRenderer.DrawText(e.Graphics, e.Text, e.Font, e.Bounds, e.TextColor, e.Format);
         }
 
@@ -1390,6 +1398,7 @@ namespace System.Windows.Forms.Calendar
                     day.Date.Day.ToString(),
                     TextFormatFlags.VerticalCenter);
             hevt.Font = new Font(Calendar.Font, FontStyle.Bold);
+            hevt.TextColor = Color.FromArgb(100,100,100);
 
             CalendarRendererBoxEventArgs devt = new CalendarRendererBoxEventArgs(e,
                     day.HeaderBounds,
@@ -1450,6 +1459,8 @@ namespace System.Windows.Forms.Calendar
         /// <param name="e">Paint info</param>
         public virtual void OnDrawDayHeaderText(CalendarRendererBoxEventArgs e)
         {
+            e.TextColor = Color.FromArgb(100, 100, 100);
+
             DrawStandarBoxText(e);
         }
 
