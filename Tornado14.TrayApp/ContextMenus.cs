@@ -118,14 +118,14 @@ namespace Tornado14.TrayApp
             DAL configDAL = new DAL(Application.StartupPath, Settings.Default.DataFolder);
             foreach (ConfigFile configurationFile in configDAL.allConfigFiles)
             {
-                settingsConextMenu.Items.Add(CreateMenuItem(iconsFolder, configurationFile.File.Name, "source_code.png", configurationFile.File.Name, changeProfileEventHandler));
+                settingsConextMenu.Items.Add(CreateMenuItem(iconsFolder, configurationFile.File.Name, "source_code.png", configurationFile.File.Name, changeProfileEventHandler, Settings.Default.backColor, Settings.Default.foreColor));
             }
 
             // Custom Menu Items
-            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open local config folder", "LocalFolder.png", localProfiles.FullName, openFolderEventHandler));
-            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open network config folder", "NetworkFolder.png", networkProfiles.FullName, openFolderEventHandler));
-            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open icons folder", "NetworkFolder.png", iconsFolder.FullName, openFolderEventHandler));
-            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "App config folder", "support.png", Environment.CurrentDirectory, openFolderEventHandler));
+            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open local config folder", "LocalFolder.png", localProfiles.FullName, openFolderEventHandler, Settings.Default.subItemBackColor, Settings.Default.subItemForeColor));
+            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open network config folder", "NetworkFolder.png", networkProfiles.FullName, openFolderEventHandler, Settings.Default.subItemBackColor, Settings.Default.subItemForeColor));
+            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "Open icons folder", "NetworkFolder.png", iconsFolder.FullName, openFolderEventHandler, Settings.Default.subItemBackColor, Settings.Default.subItemForeColor));
+            profileSelector.DropDown.Items.Add(CreateMenuItem(iconsFolder, "App config folder", "support.png", Environment.CurrentDirectory, openFolderEventHandler, Settings.Default.subItemBackColor, Settings.Default.subItemForeColor));
             settingsConextMenu.Items.Add(profileSelector);
 
             // Add exit button
@@ -271,7 +271,7 @@ namespace Tornado14.TrayApp
                 }
                 else if (subItem.displayName == "startAll")
                 {
-                    dropDownItem.Items.Add(CreateMenuItem(iconsFolder, "Start All", "start.png", configItem.key.ToString(), startAllEventHandler));
+                    dropDownItem.Items.Add(CreateMenuItem(iconsFolder, "Start All", "start.png", configItem.key.ToString(), startAllEventHandler, Settings.Default.subItemBackColor, Settings.Default.subItemForeColor));
                 }
                 else {
                     try
@@ -312,7 +312,7 @@ namespace Tornado14.TrayApp
             return dropDownItem;
         }
 
-        private static ToolStripMenuItem CreateMenuItem(DirectoryInfo iconsFolder, string text, string iconName, string tag, EventHandler clickEvent)
+        private static ToolStripMenuItem CreateMenuItem(DirectoryInfo iconsFolder, string text, string iconName, string tag, EventHandler clickEvent, Color backColor, Color foreColor)
         {
             ToolStripMenuItem subItemMenuItemLocalConfig = new ToolStripMenuItem();
             subItemMenuItemLocalConfig.Click += clickEvent;
@@ -321,8 +321,8 @@ namespace Tornado14.TrayApp
             Image subImage2 = Image.FromFile(Path.Combine(iconsFolder.FullName, "_defaulticons\\" + iconName));
             subItemMenuItemLocalConfig.Image = subImage2;
             subItemMenuItemLocalConfig.ShowShortcutKeys = false;
-            subItemMenuItemLocalConfig.BackColor = Settings.Default.subItemBackColor;
-            subItemMenuItemLocalConfig.ForeColor = Settings.Default.subItemForeColor;
+            subItemMenuItemLocalConfig.BackColor = backColor;
+            subItemMenuItemLocalConfig.ForeColor = foreColor;
             return subItemMenuItemLocalConfig;
         }
 
