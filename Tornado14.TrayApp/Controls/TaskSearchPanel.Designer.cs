@@ -172,7 +172,6 @@
       this.filterShortDescription.Dock = System.Windows.Forms.DockStyle.Top;
       this.filterShortDescription.Location = new System.Drawing.Point(4, 180);
       this.filterShortDescription.Name = "filterShortDescription";
-      this.filterShortDescription.Padding = new System.Windows.Forms.Padding(5);
       this.filterShortDescription.Size = new System.Drawing.Size(333, 56);
       this.filterShortDescription.TabIndex = 3;
       this.filterShortDescription.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
@@ -184,7 +183,6 @@
       this.filterStatus.Dock = System.Windows.Forms.DockStyle.Top;
       this.filterStatus.Location = new System.Drawing.Point(4, 120);
       this.filterStatus.Name = "filterStatus";
-      this.filterStatus.Padding = new System.Windows.Forms.Padding(5);
       this.filterStatus.Size = new System.Drawing.Size(333, 60);
       this.filterStatus.TabIndex = 2;
       this.filterStatus.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -196,7 +194,6 @@
       this.filterSprint.Dock = System.Windows.Forms.DockStyle.Top;
       this.filterSprint.Location = new System.Drawing.Point(4, 60);
       this.filterSprint.Name = "filterSprint";
-      this.filterSprint.Padding = new System.Windows.Forms.Padding(5);
       this.filterSprint.Size = new System.Drawing.Size(333, 60);
       this.filterSprint.TabIndex = 1;
       this.filterSprint.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
@@ -208,7 +205,6 @@
       this.filterProject.Dock = System.Windows.Forms.DockStyle.Top;
       this.filterProject.Location = new System.Drawing.Point(4, 0);
       this.filterProject.Name = "filterProject";
-      this.filterProject.Padding = new System.Windows.Forms.Padding(5);
       this.filterProject.Size = new System.Drawing.Size(333, 60);
       this.filterProject.TabIndex = 0;
       this.filterProject.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
