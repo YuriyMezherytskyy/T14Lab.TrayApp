@@ -136,5 +136,10 @@ namespace Tornado14.TrayApp.Controls
         {
             int a = 0;
         }
+
+    private void ComboBoxFilter_Resize(object sender, EventArgs e)
+    {
+      this.Refresh();
     }
+  }
 }
