@@ -26,6 +26,7 @@ namespace Tornado14.TrayApp.Controls
     {
       todoBindingSource.DataSource = source;
       taskSearchPanel1.SetTodoBindingSource(source);
+      taskEditor1.SetDataSource((SortableBindingList<Todo>)source);
     }
 
     public void SetProjectBindingSource(object source)
@@ -52,6 +53,18 @@ namespace Tornado14.TrayApp.Controls
       panelTaskDetails.BringToFront();
 
       taskSearchPanel1.Grid.CellValueChanged += dataGridViewTodos_CellValueChanged;
+      taskSearchPanel1.TodoBindingSource.CurrentChanged += TodoBindingSource_CurrentItemChanged;
+      todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged1;
+    }
+
+    private void TodoBindingSource_CurrentItemChanged1(object sender, EventArgs e)
+    {
+      taskSearchPanel1.TodoBindingSource.Position = todoBindingSource.Position;
+    }
+
+    private void TodoBindingSource_CurrentItemChanged(object sender, EventArgs e)
+    {
+      todoBindingSource.Position = taskSearchPanel1.TodoBindingSource.Position;
     }
 
     #region Events

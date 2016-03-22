@@ -101,7 +101,7 @@ namespace System.Windows.Forms.Calendar
                     e.Graphics.DrawLine(p, r.Right, r.Top, r.Right, r.Bottom);
                     e.Graphics.DrawLine(p, r.Left, r.Bottom, r.Right, r.Bottom);
 
-                    if (e.Day.Date.DayOfWeek == DayOfWeek.Sunday || today)
+                    if (e.Day.Date.DayOfWeek == this.Calendar.FirstDayOfWeek || today)
                     {
                         e.Graphics.DrawLine(p, r.Left, r.Top, r.Left, r.Bottom);
                     }

@@ -107,7 +107,7 @@
       this.splitContainer2.Panel2.Controls.Add(this.label2);
       this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(5);
       this.splitContainer2.Size = new System.Drawing.Size(606, 629);
-      this.splitContainer2.SplitterDistance = 241;
+      this.splitContainer2.SplitterDistance = 172;
       this.splitContainer2.TabIndex = 2;
       // 
       // splitContainer3
@@ -129,8 +129,8 @@
       this.splitContainer3.Panel2.Controls.Add(this.monthView1);
       this.splitContainer3.Panel2.Controls.Add(this.label1);
       this.splitContainer3.Panel2.Padding = new System.Windows.Forms.Padding(5);
-      this.splitContainer3.Size = new System.Drawing.Size(606, 241);
-      this.splitContainer3.SplitterDistance = 120;
+      this.splitContainer3.Size = new System.Drawing.Size(606, 172);
+      this.splitContainer3.SplitterDistance = 55;
       this.splitContainer3.TabIndex = 5;
       // 
       // checkedListBox1
@@ -144,7 +144,7 @@
       this.checkedListBox1.Location = new System.Drawing.Point(5, 26);
       this.checkedListBox1.MultiColumn = true;
       this.checkedListBox1.Name = "checkedListBox1";
-      this.checkedListBox1.Size = new System.Drawing.Size(594, 87);
+      this.checkedListBox1.Size = new System.Drawing.Size(594, 22);
       this.checkedListBox1.TabIndex = 6;
       this.checkedListBox1.SelectedValueChanged += new System.EventHandler(this.checkedListBox1_SelectedValueChanged);
       // 
@@ -179,7 +179,7 @@
       this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
       this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
       this.monthView1.Name = "monthView1";
-      this.monthView1.Size = new System.Drawing.Size(594, 84);
+      this.monthView1.Size = new System.Drawing.Size(594, 80);
       this.monthView1.TabIndex = 1;
       this.monthView1.Text = "monthView1";
       this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
@@ -228,7 +228,7 @@
         calendarHighlightRange5};
       this.calendar1.Location = new System.Drawing.Point(5, 26);
       this.calendar1.Name = "calendar1";
-      this.calendar1.Size = new System.Drawing.Size(594, 351);
+      this.calendar1.Size = new System.Drawing.Size(594, 420);
       this.calendar1.TabIndex = 0;
       this.calendar1.Text = "calendar1";
       this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);

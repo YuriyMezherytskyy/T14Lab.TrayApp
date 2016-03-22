@@ -128,27 +128,10 @@ namespace Tornado14.TrayApp.Controls
 
     private void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
     {
-      CalendarItem currentItem = (CalendarItem)e.Item;
-      currentItem.Tag = AddCalendarItemToCalendar(currentItem);
+      //CalendarItem currentItem = (CalendarItem)e.Item;
+      //currentItem.Tag = AddCalendarItemToCalendar(currentItem);
     }
 
-    private TodoCalendarPosition AddCalendarItemToCalendar(CalendarItem currentItem)
-    {
-      TodoCalendarPosition newTodoCalendarPosition = null;
-      if (checkedListBox1.SelectedItem != null)
-      {
-        newTodoCalendarPosition = new TodoCalendarPosition()
-        {
-          pId = Guid.NewGuid(),
-          StartTime = currentItem.StartDate,
-          EndTime = currentItem.EndDate,
-          Text = currentItem.Text
-          //TodopId = ((TodoCalendarPosition)currentItem.Tag).TodopId,
-        };
-        calendars[(string)checkedListBox1.SelectedItem].Add(newTodoCalendarPosition);
-      }
-      return newTodoCalendarPosition;
-    }
 
     private void Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
@@ -160,10 +143,11 @@ namespace Tornado14.TrayApp.Controls
         DateTime endTime;
         if (calendar1.SelectedElementStart != null)
         {
-          startTime = calendar1.SelectedElementStart.Date;
+          startTime = (calendar1.SelectedElementStart.Date < calendar1.SelectedElementEnd.Date) ? calendar1.SelectedElementStart.Date : calendar1.SelectedElementEnd.Date;
           if (calendar1.SelectedElementEnd != null)
           {
-            endTime = calendar1.SelectedElementEnd.Date.AddMinutes(30);
+            endTime = (calendar1.SelectedElementStart.Date < calendar1.SelectedElementEnd.Date) ? calendar1.SelectedElementEnd.Date : calendar1.SelectedElementStart.Date;
+            endTime = endTime.AddMinutes(30);
           }
           else
           {
@@ -178,52 +162,72 @@ namespace Tornado14.TrayApp.Controls
         if (checkedListBox1.SelectedItem != null)
         {
           CalendarItem calendarItem = new CalendarItem(calendar1, startTime, endTime, selectedTodo.ShortDescription + DateTime.Now.ToString());
-          calendarItem.Tag = selectedTodo;
           calendar1.Items.Add(calendarItem);
-          calendarItem.Tag = AddCalendarItemToCalendar(calendarItem);
+
+          TodoCalendarPosition newTodoCalendarPosition = null;
+          if (checkedListBox1.SelectedItem != null)
+          {
+            newTodoCalendarPosition = new TodoCalendarPosition()
+            {
+              pId = Guid.NewGuid(),
+              StartTime = calendarItem.StartDate,
+              EndTime = calendarItem.EndDate,
+              Text = calendarItem.Text,
+              TodopId = selectedTodo.pId,
+              CalendarName = (string)checkedListBox1.SelectedItem
+          };
+          calendars[(string)checkedListBox1.SelectedItem].Add(newTodoCalendarPosition);
+          calendarItem.Tag = newTodoCalendarPosition;
         }
       }
-    }
-
-    private void monthView1_SelectionChanged(object sender, EventArgs e)
-    {
-      calendar1.SetViewRange(monthView1.SelectionStart, monthView1.SelectionEnd);
-      ReloadCalendar();
-    }
-
-    private void toolStripButtonSaveKanban_Click(object sender, EventArgs e)
-    {
-      parentPanel.Save();
-    }
-
-
-    private void calendar1_ItemDatesChanged(object sender, CalendarItemEventArgs e)
-    {
-      CalendarItem currentItem = (CalendarItem)e.Item;
-      TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
-      position.StartTime = currentItem.StartDate;
-      position.EndTime = currentItem.EndDate;
-    }
-
-    private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
-    {
-
-    }
-
-    private void calendar1_ItemTextEdited(object sender, CalendarItemCancelEventArgs e)
-    {
-      CalendarItem currentItem = (CalendarItem)e.Item;
-      TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
-      position.Text = currentItem.Text;
-    }
-
-
-    private void calendar1_ItemsPositioned(object sender, EventArgs e)
-    {
-      //CalendarItem currentItem = (CalendarItem)e;
-      //TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
-      //position.StartTime = currentItem.StartDate;
-      int a = 0;
+      else
+      {
+        MessageBox.Show("Select Calendar", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+      }
     }
   }
+
+  private void monthView1_SelectionChanged(object sender, EventArgs e)
+  {
+    calendar1.SetViewRange(monthView1.SelectionStart, monthView1.SelectionEnd);
+    ReloadCalendar();
+  }
+
+  private void toolStripButtonSaveKanban_Click(object sender, EventArgs e)
+  {
+    parentPanel.Save();
+  }
+
+
+  private void calendar1_ItemDatesChanged(object sender, CalendarItemEventArgs e)
+  {
+    CalendarItem currentItem = (CalendarItem)e.Item;
+    TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
+    position.StartTime = currentItem.StartDate;
+    position.EndTime = currentItem.EndDate;
+  }
+
+  private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
+  {
+    TodoCalendarPosition currentPosition = (TodoCalendarPosition)e.Item.Tag;
+    TodoCalendarPosition position = calendars[currentPosition.CalendarName].Where(cp => cp.pId == currentPosition.pId).Single();
+    calendars[currentPosition.CalendarName].Remove(position);
+  }
+
+  private void calendar1_ItemTextEdited(object sender, CalendarItemCancelEventArgs e)
+  {
+    CalendarItem currentItem = (CalendarItem)e.Item;
+    TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
+    position.Text = currentItem.Text;
+  }
+
+
+  private void calendar1_ItemsPositioned(object sender, EventArgs e)
+  {
+    //CalendarItem currentItem = (CalendarItem)e;
+    //TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
+    //position.StartTime = currentItem.StartDate;
+    int a = 0;
+  }
+}
 }

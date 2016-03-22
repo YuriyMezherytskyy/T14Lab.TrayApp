@@ -57,7 +57,6 @@ namespace Tornado14.TrayApp.Controls
       projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
     }
 
-
     public TaskSearchPanel()
     {
       InitializeComponent();
@@ -71,7 +70,53 @@ namespace Tornado14.TrayApp.Controls
 
       dataGridViewTodos.DefaultValuesNeeded += dataGridViewTodos_DefaultValuesNeeded;
 
+      todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged;
+      dataGridViewTodos.SelectionChanged += DataGridViewTodos_SelectionChanged;
+      dataGridViewTodos.CursorChanged += DataGridViewTodos_CursorChanged;
+    }
 
+    private void DataGridViewTodos_CursorChanged(object sender, EventArgs e)
+    {
+      if (dataGridViewTodos.SelectedRows.Count > 0)
+      {
+        DataGridViewRow selectedRow = dataGridViewTodos.SelectedRows[0];
+        Todo selectedTodo = (Todo)selectedRow.DataBoundItem;
+        if (selectedTodo != null)
+        {
+          int index = todoBindingSource.Find("pId", selectedTodo.pId);
+          todoBindingSource.Position = index;
+        }
+      }
+    }
+
+    private void DataGridViewTodos_SelectionChanged(object sender, EventArgs e)
+    {
+      if (dataGridViewTodos.SelectedRows.Count > 0)
+      {
+        DataGridViewRow selectedRow = dataGridViewTodos.SelectedRows[0];
+        Todo selectedTodo = (Todo)selectedRow.DataBoundItem;
+        if (selectedTodo != null)
+        {
+          int index = todoBindingSource.Find("pId", selectedTodo.pId);
+          todoBindingSource.Position = index;
+        }
+      }
+    }
+
+    private void TodoBindingSource_CurrentItemChanged(object sender, EventArgs e)
+    {
+      Todo selectedTodo = (Todo)todoBindingSource.Current;
+      foreach (DataGridViewRow row in dataGridViewTodos.Rows)
+      {
+        if (row.DataBoundItem != null && ((Todo)row.DataBoundItem).pId == selectedTodo.pId)
+        {
+          row.Selected = true;
+        }
+        else
+        {
+          row.Selected = false;
+        }
+      }
     }
 
     private void dataGridViewTodos_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
