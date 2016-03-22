@@ -101,7 +101,7 @@
             this.panelKanban.Location = new System.Drawing.Point(0, 0);
             this.panelKanban.Margin = new System.Windows.Forms.Padding(2);
             this.panelKanban.Name = "panelKanban";
-            this.panelKanban.Size = new System.Drawing.Size(1161, 421);
+            this.panelKanban.Size = new System.Drawing.Size(2048, 421);
             this.panelKanban.TabIndex = 3;
             // 
             // panelKanbanGray
@@ -112,7 +112,7 @@
             this.panelKanbanGray.Margin = new System.Windows.Forms.Padding(2);
             this.panelKanbanGray.Name = "panelKanbanGray";
             this.panelKanbanGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelKanbanGray.Size = new System.Drawing.Size(1161, 421);
+            this.panelKanbanGray.Size = new System.Drawing.Size(2048, 421);
             this.panelKanbanGray.TabIndex = 8;
             // 
             // splitContainerKanban
@@ -133,8 +133,8 @@
             this.splitContainerKanban.Panel2.Controls.Add(this.panel8);
             this.splitContainerKanban.Panel2.Controls.Add(this.panel6);
             this.splitContainerKanban.Panel2MinSize = 0;
-            this.splitContainerKanban.Size = new System.Drawing.Size(1159, 419);
-            this.splitContainerKanban.SplitterDistance = 265;
+            this.splitContainerKanban.Size = new System.Drawing.Size(2046, 419);
+            this.splitContainerKanban.SplitterDistance = 467;
             this.splitContainerKanban.SplitterWidth = 3;
             this.splitContainerKanban.TabIndex = 1;
             this.splitContainerKanban.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainerKanban_SplitterMoved);
@@ -146,7 +146,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(265, 419);
+            this.panel5.Size = new System.Drawing.Size(467, 419);
             this.panel5.TabIndex = 3;
             // 
             // taskSearchPanel1
@@ -154,7 +154,7 @@
             this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskSearchPanel1.Location = new System.Drawing.Point(0, 0);
             this.taskSearchPanel1.Name = "taskSearchPanel1";
-            this.taskSearchPanel1.Size = new System.Drawing.Size(265, 419);
+            this.taskSearchPanel1.Size = new System.Drawing.Size(467, 419);
             this.taskSearchPanel1.TabIndex = 0;
             // 
             // buttonKanBanTasksSeparator
@@ -167,7 +167,7 @@
             this.buttonKanBanTasksSeparator.Location = new System.Drawing.Point(0, 0);
             this.buttonKanBanTasksSeparator.Margin = new System.Windows.Forms.Padding(2);
             this.buttonKanBanTasksSeparator.Name = "buttonKanBanTasksSeparator";
-            this.buttonKanBanTasksSeparator.Size = new System.Drawing.Size(265, 419);
+            this.buttonKanBanTasksSeparator.Size = new System.Drawing.Size(467, 419);
             this.buttonKanBanTasksSeparator.TabIndex = 2;
             this.buttonKanBanTasksSeparator.UseVisualStyleBackColor = false;
             // 
@@ -186,18 +186,19 @@
             this.panel8.Location = new System.Drawing.Point(0, 96);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(891, 323);
+            this.panel8.Size = new System.Drawing.Size(1576, 323);
             this.panel8.TabIndex = 2;
             // 
             // panel9
             // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.panelColumn5);
             this.panel9.Controls.Add(this.labelColumn5);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1365, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(0, 323);
+            this.panel9.Size = new System.Drawing.Size(211, 323);
             this.panel9.TabIndex = 4;
             // 
             // panelColumn5
@@ -209,7 +210,7 @@
             this.panelColumn5.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn5.Name = "panelColumn5";
             this.panelColumn5.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn5.Size = new System.Drawing.Size(0, 302);
+            this.panelColumn5.Size = new System.Drawing.Size(209, 300);
             this.panelColumn5.TabIndex = 5;
             this.panelColumn5.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn5.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -237,6 +238,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panelColumn4);
             this.panel4.Controls.Add(this.labelColumn4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
@@ -255,7 +257,7 @@
             this.panelColumn4.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn4.Name = "panelColumn4";
             this.panelColumn4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn4.Size = new System.Drawing.Size(279, 302);
+            this.panelColumn4.Size = new System.Drawing.Size(277, 300);
             this.panelColumn4.TabIndex = 5;
             this.panelColumn4.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn4.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -283,6 +285,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panelColumn3);
             this.panel3.Controls.Add(this.labelColumn3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -301,7 +304,7 @@
             this.panelColumn3.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn3.Name = "panelColumn3";
             this.panelColumn3.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn3.Size = new System.Drawing.Size(340, 302);
+            this.panelColumn3.Size = new System.Drawing.Size(338, 300);
             this.panelColumn3.TabIndex = 4;
             this.panelColumn3.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn3.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -329,6 +332,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panelColumn2);
             this.panel2.Controls.Add(this.labelColumn2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -347,7 +351,7 @@
             this.panelColumn2.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn2.Name = "panelColumn2";
             this.panelColumn2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn2.Size = new System.Drawing.Size(352, 302);
+            this.panelColumn2.Size = new System.Drawing.Size(350, 300);
             this.panelColumn2.TabIndex = 2;
             this.panelColumn2.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn2.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -375,6 +379,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panelColumn1);
             this.panel1.Controls.Add(this.labelColumn1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -393,7 +398,7 @@
             this.panelColumn1.Margin = new System.Windows.Forms.Padding(2);
             this.panelColumn1.Name = "panelColumn1";
             this.panelColumn1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn1.Size = new System.Drawing.Size(378, 302);
+            this.panelColumn1.Size = new System.Drawing.Size(376, 300);
             this.panelColumn1.TabIndex = 1;
             this.panelColumn1.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
             this.panelColumn1.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
@@ -432,7 +437,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(891, 96);
+            this.panel6.Size = new System.Drawing.Size(1576, 96);
             this.panel6.TabIndex = 1;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -693,7 +698,7 @@
             this.Controls.Add(this.panelKanban);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SprintKanbanPanel";
-            this.Size = new System.Drawing.Size(1161, 421);
+            this.Size = new System.Drawing.Size(2048, 421);
             this.panelKanban.ResumeLayout(false);
             this.panelKanbanGray.ResumeLayout(false);
             this.splitContainerKanban.Panel1.ResumeLayout(false);
