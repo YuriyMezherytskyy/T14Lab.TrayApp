@@ -29,8 +29,8 @@ namespace Tornado14.TrayApp.Controls
     public void SetTodoBindingSource(object todoBindingSource)
     {
       TodoBindingSource.DataSource = todoBindingSource;
-      AddStandardFilters();
       AddAdditionalFieldsFilters();
+      AddStandardFilters();
     }
     public BindingSource TodoBindingSource
     {
@@ -96,64 +96,48 @@ namespace Tornado14.TrayApp.Controls
     private void AddStandardFilters()
     {
 
-      Dictionary<int, Color> colorPool = new Dictionary<int, Color>();
-      colorPool.Add(0, BlackTheme.mBlueDark2);
-      colorPool.Add(1, BlackTheme.mGrayDark2);
-      colorPool.Add(2, BlackTheme.mGreenLight2);
-      colorPool.Add(3, BlackTheme.mGreenDark2);
-      colorPool.Add(4, BlackTheme.mViolett2);
-      colorPool.Add(5, BlackTheme.mBraun2);
-      colorPool.Add(6, BlackTheme.mPink2);
-      colorPool.Add(7, BlackTheme.mYellow2);
-      colorPool.Add(8, BlackTheme.mGreenLight1);
-      colorPool.Add(9, BlackTheme.mGreenDark1);
-      colorPool.Add(10, BlackTheme.mBraun1);
-      colorPool.Add(11, BlackTheme.mBlueDark1);
-      colorPool.Add(12, BlackTheme.mBlue1);
 
-      filterStatus.label.Text = "Status";
-      filterStatus.Height = 60;
+
+      TextBoxFilter filterShortDescription = CreateTextBoxFilter("Short Description", BlackTheme.ColorDarkGray2);
+
+      ComboBoxFilter filterStatus = CreateComboBoxFilter("Status", BlackTheme.ColorDarkGray2);
       filterStatus.ComboBox.DataSource = Enum.GetValues(typeof(Status));
-      filterStatus.TaskColor = colorPool[0];
-      filterStatus.BackColor = colorPool[0];
-      filterStatus.label.ForeColor = Color.White;
-      filterStatus.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
 
-      filterSprint.Height = 60;
-      filterSprint.label.Text = "Sprint";
+      ComboBoxFilter filterSprint = CreateComboBoxFilter("Sprint", BlackTheme.ColorDarkGray2);
       filterSprint.ComboBox.DataSource = sprintBindingSource;
       filterSprint.ComboBox.DisplayMember = "Summary";
-      filterSprint.TaskColor = colorPool[3];
-      filterSprint.BackColor = colorPool[3];
-      filterSprint.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
 
-      filterProject.Height = 60;
-      filterProject.label.Text = "Project";
+      ComboBoxFilter filterProject = CreateComboBoxFilter("Project", BlackTheme.ColorDarkGray2);
       filterProject.ComboBox.DataSource = projectBindingSource;
       filterProject.ComboBox.DisplayMember = "ShortDescription";
-      filterProject.TaskColor = colorPool[2];
-      filterProject.BackColor = colorPool[2];
-      filterProject.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
-
-
-      filterShortDescription.Height = 60;
-      filterShortDescription.label.Text = "Short Description";
-      filterShortDescription.TaskColor = colorPool[4];
-      filterShortDescription.BackColor = colorPool[4];
-      filterShortDescription.TextBox.TextChanged += FilterTextBoxTextChanged;
 
     }
 
-    private ComboBoxFilter CreateAdditionalFilter(string name)
+    private ComboBoxFilter CreateComboBoxFilter(string name, Color color)
     {
       SortableBindingList<string> allAdditionalFieldValues = new SortableBindingList<string>();
       ComboBoxFilter additionalFieldFilter = new ComboBoxFilter();
       additionalFieldFilter.label.Text = name;
       additionalFieldFilter.Dock = DockStyle.Top;
       additionalFieldFilter.Height = 45;
-      additionalFieldFilter.TaskColor = BlackTheme.BlueLight;
-      additionalFieldFilter.BackColor = BlackTheme.BlueLight;
+      additionalFieldFilter.TaskColor = color;
+      additionalFieldFilter.BackColor = color;
       additionalFieldFilter.ComboBox.SelectedValueChanged += FilterComboBoxValueChanged;
+      panelColumnAvailableFilter.Controls.Add(additionalFieldFilter);
+      return additionalFieldFilter;
+    }
+
+    private TextBoxFilter CreateTextBoxFilter(string name, Color color)
+    {
+      SortableBindingList<string> allAdditionalFieldValues = new SortableBindingList<string>();
+      TextBoxFilter additionalFieldFilter = new TextBoxFilter();
+      additionalFieldFilter.label.Text = name;
+      additionalFieldFilter.Dock = DockStyle.Top;
+      additionalFieldFilter.Height = 45;
+      additionalFieldFilter.TaskColor = color;
+      additionalFieldFilter.BackColor = color;
+      additionalFieldFilter.TextBox.TextChanged += FilterTextBoxTextChanged;
+      panelColumnAvailableFilter.Controls.Add(additionalFieldFilter);
       return additionalFieldFilter;
     }
 
@@ -166,10 +150,10 @@ namespace Tornado14.TrayApp.Controls
       AdditionalField5.Visible = false;
 
 
-      ComboBoxFilter additionalField1Filter = CreateAdditionalFilter("Customer");
-      ComboBoxFilter additionalField2Filter = CreateAdditionalFilter("Work Art");
-      ComboBoxFilter additionalField3Filter = CreateAdditionalFilter("Keyword");
-      ComboBoxFilter additionalField4Filter = CreateAdditionalFilter("Comment");
+      ComboBoxFilter additionalField1Filter = CreateComboBoxFilter("Customer", BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField2Filter = CreateComboBoxFilter("Work Art", BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField3Filter = CreateComboBoxFilter("Keyword", BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField4Filter = CreateComboBoxFilter("Comment", BlackTheme.ColorDarkGray2);
       //ComboBoxFilter additionalField5Filter = CreateAdditionalFilter("Field5");
 
       SortableBindingList<string> allAdditionalField1Values = new SortableBindingList<string>();
@@ -221,11 +205,7 @@ namespace Tornado14.TrayApp.Controls
       additionalField3Filter.ComboBox.DataSource = allAdditionalField3Values;
       additionalField4Filter.ComboBox.DataSource = allAdditionalField4Values;
       //additionalField5Filter.ComboBox.DataSource = allAdditionalField5Values;
-      panelColumnAvailableFilter.Controls.Add(additionalField1Filter);
-      panelColumnAvailableFilter.Controls.Add(additionalField2Filter);
-      panelColumnAvailableFilter.Controls.Add(additionalField3Filter);
-      panelColumnAvailableFilter.Controls.Add(additionalField4Filter);
-      //panelColumnAvailableFilter.Controls.Add(additionalField5Filter);
+
     }
 
     private void FilterTextBoxTextChanged(object sender, EventArgs e)
@@ -494,6 +474,7 @@ namespace Tornado14.TrayApp.Controls
           todo.Status = (Status)_destination.Tag;
         }
       }
+      ReloadTaskGrid();
     }
 
     void flowLayoutPanel_DragEnter(object sender, DragEventArgs e)

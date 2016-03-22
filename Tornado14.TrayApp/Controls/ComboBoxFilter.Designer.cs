@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
       this.panel2 = new System.Windows.Forms.Panel();
-      this.comboBoxProject = new System.Windows.Forms.ComboBox();
+      this.comboBox = new System.Windows.Forms.ComboBox();
       this.label1 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
       this.panel2.SuspendLayout();
@@ -37,7 +37,7 @@
       // 
       // panel2
       // 
-      this.panel2.Controls.Add(this.comboBoxProject);
+      this.panel2.Controls.Add(this.comboBox);
       this.panel2.Controls.Add(this.label1);
       this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -49,24 +49,24 @@
       this.panel2.MouseLeave += new System.EventHandler(this.Filter_MouseLeave);
       this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Filter_MouseMove);
       // 
-      // comboBoxProject
+      // comboBox
       // 
-      this.comboBoxProject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-      this.comboBoxProject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-      this.comboBoxProject.BackColor = System.Drawing.Color.White;
-      this.comboBoxProject.DisplayMember = "pId";
-      this.comboBoxProject.Dock = System.Windows.Forms.DockStyle.Top;
-      this.comboBoxProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.comboBoxProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.comboBoxProject.FormattingEnabled = true;
-      this.comboBoxProject.IntegralHeight = false;
-      this.comboBoxProject.ItemHeight = 20;
-      this.comboBoxProject.Location = new System.Drawing.Point(5, 26);
-      this.comboBoxProject.Margin = new System.Windows.Forms.Padding(2);
-      this.comboBoxProject.Name = "comboBoxProject";
-      this.comboBoxProject.Size = new System.Drawing.Size(327, 28);
-      this.comboBoxProject.TabIndex = 13;
-      this.comboBoxProject.ValueMember = "pId";
+      this.comboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+      this.comboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+      this.comboBox.BackColor = System.Drawing.Color.White;
+      this.comboBox.DisplayMember = "pId";
+      this.comboBox.Dock = System.Windows.Forms.DockStyle.Top;
+      this.comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.comboBox.FormattingEnabled = true;
+      this.comboBox.IntegralHeight = false;
+      this.comboBox.ItemHeight = 20;
+      this.comboBox.Location = new System.Drawing.Point(5, 26);
+      this.comboBox.Margin = new System.Windows.Forms.Padding(2);
+      this.comboBox.Name = "comboBox";
+      this.comboBox.Size = new System.Drawing.Size(327, 28);
+      this.comboBox.TabIndex = 13;
+      this.comboBox.ValueMember = "pId";
       // 
       // label1
       // 
@@ -110,6 +110,6 @@
     private System.Windows.Forms.Panel panel2;
     private System.Windows.Forms.Panel panel1;
     protected System.Windows.Forms.Label label1;
-    protected System.Windows.Forms.ComboBox comboBoxProject;
+    protected System.Windows.Forms.ComboBox comboBox;
   }
 }

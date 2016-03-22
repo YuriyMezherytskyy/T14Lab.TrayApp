@@ -36,7 +36,7 @@ namespace Tornado14.TrayApp.Controls
     {
       get
       {
-        return comboBoxProject;
+        return comboBox;
       }
       set
       {
@@ -52,17 +52,14 @@ namespace Tornado14.TrayApp.Controls
       AllowDrag = true;
     }
 
-
     protected override void OnGotFocus(EventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       this.BackColor = BlackTheme.ColorLightGray2;
       base.OnGotFocus(e);
     }
 
     protected override void OnLostFocus(EventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       this.BackColor = TaskColor;
 
       base.OnLostFocus(e);
@@ -85,7 +82,6 @@ namespace Tornado14.TrayApp.Controls
 
     protected override void OnMouseMove(MouseEventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       this.BackColor = BlackTheme.ColorDarkGray2;
       //this.textBoxShortDescription.BackColor = BlackTheme.ColorDarkGray2;
       if (!_isDragging)
@@ -111,7 +107,6 @@ namespace Tornado14.TrayApp.Controls
 
     protected override void OnMouseLeave(EventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       //this.textBoxShortDescription.BackColor = TaskColor;
       this.BackColor = TaskColor;
       base.OnMouseLeave(e);

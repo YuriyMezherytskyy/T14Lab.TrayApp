@@ -36,10 +36,6 @@
       this.panelColumn1 = new System.Windows.Forms.Panel();
       this.labelColumn1 = new System.Windows.Forms.Label();
       this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
-      this.filterShortDescription = new Tornado14.TrayApp.Controls.TextBoxFilter();
-      this.filterStatus = new Tornado14.TrayApp.Controls.ComboBoxFilter();
-      this.filterSprint = new Tornado14.TrayApp.Controls.ComboBoxFilter();
-      this.filterProject = new Tornado14.TrayApp.Controls.ComboBoxFilter();
       this.labelColumn2 = new System.Windows.Forms.Label();
       this.dataGridViewTodos = new System.Windows.Forms.DataGridView();
       this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +60,6 @@
       this.splitContainer2.Panel1.SuspendLayout();
       this.splitContainer2.Panel2.SuspendLayout();
       this.splitContainer2.SuspendLayout();
-      this.panelColumnAvailableFilter.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
       this.SuspendLayout();
@@ -151,10 +146,6 @@
       // 
       this.panelColumnAvailableFilter.AllowDrop = true;
       this.panelColumnAvailableFilter.AutoScroll = true;
-      this.panelColumnAvailableFilter.Controls.Add(this.filterShortDescription);
-      this.panelColumnAvailableFilter.Controls.Add(this.filterStatus);
-      this.panelColumnAvailableFilter.Controls.Add(this.filterSprint);
-      this.panelColumnAvailableFilter.Controls.Add(this.filterProject);
       this.panelColumnAvailableFilter.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panelColumnAvailableFilter.Location = new System.Drawing.Point(5, 26);
       this.panelColumnAvailableFilter.Margin = new System.Windows.Forms.Padding(2);
@@ -164,50 +155,6 @@
       this.panelColumnAvailableFilter.TabIndex = 4;
       this.panelColumnAvailableFilter.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
       this.panelColumnAvailableFilter.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
-      // 
-      // filterShortDescription
-      // 
-      this.filterShortDescription.AllowDrag = true;
-      this.filterShortDescription.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.filterShortDescription.Dock = System.Windows.Forms.DockStyle.Top;
-      this.filterShortDescription.Location = new System.Drawing.Point(4, 180);
-      this.filterShortDescription.Name = "filterShortDescription";
-      this.filterShortDescription.Size = new System.Drawing.Size(333, 56);
-      this.filterShortDescription.TabIndex = 3;
-      this.filterShortDescription.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
-      // 
-      // filterStatus
-      // 
-      this.filterStatus.AllowDrag = true;
-      this.filterStatus.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.filterStatus.Dock = System.Windows.Forms.DockStyle.Top;
-      this.filterStatus.Location = new System.Drawing.Point(4, 120);
-      this.filterStatus.Name = "filterStatus";
-      this.filterStatus.Size = new System.Drawing.Size(333, 60);
-      this.filterStatus.TabIndex = 2;
-      this.filterStatus.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-      // 
-      // filterSprint
-      // 
-      this.filterSprint.AllowDrag = true;
-      this.filterSprint.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.filterSprint.Dock = System.Windows.Forms.DockStyle.Top;
-      this.filterSprint.Location = new System.Drawing.Point(4, 60);
-      this.filterSprint.Name = "filterSprint";
-      this.filterSprint.Size = new System.Drawing.Size(333, 60);
-      this.filterSprint.TabIndex = 1;
-      this.filterSprint.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-      // 
-      // filterProject
-      // 
-      this.filterProject.AllowDrag = true;
-      this.filterProject.BackColor = System.Drawing.SystemColors.ActiveCaption;
-      this.filterProject.Dock = System.Windows.Forms.DockStyle.Top;
-      this.filterProject.Location = new System.Drawing.Point(4, 0);
-      this.filterProject.Name = "filterProject";
-      this.filterProject.Size = new System.Drawing.Size(333, 60);
-      this.filterProject.TabIndex = 0;
-      this.filterProject.TaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
       // 
       // labelColumn2
       // 
@@ -355,7 +302,6 @@
       this.splitContainer2.Panel2.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
       this.splitContainer2.ResumeLayout(false);
-      this.panelColumnAvailableFilter.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
       this.ResumeLayout(false);
@@ -373,10 +319,6 @@
         private System.Windows.Forms.Label labelColumn1;
         private System.Windows.Forms.Panel panelColumnAvailableFilter;
         private System.Windows.Forms.Label labelColumn2;
-        private ComboBoxFilter filterProject;
-        private ComboBoxFilter filterSprint;
-        private ComboBoxFilter filterStatus;
-        private TextBoxFilter filterShortDescription;
         private System.Windows.Forms.DataGridView dataGridViewTodos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;

@@ -52,7 +52,6 @@ namespace Tornado14.TrayApp.Controls
 
     protected override void OnGotFocus(EventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       this.BackColor = BlackTheme.ColorLightGray2;
       base.OnGotFocus(e);
     }
@@ -60,7 +59,6 @@ namespace Tornado14.TrayApp.Controls
     protected override void OnLostFocus(EventArgs e)
     {
       this.BackColor = TaskColor;
-      this.label1.ForeColor = Color.Black;
       base.OnLostFocus(e);
     }
 
@@ -81,7 +79,6 @@ namespace Tornado14.TrayApp.Controls
 
     protected override void OnMouseMove(MouseEventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
       this.BackColor = BlackTheme.ColorDarkGray2;
       //this.textBoxShortDescription.BackColor = BlackTheme.ColorDarkGray2;
       if (!_isDragging)
@@ -107,8 +104,6 @@ namespace Tornado14.TrayApp.Controls
 
     protected override void OnMouseLeave(EventArgs e)
     {
-      this.label1.ForeColor = Color.Black;
-      //this.textBoxShortDescription.BackColor = TaskColor;
       this.BackColor = TaskColor;
       base.OnMouseLeave(e);
     }
