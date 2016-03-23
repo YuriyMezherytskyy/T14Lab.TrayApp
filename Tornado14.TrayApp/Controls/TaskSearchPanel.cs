@@ -10,6 +10,7 @@ using Tornado14.Task;
 using Tornado14Lab.Utils.DataGridViewHelper;
 using Tornado14Lab.Utils.NativeTheme;
 using Tornado14Lab.Utils.Text;
+using Tornado14.TrayApp.Properties;
 
 namespace Tornado14.TrayApp.Controls
 {
@@ -188,18 +189,18 @@ namespace Tornado14.TrayApp.Controls
 
     private void AddAdditionalFieldsFilters()
     {
-      AdditionalField1.HeaderText = "Customer";
-      AdditionalField2.HeaderText = "Work Art";
-      AdditionalField3.HeaderText = "Keyword";
-      AdditionalField4.HeaderText = "Comment";
-      AdditionalField5.Visible = false;
+      AdditionalField1.HeaderText = Settings.Default.AdditionaField1Name;
+      AdditionalField2.HeaderText = Settings.Default.AdditionaField2Name;
+      AdditionalField3.HeaderText = Settings.Default.AdditionaField3Name;
+      AdditionalField4.HeaderText = Settings.Default.AdditionaField4Name;
+      AdditionalField5.HeaderText = Settings.Default.AdditionaField5Name;
 
 
-      ComboBoxFilter additionalField1Filter = CreateComboBoxFilter("Customer", BlackTheme.ColorDarkGray2);
-      ComboBoxFilter additionalField2Filter = CreateComboBoxFilter("Work Art", BlackTheme.ColorDarkGray2);
-      ComboBoxFilter additionalField3Filter = CreateComboBoxFilter("Keyword", BlackTheme.ColorDarkGray2);
-      ComboBoxFilter additionalField4Filter = CreateComboBoxFilter("Comment", BlackTheme.ColorDarkGray2);
-      //ComboBoxFilter additionalField5Filter = CreateAdditionalFilter("Field5");
+      ComboBoxFilter additionalField1Filter = CreateComboBoxFilter(Settings.Default.AdditionaField1Name, BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField2Filter = CreateComboBoxFilter(Settings.Default.AdditionaField2Name, BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField3Filter = CreateComboBoxFilter(Settings.Default.AdditionaField3Name, BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField4Filter = CreateComboBoxFilter(Settings.Default.AdditionaField4Name, BlackTheme.ColorDarkGray2);
+      ComboBoxFilter additionalField5Filter = CreateComboBoxFilter(Settings.Default.AdditionaField5Name, BlackTheme.ColorDarkGray2);
 
       SortableBindingList<string> allAdditionalField1Values = new SortableBindingList<string>();
       SortableBindingList<string> allAdditionalField2Values = new SortableBindingList<string>();
@@ -249,7 +250,7 @@ namespace Tornado14.TrayApp.Controls
       additionalField2Filter.ComboBox.DataSource = allAdditionalField2Values;
       additionalField3Filter.ComboBox.DataSource = allAdditionalField3Values;
       additionalField4Filter.ComboBox.DataSource = allAdditionalField4Values;
-      //additionalField5Filter.ComboBox.DataSource = allAdditionalField5Values;
+      additionalField5Filter.ComboBox.DataSource = allAdditionalField5Values;
 
     }
 
@@ -295,22 +296,24 @@ namespace Tornado14.TrayApp.Controls
             }
             else if (comboBoxFilter.ComboBox.SelectedValue is string)
             {
-              switch (comboBoxFilter.label.Text)
+              if (comboBoxFilter.label.Text == Settings.Default.AdditionaField1Name)
               {
-                case "Customer":
-                  filteredList = AdditionalField1Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-                  break;
-                case "Work Art":
-                  filteredList = AdditionalField2Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-                  break;
-                case "Keyword":
-                  filteredList = AdditionalField3Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-                  break;
-                case "Comment":
-                  filteredList = AdditionalField4Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-                  break;
-                default:
-                  break;
+                filteredList = AdditionalField1Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField2Name)
+              {
+                filteredList = AdditionalField2Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField3Name)
+              {
+                filteredList = AdditionalField3Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField4Name)
+              {
+                filteredList = AdditionalField4Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField5Name)
+              {
+                filteredList = AdditionalField5Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
+              } else
+              {
+                throw new Exception(string.Format("Unknown Filter Type: '{0}'", comboBoxFilter.label.Text));
               }
             }
           }

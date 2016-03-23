@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DataFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Y:\DATA\</Value>
+      <Value Profile="(Default)">C:\trayData\</Value>
     </Setting>
     <Setting Name="backColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">30, 30, 30</Value>
@@ -31,6 +31,21 @@
     </Setting>
     <Setting Name="groupColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">44, 106, 94</Value>
+    </Setting>
+    <Setting Name="AdditionaField1Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Customer</Value>
+    </Setting>
+    <Setting Name="AdditionaField2Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Work Art</Value>
+    </Setting>
+    <Setting Name="AdditionaField3Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Keyword</Value>
+    </Setting>
+    <Setting Name="AdditionaField4Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Comment</Value>
+    </Setting>
+    <Setting Name="AdditionaField5Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ZEP Taetigkeit</Value>
     </Setting>
   </Settings>
 </SettingsFile>

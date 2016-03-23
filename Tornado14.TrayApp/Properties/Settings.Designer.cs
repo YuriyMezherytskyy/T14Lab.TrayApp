@@ -12,7 +12,7 @@ namespace Tornado14.TrayApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace Tornado14.TrayApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Y:\\DATA\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\trayData\\")]
         public string DataFolder {
             get {
                 return ((string)(this["DataFolder"]));
@@ -140,6 +140,66 @@ namespace Tornado14.TrayApp.Properties {
             }
             set {
                 this["groupColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Customer")]
+        public string AdditionaField1Name {
+            get {
+                return ((string)(this["AdditionaField1Name"]));
+            }
+            set {
+                this["AdditionaField1Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Work Art")]
+        public string AdditionaField2Name {
+            get {
+                return ((string)(this["AdditionaField2Name"]));
+            }
+            set {
+                this["AdditionaField2Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Keyword")]
+        public string AdditionaField3Name {
+            get {
+                return ((string)(this["AdditionaField3Name"]));
+            }
+            set {
+                this["AdditionaField3Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Comment")]
+        public string AdditionaField4Name {
+            get {
+                return ((string)(this["AdditionaField4Name"]));
+            }
+            set {
+                this["AdditionaField4Name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ZEP Taetigkeit")]
+        public string AdditionaField5Name {
+            get {
+                return ((string)(this["AdditionaField5Name"]));
+            }
+            set {
+                this["AdditionaField5Name"] = value;
             }
         }
     }
