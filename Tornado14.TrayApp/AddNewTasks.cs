@@ -214,6 +214,69 @@ namespace Tornado14.TrayApp
             return result;
         }
 
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            object boundItem = ((DataGridView)sender).Rows[e.RowIndex].DataBoundItem;
+            if (boundItem != null)
+            {
+                if (boundItem.GetType() == typeof(Project))
+                {
+                    string text = string.Format("{0} ", ((Project)boundItem).Id);
+                    int position = spelledMultilineTextbox1.Textbox.SelectionStart;
+                    spelledMultilineTextbox1.Textbox.Text = spelledMultilineTextbox1.Textbox.Text.Insert(position, text);
+                    spelledMultilineTextbox1.Textbox.Focus();
+                    spelledMultilineTextbox1.Textbox.SelectionStart = position + text.Length;
 
+                }
+                else if (boundItem.GetType() == typeof(Sprint))
+                {
+                    string text = string.Format("{0} ", ((Sprint)boundItem).Id);
+                    int position = spelledMultilineTextbox1.Textbox.SelectionStart;
+                    spelledMultilineTextbox1.Textbox.Text = spelledMultilineTextbox1.Textbox.Text.Insert(position, text);
+                    spelledMultilineTextbox1.Textbox.Focus();
+                    spelledMultilineTextbox1.Textbox.SelectionStart = position + text.Length;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Todo> newTodos = null;
+            string summary = string.Empty;
+            try
+            {
+                newTodos = ParseTasks(out summary);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something wrong.\r\n" + ex.Message, "Parsing tasks", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (newTodos != null && newTodos.Count > 0)
+            {
+
+                if (MessageBox.Show(string.Format("{0} Tasks found\r\n {1}\r\nAdd them ?", newTodos.Count, summary), "New Tasks", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    List<string> ids = new List<string>();
+                    foreach (Todo t in todoBindingSource.List)
+                    {
+                        ids.Add(t.Id);
+                    }
+                    ids.Sort();
+                    string lastId = ids.Last();
+                    int count = int.Parse(lastId.Split('-')[1]) + 1;
+
+                    foreach (Todo todo in newTodos)
+                    {
+                        todo.Id = string.Format("{0}-{1}", lastId.Split('-')[0], count++);
+                        todoBindingSource.Add(todo);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Use -- for new tasks.\r\n", "Parsing tasks", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

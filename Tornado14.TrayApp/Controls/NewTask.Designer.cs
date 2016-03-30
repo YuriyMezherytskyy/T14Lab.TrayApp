@@ -51,10 +51,10 @@
             this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.spelledMultilineTextbox1 = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.spelledMultilineTextbox1 = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
             this.panelNewTask.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,7 +77,7 @@
             this.panelNewTask.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNewTask.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelNewTask.Location = new System.Drawing.Point(0, 0);
-            this.panelNewTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNewTask.Margin = new System.Windows.Forms.Padding(2);
             this.panelNewTask.Name = "panelNewTask";
             this.panelNewTask.Size = new System.Drawing.Size(1082, 688);
             this.panelNewTask.TabIndex = 17;
@@ -89,7 +89,7 @@
             this.panel2.Controls.Add(this.spelledMultilineTextbox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 47);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1082, 641);
             this.panel2.TabIndex = 2;
@@ -103,7 +103,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(810, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(272, 641);
             this.panel3.TabIndex = 2;
@@ -113,7 +113,7 @@
             this.panel6.Controls.Add(this.dataGridView3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 420);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(272, 221);
             this.panel6.TabIndex = 4;
@@ -128,7 +128,7 @@
             this.dataGridView3.DataSource = this.todoBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(272, 221);
@@ -157,7 +157,7 @@
             this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter3.Location = new System.Drawing.Point(0, 416);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(2);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(272, 4);
             this.splitter3.TabIndex = 3;
@@ -168,7 +168,7 @@
             this.panel5.Controls.Add(this.dataGridView2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 232);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(272, 184);
             this.panel5.TabIndex = 2;
@@ -183,7 +183,7 @@
             this.dataGridView2.DataSource = this.sprintBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(272, 184);
@@ -213,7 +213,7 @@
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter2.Location = new System.Drawing.Point(0, 228);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(2);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(272, 4);
             this.splitter2.TabIndex = 1;
@@ -224,7 +224,7 @@
             this.panel4.Controls.Add(this.dataGridView1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(272, 228);
             this.panel4.TabIndex = 0;
@@ -237,9 +237,9 @@
             this.idDataGridViewTextBoxColumn,
             this.shortDescriptionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.projectBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(272, 228);
@@ -268,11 +268,46 @@
             // 
             this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter1.Location = new System.Drawing.Point(806, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 641);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 47);
+            this.panel1.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(126, 8);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 34);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Add Tasks";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(9, 8);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 34);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // spelledMultilineTextbox1
             // 
@@ -286,41 +321,6 @@
             this.spelledMultilineTextbox1.TabIndex = 0;
             this.spelledMultilineTextbox1.Click += new System.EventHandler(this.spelledMultilineTextbox1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 47);
-            this.panel1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(126, 8);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add Tasks";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(9, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // NewTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +328,7 @@
             this.ClientSize = new System.Drawing.Size(1082, 688);
             this.Controls.Add(this.panelNewTask);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewTask";
             this.Text = "NewTask";
             this.panelNewTask.ResumeLayout(false);
