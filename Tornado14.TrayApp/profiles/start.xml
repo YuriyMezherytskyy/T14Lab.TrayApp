@@ -18,7 +18,13 @@ apps shortcuts
     <!-- params/arguments -->
     <icon>eldorado\appliance\031.png</icon>
   </ProfileConfigItem>
-
+  
+  <ProfileConfigItem>
+    <group>Gruppe2</group>
+    <displayName>Far manager 3</displayName>
+    <app>C:\Program Files\Far Manager\Far.exe</app>
+    <parameter></parameter>
+  </ProfileConfigItem>
 
   <!-- "Directory" group Apps in Dropdown  -->
   <ProfileConfigItem>
@@ -28,6 +34,13 @@ apps shortcuts
     <subItems>
       <ProfileConfigItem>
         <displayName>startAll</displayName>
+      </ProfileConfigItem>
+
+
+      <ProfileConfigItem>
+        <displayName>Far manager 3</displayName>
+        <app>C:\Program Files\Far Manager\Far.exe</app>
+        <parameter></parameter>
       </ProfileConfigItem>
 
       <ProfileConfigItem>
