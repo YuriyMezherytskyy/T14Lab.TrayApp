@@ -225,12 +225,5 @@ namespace Tornado14.TrayApp.Controls
   }
 
 
-  private void calendar1_ItemsPositioned(object sender, EventArgs e)
-  {
-    //CalendarItem currentItem = (CalendarItem)e;
-    //TodoCalendarPosition position = (TodoCalendarPosition)currentItem.Tag;
-    //position.StartTime = currentItem.StartDate;
-    int a = 0;
-  }
 }
 }

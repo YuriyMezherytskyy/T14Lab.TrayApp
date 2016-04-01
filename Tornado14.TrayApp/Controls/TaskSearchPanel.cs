@@ -11,6 +11,7 @@ using Tornado14Lab.Utils.DataGridViewHelper;
 using Tornado14Lab.Utils.NativeTheme;
 using Tornado14Lab.Utils.Text;
 using Tornado14.TrayApp.Properties;
+using System.Diagnostics;
 
 namespace Tornado14.TrayApp.Controls
 {
@@ -273,7 +274,7 @@ namespace Tornado14.TrayApp.Controls
       }
       catch (Exception ex)
       {
-
+        Debug.Print(ex.Message);
       }
       foreach (Control filter in panelColumn1.Controls)
       {
@@ -299,19 +300,24 @@ namespace Tornado14.TrayApp.Controls
               if (comboBoxFilter.label.Text == Settings.Default.AdditionaField1Name)
               {
                 filteredList = AdditionalField1Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField2Name)
+              }
+              else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField2Name)
               {
                 filteredList = AdditionalField2Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField3Name)
+              }
+              else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField3Name)
               {
                 filteredList = AdditionalField3Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField4Name)
+              }
+              else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField4Name)
               {
                 filteredList = AdditionalField4Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-              } else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField5Name)
+              }
+              else if (comboBoxFilter.label.Text == Settings.Default.AdditionaField5Name)
               {
                 filteredList = AdditionalField5Filter(filteredList, (string)comboBoxFilter.ComboBox.SelectedValue);
-              } else
+              }
+              else
               {
                 throw new Exception(string.Format("Unknown Filter Type: '{0}'", comboBoxFilter.label.Text));
               }

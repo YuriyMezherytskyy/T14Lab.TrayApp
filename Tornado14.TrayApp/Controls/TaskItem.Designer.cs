@@ -111,7 +111,6 @@
             this.textBoxShortDescription.TabIndex = 6;
             this.textBoxShortDescription.Text = "sdffh sdf hsfd öglhksfj gdölhkj sdölfkhj ölsdkjf gölksdjf gölksdj glökksjd flökgj" +
     " söldfkgj ösldkffj gölsdkj gölsdj glsdj öglkjsdöfl gkjsdäl gj";
-            this.textBoxShortDescription.TextChanged += new System.EventHandler(this.textBoxShortDescription_TextChanged);
             this.textBoxShortDescription.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxShortDescription_MouseDown);
             this.textBoxShortDescription.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             this.textBoxShortDescription.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBoxShortDescription_MouseMove);

@@ -19,7 +19,7 @@ namespace Tornado14.TrayApp
         result = Utils.DeserializeParameter(File.FullName);
       } catch (Exception ex)
       {
-        throw;
+        throw ex;
       }
       return result;
     }

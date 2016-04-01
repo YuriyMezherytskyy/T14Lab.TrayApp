@@ -9,7 +9,6 @@ namespace Tornado14.TrayApp
 {
     public class ProcessIcon : IDisposable
     {
-        Starter starter;
         private NotifyIcon notifyIcon;
 
         public NotifyIcon NotifyIcon

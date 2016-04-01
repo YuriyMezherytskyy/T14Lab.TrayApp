@@ -20,7 +20,7 @@ namespace Tornado14.TrayApp
   {
 
     private Hotkeys.GlobalHotkey ghk;
-    private Hotkeys.GlobalHotkey projectExplorer;
+    private Hotkeys.GlobalHotkey projectExplorer = null;
     private ProcessIcon pi;
     private List<ProfileConfigItem> configTextList;
     private ImageList iconList = new ImageList();
@@ -350,7 +350,6 @@ namespace Tornado14.TrayApp
             break;
           default:
             return base.ProcessCmdKey(ref msg, keyData);
-            break;
         }
       }
       catch (Exception ex)
@@ -375,7 +374,6 @@ namespace Tornado14.TrayApp
         ComboBox comboBox = comboBox1;
 
         ProfileConfigItem selectedApp = (ProfileConfigItem)comboBox.SelectedItem;
-        Process process;
 
         if (selectedApp != null && selectedApp.app != null && selectedApp.app != string.Empty)
         {
@@ -402,11 +400,6 @@ namespace Tornado14.TrayApp
     void process_Disposed(object sender, EventArgs e)
     {
       throw new NotImplementedException();
-    }
-
-    void process_Exited(object sender, EventArgs e)
-    {
-      int a = 0;
     }
 
     private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

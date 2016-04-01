@@ -133,11 +133,6 @@ namespace Tornado14.TrayApp.Controls
         }
 
 
-        private void label1_ForeColorChanged(object sender, EventArgs e)
-        {
-            int a = 0;
-        }
-
         private void ComboBoxFilter_Resize(object sender, EventArgs e)
         {
             this.Refresh();

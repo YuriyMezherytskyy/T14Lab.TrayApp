@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Tornado14.TrayApp.Controls
 {
-    interface IStandardPanel
-    {
-    }
+  interface IStandardPanel
+  {
+    void Refresh();
+  }
 }

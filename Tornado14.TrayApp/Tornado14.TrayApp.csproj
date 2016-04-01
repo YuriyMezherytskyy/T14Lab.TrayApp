@@ -63,7 +63,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\KryptonGrid\JDHSoftware.Krypton.Toolkit.KryptonOutlookGrid.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ScintillaNET, Version=2.6.0.0, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
@@ -224,6 +223,9 @@
     </Compile>
     <Compile Include="Controls\TasksGridPanel.Designer.cs">
       <DependentUpon>TasksGridPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WPFTextBox.xaml.cs">
+      <DependentUpon>WPFTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextBoxFilter.cs">
       <SubType>UserControl</SubType>
@@ -573,6 +575,12 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="lib\KryptonGrid\fr\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\WPFTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

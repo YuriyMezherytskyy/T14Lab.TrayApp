@@ -295,6 +295,7 @@
       // todoBindingSource
       // 
       this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+      this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
       // 
       // panel1
       // 

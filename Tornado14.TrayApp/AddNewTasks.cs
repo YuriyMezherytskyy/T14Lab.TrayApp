@@ -23,10 +23,7 @@ namespace Tornado14.TrayApp
 
     private List<string> projectIdList;
     private List<string> sprintIdList;
-    private DirectoryInfo dataFolder;
-    private string sprintXmlFile;
-    private string todoXmlFile;
-    private string projectXmlFile;
+
 
     internal void SetBindingSources(object projectDataSource, object sprintDataSource, object taskDataSource)
     {
@@ -291,6 +288,17 @@ namespace Tornado14.TrayApp
       {
         MessageBox.Show("Use -- for new tasks.\r\n", "Parsing tasks", MessageBoxButtons.OK, MessageBoxIcon.Error);
       }
+    }
+
+
+    private void todoBindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)
+    {
+      // Check if the data source has been updated, and that no error has occured.
+      if (e.BindingCompleteContext ==
+          BindingCompleteContext.DataSourceUpdate && e.Exception == null)
+
+        // If not, end the current edit.
+        e.Binding.BindingManagerBase.EndCurrentEdit();
     }
   }
 }
