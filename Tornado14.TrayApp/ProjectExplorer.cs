@@ -178,7 +178,6 @@ namespace Tornado14.TrayApp
       statusStrip1.BackColor = BlackTheme.ColorDarkGray;
 
 
-      // TODO 2
       addNewTasks1.Dock = DockStyle.Fill;
       taskPlanningPanel1.Dock = DockStyle.Fill;
       sprintGridPanel1.Dock = DockStyle.Fill;

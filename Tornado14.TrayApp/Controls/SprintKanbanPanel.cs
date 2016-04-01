@@ -122,8 +122,6 @@ namespace Tornado14.TrayApp.Controls
 
     private void toolStripButtonSaveKanban_Click(object sender, EventArgs e)
     {
-      // TODO 2
-      //sprintGridPanel1.SaveToXMLFile();
     }
 
     private void buttonSplitter_Click(object sender, EventArgs e)

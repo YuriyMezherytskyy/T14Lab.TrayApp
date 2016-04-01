@@ -21,7 +21,6 @@ namespace Tornado14.TrayApp
       data = (List<ProfileConfigItem>)deserializer.Deserialize(textReader);
       textReader.Close();
       return data;
-      // TODO: asfg
     }
 
     public static List<ChecklistItem> DeserializeChecklist(string file)
@@ -32,7 +31,6 @@ namespace Tornado14.TrayApp
       data = (List<ChecklistItem>)deserializer.Deserialize(textReader);
       textReader.Close();
       return data;
-      // TODO: asfg
     }
 
 

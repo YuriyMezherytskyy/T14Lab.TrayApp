@@ -205,7 +205,6 @@ namespace Tornado14.TrayApp.Controls
                     newPosition.Position = lastPosition2 + 1;
                     newPosition.Status = Status.Planned;
                     sprint.Kanban.Add(newPosition);
-                    //todo.SprintPid = sprint.pId;
                     summary += string.Format(" - {0} {1} {2}", sprint.Id, sprint.ShortDescription, newPosition.Status);
                 }
                 result.Add(todo);
