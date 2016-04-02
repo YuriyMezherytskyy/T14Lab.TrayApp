@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0"?>
 <SyntaxDefinition name="Custom Highlighting" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
 	<Color name="Comment" foreground="Green" />
-	<Color name="String" foreground="Blue" />
+	<Color name="String" foreground="Red" />
 	
 	<!-- This is the main ruleset. -->
 	<RuleSet>
-		<Span color="Comment" begin="//" />
+		<Span color="Comment" begin="////" />
 		<Span color="Comment" multiline="true" begin="/\*" end="\*/" />
 		
 		<Span color="String">
@@ -17,7 +17,7 @@
 			</RuleSet>
 		</Span>
 		
-		<Keywords fontWeight="bold" foreground="Blue">
+		<Keywords fontWeight="bold" foreground="Yellow">
 			<Word>if</Word>
 			<Word>else</Word>
 			<!-- ... -->

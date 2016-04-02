@@ -67,10 +67,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="ScintillaNET, Version=2.6.0.0, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>lib\text\ScintillaNET.dll</HintPath>
-    </Reference>
     <Reference Include="SourceGrid, Version=4.40.5470.23478, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\sourceGrid\SourceGrid.dll</HintPath>
@@ -89,6 +85,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CompletitionItem.cs" />
     <Compile Include="Controls\Task\AddNewTasks.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -483,13 +480,6 @@
     <Content Include="lib\sourceGrid\SourceGrid.dll" />
     <Content Include="lib\sourceGrid\SourceGrid.pdb" />
     <Content Include="lib\sourceGrid\SourceGrid.xml" />
-    <Content Include="lib\text\License.txt" />
-    <Content Include="lib\text\ReadMe.htm" />
-    <Content Include="lib\text\SciLexer.dll" />
-    <Content Include="lib\text\SciLexer64.dll" />
-    <Content Include="lib\text\ScintillaNET.dll" />
-    <Content Include="lib\text\ScintillaNET.pdb" />
-    <Content Include="lib\text\ScintillaNET.xml" />
     <Content Include="profiles\global.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

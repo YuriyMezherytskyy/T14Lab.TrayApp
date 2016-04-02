@@ -9,7 +9,7 @@
              xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
              
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" >
     <Grid>
 
 
@@ -48,7 +48,7 @@
             x:Name="textEditor"
             FontFamily="Consolas"
             SyntaxHighlighting="XML"
-            FontSize="10pt">
+            FontSize="10pt" ForceCursor="True">
                 <i:Interaction.Behaviors>
                     <local:AvalonEditBehaviour GiveMeTheText="{Binding Text2, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>
                     <SpellCheckAvalonEdit:SpellCheckBehavior />

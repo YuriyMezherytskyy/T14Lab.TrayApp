@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -19,8 +20,10 @@ namespace Tornado14.TrayApp.Controls
     /// </summary>
     public partial class WPFRichTextBox : UserControl
     {
-        public string Text {
-            get {
+        public string Text
+        {
+            get
+            {
                 return CustomEditor.Text2;
             }
             set
@@ -28,9 +31,58 @@ namespace Tornado14.TrayApp.Controls
                 CustomEditor.Text2 = value;
             }
         }
+
+        private Object data = null;
+        private string displayMember;
+
+        public void SetDataBinding(object obj, string displayMember)
+        {
+            this.data = obj;
+            this.displayMember = displayMember;
+            try {
+                this.Text = obj.GetType().GetProperty(displayMember).GetValue(obj, null).ToString();
+            } catch (Exception ex)
+            {
+                this.Text = "";
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void CustomEditor_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(displayMember))
+            {
+                this.data.GetType().GetProperty(displayMember).SetValue(this.data, this.Text);
+            }
+        }
+
+        private List<CompletionItem> completitionItemList = new List<CompletionItem>();
+
+        public void FillComletionList(List<CompletionItem> completitionItemList)
+        {
+            Dictionary<string, string> completitionDictionary = new Dictionary<string, string>();
+            foreach (CompletionItem item in completitionItemList)
+            {
+                completitionDictionary.Add(item.DisplayText, item.PopUpText);
+            }
+            CustomEditor.FillCompletionData(completitionDictionary);
+        }
+
+
+        private void TextArea_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (this.displayMember != null)
+            {
+                this.data.GetType().GetProperty(displayMember).SetValue(this.data, this.Text);
+            }
+        }
+
         public WPFRichTextBox()
         {
             InitializeComponent();
+            CustomEditor.TextChanged += CustomEditor_TextChanged;
         }
+
+
     }
 }

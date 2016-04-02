@@ -31,9 +31,11 @@ namespace ICSharpCode.AvalonEdit.Sample
 	/// </summary>
 	public class MyCompletionData : ICompletionData
 	{
-		public MyCompletionData(string text)
+        public string CustomDescription { get; set; }
+        public MyCompletionData(string text, string description)
 		{
 			this.Text = text;
+            this.CustomDescription = description;
 		}
 		
 		public System.Windows.Media.ImageSource Image {
@@ -41,14 +43,14 @@ namespace ICSharpCode.AvalonEdit.Sample
 		}
 		
 		public string Text { get; private set; }
-		
-		// Use this property if you want to show a fancy UIElement in the drop down list.
-		public object Content {
+
+        // Use this property if you want to show a fancy UIElement in the drop down list.
+        public object Content {
 			get { return this.Text; }
 		}
 		
 		public object Description {
-			get { return "Description for " + this.Text; }
+			get { return CustomDescription; }
 		}
 		
 		public double Priority { get { return 0; } }

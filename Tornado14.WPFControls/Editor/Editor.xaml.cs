@@ -83,7 +83,8 @@ namespace Tornado14.WPFControls
             InitializeComponent();
             (this.Content as FrameworkElement).DataContext = this;
             spellingErrorColorizer = new SpellingErrorColorizer();
-            textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
+            //textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
+            textEditor.TextArea.LostFocus += TextArea_LostFocus;
 
 
             // Load our custom highlighting definition
@@ -114,10 +115,9 @@ namespace Tornado14.WPFControls
 
             textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
             textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
-            textEditor.TextArea.KeyDown += TextArea_KeyDown;
 
             DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
-            foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
+            foldingUpdateTimer.Interval = TimeSpan.FromSeconds(1);
             foldingUpdateTimer.Tick += delegate { UpdateFoldings(); };
             foldingUpdateTimer.Start();
 
@@ -128,7 +128,17 @@ namespace Tornado14.WPFControls
             }
             else
             {
+                textEditor.Options.HighlightCurrentLine = true;
+                //textEditor.Options.ShowColumnRuler = true;
+                //textEditor.Options.ShowTabs = true;
+                textEditor.Options.EnableEmailHyperlinks = true;
+                textEditor.Options.EnableHyperlinks = true;
+                textEditor.Options.EnableTextDragDrop = true;
+                textEditor.Options.ShowBoxForControlCharacters = true;
+                //textEditor.Options.ShowEndOfLine = true;
+                //textEditor.Options.ShowSpaces = true;
                 //textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.CSharp.CSharpIndentationStrategy(textEditor.Options);
+                textEditor.TextArea.IndentationStrategy = new ICSharpCode.AvalonEdit.Indentation.DefaultIndentationStrategy();
                 foldingStrategy = new BraceFoldingStrategy();
             }
             if (foldingStrategy != null)
@@ -146,47 +156,56 @@ namespace Tornado14.WPFControls
                 }
             }
         }
-
-        private void TextArea_KeyDown(object sender, KeyEventArgs e)
+        public event EventHandler TextChanged;
+        private void TextArea_LostFocus(object sender, RoutedEventArgs e)
         {
-            Key key = (e.Key == Key.System ? e.SystemKey : e.Key);
-            if (e.Key == Key.Space && e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+            if (TextChanged != null)
             {
-                // open code completion after the user has pressed dot:
-                completionWindow = new CompletionWindow(textEditor.TextArea);
-                // provide AvalonEdit with the data:
-                IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
-                data.Add(new MyCompletionData("Item1"));
-                data.Add(new MyCompletionData("Item2"));
-                data.Add(new MyCompletionData("Item3"));
-                data.Add(new MyCompletionData("Another item"));
-                completionWindow.Show();
-                completionWindow.Closed += delegate
-                {
-                    //completionWindow = null;
-                };
+                TextChanged.Invoke(this, new EventArgs());
             }
         }
 
+
         CompletionWindow completionWindow;
+
+
+        private void textEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private List<MyCompletionData> CompletionData = new List<MyCompletionData>();
+
+        public void FillCompletionData(Dictionary<string, string> completionData)
+        {
+            foreach (KeyValuePair<string, string> completionItem in completionData)
+            {
+                CompletionData.Add(new MyCompletionData(completionItem.Key, completionItem.Value));
+            }
+        }
 
         void textEditor_TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
-            if (e.Text == ".")
+            if (((KeyboardDevice)e.Device).Modifiers == ModifierKeys.Control)
             {
-                // open code completion after the user has pressed dot:
-                completionWindow = new CompletionWindow(textEditor.TextArea);
-                // provide AvalonEdit with the data:
-                IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
-                data.Add(new MyCompletionData("Item1"));
-                data.Add(new MyCompletionData("Item2"));
-                data.Add(new MyCompletionData("Item3"));
-                data.Add(new MyCompletionData("Another item"));
-                completionWindow.Show();
-                completionWindow.Closed += delegate
+                if (e.Text == " ")
                 {
-                    completionWindow = null;
-                };
+                    // open code completion after the user has pressed dot:
+                    completionWindow = new CompletionWindow(textEditor.TextArea);
+                    completionWindow.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+                    completionWindow.Foreground = new SolidColorBrush(Color.FromRgb(225, 225, 225));
+                    completionWindow.BorderBrush = new SolidColorBrush(Color.FromRgb(225, 225, 225));
+                    // provide AvalonEdit with the data:
+                    IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
+                    foreach (MyCompletionData competitionData in CompletionData)
+                    {
+                        data.Add(competitionData);
+                    }
+                    completionWindow.Closed += delegate
+                    {
+                        completionWindow = null;
+                    };
+                    completionWindow.Show();
+                }
             }
         }
 
@@ -293,29 +312,6 @@ namespace Tornado14.WPFControls
             textEditor.Text = temp + " ";
         }
 
-        private void textEditor_KeyDown(object sender, KeyEventArgs e)
-        {
-            Key key = (e.Key == Key.System ? e.SystemKey : e.Key);
-            if (key == Key.Space)
-            {
-                if (e.KeyboardDevice.Modifiers == ModifierKeys.Control)
-                {
-                    // open code completion after the user has pressed dot:
-                    completionWindow = new CompletionWindow(textEditor.TextArea);
-                    // provide AvalonEdit with the data:
-                    IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
-                    data.Add(new MyCompletionData("Item1"));
-                    data.Add(new MyCompletionData("Item2"));
-                    data.Add(new MyCompletionData("Item3"));
-                    data.Add(new MyCompletionData("Another item"));
-                    completionWindow.Show();
-                    completionWindow.Closed += delegate
-                    {
-                        completionWindow = null;
-                    };
-                }
-            }
 
-        }
     }
 }

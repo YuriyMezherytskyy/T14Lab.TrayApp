@@ -29,21 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskEditor));
             this.panelTaskDetails = new System.Windows.Forms.Panel();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.wpfRichTextBox1 = new Tornado14.TrayApp.Controls.WPFRichTextBox();
-            this.spelledMultilineTextboxPublicText = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.elementHost4 = new System.Windows.Forms.Integration.ElementHost();
+            this.PublicTextField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
             this.splitter3 = new System.Windows.Forms.Splitter();
-            this.spelledMultilineTextboxResult = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
+            this.ResultField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.spelledMultilineTextboxDescription = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.splitter4 = new System.Windows.Forms.Splitter();
-            this.spelledMultilineTextboxShortDescription = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.DescriptionField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.CurrentStateField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTaskDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
@@ -51,18 +48,13 @@
             // 
             // panelTaskDetails
             // 
-            this.panelTaskDetails.Controls.Add(this.elementHost1);
-            this.panelTaskDetails.Controls.Add(this.spelledMultilineTextboxPublicText);
-            this.panelTaskDetails.Controls.Add(this.label3);
+            this.panelTaskDetails.Controls.Add(this.elementHost4);
             this.panelTaskDetails.Controls.Add(this.splitter3);
-            this.panelTaskDetails.Controls.Add(this.spelledMultilineTextboxResult);
-            this.panelTaskDetails.Controls.Add(this.label2);
+            this.panelTaskDetails.Controls.Add(this.elementHost3);
             this.panelTaskDetails.Controls.Add(this.splitter2);
-            this.panelTaskDetails.Controls.Add(this.spelledMultilineTextboxDescription);
-            this.panelTaskDetails.Controls.Add(this.label1);
-            this.panelTaskDetails.Controls.Add(this.splitter4);
-            this.panelTaskDetails.Controls.Add(this.spelledMultilineTextboxShortDescription);
-            this.panelTaskDetails.Controls.Add(this.label7);
+            this.panelTaskDetails.Controls.Add(this.elementHost2);
+            this.panelTaskDetails.Controls.Add(this.splitter1);
+            this.panelTaskDetails.Controls.Add(this.elementHost1);
             this.panelTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTaskDetails.Location = new System.Drawing.Point(0, 0);
             this.panelTaskDetails.Margin = new System.Windows.Forms.Padding(2);
@@ -70,139 +62,78 @@
             this.panelTaskDetails.Size = new System.Drawing.Size(671, 585);
             this.panelTaskDetails.TabIndex = 3;
             // 
-            // elementHost1
+            // elementHost4
             // 
-            this.elementHost1.Location = new System.Drawing.Point(273, 37);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(383, 267);
-            this.elementHost1.TabIndex = 43;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.wpfRichTextBox1;
-            // 
-            // spelledMultilineTextboxPublicText
-            // 
-            this.spelledMultilineTextboxPublicText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.spelledMultilineTextboxPublicText.Location = new System.Drawing.Point(0, 385);
-            this.spelledMultilineTextboxPublicText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.spelledMultilineTextboxPublicText.Name = "spelledMultilineTextboxPublicText";
-            this.spelledMultilineTextboxPublicText.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxPublicText.ProjectIdList")));
-            this.spelledMultilineTextboxPublicText.Size = new System.Drawing.Size(671, 200);
-            this.spelledMultilineTextboxPublicText.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxPublicText.SprintIdList")));
-            this.spelledMultilineTextboxPublicText.TabIndex = 39;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 364);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 21);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "Public Text";
+            this.elementHost4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost4.Location = new System.Drawing.Point(0, 312);
+            this.elementHost4.Name = "elementHost4";
+            this.elementHost4.Size = new System.Drawing.Size(671, 273);
+            this.elementHost4.TabIndex = 49;
+            this.elementHost4.Text = "elementHost4";
+            this.elementHost4.Child = this.PublicTextField;
             // 
             // splitter3
             // 
-            this.splitter3.BackColor = System.Drawing.Color.Black;
+            this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.splitter3.Cursor = System.Windows.Forms.Cursors.HSplit;
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter3.Location = new System.Drawing.Point(0, 362);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter3.Location = new System.Drawing.Point(0, 308);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(671, 2);
-            this.splitter3.TabIndex = 40;
+            this.splitter3.Size = new System.Drawing.Size(671, 4);
+            this.splitter3.TabIndex = 48;
             this.splitter3.TabStop = false;
             // 
-            // spelledMultilineTextboxResult
+            // elementHost3
             // 
-            this.spelledMultilineTextboxResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spelledMultilineTextboxResult.Location = new System.Drawing.Point(0, 260);
-            this.spelledMultilineTextboxResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.spelledMultilineTextboxResult.Name = "spelledMultilineTextboxResult";
-            this.spelledMultilineTextboxResult.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxResult.ProjectIdList")));
-            this.spelledMultilineTextboxResult.Size = new System.Drawing.Size(671, 102);
-            this.spelledMultilineTextboxResult.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxResult.SprintIdList")));
-            this.spelledMultilineTextboxResult.TabIndex = 37;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 239);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 21);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Resultat";
+            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.elementHost3.Location = new System.Drawing.Point(0, 208);
+            this.elementHost3.Name = "elementHost3";
+            this.elementHost3.Size = new System.Drawing.Size(671, 100);
+            this.elementHost3.TabIndex = 47;
+            this.elementHost3.Text = "elementHost3";
+            this.elementHost3.Child = this.ResultField;
             // 
             // splitter2
             // 
-            this.splitter2.BackColor = System.Drawing.Color.Black;
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.splitter2.Cursor = System.Windows.Forms.Cursors.HSplit;
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter2.Location = new System.Drawing.Point(0, 237);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter2.Location = new System.Drawing.Point(0, 204);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(671, 2);
-            this.splitter2.TabIndex = 35;
+            this.splitter2.Size = new System.Drawing.Size(671, 4);
+            this.splitter2.TabIndex = 46;
             this.splitter2.TabStop = false;
             // 
-            // spelledMultilineTextboxDescription
+            // elementHost2
             // 
-            this.spelledMultilineTextboxDescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spelledMultilineTextboxDescription.Location = new System.Drawing.Point(0, 128);
-            this.spelledMultilineTextboxDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.spelledMultilineTextboxDescription.Name = "spelledMultilineTextboxDescription";
-            this.spelledMultilineTextboxDescription.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxDescription.ProjectIdList")));
-            this.spelledMultilineTextboxDescription.Size = new System.Drawing.Size(671, 109);
-            this.spelledMultilineTextboxDescription.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxDescription.SprintIdList")));
-            this.spelledMultilineTextboxDescription.TabIndex = 0;
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.elementHost2.Location = new System.Drawing.Point(0, 104);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(671, 100);
+            this.elementHost2.TabIndex = 45;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.DescriptionField;
             // 
-            // label1
+            // splitter1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 107);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 21);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Soll Zustand";
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.HSplit;
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter1.Location = new System.Drawing.Point(0, 100);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(671, 4);
+            this.splitter1.TabIndex = 44;
+            this.splitter1.TabStop = false;
             // 
-            // splitter4
+            // elementHost1
             // 
-            this.splitter4.BackColor = System.Drawing.Color.Black;
-            this.splitter4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitter4.Location = new System.Drawing.Point(0, 105);
-            this.splitter4.Margin = new System.Windows.Forms.Padding(2);
-            this.splitter4.Name = "splitter4";
-            this.splitter4.Size = new System.Drawing.Size(671, 2);
-            this.splitter4.TabIndex = 42;
-            this.splitter4.TabStop = false;
-            // 
-            // spelledMultilineTextboxShortDescription
-            // 
-            this.spelledMultilineTextboxShortDescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spelledMultilineTextboxShortDescription.Location = new System.Drawing.Point(0, 21);
-            this.spelledMultilineTextboxShortDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.spelledMultilineTextboxShortDescription.Name = "spelledMultilineTextboxShortDescription";
-            this.spelledMultilineTextboxShortDescription.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxShortDescription.ProjectIdList")));
-            this.spelledMultilineTextboxShortDescription.Size = new System.Drawing.Size(671, 84);
-            this.spelledMultilineTextboxShortDescription.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextboxShortDescription.SprintIdList")));
-            this.spelledMultilineTextboxShortDescription.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 21);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Ist Zustand";
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.elementHost1.Location = new System.Drawing.Point(0, 0);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(671, 100);
+            this.elementHost1.TabIndex = 43;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.CurrentStateField;
             // 
             // todoBindingSource
             // 
@@ -217,7 +148,6 @@
             this.Name = "TaskEditor";
             this.Size = new System.Drawing.Size(671, 585);
             this.panelTaskDetails.ResumeLayout(false);
-            this.panelTaskDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -226,19 +156,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTaskDetails;
-        private SpelledMultilineTextbox spelledMultilineTextboxPublicText;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Splitter splitter3;
-        private SpelledMultilineTextbox spelledMultilineTextboxResult;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Splitter splitter2;
-        private SpelledMultilineTextbox spelledMultilineTextboxDescription;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Splitter splitter4;
-        private SpelledMultilineTextbox spelledMultilineTextboxShortDescription;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
-        private WPFRichTextBox wpfRichTextBox1;
+        private WPFRichTextBox CurrentStateField;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private WPFRichTextBox DescriptionField;
+        private System.Windows.Forms.Integration.ElementHost elementHost4;
+        private WPFRichTextBox PublicTextField;
+        private System.Windows.Forms.Splitter splitter3;
+        private System.Windows.Forms.Integration.ElementHost elementHost3;
+        private WPFRichTextBox ResultField;
+        private System.Windows.Forms.Splitter splitter2;
     }
 }
