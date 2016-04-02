@@ -55,21 +55,22 @@
             // 
             this.panelSprints.Controls.Add(this.panelSprintsGray);
             this.panelSprints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSprints.Location = new System.Drawing.Point(0, 0);
+            this.panelSprints.Location = new System.Drawing.Point(6, 0);
             this.panelSprints.Margin = new System.Windows.Forms.Padding(0);
             this.panelSprints.Name = "panelSprints";
-            this.panelSprints.Size = new System.Drawing.Size(813, 327);
+            this.panelSprints.Size = new System.Drawing.Size(807, 327);
             this.panelSprints.TabIndex = 5;
             // 
             // panelSprintsGray
             // 
+            this.panelSprintsGray.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSprintsGray.Controls.Add(this.dataGridViewSprints);
             this.panelSprintsGray.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSprintsGray.Location = new System.Drawing.Point(0, 0);
             this.panelSprintsGray.Margin = new System.Windows.Forms.Padding(2);
             this.panelSprintsGray.Name = "panelSprintsGray";
-            this.panelSprintsGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelSprintsGray.Size = new System.Drawing.Size(813, 327);
+            this.panelSprintsGray.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSprintsGray.Size = new System.Drawing.Size(807, 327);
             this.panelSprintsGray.TabIndex = 4;
             // 
             // dataGridViewSprints
@@ -86,11 +87,11 @@
             this.pIdDataGridViewTextBoxColumn});
             this.dataGridViewSprints.DataSource = this.sprintBindingSource;
             this.dataGridViewSprints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSprints.Location = new System.Drawing.Point(1, 1);
+            this.dataGridViewSprints.Location = new System.Drawing.Point(5, 5);
             this.dataGridViewSprints.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSprints.Name = "dataGridViewSprints";
             this.dataGridViewSprints.RowTemplate.Height = 24;
-            this.dataGridViewSprints.Size = new System.Drawing.Size(811, 325);
+            this.dataGridViewSprints.Size = new System.Drawing.Size(795, 315);
             this.dataGridViewSprints.TabIndex = 0;
             this.dataGridViewSprints.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSprints_CellValueChanged);
             this.dataGridViewSprints.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewSprints_DefaultValuesNeeded);
@@ -157,6 +158,7 @@
             this.Controls.Add(this.panelSprints);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SprintGridPanel";
+            this.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.Size = new System.Drawing.Size(813, 327);
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
             this.panelSprints.ResumeLayout(false);

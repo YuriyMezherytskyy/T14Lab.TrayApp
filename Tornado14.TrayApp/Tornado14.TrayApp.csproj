@@ -124,22 +124,22 @@
       <DependentUpon>ComboBoxFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IStandardPanel.cs" />
-    <Compile Include="Controls\Task\NewTask.cs">
+    <Compile Include="Controls\Task\Develop\NewTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\Task\NewTask.Designer.cs">
+    <Compile Include="Controls\Task\Develop\NewTask.Designer.cs">
       <DependentUpon>NewTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Project\develop\ProjectDeployApplicationPanel.cs">
+    <Compile Include="Controls\Project\Develop\ProjectDeployApplicationPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Project\develop\ProjectDeployApplicationPanel.Designer.cs">
+    <Compile Include="Controls\Project\Develop\ProjectDeployApplicationPanel.Designer.cs">
       <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Project\ProjectDeployWebPanel.cs">
+    <Compile Include="Controls\Project\Develop\ProjectDeployWebPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Project\ProjectDeployWebPanel.Designer.cs">
+    <Compile Include="Controls\Project\Develop\ProjectDeployWebPanel.Designer.cs">
       <DependentUpon>ProjectDeployWebPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Project\ProjectDetailsPanel.cs">
@@ -154,10 +154,10 @@
     <Compile Include="Controls\Project\ProjectDevelopPanel.Designer.cs">
       <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Project\develop\ProjectFeaturesPanel.cs">
+    <Compile Include="Controls\Project\Develop\ProjectFeaturesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Project\develop\ProjectFeaturesPanel.Designer.cs">
+    <Compile Include="Controls\Project\Develop\ProjectFeaturesPanel.Designer.cs">
       <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Project\ProjectGridPanel.cs">
@@ -287,10 +287,10 @@
     <EmbeddedResource Include="Controls\Filter\ComboBoxFilter.resx">
       <DependentUpon>ComboBoxFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Task\NewTask.resx">
+    <EmbeddedResource Include="Controls\Task\Develop\NewTask.resx">
       <DependentUpon>NewTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Project\develop\ProjectDeployApplicationPanel.resx">
+    <EmbeddedResource Include="Controls\Project\Develop\ProjectDeployApplicationPanel.resx">
       <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Project\ProjectDetailsPanel.resx">
@@ -299,7 +299,7 @@
     <EmbeddedResource Include="Controls\Project\ProjectDevelopPanel.resx">
       <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Project\develop\ProjectFeaturesPanel.resx">
+    <EmbeddedResource Include="Controls\Project\Develop\ProjectFeaturesPanel.resx">
       <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Project\ProjectGridPanel.resx">

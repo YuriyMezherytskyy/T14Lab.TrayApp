@@ -9,57 +9,58 @@ namespace Tornado14Lab.Utils.NativeTheme
 {
     public class BlackTheme
     {
-        public static Color mBlueLight1 = System.Drawing.ColorTranslator.FromHtml("#A5C5DA");
-        public static Color mBlueLight2 = System.Drawing.ColorTranslator.FromHtml("#91B9D3");
-        public static Color mBlue1 = System.Drawing.ColorTranslator.FromHtml("#008DD7");
-        public static Color mBlue2 = System.Drawing.ColorTranslator.FromHtml("#0080C0");
-        public static Color mBlueDark1 = System.Drawing.ColorTranslator.FromHtml("#8999B7");
-        public static Color mBlueDark2 = System.Drawing.ColorTranslator.FromHtml("#61749E");
-        public static Color mViolett1 = System.Drawing.ColorTranslator.FromHtml("#CD82A8");
-        public static Color mViolett2 = System.Drawing.ColorTranslator.FromHtml("#B6477C");
-        public static Color mYellow1 = System.Drawing.ColorTranslator.FromHtml("#F5D35A");
-        public static Color mYellow2 = System.Drawing.ColorTranslator.FromHtml("#F2C826");
-        public static Color mGreenDark1 = System.Drawing.ColorTranslator.FromHtml("#009B49");
-        public static Color mGreenDark2 = System.Drawing.ColorTranslator.FromHtml("#00803F");
-        public static Color mGreenLight1 = System.Drawing.ColorTranslator.FromHtml("#A0BB72");
-        public static Color mGreenLight2 = System.Drawing.ColorTranslator.FromHtml("#8BAC51");
-        public static Color mGrayDark1 = System.Drawing.ColorTranslator.FromHtml("#535353");
-        public static Color mGrayDark2 = System.Drawing.ColorTranslator.FromHtml("#3F3F3F");
-        public static Color mGrayLight1 = System.Drawing.ColorTranslator.FromHtml("#8A8A8A");
-        public static Color mGrayLight2 = System.Drawing.ColorTranslator.FromHtml("#6A6A6A");
-        public static Color mPink1 = System.Drawing.ColorTranslator.FromHtml("#FD49FE");
-        public static Color mPink2 = System.Drawing.ColorTranslator.FromHtml("#FE00FB");
-        public static Color mBraun1 = System.Drawing.ColorTranslator.FromHtml("#C88569");
-        public static Color mBraun2 = System.Drawing.ColorTranslator.FromHtml("#BA6443");
+        public static Color mBlueLight1 = ColorTranslator.FromHtml("#A5C5DA");
+        public static Color mBlueLight2 = ColorTranslator.FromHtml("#91B9D3");
+        public static Color mBlue1 = ColorTranslator.FromHtml("#008DD7");
+        public static Color mBlue2 = ColorTranslator.FromHtml("#0080C0");
+        public static Color mBlueDark1 = ColorTranslator.FromHtml("#8999B7");
+        public static Color mBlueDark2 = ColorTranslator.FromHtml("#61749E");
+        public static Color mViolett1 = ColorTranslator.FromHtml("#CD82A8");
+        public static Color mViolett2 = ColorTranslator.FromHtml("#B6477C");
+        public static Color mYellow1 = ColorTranslator.FromHtml("#F5D35A");
+        public static Color mYellow2 = ColorTranslator.FromHtml("#F2C826");
+        public static Color mGreenDark1 = ColorTranslator.FromHtml("#009B49");
+        public static Color mGreenDark2 = ColorTranslator.FromHtml("#00803F");
+        public static Color mGreenLight1 = ColorTranslator.FromHtml("#A0BB72");
+        public static Color mGreenLight2 = ColorTranslator.FromHtml("#8BAC51");
+        public static Color mGrayDark1 = ColorTranslator.FromHtml("#535353");
+        public static Color mGrayDark2 = ColorTranslator.FromHtml("#3F3F3F");
+        public static Color mGrayLight1 = ColorTranslator.FromHtml("#8A8A8A");
+        public static Color mGrayLight2 = ColorTranslator.FromHtml("#6A6A6A");
+        public static Color mPink1 = ColorTranslator.FromHtml("#FD49FE");
+        public static Color mPink2 = ColorTranslator.FromHtml("#FE00FB");
+        public static Color mBraun1 = ColorTranslator.FromHtml("#C88569");
+        public static Color mBraun2 = ColorTranslator.FromHtml("#BA6443");
 
-        public static Color ColorDarkGray = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-        public static Color ColorDarkGray2 = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-        public static Color ColorHeadersText = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(135)))));
-        public static Color ColorLightGray = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-        public static Color ColorLightGray2 = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-        public static Color ColorLightGray4 = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+        public static Color ColorSplitter = Color.FromArgb(20, 20, 20);
+        public static Color ColorDarkGray = Color.FromArgb(30,30,30);
+        public static Color ColorDarkGray2 = Color.FromArgb(40,40,40);
+        public static Color ColorHeadersText = Color.FromArgb(151,151,135);
+        public static Color ColorLightGray = Color.FromArgb(45,45,45);
+        public static Color ColorLightGray2 = Color.FromArgb(65,65,65);
+        public static Color ColorLightGray4 = Color.FromArgb(104,104,104);
         // #333337 rgb(51,51,55)
-        public static Color ColorLightGray3 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
-        public static Color ColorBorders = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
-        public static Color ColorText = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+        public static Color ColorLightGray3 = Color.FromArgb(51,51,55);
+        public static Color ColorBorders = Color.FromArgb(62,62,69);
+        public static Color ColorText = Color.FromArgb(241,241,241);
         // #D7AC6A
-        public static Color ColorTextNotifyOrange = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(171)))), ((int)(((byte)(105)))));
+        public static Color ColorTextNotifyOrange = Color.FromArgb(215,171,105);
         // #7AC1FF
-        public static Color ColorTextNotifyBlue = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+        public static Color ColorTextNotifyBlue = Color.FromArgb(0,122,204);
         // #388A34 rgb(56,138,52)
-        public static Color ColorGreen = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(138)))), ((int)(((byte)(52)))));
+        public static Color ColorGreen = Color.FromArgb(56,138, 52);
         // #E51400 rgb(229,20,0)
-        public static Color ColorRedLight = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(20)))), ((int)(((byte)(0)))));
+        public static Color ColorRedLight = Color.FromArgb(229,20,0);
 
 
         // #1C7BE3 rgb(28,123,227)
-        public static Color BlueDark = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(123)))), ((int)(((byte)(222)))));
+        public static Color BlueDark = Color.FromArgb(28,123,222);
         // #1BA1E2 rgb(27,161,226)
-        public static Color BlueLight = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(161)))), ((int)(((byte)(226)))));
+        public static Color BlueLight = Color.FromArgb(27,161,226);
 
 
         // #339933 rgb(51,153,51)
-        public static Color GreenLight = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+        public static Color GreenLight = Color.FromArgb(51, 153,51);
 
 
         public static void ApplyTheme(Control parentControl)
@@ -246,7 +247,8 @@ namespace Tornado14Lab.Utils.NativeTheme
 
         public static void ApplyThemeToSplitContainer(SplitContainer splitContainer)
         {
-            splitContainer.BackColor = ColorDarkGray;
+            splitContainer.Panel1.BackColor = ColorDarkGray;
+            splitContainer.Panel2.BackColor = ColorDarkGray;
         }
     }
     public class MySR : ToolStripSystemRenderer

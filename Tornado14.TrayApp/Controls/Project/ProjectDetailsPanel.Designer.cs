@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectDetailsPanel));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.spelledMultilineTextbox1 = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spelledMultilineTextbox1 = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -60,17 +60,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 495);
             this.panel1.TabIndex = 41;
-            // 
-            // spelledMultilineTextbox1
-            // 
-            this.spelledMultilineTextbox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.spelledMultilineTextbox1.Location = new System.Drawing.Point(0, 0);
-            this.spelledMultilineTextbox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.spelledMultilineTextbox1.Name = "spelledMultilineTextbox1";
-            this.spelledMultilineTextbox1.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextbox1.ProjectIdList")));
-            this.spelledMultilineTextbox1.Size = new System.Drawing.Size(500, 495);
-            this.spelledMultilineTextbox1.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextbox1.SprintIdList")));
-            this.spelledMultilineTextbox1.TabIndex = 44;
             // 
             // label2
             // 
@@ -97,6 +86,17 @@
             // 
             this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
             this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.projectBindingSource_BindingComplete);
+            // 
+            // spelledMultilineTextbox1
+            // 
+            this.spelledMultilineTextbox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spelledMultilineTextbox1.Location = new System.Drawing.Point(0, 0);
+            this.spelledMultilineTextbox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.spelledMultilineTextbox1.Name = "spelledMultilineTextbox1";
+            this.spelledMultilineTextbox1.ProjectIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextbox1.ProjectIdList")));
+            this.spelledMultilineTextbox1.Size = new System.Drawing.Size(500, 495);
+            this.spelledMultilineTextbox1.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextbox1.SprintIdList")));
+            this.spelledMultilineTextbox1.TabIndex = 44;
             // 
             // ProjectDetailsPanel
             // 

@@ -119,6 +119,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitContainerKanban
             // 
+            this.splitContainerKanban.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.splitContainerKanban.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerKanban.Location = new System.Drawing.Point(1, 1);
             this.splitContainerKanban.Margin = new System.Windows.Forms.Padding(2);
@@ -232,6 +233,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitter4
             // 
+            this.splitter4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter4.Location = new System.Drawing.Point(1361, 0);
             this.splitter4.Margin = new System.Windows.Forms.Padding(2);
             this.splitter4.Name = "splitter4";
@@ -280,6 +282,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitter3
             // 
+            this.splitter3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter3.Location = new System.Drawing.Point(1078, 0);
             this.splitter3.Margin = new System.Windows.Forms.Padding(2);
             this.splitter3.Name = "splitter3";
@@ -328,6 +331,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitter2
             // 
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter2.Location = new System.Drawing.Point(734, 0);
             this.splitter2.Margin = new System.Windows.Forms.Padding(2);
             this.splitter2.Name = "splitter2";
@@ -376,6 +380,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitter1
             // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter1.Location = new System.Drawing.Point(378, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";

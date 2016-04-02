@@ -107,11 +107,6 @@ namespace Tornado14.TrayApp.Controls.Task
       buttonKanBanTasksSeparator.BackColor = BlackTheme.ColorLightGray2;
       label4.ForeColor = BlackTheme.ColorText;
 
-      splitter1.BackColor = BlackTheme.ColorDarkGray2;
-      splitter2.BackColor = BlackTheme.ColorDarkGray2;
-      splitter3.BackColor = BlackTheme.ColorDarkGray2;
-      splitter4.BackColor = BlackTheme.ColorDarkGray2;
-
       panels.Add(panelColumn1);
       panels.Add(panelColumn2);
       panels.Add(panelColumn3);

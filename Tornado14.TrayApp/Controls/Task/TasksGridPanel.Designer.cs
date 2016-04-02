@@ -76,10 +76,10 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             this.panelTasks.Controls.Add(this.panelTasksGray);
             this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTasks.Location = new System.Drawing.Point(0, 0);
+            this.panelTasks.Location = new System.Drawing.Point(5, 0);
             this.panelTasks.Margin = new System.Windows.Forms.Padding(0);
             this.panelTasks.Name = "panelTasks";
-            this.panelTasks.Size = new System.Drawing.Size(1223, 532);
+            this.panelTasks.Size = new System.Drawing.Size(1218, 532);
             this.panelTasks.TabIndex = 3;
             // 
             // panelTasksGray
@@ -92,7 +92,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.panelTasksGray.Margin = new System.Windows.Forms.Padding(2);
             this.panelTasksGray.Name = "panelTasksGray";
             this.panelTasksGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelTasksGray.Size = new System.Drawing.Size(1223, 532);
+            this.panelTasksGray.Size = new System.Drawing.Size(1218, 532);
             this.panelTasksGray.TabIndex = 6;
             // 
             // panelTaskSearch
@@ -103,7 +103,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.panelTaskSearch.Location = new System.Drawing.Point(600, 1);
             this.panelTaskSearch.Name = "panelTaskSearch";
             this.panelTaskSearch.Padding = new System.Windows.Forms.Padding(5);
-            this.panelTaskSearch.Size = new System.Drawing.Size(622, 530);
+            this.panelTaskSearch.Size = new System.Drawing.Size(617, 530);
             this.panelTaskSearch.TabIndex = 19;
             // 
             // panel1
@@ -115,7 +115,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(610, 518);
+            this.panel1.Size = new System.Drawing.Size(605, 518);
             this.panel1.TabIndex = 1;
             // 
             // panelTaskFeatures
@@ -149,7 +149,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.toolStripButtonFiles});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(610, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(605, 39);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -308,7 +308,7 @@ namespace Tornado14.TrayApp.Controls.Task
             // 
             // splitter1
             // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitter1.Location = new System.Drawing.Point(596, 1);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
@@ -340,6 +340,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.Controls.Add(this.panelTasks);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TasksGridPanel";
+            this.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.Size = new System.Drawing.Size(1223, 532);
             this.panelTasks.ResumeLayout(false);
             this.panelTasksGray.ResumeLayout(false);

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panelColumn1 = new System.Windows.Forms.Panel();
@@ -38,9 +36,11 @@
             this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
             this.labelColumn2 = new System.Windows.Forms.Label();
             this.dataGridViewTodos = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AdditionalField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdditionalField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdditionalField3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,10 +48,13 @@
             this.AdditionalField5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,20 +64,14 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
-            // 
-            // todoBindingSource
-            // 
-            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
-            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
-            // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -95,6 +92,7 @@
             // 
             // splitContainer2
             // 
+            this.splitContainer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
@@ -135,6 +133,7 @@
             this.labelColumn1.AutoSize = true;
             this.labelColumn1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelColumn1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelColumn1.ForeColor = System.Drawing.Color.White;
             this.labelColumn1.Location = new System.Drawing.Point(5, 5);
             this.labelColumn1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 10);
             this.labelColumn1.Name = "labelColumn1";
@@ -161,6 +160,7 @@
             this.labelColumn2.AutoSize = true;
             this.labelColumn2.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelColumn2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelColumn2.ForeColor = System.Drawing.Color.White;
             this.labelColumn2.Location = new System.Drawing.Point(5, 5);
             this.labelColumn2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
             this.labelColumn2.Name = "labelColumn2";
@@ -192,6 +192,19 @@
             this.dataGridViewTodos.Size = new System.Drawing.Size(690, 641);
             this.dataGridViewTodos.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Filtered data";
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -217,6 +230,10 @@
             this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
             this.projectPidDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
             // 
             // AdditionalField1
             // 
@@ -266,17 +283,40 @@
             this.pIdDataGridViewTextBoxColumn.Visible = false;
             this.pIdDataGridViewTextBoxColumn.Width = 130;
             // 
-            // label1
+            // todoBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Filtered data";
+            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "AdditionalField1";
+            this.dataGridViewTextBoxColumn1.HeaderText = "AdditionalField1";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "AdditionalField2";
+            this.dataGridViewTextBoxColumn2.HeaderText = "AdditionalField2";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "AdditionalField3";
+            this.dataGridViewTextBoxColumn3.HeaderText = "AdditionalField3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "AdditionalField4";
+            this.dataGridViewTextBoxColumn4.HeaderText = "AdditionalField4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "AdditionalField5";
+            this.dataGridViewTextBoxColumn5.HeaderText = "AdditionalField5";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // sprintBindingSource
             // 
@@ -289,8 +329,6 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "TaskSearchPanel";
             this.Size = new System.Drawing.Size(1059, 674);
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -303,6 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -331,5 +371,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField5;
         private System.Windows.Forms.DataGridViewComboBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

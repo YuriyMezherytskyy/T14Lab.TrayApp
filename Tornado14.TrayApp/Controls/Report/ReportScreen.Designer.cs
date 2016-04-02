@@ -75,10 +75,10 @@
             this.panel1.Controls.Add(this.buttonGetDoneTask);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 129);
+            this.panel1.Size = new System.Drawing.Size(851, 129);
             this.panel1.TabIndex = 48;
             // 
             // button1
@@ -131,11 +131,12 @@
             this.flowLayoutPanel1.Controls.Add(this.checkBoxTaskSollZustand);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxTaskResult);
             this.flowLayoutPanel1.Controls.Add(this.checkBoxTaskPublicText);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 32);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(432, 69);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(635, 93);
             this.flowLayoutPanel1.TabIndex = 60;
             // 
             // checkBoxHeaders
@@ -144,7 +145,7 @@
             this.checkBoxHeaders.Location = new System.Drawing.Point(2, 2);
             this.checkBoxHeaders.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxHeaders.Name = "checkBoxHeaders";
-            this.checkBoxHeaders.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxHeaders.Size = new System.Drawing.Size(89, 24);
             this.checkBoxHeaders.TabIndex = 53;
             this.checkBoxHeaders.Text = "Headers";
             this.checkBoxHeaders.UseVisualStyleBackColor = true;
@@ -154,10 +155,10 @@
             this.checkBoxEmptyLines.AutoSize = true;
             this.checkBoxEmptyLines.Checked = true;
             this.checkBoxEmptyLines.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEmptyLines.Location = new System.Drawing.Point(72, 2);
+            this.checkBoxEmptyLines.Location = new System.Drawing.Point(95, 2);
             this.checkBoxEmptyLines.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxEmptyLines.Name = "checkBoxEmptyLines";
-            this.checkBoxEmptyLines.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxEmptyLines.Size = new System.Drawing.Size(115, 24);
             this.checkBoxEmptyLines.TabIndex = 57;
             this.checkBoxEmptyLines.Text = "Empty Lines";
             this.checkBoxEmptyLines.UseVisualStyleBackColor = true;
@@ -166,10 +167,10 @@
             // 
             this.checkBoxBlackText.AutoSize = true;
             this.flowLayoutPanel1.SetFlowBreak(this.checkBoxBlackText, true);
-            this.checkBoxBlackText.Location = new System.Drawing.Point(159, 2);
+            this.checkBoxBlackText.Location = new System.Drawing.Point(214, 2);
             this.checkBoxBlackText.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxBlackText.Name = "checkBoxBlackText";
-            this.checkBoxBlackText.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxBlackText.Size = new System.Drawing.Size(101, 24);
             this.checkBoxBlackText.TabIndex = 54;
             this.checkBoxBlackText.Text = "Black Text";
             this.checkBoxBlackText.UseVisualStyleBackColor = true;
@@ -179,10 +180,10 @@
             this.checkBoxTaskId.AutoSize = true;
             this.checkBoxTaskId.Checked = true;
             this.checkBoxTaskId.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTaskId.Location = new System.Drawing.Point(2, 23);
+            this.checkBoxTaskId.Location = new System.Drawing.Point(2, 30);
             this.checkBoxTaskId.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskId.Name = "checkBoxTaskId";
-            this.checkBoxTaskId.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxTaskId.Size = new System.Drawing.Size(80, 24);
             this.checkBoxTaskId.TabIndex = 55;
             this.checkBoxTaskId.Text = "Task Id";
             this.checkBoxTaskId.UseVisualStyleBackColor = true;
@@ -192,10 +193,10 @@
             this.checkBoxTaskStatus.AutoSize = true;
             this.checkBoxTaskStatus.Checked = true;
             this.checkBoxTaskStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTaskStatus.Location = new System.Drawing.Point(68, 23);
+            this.checkBoxTaskStatus.Location = new System.Drawing.Point(86, 30);
             this.checkBoxTaskStatus.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskStatus.Name = "checkBoxTaskStatus";
-            this.checkBoxTaskStatus.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxTaskStatus.Size = new System.Drawing.Size(113, 24);
             this.checkBoxTaskStatus.TabIndex = 58;
             this.checkBoxTaskStatus.Text = "Task Status";
             this.checkBoxTaskStatus.UseVisualStyleBackColor = true;
@@ -205,10 +206,10 @@
             this.checkBoxTaskShortDescription.AutoSize = true;
             this.checkBoxTaskShortDescription.Checked = true;
             this.checkBoxTaskShortDescription.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTaskShortDescription.Location = new System.Drawing.Point(155, 23);
+            this.checkBoxTaskShortDescription.Location = new System.Drawing.Point(203, 30);
             this.checkBoxTaskShortDescription.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskShortDescription.Name = "checkBoxTaskShortDescription";
-            this.checkBoxTaskShortDescription.Size = new System.Drawing.Size(134, 17);
+            this.checkBoxTaskShortDescription.Size = new System.Drawing.Size(189, 24);
             this.checkBoxTaskShortDescription.TabIndex = 56;
             this.checkBoxTaskShortDescription.Text = "Task Short Description";
             this.checkBoxTaskShortDescription.UseVisualStyleBackColor = true;
@@ -219,10 +220,10 @@
             this.checkBoxProjectName.Checked = true;
             this.checkBoxProjectName.CheckState = System.Windows.Forms.CheckState.Checked;
             this.flowLayoutPanel1.SetFlowBreak(this.checkBoxProjectName, true);
-            this.checkBoxProjectName.Location = new System.Drawing.Point(293, 23);
+            this.checkBoxProjectName.Location = new System.Drawing.Point(396, 30);
             this.checkBoxProjectName.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxProjectName.Name = "checkBoxProjectName";
-            this.checkBoxProjectName.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxProjectName.Size = new System.Drawing.Size(121, 24);
             this.checkBoxProjectName.TabIndex = 52;
             this.checkBoxProjectName.Text = "Project name";
             this.checkBoxProjectName.UseVisualStyleBackColor = true;
@@ -230,10 +231,10 @@
             // checkBoxIstZustand
             // 
             this.checkBoxIstZustand.AutoSize = true;
-            this.checkBoxIstZustand.Location = new System.Drawing.Point(2, 44);
+            this.checkBoxIstZustand.Location = new System.Drawing.Point(2, 58);
             this.checkBoxIstZustand.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIstZustand.Name = "checkBoxIstZustand";
-            this.checkBoxIstZustand.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxIstZustand.Size = new System.Drawing.Size(147, 24);
             this.checkBoxIstZustand.TabIndex = 48;
             this.checkBoxIstZustand.Text = "Task Ist Zustand";
             this.checkBoxIstZustand.UseVisualStyleBackColor = true;
@@ -241,10 +242,10 @@
             // checkBoxTaskSollZustand
             // 
             this.checkBoxTaskSollZustand.AutoSize = true;
-            this.checkBoxTaskSollZustand.Location = new System.Drawing.Point(112, 44);
+            this.checkBoxTaskSollZustand.Location = new System.Drawing.Point(153, 58);
             this.checkBoxTaskSollZustand.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskSollZustand.Name = "checkBoxTaskSollZustand";
-            this.checkBoxTaskSollZustand.Size = new System.Drawing.Size(112, 17);
+            this.checkBoxTaskSollZustand.Size = new System.Drawing.Size(155, 24);
             this.checkBoxTaskSollZustand.TabIndex = 49;
             this.checkBoxTaskSollZustand.Text = "Task Soll Zustand";
             this.checkBoxTaskSollZustand.UseVisualStyleBackColor = true;
@@ -252,10 +253,10 @@
             // checkBoxTaskResult
             // 
             this.checkBoxTaskResult.AutoSize = true;
-            this.checkBoxTaskResult.Location = new System.Drawing.Point(228, 44);
+            this.checkBoxTaskResult.Location = new System.Drawing.Point(312, 58);
             this.checkBoxTaskResult.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskResult.Name = "checkBoxTaskResult";
-            this.checkBoxTaskResult.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxTaskResult.Size = new System.Drawing.Size(112, 24);
             this.checkBoxTaskResult.TabIndex = 50;
             this.checkBoxTaskResult.Text = "Task Result";
             this.checkBoxTaskResult.UseVisualStyleBackColor = true;
@@ -265,10 +266,10 @@
             this.checkBoxTaskPublicText.AutoSize = true;
             this.checkBoxTaskPublicText.Checked = true;
             this.checkBoxTaskPublicText.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTaskPublicText.Location = new System.Drawing.Point(315, 44);
+            this.checkBoxTaskPublicText.Location = new System.Drawing.Point(428, 58);
             this.checkBoxTaskPublicText.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxTaskPublicText.Name = "checkBoxTaskPublicText";
-            this.checkBoxTaskPublicText.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxTaskPublicText.Size = new System.Drawing.Size(142, 24);
             this.checkBoxTaskPublicText.TabIndex = 51;
             this.checkBoxTaskPublicText.Text = "Task Public Text";
             this.checkBoxTaskPublicText.UseVisualStyleBackColor = true;
@@ -276,21 +277,22 @@
             // TextBox1
             // 
             this.TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.TextBox1.Location = new System.Drawing.Point(0, 129);
+            this.TextBox1.Location = new System.Drawing.Point(4, 133);
             this.TextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(869, 262);
+            this.TextBox1.Size = new System.Drawing.Size(851, 242);
             this.TextBox1.TabIndex = 49;
             this.TextBox1.Text = "";
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(5, 5);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -298,9 +300,13 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.TextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1319, 391);
-            this.splitContainer1.SplitterDistance = 869;
-            this.splitContainer1.SplitterWidth = 3;
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(4);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.splitContainer1.Size = new System.Drawing.Size(1309, 381);
+            this.splitContainer1.SplitterDistance = 861;
             this.splitContainer1.TabIndex = 50;
             // 
             // ReportScreen
@@ -313,6 +319,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportScreen";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "ReportScreen";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);

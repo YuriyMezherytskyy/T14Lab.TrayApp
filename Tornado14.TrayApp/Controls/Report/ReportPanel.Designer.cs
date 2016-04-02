@@ -55,12 +55,13 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.buttonReport);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 287);
+            this.panel6.Location = new System.Drawing.Point(0, 291);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(904, 153);
+            this.panel6.Size = new System.Drawing.Size(904, 149);
             this.panel6.TabIndex = 50;
             // 
             // buttonReport
@@ -83,7 +84,7 @@
             this.splitter2.Location = new System.Drawing.Point(0, 287);
             this.splitter2.Margin = new System.Windows.Forms.Padding(2);
             this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(904, 2);
+            this.splitter2.Size = new System.Drawing.Size(904, 4);
             this.splitter2.TabIndex = 55;
             this.splitter2.TabStop = false;
             // 
@@ -101,12 +102,14 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.checkedListBoxSprintFilter);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(4, 0);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(4);
             this.panel4.Size = new System.Drawing.Size(433, 287);
             this.panel4.TabIndex = 47;
             // 
@@ -118,10 +121,10 @@
             this.checkedListBoxSprintFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxSprintFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.checkedListBoxSprintFilter.FormattingEnabled = true;
-            this.checkedListBoxSprintFilter.Location = new System.Drawing.Point(0, 21);
+            this.checkedListBoxSprintFilter.Location = new System.Drawing.Point(4, 25);
             this.checkedListBoxSprintFilter.Margin = new System.Windows.Forms.Padding(2);
             this.checkedListBoxSprintFilter.Name = "checkedListBoxSprintFilter";
-            this.checkedListBoxSprintFilter.Size = new System.Drawing.Size(433, 266);
+            this.checkedListBoxSprintFilter.Size = new System.Drawing.Size(423, 256);
             this.checkedListBoxSprintFilter.TabIndex = 45;
             this.checkedListBoxSprintFilter.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxSprintFilter_SelectedIndexChanged);
             // 
@@ -130,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 21);
@@ -140,22 +143,24 @@
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.splitter1.Location = new System.Drawing.Point(437, 0);
+            this.splitter1.Location = new System.Drawing.Point(433, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(2, 287);
+            this.splitter1.Size = new System.Drawing.Size(4, 287);
             this.splitter1.TabIndex = 45;
             this.splitter1.TabStop = false;
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.checkedListBoxStatus);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(439, 0);
+            this.panel3.Location = new System.Drawing.Point(437, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(461, 287);
+            this.panel3.Padding = new System.Windows.Forms.Padding(4);
+            this.panel3.Size = new System.Drawing.Size(467, 287);
             this.panel3.TabIndex = 46;
             // 
             // checkedListBoxStatus
@@ -171,10 +176,10 @@
             "Progress",
             "Test",
             "Done"});
-            this.checkedListBoxStatus.Location = new System.Drawing.Point(0, 21);
+            this.checkedListBoxStatus.Location = new System.Drawing.Point(4, 25);
             this.checkedListBoxStatus.Margin = new System.Windows.Forms.Padding(2);
             this.checkedListBoxStatus.Name = "checkedListBoxStatus";
-            this.checkedListBoxStatus.Size = new System.Drawing.Size(461, 266);
+            this.checkedListBoxStatus.Size = new System.Drawing.Size(457, 256);
             this.checkedListBoxStatus.TabIndex = 52;
             // 
             // label9
@@ -182,7 +187,7 @@
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Top;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Location = new System.Drawing.Point(4, 4);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 21);
@@ -198,7 +203,6 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.panel1.Size = new System.Drawing.Size(904, 287);
             this.panel1.TabIndex = 48;
             // 
@@ -206,8 +210,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.splitter2);
             this.Controls.Add(this.panel6);
+            this.Controls.Add(this.splitter2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportPanel";
