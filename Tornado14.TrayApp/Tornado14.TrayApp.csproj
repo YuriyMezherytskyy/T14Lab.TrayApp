@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tornado14.TrayApp</RootNamespace>
     <AssemblyName>Tornado14.TrayApp</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -38,6 +38,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -47,6 +48,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>books1.ico</ApplicationIcon>
@@ -87,10 +89,10 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewTasks.cs">
+    <Compile Include="Controls\Task\AddNewTasks.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AddNewTasks.Designer.cs">
+    <Compile Include="Controls\Task\AddNewTasks.Designer.cs">
       <DependentUpon>AddNewTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckList.cs">
@@ -109,71 +111,71 @@
       <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\CommitInfo.cs" />
-    <Compile Include="Controls\EditTaskDialog.cs">
+    <Compile Include="Controls\Task\EditTaskDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\EditTaskDialog.Designer.cs">
+    <Compile Include="Controls\Task\EditTaskDialog.Designer.cs">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ComboBoxFilter.cs">
+    <Compile Include="Controls\Filter\ComboBoxFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ComboBoxFilter.Designer.cs">
+    <Compile Include="Controls\Filter\ComboBoxFilter.Designer.cs">
       <DependentUpon>ComboBoxFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IStandardPanel.cs" />
-    <Compile Include="Controls\NewTask.cs">
+    <Compile Include="Controls\Task\NewTask.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\NewTask.Designer.cs">
+    <Compile Include="Controls\Task\NewTask.Designer.cs">
       <DependentUpon>NewTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectDeployApplicationPanel.cs">
+    <Compile Include="Controls\Project\develop\ProjectDeployApplicationPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectDeployApplicationPanel.Designer.cs">
+    <Compile Include="Controls\Project\develop\ProjectDeployApplicationPanel.Designer.cs">
       <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectDeployWebPanel.cs">
+    <Compile Include="Controls\Project\ProjectDeployWebPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectDeployWebPanel.Designer.cs">
+    <Compile Include="Controls\Project\ProjectDeployWebPanel.Designer.cs">
       <DependentUpon>ProjectDeployWebPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectDetailsPanel.cs">
+    <Compile Include="Controls\Project\ProjectDetailsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectDetailsPanel.Designer.cs">
+    <Compile Include="Controls\Project\ProjectDetailsPanel.Designer.cs">
       <DependentUpon>ProjectDetailsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectDevelopPanel.cs">
+    <Compile Include="Controls\Project\ProjectDevelopPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectDevelopPanel.Designer.cs">
+    <Compile Include="Controls\Project\ProjectDevelopPanel.Designer.cs">
       <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectFeaturesPanel.cs">
+    <Compile Include="Controls\Project\develop\ProjectFeaturesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectFeaturesPanel.Designer.cs">
+    <Compile Include="Controls\Project\develop\ProjectFeaturesPanel.Designer.cs">
       <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectGridPanel.cs">
+    <Compile Include="Controls\Project\ProjectGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ProjectGridPanel.Designer.cs">
+    <Compile Include="Controls\Project\ProjectGridPanel.Designer.cs">
       <DependentUpon>ProjectGridPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ReportPanel.cs">
+    <Compile Include="Controls\Report\ReportPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ReportPanel.Designer.cs">
+    <Compile Include="Controls\Report\ReportPanel.Designer.cs">
       <DependentUpon>ReportPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ReportScreen.cs">
+    <Compile Include="Controls\Report\ReportScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\ReportScreen.Designer.cs">
+    <Compile Include="Controls\Report\ReportScreen.Designer.cs">
       <DependentUpon>ReportScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SpelledMultilineTextbox.cs">
@@ -182,16 +184,16 @@
     <Compile Include="Controls\SpelledMultilineTextbox.Designer.cs">
       <DependentUpon>SpelledMultilineTextbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SprintGridPanel.cs">
+    <Compile Include="Controls\Sprint\SprintGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SprintGridPanel.Designer.cs">
+    <Compile Include="Controls\Sprint\SprintGridPanel.Designer.cs">
       <DependentUpon>SprintGridPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SprintKanbanPanel.cs">
+    <Compile Include="Controls\Sprint\SprintKanbanPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SprintKanbanPanel.Designer.cs">
+    <Compile Include="Controls\Sprint\SprintKanbanPanel.Designer.cs">
       <DependentUpon>SprintKanbanPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\StandardGridPanel.cs">
@@ -200,37 +202,34 @@
     <Compile Include="Controls\SyntaxRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\TaskEditor.cs">
+    <Compile Include="Controls\Task\TaskEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TaskEditor.Designer.cs">
+    <Compile Include="Controls\Task\TaskEditor.Designer.cs">
       <DependentUpon>TaskEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TaskPlanningPanel.cs">
+    <Compile Include="Controls\Task\TaskPlanningPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TaskPlanningPanel.Designer.cs">
+    <Compile Include="Controls\Task\TaskPlanningPanel.Designer.cs">
       <DependentUpon>TaskPlanningPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TaskSearchPanel.cs">
+    <Compile Include="Controls\Task\TaskSearchPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TaskSearchPanel.Designer.cs">
+    <Compile Include="Controls\Task\TaskSearchPanel.Designer.cs">
       <DependentUpon>TaskSearchPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TasksGridPanel.cs">
+    <Compile Include="Controls\Task\TasksGridPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TasksGridPanel.Designer.cs">
+    <Compile Include="Controls\Task\TasksGridPanel.Designer.cs">
       <DependentUpon>TasksGridPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\WPFTextBox.xaml.cs">
-      <DependentUpon>WPFTextBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TextBoxFilter.cs">
+    <Compile Include="Controls\Filter\TextBoxFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TextBoxFilter.Designer.cs">
+    <Compile Include="Controls\Filter\TextBoxFilter.Designer.cs">
       <DependentUpon>TextBoxFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TransparentControl.cs">
@@ -238,6 +237,9 @@
     </Compile>
     <Compile Include="Controls\TransparentControl.Designer.cs">
       <DependentUpon>TransparentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WPFRichTextBox.xaml.cs">
+      <DependentUpon>WPFRichTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAL.cs" />
     <Compile Include="GlobalHotkey.cs" />
@@ -263,14 +265,14 @@
     <Compile Include="Starter.Designer.cs">
       <DependentUpon>Starter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TaskItem.cs">
+    <Compile Include="Controls\Task\TaskItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TaskItem.Designer.cs">
+    <Compile Include="Controls\Task\TaskItem.Designer.cs">
       <DependentUpon>TaskItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="AddNewTasks.resx">
+    <EmbeddedResource Include="Controls\Task\AddNewTasks.resx">
       <DependentUpon>AddNewTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckList.resx">
@@ -279,61 +281,61 @@
     <EmbeddedResource Include="Controls\CommitedFilesSelection.resx">
       <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\EditTaskDialog.resx">
+    <EmbeddedResource Include="Controls\Task\EditTaskDialog.resx">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ComboBoxFilter.resx">
+    <EmbeddedResource Include="Controls\Filter\ComboBoxFilter.resx">
       <DependentUpon>ComboBoxFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\NewTask.resx">
+    <EmbeddedResource Include="Controls\Task\NewTask.resx">
       <DependentUpon>NewTask.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProjectDeployApplicationPanel.resx">
+    <EmbeddedResource Include="Controls\Project\develop\ProjectDeployApplicationPanel.resx">
       <DependentUpon>ProjectDeployApplicationPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProjectDetailsPanel.resx">
+    <EmbeddedResource Include="Controls\Project\ProjectDetailsPanel.resx">
       <DependentUpon>ProjectDetailsPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProjectDevelopPanel.resx">
+    <EmbeddedResource Include="Controls\Project\ProjectDevelopPanel.resx">
       <DependentUpon>ProjectDevelopPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProjectFeaturesPanel.resx">
+    <EmbeddedResource Include="Controls\Project\develop\ProjectFeaturesPanel.resx">
       <DependentUpon>ProjectFeaturesPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ProjectGridPanel.resx">
+    <EmbeddedResource Include="Controls\Project\ProjectGridPanel.resx">
       <DependentUpon>ProjectGridPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ReportPanel.resx">
+    <EmbeddedResource Include="Controls\Report\ReportPanel.resx">
       <DependentUpon>ReportPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ReportScreen.resx">
+    <EmbeddedResource Include="Controls\Report\ReportScreen.resx">
       <DependentUpon>ReportScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SpelledMultilineTextbox.resx">
       <DependentUpon>SpelledMultilineTextbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SprintGridPanel.resx">
+    <EmbeddedResource Include="Controls\Sprint\SprintGridPanel.resx">
       <DependentUpon>SprintGridPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SprintKanbanPanel.resx">
+    <EmbeddedResource Include="Controls\Sprint\SprintKanbanPanel.resx">
       <DependentUpon>SprintKanbanPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StandardGridPanel.resx">
       <DependentUpon>StandardGridPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TaskEditor.resx">
+    <EmbeddedResource Include="Controls\Task\TaskEditor.resx">
       <DependentUpon>TaskEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TaskPlanningPanel.resx">
+    <EmbeddedResource Include="Controls\Task\TaskPlanningPanel.resx">
       <DependentUpon>TaskPlanningPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TaskSearchPanel.resx">
+    <EmbeddedResource Include="Controls\Task\TaskSearchPanel.resx">
       <DependentUpon>TaskSearchPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TasksGridPanel.resx">
+    <EmbeddedResource Include="Controls\Task\TasksGridPanel.resx">
       <DependentUpon>TasksGridPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TextBoxFilter.resx">
+    <EmbeddedResource Include="Controls\Filter\TextBoxFilter.resx">
       <DependentUpon>TextBoxFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectExplorer.resx">
@@ -347,7 +349,7 @@
     <EmbeddedResource Include="Starter.resx">
       <DependentUpon>Starter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TaskItem.resx">
+    <EmbeddedResource Include="Controls\Task\TaskItem.resx">
       <DependentUpon>TaskItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -525,6 +527,10 @@
       <Project>{45d49335-f50e-415f-aeef-786675c6d0c5}</Project>
       <Name>Tornado14.Task</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tornado14.WPFControls\Tornado14.WPFControls.csproj">
+      <Project>{b0789bb1-f4b6-402e-ba90-b67a86440010}</Project>
+      <Name>Tornado14.WPFControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tornado14Lab.Utils\Tornado14Lab.Utils.csproj">
       <Project>{8F4BBEED-1AE9-47F8-B9CF-57C6AA1264A7}</Project>
       <Name>Tornado14Lab.Utils</Name>
@@ -577,7 +583,7 @@
     <Folder Include="lib\KryptonGrid\fr\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\WPFTextBox.xaml">
+    <Page Include="Controls\WPFRichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

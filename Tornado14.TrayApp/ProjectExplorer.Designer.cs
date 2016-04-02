@@ -1,4 +1,6 @@
-﻿namespace Tornado14.TrayApp
+﻿using Tornado14.TrayApp.Controls.Task;
+
+namespace Tornado14.TrayApp
 {
     partial class ProjectExplorer
     {
@@ -44,15 +46,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.projectGridPanel1 = new Tornado14.TrayApp.Controls.ProjectGridPanel();
-            this.sprintGridPanel1 = new Tornado14.TrayApp.Controls.SprintGridPanel();
-            this.tasksGridPanel1 = new Tornado14.TrayApp.Controls.TasksGridPanel();
-            this.sprintKanbanPanel1 = new Tornado14.TrayApp.Controls.SprintKanbanPanel();
+            this.projectGridPanel1 = new Tornado14.TrayApp.Controls.Task.ProjectGridPanel();
+            this.sprintGridPanel1 = new Tornado14.TrayApp.Controls.Task.SprintGridPanel();
+            this.tasksGridPanel1 = new Tornado14.TrayApp.Controls.Task.TasksGridPanel();
+            this.sprintKanbanPanel1 = new Tornado14.TrayApp.Controls.Task.SprintKanbanPanel();
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.TaskPlanningPanel();
-            this.addNewTasks1 = new Tornado14.TrayApp.AddNewTasks();
+            this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.Task.TaskPlanningPanel();
+            this.addNewTasks1 = new Tornado14.TrayApp.Controls.Task.AddNewTasks();
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -372,10 +374,10 @@
 
         #endregion
 
-        private Controls.ProjectGridPanel projectGridPanel1;
-        private Controls.SprintGridPanel sprintGridPanel1;
-        private Controls.TasksGridPanel tasksGridPanel1;
-        private Controls.SprintKanbanPanel sprintKanbanPanel1;
+        private Controls.Task.ProjectGridPanel projectGridPanel1;
+        private Controls.Task.SprintGridPanel sprintGridPanel1;
+        private Controls.Task.TasksGridPanel tasksGridPanel1;
+        private Controls.Task.SprintKanbanPanel sprintKanbanPanel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStripMain;
         private System.Windows.Forms.ToolStripButton toolStripButtonKanban;
@@ -392,7 +394,7 @@
         private System.Windows.Forms.BindingSource sprintBindingSource;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private System.Windows.Forms.BindingSource todoBindingSource;
-        private Controls.TaskPlanningPanel taskPlanningPanel1;
+        private Controls.Task.TaskPlanningPanel taskPlanningPanel1;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewTasks;
         private AddNewTasks addNewTasks1;
     }

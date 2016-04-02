@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Tornado14.WPFControls.TEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:SpellCheckAvalonEdit="clr-namespace:SpellCheckAvalonEdit"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:Tornado14.WPFControls"
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+
+        <ToolBarTray Background="{DynamicResource Gray1}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" >
+            <ToolBar ToolBarTray.IsLocked="True" Background="Transparent" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  VerticalContentAlignment="Center" Loaded="ToolBar_Loaded" 
+                     Height="30" Margin="0,0,0,0"  >
+                <Label FontSize="15" Height="26" Foreground="#bbba7d"
+                       Padding="0" Margin="0" VerticalContentAlignment="Top" Content="{Binding HeaderText, Mode=TwoWay, NotifyOnSourceUpdated=True}"></Label>
+                <Button Name="tbrClear" ToolTip="Clear" VerticalAlignment="Center" Click="tbrClear_Click" Padding="0" Margin="0,1,0,0" BorderThickness="0">
+                    <Label FontSize="11" >DE</Label>
+                </Button>
+
+                <Button Name="tbrClear_" Padding="0" Margin="0,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrClear__Click">
+                    <Label FontSize="11">EN</Label>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <!--
+        <local:MvvmTextEditor x:Name="textEditor" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,35,0,0" 
+            SyntaxHighlighting="C#"
+            Text="{Binding Text2, Mode=TwoWay, NotifyOnSourceUpdated=True}"
+            FontSize="12pt">
+            <i:Interaction.Behaviors>
+                <SpellCheckAvalonEdit:SpellCheckBehavior />
+            </i:Interaction.Behaviors>
+        </local:MvvmTextEditor>
+        -->
+        <Border BorderBrush="{DynamicResource Gray1}" BorderThickness="0,1,0,0" Margin="0,30,0,0" >
+            <avalonEdit:TextEditor
+            
+            Background="Transparent"
+            Foreground="#e6e6e6"
+            WordWrap="True"
+            ShowLineNumbers="True"
+            LineNumbersForeground="#3f3f46"
+            x:Name="textEditor"
+            FontFamily="Consolas"
+            SyntaxHighlighting="XML"
+            FontSize="10pt">
+                <i:Interaction.Behaviors>
+                    <local:AvalonEditBehaviour GiveMeTheText="{Binding Text2, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>
+                    <SpellCheckAvalonEdit:SpellCheckBehavior />
+                </i:Interaction.Behaviors>
+            </avalonEdit:TextEditor>
+        </Border>
+
+    </Grid>
+</UserControl>

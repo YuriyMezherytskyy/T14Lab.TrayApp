@@ -13,6 +13,7 @@ using Tornado14Lab.Utils.NativeTheme;
 using Tornado14Lab.Utils.DataGridViewHelper;
 using Tornado14.Task;
 using Tornado14.TrayApp.Controls;
+using Tornado14.TrayApp.Controls.Task;
 
 namespace Tornado14.TrayApp
 {
