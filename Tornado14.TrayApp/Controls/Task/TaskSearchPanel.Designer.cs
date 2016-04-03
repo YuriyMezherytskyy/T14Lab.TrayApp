@@ -170,6 +170,7 @@
             // 
             // dataGridViewTodos
             // 
+            this.dataGridViewTodos.AllowUserToResizeRows = false;
             this.dataGridViewTodos.AutoGenerateColumns = false;
             this.dataGridViewTodos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTodos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -185,10 +186,12 @@
             this.pIdDataGridViewTextBoxColumn});
             this.dataGridViewTodos.DataSource = this.todoBindingSource;
             this.dataGridViewTodos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTodos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridViewTodos.Location = new System.Drawing.Point(5, 26);
             this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewTodos.Name = "dataGridViewTodos";
             this.dataGridViewTodos.RowTemplate.Height = 24;
+            this.dataGridViewTodos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTodos.Size = new System.Drawing.Size(690, 641);
             this.dataGridViewTodos.TabIndex = 1;
             // 
