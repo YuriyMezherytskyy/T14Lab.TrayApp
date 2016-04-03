@@ -98,6 +98,7 @@ namespace Tornado14.WPFControls
                 {
                     customHighlighting = ICSharpCode.AvalonEdit.Highlighting.Xshd.
                         HighlightingLoader.Load(reader, HighlightingManager.Instance);
+
                 }
                 HighlightingManager.Instance.RegisterHighlighting("Custom Highlighting", new string[] { ".cool" }, customHighlighting);
             }
@@ -399,6 +400,10 @@ namespace Tornado14.WPFControls
                 proc4.Kill();
             }
         }
-
+        public event EventHandler HeaderClicked;
+        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            HeaderClicked.Invoke(this, new EventArgs());
+        }
     }
 }

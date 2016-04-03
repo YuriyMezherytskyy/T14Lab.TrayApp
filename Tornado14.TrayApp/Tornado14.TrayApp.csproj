@@ -378,6 +378,8 @@
     <None Include="Resources\help" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\opened_folder7.png" />
+    <None Include="Resources\opened_folder6.png" />
     <None Include="Resources\add_property1.png" />
     <None Include="Resources\add_property.png" />
     <None Include="Resources\save2.png" />

@@ -41,15 +41,21 @@ namespace Tornado14.TrayApp.Controls.Task
             InitializeComponent();
 
             // Init base panel
-            panelTaskFeatures.Dock = DockStyle.Fill;
             panelTaskDetails.Dock = DockStyle.Fill;
             panelTaskDetails.BringToFront();
 
             taskSearchPanel1.Grid.CellClick += Grid_CellClick;
             taskSearchPanel1.TodoBindingSource.CurrentChanged += TodoBindingSource_CurrentItemChanged;
+            taskSearchPanel1.label1.Click += Label1_Click;
             todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged1;
+            panel1.Height = 42;
         }
 
+        private void Label1_Click(object sender, EventArgs e)
+        {
+            taskSearchPanel1.Width = (this.Width / 2) + this.Width / 4;
+            taskSearchPanel1.splitContainer1.SplitterDistance = 250;
+        }
 
         private void TodoBindingSource_CurrentItemChanged1(object sender, EventArgs e)
         {
@@ -88,15 +94,11 @@ namespace Tornado14.TrayApp.Controls.Task
 
         private void SetActiveButton(ToolStripButton button)
         {
-            toolStripButtonDocumentation.Checked = false;
-            toolStripButtonFeatures.Checked = false;
             button.Checked = true;
         }
 
         private void toolStripButtonFeatures_Click(object sender, EventArgs e)
         {
-            panelTaskFeatures.Dock = DockStyle.Fill;
-            panelTaskFeatures.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
 
@@ -105,10 +107,8 @@ namespace Tornado14.TrayApp.Controls.Task
             Todo todo = (Todo)todoBindingSource.Current;
             if (todo != null)
             {
-                checkedListBox1.DataSource = todo.Features;
-                this.checkedListBox1.DisplayMember = "Features";
                 taskEditor1.BindingSource.Position = todoBindingSource.Position;
-                toolStripLabel1.Text = todo.ShortDescription;
+                label1.Text = todo.ShortDescription;
             }
         }
 
@@ -127,5 +127,37 @@ namespace Tornado14.TrayApp.Controls.Task
 
         #endregion
 
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Todo currentTask = (Todo)todoBindingSource.Current;
+            if (currentTask.OpenFilesFolder(Settings.Default.DataFolder))
+            {
+                HasChanges = true;
+            }
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            Todo currentTask = (Todo)todoBindingSource.Current;
+            if (currentTask.OpenFilesFolder(Settings.Default.DataFolder))
+            {
+                HasChanges = true;
+            }
+        }
+
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Todo currentTask = (Todo)todoBindingSource.Current;
+            if (currentTask.OpenFilesFolder(Settings.Default.DataFolder))
+            {
+                HasChanges = true;
+            }
+        }
     }
 }

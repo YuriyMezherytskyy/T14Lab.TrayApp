@@ -273,6 +273,26 @@ namespace Tornado14.TrayApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap opened_folder6 {
+            get {
+                object obj = ResourceManager.GetObject("opened_folder6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap opened_folder7 {
+            get {
+                object obj = ResourceManager.GetObject("opened_folder7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline {
             get {
                 object obj = ResourceManager.GetObject("outline", resourceCulture);

@@ -81,8 +81,12 @@ namespace Tornado14.TrayApp.Controls
         {
             InitializeComponent();
             CustomEditor.TextChanged += CustomEditor_TextChanged;
+            CustomEditor.HeaderClicked += CustomEditor_HeaderClicked;
         }
-
-
+        public event EventHandler HeaderClicked;
+        private void CustomEditor_HeaderClicked(object sender, EventArgs e)
+        {
+            HeaderClicked.Invoke(this, new EventArgs());
+        }
     }
 }

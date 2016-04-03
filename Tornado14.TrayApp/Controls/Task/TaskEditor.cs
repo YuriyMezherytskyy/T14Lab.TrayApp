@@ -34,17 +34,21 @@ namespace Tornado14.TrayApp.Controls.Task
 
             this.projectBindingSource.DataSource = projectDataSource;
 
-            CurrentStateField.CustomEditor.HeaderText = "CurrentState";
+            CurrentStateField.CustomEditor.HeaderText = "Ist Zustand";
             CurrentStateField.SetDataBinding(todoBindingSource.Current, "CurrentState");
+            CurrentStateField.HeaderClicked += CurrentStateField_HeaderClicked;
 
-            DescriptionField.CustomEditor.HeaderText = "Description";
+            DescriptionField.CustomEditor.HeaderText = "Soll Zustand";
             DescriptionField.SetDataBinding(todoBindingSource.Current, "Description");
+            DescriptionField.HeaderClicked += DescriptionField_HeaderClicked;
 
-            ResultField.CustomEditor.HeaderText = "Result";
+            ResultField.CustomEditor.HeaderText = "Recherche";
             ResultField.SetDataBinding(todoBindingSource.Current, "Result");
+            ResultField.HeaderClicked += ResultField_HeaderClicked;
 
-            PublicTextField.CustomEditor.HeaderText = "PublicText";
+            PublicTextField.CustomEditor.HeaderText = "Resultat";
             PublicTextField.SetDataBinding(todoBindingSource.Current, "PublicText");
+            PublicTextField.HeaderClicked += PublicTextField_HeaderClicked;
 
             List<CompletionItem> comletionList = new List<CompletionItem>();
             
@@ -79,6 +83,54 @@ namespace Tornado14.TrayApp.Controls.Task
 
             CurrentStateField.FillComletionList(comletionList);
         }
+
+
+
+
+        private void CurrentStateField_HeaderClicked(object sender, EventArgs e)
+        {
+            int height = panelTaskDetails.Height - 12;
+            int smallSize = (height / 2) / 3;
+            int bigSize = height - (smallSize * 3);
+            panel1.Height = bigSize;
+            panel2.Height = smallSize;
+            panel3.Height = smallSize;
+            panel4.Height = smallSize;
+        }
+
+        private void DescriptionField_HeaderClicked(object sender, EventArgs e)
+        {
+            int height = panelTaskDetails.Height - 12;
+            int smallSize = (height / 2) / 3;
+            int bigSize = height - (smallSize * 3);
+            panel1.Height = smallSize;
+            panel2.Height = bigSize;
+            panel3.Height = smallSize;
+            panel4.Height = smallSize;
+        }
+
+        private void ResultField_HeaderClicked(object sender, EventArgs e)
+        {
+            int height = panelTaskDetails.Height - 12;
+            int smallSize = (height / 2) / 3;
+            int bigSize = height - (smallSize * 3);
+            panel1.Height = smallSize;
+            panel2.Height = smallSize;
+            panel3.Height = bigSize;
+            panel4.Height = smallSize;
+        }
+
+        private void PublicTextField_HeaderClicked(object sender, EventArgs e)
+        {
+            int height = panelTaskDetails.Height - 12;
+            int smallSize = (height / 2) / 3;
+            int bigSize = height - (smallSize * 3);
+            panel1.Height = smallSize;
+            panel2.Height = smallSize;
+            panel3.Height = smallSize;
+            panel4.Height = bigSize;
+        }
+
 
 
         private void TodoBindingSource_CurrentChanged(object sender, EventArgs e)

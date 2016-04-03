@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <SyntaxDefinition name="Custom Highlighting" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
-	<Color name="Comment" foreground="Green" />
-	<Color name="String" foreground="Blue" />
+	<Color name="Comment" foreground="#468966" />
+	<Color name="String" foreground="#FFF0A5" />
 	
 	<!-- This is the main ruleset. -->
 	<RuleSet>
@@ -17,7 +17,7 @@
 			</RuleSet>
 		</Span>
 		
-		<Keywords fontWeight="bold" foreground="Blue">
+		<Keywords fontWeight="bold" foreground="#79BD8F">
 			<Word>if</Word>
 			<Word>else</Word>
 			<!-- ... -->
@@ -28,7 +28,7 @@
 		</Keywords>
 		
 		<!-- Digits -->
-		<Rule foreground="DarkBlue">
+		<Rule foreground="#046380">
             \b0[xX][0-9a-fA-F]+  # hex number
         |    \b
             (    \d+(\.[0-9]+)?   #number with optional floating point

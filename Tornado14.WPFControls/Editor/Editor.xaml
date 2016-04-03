@@ -17,7 +17,7 @@
             <ToolBar ToolBarTray.IsLocked="True" Background="Transparent" HorizontalAlignment="Stretch"  VerticalAlignment="Center"  VerticalContentAlignment="Center" Loaded="ToolBar_Loaded" 
                      Height="30" Margin="0,0,0,0"  >
                 <Label FontSize="15" Height="26" Foreground="#bbba7d"
-                       Padding="0" Margin="0,2,0,0" VerticalContentAlignment="Top" Content="{Binding HeaderText, Mode=TwoWay, NotifyOnSourceUpdated=True}"></Label>
+                       Padding="0" Margin="0,2,0,0" VerticalContentAlignment="Top" Content="{Binding HeaderText, Mode=TwoWay, NotifyOnSourceUpdated=True}" MouseDoubleClick="Label_MouseDoubleClick"></Label>
                 <Button Name="tbrClear" ToolTip="Clear" VerticalAlignment="Center" Click="tbrClear_Click" Padding="0" Margin="0,1,0,0" BorderThickness="0">
                     <Label FontSize="11"  Foreground="White">DE</Label>
                 </Button>
