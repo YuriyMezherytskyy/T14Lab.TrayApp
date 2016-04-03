@@ -33,19 +33,23 @@ namespace Tornado14.TrayApp.Controls.Task
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksGridPanel));
             this.panelTasks = new System.Windows.Forms.Panel();
-            this.panelTasksGray = new System.Windows.Forms.Panel();
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.taskSearchPanel1 = new Tornado14.TrayApp.Controls.Task.TaskSearchPanel();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelTaskSearch = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelTaskFeatures = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.panelTaskDetails = new System.Windows.Forms.Panel();
+            this.taskEditor1 = new Tornado14.TrayApp.Controls.Task.TaskEditor();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonDocumentation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFeatures = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFiles = new System.Windows.Forms.ToolStripButton();
-            this.panelTaskDetails = new System.Windows.Forms.Panel();
-            this.taskEditor1 = new Tornado14.TrayApp.Controls.Task.TaskEditor();
+            this.panelTaskFeatures = new System.Windows.Forms.Panel();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.panelTasksGray = new System.Windows.Forms.Panel();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -54,22 +58,19 @@ namespace Tornado14.TrayApp.Controls.Task
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.taskSearchPanel1 = new Tornado14.TrayApp.Controls.Task.TaskSearchPanel();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.splitter2 = new System.Windows.Forms.Splitter();
             this.panelTasks.SuspendLayout();
-            this.panelTasksGray.SuspendLayout();
-            this.panelTaskSearch.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelTaskFeatures.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panelTaskDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
+            this.panelTaskSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panelTaskDetails.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panelTaskFeatures.SuspendLayout();
+            this.panelTasksGray.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTasks
@@ -82,63 +83,81 @@ namespace Tornado14.TrayApp.Controls.Task
             this.panelTasks.Size = new System.Drawing.Size(1218, 532);
             this.panelTasks.TabIndex = 3;
             // 
-            // panelTasksGray
+            // todoBindingSource
             // 
-            this.panelTasksGray.Controls.Add(this.panelTaskSearch);
-            this.panelTasksGray.Controls.Add(this.splitter1);
-            this.panelTasksGray.Controls.Add(this.taskSearchPanel1);
-            this.panelTasksGray.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTasksGray.Location = new System.Drawing.Point(0, 0);
-            this.panelTasksGray.Margin = new System.Windows.Forms.Padding(2);
-            this.panelTasksGray.Name = "panelTasksGray";
-            this.panelTasksGray.Padding = new System.Windows.Forms.Padding(1);
-            this.panelTasksGray.Size = new System.Drawing.Size(1218, 532);
-            this.panelTasksGray.TabIndex = 6;
+            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
+            this.todoBindingSource.PositionChanged += new System.EventHandler(this.todoBindingSource_PositionChanged);
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
+            this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
+            // 
+            // sprintBindingSource
+            // 
+            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
+            // 
+            // taskSearchPanel1
+            // 
+            this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.taskSearchPanel1.Location = new System.Drawing.Point(1, 1);
+            this.taskSearchPanel1.Name = "taskSearchPanel1";
+            this.taskSearchPanel1.Size = new System.Drawing.Size(595, 530);
+            this.taskSearchPanel1.TabIndex = 15;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.splitter1.Location = new System.Drawing.Point(596, 1);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(4, 530);
+            this.splitter1.TabIndex = 18;
+            this.splitter1.TabStop = false;
             // 
             // panelTaskSearch
             // 
-            this.panelTaskSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTaskSearch.Controls.Add(this.panelTaskDetails);
+            this.panelTaskSearch.Controls.Add(this.splitter2);
             this.panelTaskSearch.Controls.Add(this.panel1);
             this.panelTaskSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTaskSearch.Location = new System.Drawing.Point(600, 1);
             this.panelTaskSearch.Name = "panelTaskSearch";
-            this.panelTaskSearch.Padding = new System.Windows.Forms.Padding(5);
             this.panelTaskSearch.Size = new System.Drawing.Size(617, 530);
             this.panelTaskSearch.TabIndex = 19;
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.bindingNavigator1);
             this.panel1.Controls.Add(this.panelTaskFeatures);
             this.panel1.Controls.Add(this.toolStrip1);
-            this.panel1.Controls.Add(this.panelTaskDetails);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(605, 518);
+            this.panel1.Size = new System.Drawing.Size(617, 83);
             this.panel1.TabIndex = 1;
             // 
-            // panelTaskFeatures
+            // panelTaskDetails
             // 
-            this.panelTaskFeatures.Controls.Add(this.checkedListBox1);
-            this.panelTaskFeatures.Location = new System.Drawing.Point(637, 42);
-            this.panelTaskFeatures.Margin = new System.Windows.Forms.Padding(2);
-            this.panelTaskFeatures.Name = "panelTaskFeatures";
-            this.panelTaskFeatures.Size = new System.Drawing.Size(206, 425);
-            this.panelTaskFeatures.TabIndex = 14;
+            this.panelTaskDetails.Controls.Add(this.taskEditor1);
+            this.panelTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTaskDetails.Location = new System.Drawing.Point(0, 87);
+            this.panelTaskDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.panelTaskDetails.Name = "panelTaskDetails";
+            this.panelTaskDetails.Size = new System.Drawing.Size(617, 443);
+            this.panelTaskDetails.TabIndex = 2;
             // 
-            // checkedListBox1
+            // taskEditor1
             // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(13, 109);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(150, 240);
-            this.checkedListBox1.TabIndex = 46;
+            this.taskEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskEditor1.Location = new System.Drawing.Point(0, 0);
+            this.taskEditor1.Margin = new System.Windows.Forms.Padding(2);
+            this.taskEditor1.Name = "taskEditor1";
+            this.taskEditor1.Size = new System.Drawing.Size(617, 443);
+            this.taskEditor1.TabIndex = 42;
             // 
             // toolStrip1
             // 
@@ -149,7 +168,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.toolStripButtonFiles});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(605, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(615, 39);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -185,24 +204,40 @@ namespace Tornado14.TrayApp.Controls.Task
             this.toolStripButtonFiles.Text = "Files";
             this.toolStripButtonFiles.Click += new System.EventHandler(this.toolStripButtonFiles_Click);
             // 
-            // panelTaskDetails
+            // panelTaskFeatures
             // 
-            this.panelTaskDetails.Controls.Add(this.taskEditor1);
-            this.panelTaskDetails.Controls.Add(this.bindingNavigator1);
-            this.panelTaskDetails.Location = new System.Drawing.Point(160, 42);
-            this.panelTaskDetails.Margin = new System.Windows.Forms.Padding(2);
-            this.panelTaskDetails.Name = "panelTaskDetails";
-            this.panelTaskDetails.Size = new System.Drawing.Size(442, 443);
-            this.panelTaskDetails.TabIndex = 2;
+            this.panelTaskFeatures.Controls.Add(this.checkedListBox1);
+            this.panelTaskFeatures.Location = new System.Drawing.Point(637, 42);
+            this.panelTaskFeatures.Margin = new System.Windows.Forms.Padding(2);
+            this.panelTaskFeatures.Name = "panelTaskFeatures";
+            this.panelTaskFeatures.Size = new System.Drawing.Size(206, 425);
+            this.panelTaskFeatures.TabIndex = 14;
             // 
-            // taskEditor1
+            // checkedListBox1
             // 
-            this.taskEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.taskEditor1.Location = new System.Drawing.Point(0, 39);
-            this.taskEditor1.Margin = new System.Windows.Forms.Padding(2);
-            this.taskEditor1.Name = "taskEditor1";
-            this.taskEditor1.Size = new System.Drawing.Size(442, 404);
-            this.taskEditor1.TabIndex = 42;
+            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(13, 109);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(150, 240);
+            this.checkedListBox1.TabIndex = 46;
+            // 
+            // panelTasksGray
+            // 
+            this.panelTasksGray.Controls.Add(this.panelTaskSearch);
+            this.panelTasksGray.Controls.Add(this.splitter1);
+            this.panelTasksGray.Controls.Add(this.taskSearchPanel1);
+            this.panelTasksGray.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTasksGray.Location = new System.Drawing.Point(0, 0);
+            this.panelTasksGray.Margin = new System.Windows.Forms.Padding(2);
+            this.panelTasksGray.Name = "panelTasksGray";
+            this.panelTasksGray.Padding = new System.Windows.Forms.Padding(1);
+            this.panelTasksGray.Size = new System.Drawing.Size(1218, 532);
+            this.panelTasksGray.TabIndex = 6;
             // 
             // bindingNavigator1
             // 
@@ -222,7 +257,7 @@ namespace Tornado14.TrayApp.Controls.Task
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 39);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -230,15 +265,9 @@ namespace Tornado14.TrayApp.Controls.Task
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.bindingNavigator1.Size = new System.Drawing.Size(442, 39);
-            this.bindingNavigator1.TabIndex = 41;
+            this.bindingNavigator1.Size = new System.Drawing.Size(615, 39);
+            this.bindingNavigator1.TabIndex = 42;
             this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // todoBindingSource
-            // 
-            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
-            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
-            this.todoBindingSource.PositionChanged += new System.EventHandler(this.todoBindingSource_PositionChanged);
             // 
             // bindingNavigatorCountItem
             // 
@@ -306,32 +335,15 @@ namespace Tornado14.TrayApp.Controls.Task
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(36, 36);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
-            // splitter1
+            // splitter2
             // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.splitter1.Location = new System.Drawing.Point(596, 1);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 530);
-            this.splitter1.TabIndex = 18;
-            this.splitter1.TabStop = false;
-            // 
-            // taskSearchPanel1
-            // 
-            this.taskSearchPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.taskSearchPanel1.Location = new System.Drawing.Point(1, 1);
-            this.taskSearchPanel1.Name = "taskSearchPanel1";
-            this.taskSearchPanel1.Size = new System.Drawing.Size(595, 530);
-            this.taskSearchPanel1.TabIndex = 15;
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
-            this.projectBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
-            // 
-            // sprintBindingSource
-            // 
-            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
+            this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter2.Location = new System.Drawing.Point(0, 83);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(617, 4);
+            this.splitter2.TabIndex = 3;
+            this.splitter2.TabStop = false;
             // 
             // TasksGridPanel
             // 
@@ -343,21 +355,20 @@ namespace Tornado14.TrayApp.Controls.Task
             this.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.Size = new System.Drawing.Size(1223, 532);
             this.panelTasks.ResumeLayout(false);
-            this.panelTasksGray.ResumeLayout(false);
-            this.panelTaskSearch.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panelTaskFeatures.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panelTaskDetails.ResumeLayout(false);
-            this.panelTaskDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
+            this.panelTaskSearch.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panelTaskDetails.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panelTaskFeatures.ResumeLayout(false);
+            this.panelTasksGray.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -366,16 +377,14 @@ namespace Tornado14.TrayApp.Controls.Task
 
         private System.Windows.Forms.BindingSource todoBindingSource;
         private System.Windows.Forms.Panel panelTasks;
-        private System.Windows.Forms.Panel panelTasksGray;
         private System.Windows.Forms.BindingSource projectBindingSource;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelTaskFeatures;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDocumentation;
-        private System.Windows.Forms.ToolStripButton toolStripButtonFeatures;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonFiles;
+        private System.Windows.Forms.BindingSource sprintBindingSource;
+        private System.Windows.Forms.Panel panelTasksGray;
+        private System.Windows.Forms.Panel panelTaskSearch;
         private System.Windows.Forms.Panel panelTaskDetails;
+        private TaskEditor taskEditor1;
+        private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -385,10 +394,13 @@ namespace Tornado14.TrayApp.Controls.Task
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private TaskEditor taskEditor1;
-        private TaskSearchPanel taskSearchPanel1;
-        private System.Windows.Forms.BindingSource sprintBindingSource;
+        private System.Windows.Forms.Panel panelTaskFeatures;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDocumentation;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFeatures;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFiles;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panelTaskSearch;
+        private TaskSearchPanel taskSearchPanel1;
     }
 }

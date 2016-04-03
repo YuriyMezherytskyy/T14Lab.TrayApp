@@ -22,26 +22,20 @@ namespace Tornado14.TrayApp.Controls.Task
 
   public partial class TasksGridPanel : StandardGridPanel, IStandardPanel
   {
-    public void SetTodoBindingSource(object source)
-    {
-      todoBindingSource.DataSource = source;
-      taskSearchPanel1.SetTodoBindingSource(source);
-      taskEditor1.SetDataSource((SortableBindingList<Todo>)source);
-    }
 
-    public void SetProjectBindingSource(object source)
-    {
+        internal void SetBindingSources(object projectDataSource, object sprintDataSource, object taskDataSource)
+        {
+            this.projectBindingSource.DataSource = projectDataSource;
+            this.sprintBindingSource.DataSource = sprintDataSource;
+            this.todoBindingSource.DataSource = taskDataSource;
 
-      projectBindingSource.DataSource = source;
-      taskSearchPanel1.SetProjectBindingSource(source);
-    }
+            taskSearchPanel1.SetProjectBindingSource(projectDataSource);
+            taskSearchPanel1.SetSprintBindingSource(sprintDataSource);
+            taskSearchPanel1.SetTodoBindingSource(taskDataSource);
 
+            taskEditor1.SetBindingSources(projectBindingSource, sprintBindingSource, taskDataSource);
+        }
 
-    public void SetSprintBindingSource(object source)
-    {
-      sprintBindingSource.DataSource = source;
-      taskSearchPanel1.SetSprintBindingSource(source);
-    }
 
     public TasksGridPanel()
     {

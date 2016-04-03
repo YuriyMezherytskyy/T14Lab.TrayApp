@@ -19,10 +19,10 @@ namespace Tornado14.TrayApp.Controls.Task
             InitializeComponent();
         }
 
-        public EditTaskDialog(SortableBindingList<Todo> data)
+        public EditTaskDialog(object projectDataSource, object sprintDataSource, object taskDataSource)
         {
             InitializeComponent();
-            taskEditor1.SetDataSource(data);
+            taskEditor1.SetBindingSources(projectDataSource, sprintDataSource, taskDataSource);
             this.BackColor = BlackTheme.ColorDarkGray;
             this.ForeColor = BlackTheme.ColorText;
             BlackTheme.ApplyTheme(this);

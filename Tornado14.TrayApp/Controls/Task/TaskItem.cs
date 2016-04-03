@@ -232,7 +232,7 @@ namespace Tornado14.TrayApp.Controls.Task
     {
       SortableBindingList<Todo> todos = new SortableBindingList<Todo>();
       todos.Add(Task);
-      EditTaskDialog editTaskDialog = new EditTaskDialog(todos);
+      EditTaskDialog editTaskDialog = new EditTaskDialog(null, null, todos);
       editTaskDialog.Show();
     }
 

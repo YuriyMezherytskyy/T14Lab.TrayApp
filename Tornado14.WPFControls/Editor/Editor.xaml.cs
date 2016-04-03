@@ -49,6 +49,7 @@ namespace Tornado14.WPFControls
             }
         }
 
+
         public static readonly DependencyProperty HeaderTextProperty = DependencyProperty.Register("HeaderText", typeof(string), typeof(TEditor), null);
         public string HeaderText
         {
@@ -335,6 +336,14 @@ namespace Tornado14.WPFControls
             textEditor.Text = temp + " ";
         }
 
+        private void tbrMail__Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
+            Microsoft.Office.Interop.Outlook._MailItem oMailItem = (Microsoft.Office.Interop.Outlook._MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+            oMailItem.Body = Text2;
+            oMailItem.Display(true);
+        }
+
         private void tbrWord__ClickOff(object sender, RoutedEventArgs e)
         {
             Process[] proc = Process.GetProcessesByName("WINWORD");
@@ -390,5 +399,6 @@ namespace Tornado14.WPFControls
                 proc4.Kill();
             }
         }
+
     }
 }
