@@ -9,8 +9,10 @@ using SpellCheckAvalonEdit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -304,6 +306,19 @@ namespace Tornado14.WPFControls
             textEditor.Text = temp + " ";
         }
 
+
+        private void tbrSpell__Click(object sender, RoutedEventArgs e)
+        {
+            textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
+            string temp = textEditor.Text;
+            textEditor.Text = "";
+            textEditor.Text = temp + " ";
+        }
+        private void tbrSpellOff__Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void tbrClear__Click(object sender, RoutedEventArgs e)
         {
             spellingErrorColorizer.SetLanguage("en-EN");
@@ -312,6 +327,68 @@ namespace Tornado14.WPFControls
             textEditor.Text = temp + " ";
         }
 
+        private void tbrSpell__ClickOff(object sender, RoutedEventArgs e)
+        {
+            textEditor.TextArea.TextView.LineTransformers.Remove(spellingErrorColorizer);
+            string temp = textEditor.Text;
+            textEditor.Text = "";
+            textEditor.Text = temp + " ";
+        }
 
+        private void tbrWord__ClickOff(object sender, RoutedEventArgs e)
+        {
+            Process[] proc = Process.GetProcessesByName("WINWORD");
+            foreach (Process proc1 in proc)
+            {
+                proc1.Kill();
+            }
+            Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+
+            int errors = 0;
+            if (Text2.Length > 0)
+            {
+                app.Visible = true;
+
+                // Setting these variables is comparable to passing null to the function.
+                // This is necessary because the C# null cannot be passed by reference.
+                object template = Missing.Value;
+                object newTemplate = Missing.Value;
+                object documentType = Missing.Value;
+                object visible = true;
+
+                Microsoft.Office.Interop.Word._Document doc1 = app.Documents.Add(ref template, ref newTemplate, ref documentType, ref visible);
+                doc1.Words.First.InsertBefore(Text2);
+                Microsoft.Office.Interop.Word.ProofreadingErrors spellErrorsColl = doc1.SpellingErrors;
+                errors = spellErrorsColl.Count;
+
+                object optional = Missing.Value;
+
+                doc1.CheckSpelling(
+                    ref optional, ref optional, ref optional, ref optional, ref optional, ref optional,
+                    ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
+
+                //toolStripLabelStatus.Text = errors + " errors corrected ";
+                object first = 0;
+                object last = doc1.Characters.Count - 1;
+                Text2 = doc1.Range(ref first, ref last).Text.Replace("\r", "\r\n");
+                //doc1.Close(ref optional, ref optional, ref optional);
+                //doc1 = null;
+            }
+
+            object saveChanges = false;
+            object originalFormat = Missing.Value;
+            object routeDocument = Missing.Value;
+
+            app.Quit(ref saveChanges, ref originalFormat, ref routeDocument);
+            //app.Quit();
+            app = null;
+
+            //app.Quit(ref originalFormat, ref originalFormat, ref originalFormat);
+            Process[] proc3 = Process.GetProcessesByName("WINWORD");
+            foreach (Process proc4 in proc3)
+            {
+                proc4.Kill();
+            }
+        }
     }
 }
