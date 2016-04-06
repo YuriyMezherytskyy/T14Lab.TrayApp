@@ -20,4 +20,5 @@ copy C:\Users\Mezherytskyy\Source\Repos\TrayApp\Tornado14.TrayApp\bin\Debug\Torn
 copy C:\Users\Mezherytskyy\Source\Repos\TrayApp\Tornado14.TrayApp\bin\Debug\Tornado14.TrayApp.vshost.exe.manifest c:\trayapp
 copy C:\Users\Mezherytskyy\Source\Repos\TrayApp\Tornado14.TrayApp\bin\Debug\Tornado14Lab.Utils.dll c:\trayapp
 copy C:\Users\Mezherytskyy\Source\Repos\TrayApp\Tornado14.TrayApp\bin\Debug\Tornado14Lab.Utils.pdb c:\trayapp
+cd C:\trayapp\
 C:\trayapp\Tornado14.TrayApp.exe
