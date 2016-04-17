@@ -35,35 +35,35 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortDescriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spelledMultilineTextbox1 = new Tornado14.TrayApp.Controls.SpelledMultilineTextbox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelNewTask.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,6 +136,23 @@
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // shortDescriptionDataGridViewTextBoxColumn1
+            // 
+            this.shortDescriptionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.shortDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn1.HeaderText = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn1.Name = "shortDescriptionDataGridViewTextBoxColumn1";
+            // 
+            // sprintBindingSource
+            // 
+            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -190,6 +207,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(645, 260);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // shortDescriptionDataGridViewTextBoxColumn
+            // 
+            this.shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
             // 
             // label1
             // 
@@ -246,56 +280,6 @@
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.panelNewTask);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1190, 625);
-            this.panel1.TabIndex = 19;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // shortDescriptionDataGridViewTextBoxColumn1
-            // 
-            this.shortDescriptionDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shortDescriptionDataGridViewTextBoxColumn1.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn1.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn1.Name = "shortDescriptionDataGridViewTextBoxColumn1";
-            // 
-            // sprintBindingSource
-            // 
-            this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // shortDescriptionDataGridViewTextBoxColumn
-            // 
-            this.shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
-            // 
-            // todoBindingSource
-            // 
-            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
-            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
-            // 
             // spelledMultilineTextbox1
             // 
             this.spelledMultilineTextbox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -307,6 +291,22 @@
             this.spelledMultilineTextbox1.Size = new System.Drawing.Size(534, 625);
             this.spelledMultilineTextbox1.SprintIdList = ((System.Collections.Generic.List<string>)(resources.GetObject("spelledMultilineTextbox1.SprintIdList")));
             this.spelledMultilineTextbox1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel1.Controls.Add(this.panelNewTask);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1190, 625);
+            this.panel1.TabIndex = 19;
+            // 
+            // todoBindingSource
+            // 
+            this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
+            this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
             // 
             // AddNewTasks
             // 
@@ -321,13 +321,13 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
             this.ResumeLayout(false);
 

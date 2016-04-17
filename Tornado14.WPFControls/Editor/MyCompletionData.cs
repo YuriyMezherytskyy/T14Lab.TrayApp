@@ -38,11 +38,20 @@ namespace ICSharpCode.AvalonEdit.Sample
 	public class MyCompletionData : ICompletionData
 	{
         public string CustomDescription { get; set; }
-        public MyCompletionData(string text, string description)
+        public string ReplacementText { get; set; }
+        public MyCompletionData(string text, string description, string replacementText)
 		{
 			this.Text = text;
             this.CustomDescription = description;
-		}
+            if (String.IsNullOrEmpty(replacementText))
+            {
+                this.ReplacementText = Text;
+            } else
+            {
+                this.ReplacementText = replacementText;
+            }
+
+        }
 		
 		public System.Windows.Media.ImageSource Image {
 			get { return null; }
@@ -63,59 +72,7 @@ namespace ICSharpCode.AvalonEdit.Sample
 		
 		public void Complete(TextArea textArea, ISegment completionSegment, EventArgs insertionRequestEventArgs)
 		{
-            // TODo Do Something with that
-            //string url = @"http://google.com/complete/search?output=toolbar&q=" + "wpf avalon edit";
-            //WebRequest httpWebRequest = HttpWebRequest.Create(url);
-            //var webResponse = httpWebRequest.GetResponse();
-            //XmlDocument xmlDoc = new XmlDocument();
-            //xmlDoc.Load(webResponse.GetResponseStream());
-            //var result = xmlDoc.SelectNodes("//CompleteSuggestion");
-            //textArea.Document.GetText(completionSegment);
-
-            //StringBuilder sb = new StringBuilder();
-            //byte[] ResultsBuffer = new byte[8192];
-            //string SearchResults = "http://google.com/search?q=" + "avalon edit";
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SearchResults);
-            //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            //Stream resStream = response.GetResponseStream();
-            //string tempString = null;
-            //int count = 0;
-            //do
-            //{
-            //    count = resStream.Read(ResultsBuffer, 0, ResultsBuffer.Length);
-            //    if (count != 0)
-            //    {
-            //        tempString = Encoding.ASCII.GetString(ResultsBuffer, 0, count);
-            //        sb.Append(tempString);
-            //    }
-            //}
-
-            //while (count > 0);
-            //string sbb = sb.ToString();
-
-            //HtmlAgilityPack.HtmlDocument html = new HtmlAgilityPack.HtmlDocument();
-            //html.OptionOutputAsXml = true;
-            //html.LoadHtml(sbb);
-            //HtmlNode doc = html.DocumentNode;
-            //StringBuilder results = new StringBuilder();
-            //foreach (HtmlNode link in doc.SelectNodes("//a[@href]"))
-            //{
-            //    //HtmlAttribute att = link.Attributes["href"];
-            //    string hrefValue = link.GetAttributeValue("href", string.Empty);
-            //    if (!hrefValue.ToString().ToUpper().Contains("GOOGLE") && hrefValue.ToString().Contains("/url?q=") && hrefValue.ToString().ToUpper().Contains("HTTP://"))
-            //    {
-            //        int index = hrefValue.IndexOf("&");
-            //        if (index > 0)
-            //        {
-            //            hrefValue = hrefValue.Substring(0, index);
-            //            results.AppendLine(hrefValue.Replace("/url?q=", ""));
-            //        }
-            //    }
-            //}
-            //textArea.Document.Replace(completionSegment, results.ToString());
-
-            textArea.Document.Replace(completionSegment, this.Text);
-		}
+            textArea.Document.Replace(completionSegment, this.ReplacementText);
+        }
 	}
 }

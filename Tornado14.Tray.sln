@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Windows.Forms.Calend
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tornado14.WPFControls", "Tornado14.WPFControls\Tornado14.WPFControls.csproj", "{B0789BB1-F4B6-402E-BA90-B67A86440010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{9F6F85D7-48D0-485F-878A-3DDB27F01320}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -168,6 +170,24 @@ Global
 		{B0789BB1-F4B6-402E-BA90-B67A86440010}.Signed|Mixed Platforms.Build.0 = Release|Any CPU
 		{B0789BB1-F4B6-402E-BA90-B67A86440010}.Signed|x86.ActiveCfg = Release|Any CPU
 		{B0789BB1-F4B6-402E-BA90-B67A86440010}.Signed|x86.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Debug|x86.Build.0 = Debug|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|x86.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Release|x86.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|Mixed Platforms.Build.0 = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|x86.ActiveCfg = Release|Any CPU
+		{9F6F85D7-48D0-485F-878A-3DDB27F01320}.Signed|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

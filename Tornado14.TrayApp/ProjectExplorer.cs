@@ -46,14 +46,14 @@ namespace Tornado14.TrayApp
             panels.Add(tasksGridPanel1);
             panels.Add(sprintKanbanPanel1);
             panels.Add(taskPlanningPanel1);
-            panels.Add(addNewTasks1);
+            panels.Add(addTasks);
 
             projectGridPanel1.parentPanel = this;
             sprintGridPanel1.parentPanel = this;
             tasksGridPanel1.parentPanel = this;
             sprintKanbanPanel1.parentPanel = this;
             taskPlanningPanel1.parentPanel = this;
-            addNewTasks1.parentPanel = this;
+            addTasks.parentPanel = this;
 
             SetBlackTheme();
 
@@ -80,7 +80,7 @@ namespace Tornado14.TrayApp
             sprintKanbanPanel1.SetTodoBindingSource(todoBindingSource.DataSource);
             sprintKanbanPanel1.SetSprintBindingSource(sprintBindingSource.DataSource);
 
-            addNewTasks1.SetBindingSources(projectBindingSource.DataSource
+            addTasks.SetBindingSources(projectBindingSource.DataSource
               , sprintBindingSource.DataSource
               , todoBindingSource.DataSource);
 
@@ -172,7 +172,7 @@ namespace Tornado14.TrayApp
             statusStrip1.BackColor = BlackTheme.ColorDarkGray;
 
 
-            addNewTasks1.Dock = DockStyle.Fill;
+            addTasks.Dock = DockStyle.Fill;
             taskPlanningPanel1.Dock = DockStyle.Fill;
             sprintGridPanel1.Dock = DockStyle.Fill;
             tasksGridPanel1.Dock = DockStyle.Fill;
@@ -264,8 +264,8 @@ namespace Tornado14.TrayApp
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            addNewTasks1.Refresh();
-            addNewTasks1.BringToFront();
+            addTasks.Refresh();
+            addTasks.BringToFront();
             SetActiveButton((ToolStripButton)sender);
         }
     }

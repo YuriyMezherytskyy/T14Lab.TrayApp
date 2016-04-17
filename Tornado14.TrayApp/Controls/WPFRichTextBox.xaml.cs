@@ -60,10 +60,13 @@ namespace Tornado14.TrayApp.Controls
 
         public void FillComletionList(List<CompletionItem> completitionItemList)
         {
-            Dictionary<string, string> completitionDictionary = new Dictionary<string, string>();
+            Dictionary<string, List<string>> completitionDictionary = new Dictionary<string, List<string>>();
             foreach (CompletionItem item in completitionItemList)
             {
-                completitionDictionary.Add(item.DisplayText, item.PopUpText);
+                List<string> attributes = new List<string>();
+                attributes.Add(item.PopUpText);
+                attributes.Add(item.ReplacementText);
+                completitionDictionary.Add(item.DisplayText, attributes);
             }
             CustomEditor.FillCompletionData(completitionDictionary);
         }

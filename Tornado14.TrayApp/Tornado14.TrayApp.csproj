@@ -112,6 +112,12 @@
       <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\CommitInfo.cs" />
+    <Compile Include="Controls\Task\AddTasks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\AddTasks.Designer.cs">
+      <DependentUpon>AddTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Task\EditTaskDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CommitedFilesSelection.resx">
       <DependentUpon>CommitedFilesSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\AddTasks.resx">
+      <DependentUpon>AddTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\EditTaskDialog.resx">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>

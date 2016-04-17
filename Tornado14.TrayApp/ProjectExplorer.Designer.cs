@@ -54,7 +54,7 @@ namespace Tornado14.TrayApp
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.taskPlanningPanel1 = new Tornado14.TrayApp.Controls.Task.TaskPlanningPanel();
-            this.addNewTasks1 = new Tornado14.TrayApp.Controls.Task.AddNewTasks();
+            this.addTasks = new Tornado14.TrayApp.Controls.Task.AddTasks();
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -179,13 +179,13 @@ namespace Tornado14.TrayApp
             this.toolStripButtonProject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonProject.Click += new System.EventHandler(this.toolStripButtonProject_Click);
             // 
-            // toolStripButton1
+            // toolStripButtonAddNewTasks
             // 
             this.toolStripButtonAddNewTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(112)))), ((int)(((byte)(50)))));
             this.toolStripButtonAddNewTasks.Image = global::Tornado14.TrayApp.Properties.Resources.add_property;
             this.toolStripButtonAddNewTasks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAddNewTasks.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddNewTasks.Name = "toolStripButton1";
+            this.toolStripButtonAddNewTasks.Name = "toolStripButtonAddNewTasks";
             this.toolStripButtonAddNewTasks.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonAddNewTasks.Size = new System.Drawing.Size(74, 63);
             this.toolStripButtonAddNewTasks.Text = "Add Tasks";
@@ -267,6 +267,7 @@ namespace Tornado14.TrayApp
             this.projectGridPanel1.Location = new System.Drawing.Point(87, 85);
             this.projectGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.projectGridPanel1.Name = "projectGridPanel1";
+            this.projectGridPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.projectGridPanel1.parentPanel = null;
             this.projectGridPanel1.Size = new System.Drawing.Size(78, 413);
             this.projectGridPanel1.TabIndex = 3;
@@ -278,6 +279,7 @@ namespace Tornado14.TrayApp
             this.sprintGridPanel1.Location = new System.Drawing.Point(12, 85);
             this.sprintGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sprintGridPanel1.Name = "sprintGridPanel1";
+            this.sprintGridPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.sprintGridPanel1.parentPanel = null;
             this.sprintGridPanel1.Size = new System.Drawing.Size(69, 413);
             this.sprintGridPanel1.TabIndex = 2;
@@ -289,6 +291,7 @@ namespace Tornado14.TrayApp
             this.tasksGridPanel1.Location = new System.Drawing.Point(259, 85);
             this.tasksGridPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tasksGridPanel1.Name = "tasksGridPanel1";
+            this.tasksGridPanel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.tasksGridPanel1.parentPanel = null;
             this.tasksGridPanel1.Size = new System.Drawing.Size(83, 413);
             this.tasksGridPanel1.TabIndex = 1;
@@ -318,32 +321,31 @@ namespace Tornado14.TrayApp
             // 
             // taskPlanningPanel1
             // 
+            this.taskPlanningPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.taskPlanningPanel1.DataFilePath = null;
             this.taskPlanningPanel1.HasChanges = false;
             this.taskPlanningPanel1.Location = new System.Drawing.Point(349, 85);
             this.taskPlanningPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.taskPlanningPanel1.Name = "taskPlanningPanel1";
+            this.taskPlanningPanel1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.taskPlanningPanel1.parentPanel = null;
             this.taskPlanningPanel1.Size = new System.Drawing.Size(123, 629);
             this.taskPlanningPanel1.TabIndex = 12;
             // 
-            // addNewTasks1
+            // addTasks
             // 
-            this.addNewTasks1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.addNewTasks1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.addNewTasks1.Location = new System.Drawing.Point(480, 85);
-            this.addNewTasks1.Margin = new System.Windows.Forms.Padding(4);
-            this.addNewTasks1.Name = "addNewTasks1";
-            this.addNewTasks1.parentPanel = null;
-            this.addNewTasks1.Size = new System.Drawing.Size(1190, 625);
-            this.addNewTasks1.TabIndex = 13;
+            this.addTasks.Location = new System.Drawing.Point(502, 95);
+            this.addTasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addTasks.Name = "addTasks";
+            this.addTasks.Size = new System.Drawing.Size(1005, 654);
+            this.addTasks.TabIndex = 13;
             // 
             // ProjectExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1087, 690);
-            this.Controls.Add(this.addNewTasks1);
+            this.Controls.Add(this.addTasks);
             this.Controls.Add(this.taskPlanningPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitContainer1);
@@ -396,6 +398,6 @@ namespace Tornado14.TrayApp
         private System.Windows.Forms.BindingSource todoBindingSource;
         private Controls.Task.TaskPlanningPanel taskPlanningPanel1;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddNewTasks;
-        private AddNewTasks addNewTasks1;
+        private AddTasks addTasks;
     }
 }

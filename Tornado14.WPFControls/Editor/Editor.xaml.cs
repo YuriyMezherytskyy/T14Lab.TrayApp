@@ -1,9 +1,9 @@
-﻿using AvalonEdit.Sample;
+﻿using HtmlAgilityPack;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.CodeCompletion;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Rendering;
 using ICSharpCode.AvalonEdit.Sample;
 using SpellCheckAvalonEdit;
 using System;
@@ -11,21 +11,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Tornado14.WPFControls
 {
@@ -68,6 +64,14 @@ namespace Tornado14.WPFControls
             get
             {
                 return this.textEditor;
+            }
+        }
+
+        public string SelectedText
+        {
+            get
+            {
+                return this.textEditor.SelectedText;
             }
         }
 
@@ -119,6 +123,7 @@ namespace Tornado14.WPFControls
 
             textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
             textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
+            textEditor.TextArea.PreviewKeyDown += TextArea_PreviewKeyDown;
 
             DispatcherTimer foldingUpdateTimer = new DispatcherTimer();
             foldingUpdateTimer.Interval = TimeSpan.FromSeconds(1);
@@ -160,6 +165,98 @@ namespace Tornado14.WPFControls
                 }
             }
         }
+
+        private void TextArea_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.F1)
+            {
+                string selectedText = textEditor.SelectedText;
+
+                StringBuilder sb = new StringBuilder();
+                byte[] ResultsBuffer = new byte[8192];
+                string SearchResults = "http://google.com/search?q=" + selectedText;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SearchResults);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                Stream resStream = response.GetResponseStream();
+                string tempString = null;
+                int count = 0;
+                do
+                {
+                    count = resStream.Read(ResultsBuffer, 0, ResultsBuffer.Length);
+                    if (count != 0)
+                    {
+                        tempString = Encoding.ASCII.GetString(ResultsBuffer, 0, count);
+                        sb.Append(tempString);
+                    }
+                }
+
+                while (count > 0);
+                string sbb = sb.ToString();
+
+                HtmlAgilityPack.HtmlDocument html = new HtmlAgilityPack.HtmlDocument();
+                html.OptionOutputAsXml = true;
+                html.LoadHtml(sbb);
+                HtmlNode doc = html.DocumentNode;
+                StringBuilder results = new StringBuilder();
+                foreach (HtmlNode link in doc.SelectNodes("//a[@href]"))
+                {
+                    //HtmlAttribute att = link.Attributes["href"];
+                    string hrefValue = link.GetAttributeValue("href", string.Empty);
+                    if (!hrefValue.ToString().ToUpper().Contains("GOOGLE") && hrefValue.ToString().Contains("/url?q=") && hrefValue.ToString().ToUpper().Contains("HTTP://"))
+                    {
+                        int index = hrefValue.IndexOf("&");
+                        if (index > 0)
+                        {
+                            hrefValue = hrefValue.Substring(0, index);
+                            results.AppendLine(hrefValue.Replace("/url?q=", ""));
+                        }
+                    }
+                }
+
+                textEditor.Document.Insert(textEditor.SelectionStart, results.ToString());
+            }
+
+            if (e.Key == Key.F2)
+            {
+                string selectedText = textEditor.SelectedText;
+                selectedText = selectedText.Replace(System.Environment.NewLine, string.Empty);
+                selectedText = Uri.EscapeDataString(selectedText.Trim());
+                selectedText = RemoveLineEndings(selectedText);
+
+
+                Uri target = new Uri(string.Format(@"http://google.com/complete/search?output=toolbar&q={0}", selectedText));
+                WebRequest httpWebRequest = HttpWebRequest.Create(target);
+                var webResponse = httpWebRequest.GetResponse();
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.XmlResolver = null;
+                StreamReader reader = new StreamReader(webResponse.GetResponseStream(), true);
+                string result2 = reader.ReadToEnd();
+                xmlDoc.LoadXml(result2);
+                XmlNodeList result = xmlDoc.SelectNodes("//CompleteSuggestion");
+                StringBuilder s = new StringBuilder();
+                foreach (XmlNode b in result)
+                {
+                    s.AppendLine(b.FirstChild.Attributes["data"].Value);
+                }
+                textEditor.Document.Insert(textEditor.SelectionStart, s.ToString());
+            }
+        }
+
+        private string RemoveLineEndings(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                return value;
+            }
+            string lineSeparator = ((char)0x2028).ToString();
+            string paragraphSeparator = ((char)0x2029).ToString();
+
+            return value.Replace("\r\n", string.Empty).Replace("\n", string.Empty).Replace("\r", string.Empty).Replace(lineSeparator, string.Empty).Replace(paragraphSeparator, string.Empty);
+        }
+
+
         public event EventHandler TextChanged;
         private void TextArea_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -179,11 +276,11 @@ namespace Tornado14.WPFControls
 
         private List<MyCompletionData> CompletionData = new List<MyCompletionData>();
 
-        public void FillCompletionData(Dictionary<string, string> completionData)
+        public void FillCompletionData(Dictionary<string, List<string>> completionData)
         {
-            foreach (KeyValuePair<string, string> completionItem in completionData)
+            foreach (KeyValuePair<string, List<string>> completionItem in completionData)
             {
-                CompletionData.Add(new MyCompletionData(completionItem.Key, completionItem.Value));
+                CompletionData.Add(new MyCompletionData(completionItem.Key, completionItem.Value[0], completionItem.Value[1]));
             }
         }
 
@@ -198,6 +295,7 @@ namespace Tornado14.WPFControls
                     completionWindow.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
                     completionWindow.Foreground = new SolidColorBrush(Color.FromRgb(225, 225, 225));
                     completionWindow.BorderBrush = new SolidColorBrush(Color.FromRgb(225, 225, 225));
+                    completionWindow.Width = 400;
                     // provide AvalonEdit with the data:
                     IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
                     foreach (MyCompletionData competitionData in CompletionData)
@@ -210,6 +308,28 @@ namespace Tornado14.WPFControls
                     };
                     completionWindow.Show();
                 }
+
+                if (e.Text == "1")
+                {
+                    // open code completion after the user has pressed dot:
+                    completionWindow = new CompletionWindow(textEditor.TextArea);
+                    completionWindow.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+                    completionWindow.Foreground = new SolidColorBrush(Color.FromRgb(225, 225, 225));
+                    completionWindow.BorderBrush = new SolidColorBrush(Color.FromRgb(225, 225, 225));
+                    completionWindow.Width = 400;
+                    // provide AvalonEdit with the data:
+                    IList<ICompletionData> data = completionWindow.CompletionList.CompletionData;
+                    foreach (MyCompletionData competitionData in CompletionData)
+                    {
+                        data.Add(competitionData);
+                    }
+                    completionWindow.Closed += delegate
+                    {
+                        completionWindow = null;
+                    };
+                    completionWindow.Show();
+                }
+
             }
         }
 
