@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tornado14Lab.TextTransformer
 {
-    public partial class Form1 : Form
+    public partial class TextTransformerForm : Form
     {
-        public Form1()
+        public TextTransformerForm()
         {
             InitializeComponent();
         }
