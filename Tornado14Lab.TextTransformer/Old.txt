@@ -1,0 +1,474 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Data;
+using System.Reflection;
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Kiroy.TextTransformer.UserInterface {
+    /// <summary>
+    /// Zusammenfassung für Form1.
+    /// </summary>
+    public partial class MainForm : System.Windows.Forms.Form {
+
+
+        public MainForm() {
+            //
+            // Erforderlich für die Windows Form-Designerunterstützung
+            //
+            InitializeComponent();
+        }
+
+
+
+        private void uiButton1_Click(object sender, System.EventArgs e) {
+            editBox3.Text = "";
+            editBox3.Text += "using System.Text;" + Environment.NewLine;
+            editBox3.Text += Environment.NewLine;
+            editBox3.Text += "using System.Data.SqlClient;" + Environment.NewLine;
+            editBox3.Text += "using Webix.Data.SqlClient;" + Environment.NewLine;
+            editBox3.Text += Environment.NewLine;
+            editBox3.Text += "StringBuilder " + editBox1.Text + "SqlString = new StringBuilder();" + Environment.NewLine;
+
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += editBox1.Text + "SqlString.Append(\"" + sqlLine + " " + "\");" + Environment.NewLine;
+            }
+            editBox3.Text += Environment.NewLine;
+            editBox3.Text += "SqlCommand " + editBox1.Text + "SqlCommand = new SqlCommand(" + editBox1.Text + "SqlString.ToString());" + Environment.NewLine;
+
+            for (int count = 0; count < integerUpDown1.Value; count++) {
+                editBox3.Text += editBox1.Text + "SqlCommand.Parameters.AddWithValue(\"@\", );" + Environment.NewLine;
+            }
+
+            editBox3.Text += Environment.NewLine;
+            editBox3.Text += "DataTable " + editBox1.Text + Environment.NewLine;
+            editBox3.Text += Environment.NewLine;
+            editBox3.Text += "foreach (DataRow in .Rows) {";
+
+        }
+
+        private void uiButton2_Click(object sender, System.EventArgs e) {
+            editBox3.Text = "";
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += "private  " + sqlLine + ";" + Environment.NewLine;
+            }
+
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += Environment.NewLine;
+                string sqlLine2 = sqlLine[0].ToString();
+                sqlLine2 = sqlLine2.ToUpper();
+                sqlLine2 += sqlLine.Substring(1, sqlLine.Length - 1);
+                editBox3.Text += "public  " + sqlLine2 + "{" + Environment.NewLine;
+                editBox3.Text += "	get {" + Environment.NewLine;
+                editBox3.Text += "			return this." + sqlLine + ";" + Environment.NewLine;
+                editBox3.Text += "	}" + Environment.NewLine;
+                editBox3.Text += "	set {" + Environment.NewLine;
+                editBox3.Text += "			this." + sqlLine + " = value;" + Environment.NewLine;
+                editBox3.Text += "	}" + Environment.NewLine;
+                editBox3.Text += "}" + Environment.NewLine;
+                editBox3.Text += Environment.NewLine;
+            }
+        }
+
+        private void uiButton3_Click(object sender, System.EventArgs e) {
+            editBox3.Text = "";
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += "private string " + sqlLine + ";" + Environment.NewLine;
+            }
+
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += Environment.NewLine;
+                string sqlLine2 = sqlLine[0].ToString();
+                sqlLine2 = sqlLine2.ToUpper();
+                sqlLine2 += sqlLine.Substring(1, sqlLine.Length - 1);
+                editBox3.Text += "public string " + sqlLine2 + "{" + Environment.NewLine;
+                editBox3.Text += "	get {" + Environment.NewLine;
+                editBox3.Text += "			return this." + sqlLine + ";" + Environment.NewLine;
+                editBox3.Text += "	}" + Environment.NewLine;
+                editBox3.Text += "	set {" + Environment.NewLine;
+                editBox3.Text += "			this." + sqlLine + " = value;" + Environment.NewLine;
+                editBox3.Text += "	}" + Environment.NewLine;
+                editBox3.Text += "}" + Environment.NewLine;
+                editBox3.Text += Environment.NewLine;
+            }
+
+        }
+
+        private void uiButton4_Click(object sender, System.EventArgs e) {
+            editBox3.Text = "";
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += editBox4.Text + sqlLine + editBox5.Text + Environment.NewLine;
+            }
+        }
+
+        private void uiCommandBar1_CommandClick(object sender, Janus.Windows.UI.CommandBars.CommandEventArgs e) {
+            switch (e.Command.Key) {
+                case "ClearSource":
+                    editBox2.Text = "";
+                    break;
+                case "ClearResult":
+                    editBox3.Text = "";
+                    break;
+                case "ClearAll":
+                    editBox2.Text = "";
+                    editBox3.Text = "";
+                    break;
+
+                case "CopyResultToClipBoard":
+                    editBox3.SelectAll();
+                    Clipboard.SetDataObject(editBox3.SelectedText, true);
+                    break;
+                case "CopySourceToClipBoard":
+                    editBox2.SelectAll();
+                    Clipboard.SetDataObject(editBox2.SelectedText, true);
+                    break;
+                case "ClearSourceAndFillWithResult":
+                    editBox2.Text = editBox3.Text;
+                    break;
+            }
+        }
+
+        private void uiButton5_Click(object sender, System.EventArgs e) {
+            editBox3.Text = "";
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += sqlLine + editBox6.Text + sqlLine + Environment.NewLine;
+            }
+        }
+
+        private void uiButton6_Click(object sender, System.EventArgs e) {
+            this.editBoxPasswordHash.Text = Hash(this.editBoxPassword.Text);
+        }
+        /// <summary>
+        /// Crypt string
+        /// </summary>
+        /// <param name="toEncrypt"></param>
+        /// <returns></returns>
+        public string Hash(string toEncrypt) {
+            System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+            string encrypted = BitConverter.ToString(md5.ComputeHash(System.Text.Encoding.ASCII.GetBytes(toEncrypt))).Replace("-", String.Empty).ToLower();
+
+            return encrypted;
+        }
+
+        private void uiButton7_Click(object sender, System.EventArgs e) {
+        }
+
+        private void uiButton8_Click(object sender, System.EventArgs e) {
+            editBox3.Text += "<html>" + Environment.NewLine;
+            editBox3.Text += "   <body>" + Environment.NewLine;
+            editBox3.Text += "      <form action=\"https://h20010.www2.hp.com:6868/ore/command.ore\" method=\"post\">" + Environment.NewLine;
+            editBox3.Text += "         <input type=\"hidden\" name=\"xml-request\" value='" + Environment.NewLine;
+            editBox3.Text += "            <!DOCTYPE OrderStateNotification PUBLIC \"-//wirestone.com//DTD Order State Notification 1.0.0//EN\"" + Environment.NewLine;
+            editBox3.Text += "           \"http://hp.boise.wirestone.com/ereturns/transforms/OrderStateNotification-1.0.0.dtd\">" + Environment.NewLine;
+
+            foreach (string sqlLine in editBox2.Lines) {
+                editBox3.Text += "            " + sqlLine + Environment.NewLine;
+            }
+
+            editBox3.Text += "         '>" + Environment.NewLine;
+            editBox3.Text += "         <input type=\"submit\">" + Environment.NewLine;
+            editBox3.Text += "      </form>" + Environment.NewLine;
+            editBox3.Text += "   </body>" + Environment.NewLine;
+            editBox3.Text += "</html>" + Environment.NewLine;
+
+        }
+
+        private void uiButton7_Click_1(object sender, EventArgs e) {
+            editBox3.Text += "<html>" + Environment.NewLine;
+            editBox3.Text += "   <body>" + Environment.NewLine;
+            editBox3.Text += "      <form action=\"https://h20010.www2.hp.com:6868/ore/command.ore\" method=\"post\">" + Environment.NewLine;
+            editBox3.Text += "         <input type=\"hidden\" name=\"xml-request\" value='" + Environment.NewLine;
+
+            openFileDialog1.Filter = "ConfirmNewOrderRequest (*.xml)|*.xml";
+            openFileDialog1.InitialDirectory = @"\\srv-bbone-bbn\TPBackbone\TP_Backbone\TransactionProcessing\SuppliesTakeBack\out\history";
+            openFileDialog1.DefaultExt = "xml";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+                int count = 0;
+                FileStream fsIn = (FileStream)openFileDialog1.OpenFile();
+                try {
+                    using (StreamReader sr = new StreamReader(fsIn)) {
+                        // Process every line in the file
+                        for (String Line = sr.ReadLine(); Line != null; Line = sr.ReadLine()) {
+                            if (count != 0) {
+                                editBox3.Text += "            " + Line + Environment.NewLine;
+                            }
+                            count++;
+                        }
+                    }
+                    // Explicitly close the StreamReader to properly flush all buffers
+                } catch (FileNotFoundException) {
+                }
+
+            }
+
+            editBox3.Text += "         '>" + Environment.NewLine;
+            editBox3.Text += "         <input type=\"submit\">" + Environment.NewLine;
+            editBox3.Text += "      </form>" + Environment.NewLine;
+            editBox3.Text += "   </body>" + Environment.NewLine;
+            editBox3.Text += "</html>" + Environment.NewLine;
+        }
+
+        private void uiButton9_Click(object sender, EventArgs e) {
+            saveFileDialog1.InitialDirectory = @"c:\";
+            saveFileDialog1.FileName = "SuppliesOrdersManualConfirm_" + DateTime.Now.ToString("yyyy-MM-dd");
+            saveFileDialog1.Filter = "Html (*.html)|*.html";
+            saveFileDialog1.ShowDialog();
+
+            if (saveFileDialog1.FileName != "") {
+                StreamWriter sw = new StreamWriter(saveFileDialog1.FileName, false);
+                sw.Write(editBox3.Text);
+                sw.Close();
+            }
+        }
+
+        private void uiButton11_Click(object sender, EventArgs e) {
+            StringBuilder result = new StringBuilder();
+            List<string> lines = new List<string>();
+
+            foreach (string sqlLine in editBox2.Lines) {
+                lines.Add(sqlLine);
+            }
+            int count = 0;
+            foreach (string sqlLine in lines) {
+                count++;
+                if (radioButtonClearInLine1.Checked) {
+                    int start = sqlLine.IndexOf(textBoxClearInLine1.Text);
+                    if (start > -1) {
+                        result.AppendLine(sqlLine.Substring(start, sqlLine.Length - start));
+                    } else {
+                        result.AppendLine(sqlLine);
+
+                    }
+                } else if (radioButtonClearInLine2.Checked) {
+                    int start = sqlLine.IndexOf(textBoxClearInLine2.Text);
+                    if (start > -1) {
+                        result.AppendLine(sqlLine.Substring(0, start + 1));
+                    } else {
+                        result.AppendLine(sqlLine);
+                    }
+                } else if (radioButtonClearInLine3.Checked) {
+                    try {
+                        int start = int.Parse(textBoxClearInLine3.Text);
+                        if (start > -1) {
+                            result.AppendLine(sqlLine.Substring(start - 1, sqlLine.Length - start + 1));
+                        } else {
+                            result.AppendLine(sqlLine);
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show(ex.Message);
+                    }
+                } else if (radioButtonClearInLine4.Checked) {
+                    try {
+                        int start = int.Parse(textBoxClearInLine4.Text);
+                        if (start > -1) {
+                            if (start <= sqlLine.Length) {
+                                result.AppendLine(sqlLine.Substring(0, start + 1));
+                            }
+                        } else {
+                            result.AppendLine(sqlLine);
+                        }
+                    } catch (Exception ex) {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            editBox3.Text = result.ToString();
+        }
+
+        private void uiButton10_Click(object sender, EventArgs e) {
+            StringBuilder result = new StringBuilder();
+            int count = 1;
+            int count2 = 1;
+            List<string> lines = new List<string>();
+
+            foreach (string sqlLine in editBox2.Lines) {
+                lines.Add(sqlLine);
+            }
+            foreach (string sqlLine in lines) {
+                if (radioButtonClear1.Checked) {
+                    if (sqlLine.Length != 0 || sqlLine != Environment.NewLine) {
+                        char[] a = sqlLine.ToCharArray();
+                        bool allSpaces = true;
+                        foreach (char b in a) {
+                            if (b != 32) {
+                                allSpaces = false;
+                                break;
+                            }
+                        }
+                        if (!allSpaces) {
+                            result.AppendLine(sqlLine);
+                        }
+                    }
+                } else if (radioButtonClear2.Checked) {
+                    if (!sqlLine.StartsWith(textBoxClearStartWith.Text)) {
+                        result.AppendLine(sqlLine);
+                    }
+                } else if (radioButtonClear3.Checked) {
+                    if (sqlLine.StartsWith(textBoxClearStartNotWith.Text)) {
+                        result.AppendLine(sqlLine);
+                    }
+                } else if (radioButtonClear4.Checked) {
+                    if (!sqlLine.EndsWith(textBoxClearEndsWith.Text)) {
+                        result.AppendLine(sqlLine );
+                    }
+                } else if (radioButtonClear5.Checked) {
+                    if (sqlLine.EndsWith(textBoxClearEndsNotWith.Text)) {
+                        result.AppendLine(sqlLine);
+                    }
+                } else if (radioButtonClear6.Checked) {
+                    if (!sqlLine.Contains(textBoxClearContains.Text)) {
+                        result.AppendLine(sqlLine);
+                    }
+                } else if (radioButtonClear7.Checked) {
+                    foreach (string containsNot in textBoxClearContainsNot.Lines) {
+                        if (sqlLine.Contains(containsNot.Trim())) {
+                            result.AppendLine(sqlLine);
+                        }
+                    }
+                } else if (radioButtonClear8.Checked) {
+                    if (count == numericUpDownLine.Value) {
+                        result.AppendLine(sqlLine);
+                        count = 1;
+                        continue;
+                    }
+                
+                }
+                count++;
+                count2++;
+            }
+
+            editBox3.Text = result.ToString();
+
+        }
+
+        private void uiTab1_SelectedTabChanged(object sender, Janus.Windows.UI.Tab.TabEventArgs e) {
+
+        }
+
+        private void uiButton12_Click(object sender, EventArgs e) {
+            List<string> puffer = new List<string>();
+            foreach (string sqlLine in editBox2.Lines) {
+                if (!puffer.Contains(sqlLine)) {
+                    puffer.Add(sqlLine);
+                }
+            }
+            foreach (string line in puffer) {
+                editBox3.Text += line + Environment.NewLine;
+            }
+
+        }
+
+        private void uiButton13_Click(object sender, EventArgs e) {
+            List<string> puffer = new List<string>();
+            List<string> puffer2 = new List<string>();
+            foreach (string sqlLine in editBox2.Lines) {
+                puffer.Add(sqlLine);
+            }
+
+            puffer.Sort();
+
+            for (int a = 0; a < puffer.Count; a++) {
+                int b = a;
+                if (a < puffer.Count - 1) {
+                    b++;
+                }
+                if (puffer[a] == puffer[b]) {
+                    if (!puffer2.Contains(puffer[a])) {
+                        puffer2.Add(puffer[a]);
+                    }
+                }
+            }
+
+            foreach (string line in puffer2) {
+                editBox3.Text += line + Environment.NewLine;
+            }
+        }
+
+        private void uiButton14_Click(object sender, EventArgs e) {
+            List<string> puffer = new List<string>();
+            foreach (string sqlLine in editBox2.Lines) {
+                puffer.Add(sqlLine);
+            }
+            foreach (string line in puffer) {
+                editBox3.Text += line;
+            }
+        }
+
+        private void uiButton15_Click(object sender, EventArgs e) {
+            List<string> puffer3 = new List<string>();
+            foreach (string sqlLine in editBox2.Lines) {
+                puffer3.Add(sqlLine);
+            }
+
+            List<string> puffer = new List<string>();
+            List<string> puffer2 = new List<string>();
+            foreach (string sqlLine in editBox2.Lines) {
+                puffer.Add(sqlLine);
+            }
+
+            puffer.Sort();
+
+            for (int a = 0; a < puffer.Count; a++) {
+                int b = a;
+                if (a < puffer.Count - 1) {
+                    b++;
+                }
+                if (puffer[a] == puffer[b]) {
+                    if (!puffer2.Contains(puffer[a])) {
+                        puffer2.Add(puffer[a]);
+                    }
+                }
+            }
+
+            foreach (string line in puffer3) {
+                if (!puffer2.Contains(line)) {
+                    editBox3.Text += line + Environment.NewLine;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK) {
+                StringBuilder result = new StringBuilder();
+                DirectoryInfo directory = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
+                foreach (FileInfo file in directory.GetFiles()) {
+                    using (StreamReader sr2 = new StreamReader(file.FullName, Encoding.Default)) {
+                        string temp;
+                        bool recordText = false;
+                        while ((temp = sr2.ReadLine()) != null) {
+                            if (recordText) {
+                                int charNumber = temp.IndexOf(textBox2.Text);
+                                if (charNumber > 0) {
+                                    result.AppendLine(temp.Substring(0, charNumber));
+                                    recordText = false;
+                                } else {
+                                    result.AppendLine(temp);
+                                }
+
+                            } else {
+                                int charNumber = temp.IndexOf(textBox1.Text);
+                                if (charNumber > 0) {
+                                    result.AppendLine(temp.Substring(charNumber));
+                                    recordText = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (result.Length > 3) {
+                    FileStream logFile = System.IO.File.Open(directory.FullName + "\\processed.htm", FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+                    byte[] bytes = System.Text.Encoding.Default.GetBytes(result.ToString());
+                    logFile.Write(bytes, 0, bytes.Length);
+                    logFile.Flush();
+                    logFile.Close();
+                }
+            }
+        }
+
+
+    }
+}
