@@ -49,25 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\BaseFilter.cs">
+    <Compile Include="Controls\Filters\BaseFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DoubleTextboxFiler.cs">
+    <Compile Include="Controls\Filters\DoubleTextboxFiler.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DoubleTextboxFiler.Designer.cs">
+    <Compile Include="Controls\Filters\DoubleTextboxFiler.Designer.cs">
       <DependentUpon>DoubleTextboxFiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NoDataFilter.cs">
+    <Compile Include="Controls\Filters\NoDataFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\NoDataFilter.Designer.cs">
+    <Compile Include="Controls\Filters\NoDataFilter.Designer.cs">
       <DependentUpon>NoDataFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NumericFilter.cs">
+    <Compile Include="Controls\Filters\NumericFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\NumericFilter.Designer.cs">
+    <Compile Include="Controls\Filters\NumericFilter.Designer.cs">
       <DependentUpon>NumericFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ScenarioSelector.cs">
@@ -76,12 +76,13 @@
     <Compile Include="Controls\ScenarioSelector.Designer.cs">
       <DependentUpon>ScenarioSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TextboxFilter.cs">
+    <Compile Include="Controls\Filters\TextboxFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\TextboxFilter.Designer.cs">
+    <Compile Include="Controls\Filters\TextboxFilter.Designer.cs">
       <DependentUpon>TextboxFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filter.cs" />
     <Compile Include="TextTransformerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,19 +91,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\DoubleTextboxFiler.resx">
+    <EmbeddedResource Include="Controls\Filters\DoubleTextboxFiler.resx">
       <DependentUpon>DoubleTextboxFiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\NoDataFilter.resx">
+    <EmbeddedResource Include="Controls\Filters\NoDataFilter.resx">
       <DependentUpon>NoDataFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\NumericFilter.resx">
+    <EmbeddedResource Include="Controls\Filters\NumericFilter.resx">
       <DependentUpon>NumericFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ScenarioSelector.resx">
       <DependentUpon>ScenarioSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TextboxFilter.resx">
+    <EmbeddedResource Include="Controls\Filters\TextboxFilter.resx">
       <DependentUpon>TextboxFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextTransformerForm.resx">
@@ -116,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -138,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fantasy_32px.ico" />
+    <None Include="Resources\fantasy1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

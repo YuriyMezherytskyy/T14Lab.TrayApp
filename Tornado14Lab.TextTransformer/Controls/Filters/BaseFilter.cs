@@ -13,8 +13,9 @@ namespace Tornado14Lab.TextTransformer.Controls
     {
         public Color TaskColor { get; set; }
 
-        public virtual string Key { get; set; }
+        public virtual Filter Key { get; set; }
         public virtual string Description { get; set; }
+        public virtual List<object> Values { get; set; }
 
         private bool allowDrag = true;
         public bool AllowDrag

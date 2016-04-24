@@ -34,10 +34,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.scenarioSelector1 = new Tornado14Lab.TextTransformer.Controls.ScenarioSelector();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonProcess = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -58,6 +61,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1.Panel2
             // 
@@ -70,10 +74,10 @@
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Location = new System.Drawing.Point(0, 25);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 606);
+            this.textBox1.Size = new System.Drawing.Size(309, 581);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -94,7 +98,26 @@
             this.scenarioSelector1.Size = new System.Drawing.Size(530, 608);
             this.scenarioSelector1.TabIndex = 0;
             // 
-            // Form1
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonProcess});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(309, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonProcess
+            // 
+            this.toolStripButtonProcess.Image = global::Tornado14Lab.TextTransformer.Properties.Resources.fantasy1;
+            this.toolStripButtonProcess.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProcess.Name = "toolStripButtonProcess";
+            this.toolStripButtonProcess.Size = new System.Drawing.Size(67, 22);
+            this.toolStripButtonProcess.Text = "Process";
+            this.toolStripButtonProcess.Click += new System.EventHandler(this.toolStripButtonProcess_Click);
+            // 
+            // TextTransformerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +126,7 @@
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.scenarioSelector1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "TextTransformerForm";
             this.Padding = new System.Windows.Forms.Padding(4);
             this.Text = "Text transformer";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -112,6 +135,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -123,6 +148,8 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProcess;
     }
 }
 

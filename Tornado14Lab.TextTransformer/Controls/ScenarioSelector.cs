@@ -13,112 +13,50 @@ namespace Tornado14Lab.TextTransformer.Controls
 
     public partial class ScenarioSelector : UserControl
     {
-        public enum Filter
-        {
-            empty = 0,
-            StartToString = 10,
-            StringToEnd = 20,
-            StartToCharNumber = 30,
-            CharNumberToEnd = 40,
-            Breakline = 50,
-
-            EmptyLines = 100,
-            StartsWith = 110,
-            NotStartsWith = 120,
-            EndsWidh = 130,
-            NotEndsWidh = 140,
-            Contains = 150,
-            NotContains = 160,
-            GiveEachLineNo = 170,
-
-            AddAtStartAndAtEnd = 200,
-            SplitAmdDuplicate = 210,
-
-            GetDuplicateLines = 300,
-            GetNotDuplicateLines = 310,
-            RemoveDuplicateLines = 320
-        }
-
         public ScenarioSelector()
         {
             InitializeComponent();
-            // Remove in line
-            AddTextBoxFilter(tabPageRemoveInLine, Filter.StartToString, "Remove in line from start to string");
-            AddTextBoxFilter(tabPageRemoveInLine, Filter.StringToEnd, "Remove in line from string to end");
-            AddNumericFilter(tabPageRemoveInLine, Filter.StartToCharNumber, "Remove in line from start to char number");
-            AddNumericFilter(tabPageRemoveInLine, Filter.CharNumberToEnd, "Remove in line from chart to end");
-            AddNoDataFilter(tabPageRemoveInLine, Filter.Breakline, "Remove in line breaklines");
+            AddFilters();
+        }
+
+        private void AddFilters()
+        {
+            tabPageRemoveInLine.Controls.Clear();
+            tabPageRemoveLine.Controls.Clear();
+            tabPageModifyLine.Controls.Clear();
+            tabPageDuplicate.Controls.Clear();
+
+            AddFilter(tabPageRemoveInLine, Filter.StartToString);
+            AddFilter(tabPageRemoveInLine, Filter.StringToEnd);
+            AddFilter(tabPageRemoveInLine, Filter.StartToCharNumber);
+            AddFilter(tabPageRemoveInLine, Filter.CharNumberToEnd);
+            AddFilter(tabPageRemoveInLine, Filter.Breakline);
             // remove from char no to char no
 
-            AddNoDataFilter(tabPageRemoveLine, Filter.EmptyLines, "Remove Empty lines");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.StartsWith, "Remove lines Starts with");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.NotStartsWith, "Remove lines not starts with");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.EndsWidh, "Remove lines ends with");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.NotEndsWidh, "Remove lines not ends with");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.Contains, "Remove lines contains");
-            AddTextBoxFilter(tabPageRemoveLine, Filter.NotContains, "Remove lines not contains");
-            AddNumericFilter(tabPageRemoveLine, Filter.GiveEachLineNo, "Give each line no");
+            AddFilter(tabPageRemoveLine, Filter.EmptyLines);
+            AddFilter(tabPageRemoveLine, Filter.StartsWith);
+            AddFilter(tabPageRemoveLine, Filter.NotStartsWith);
+            AddFilter(tabPageRemoveLine, Filter.EndsWidh);
+            AddFilter(tabPageRemoveLine, Filter.NotEndsWidh);
+            AddFilter(tabPageRemoveLine, Filter.Contains);
+            AddFilter(tabPageRemoveLine, Filter.NotContains);
+            AddFilter(tabPageRemoveLine, Filter.GiveEachLineNo);
 
-            AddDoubleTextboxFiler(tabPageModifyLine, Filter.AddAtStartAndAtEnd, "Add at start and at end, each line");
-            AddTextBoxFilter(tabPageModifyLine, Filter.SplitAmdDuplicate, "Split amd duplicate lines");
+            AddFilter(tabPageModifyLine, Filter.AddAtStartAndAtEnd);
+            AddFilter(tabPageModifyLine, Filter.SplitAmdDuplicate);
 
-            AddNoDataFilter(tabPageDuplicate, Filter.GetDuplicateLines, "Get duplicates lines");
-            AddNoDataFilter(tabPageDuplicate, Filter.GetNotDuplicateLines, "Get not duplicates lines");
-            AddNoDataFilter(tabPageDuplicate, Filter.RemoveDuplicateLines, "Remove duplicate lines");
+            AddFilter(tabPageDuplicate, Filter.GetDuplicateLines);
+            AddFilter(tabPageDuplicate, Filter.GetNotDuplicateLines);
+            AddFilter(tabPageDuplicate, Filter.RemoveDuplicateLines);
         }
 
-        #region Add Filter
-
-        private TextboxFilter AddTextBoxFilter(TabPage page, Filter key, string description)
+        private void AddFilter(TabPage page, Filter filter)
         {
-            TextboxFilter textboxFilter = new TextboxFilter();
-
-            textboxFilter.Key = key.ToString();
-            textboxFilter.Description = description;
-            page.Controls.Add(textboxFilter);
-            textboxFilter.Dock = DockStyle.Top;
-
-            return textboxFilter;
+            FilterHelper filterHelper = new FilterHelper();
+            BaseFilter filterControl = filterHelper.GetFilter(filter);
+            page.Controls.Add(filterControl);
+            filterControl.Dock = DockStyle.Top;
         }
-
-        private NoDataFilter AddNoDataFilter(TabPage page, Filter key, string description)
-        {
-            NoDataFilter noDataFilter = new NoDataFilter();
-
-            noDataFilter.Key = key.ToString();
-            noDataFilter.Description = description;
-            page.Controls.Add(noDataFilter);
-            noDataFilter.Dock = DockStyle.Top;
-
-            return noDataFilter;
-        }
-
-        private DoubleTextboxFiler AddDoubleTextboxFiler(TabPage page, Filter key, string description)
-        {
-            DoubleTextboxFiler doubleTextboxFilter = new DoubleTextboxFiler();
-
-            doubleTextboxFilter.Key = key.ToString();
-            doubleTextboxFilter.Description = description;
-            page.Controls.Add(doubleTextboxFilter);
-            doubleTextboxFilter.Dock = DockStyle.Top;
-
-            return doubleTextboxFilter;
-        }
-
-        private NumericFilter AddNumericFilter(TabPage page, Filter key, string description)
-        {
-            NumericFilter numericFilter = new NumericFilter();
-
-            numericFilter.Key = key.ToString();
-            numericFilter.Description = description;
-            page.Controls.Add(numericFilter);
-            numericFilter.Dock = DockStyle.Top;
-
-            return numericFilter;
-        }
-
-
-        #endregion
 
         #region Drag and Drop Events
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tornado14Lab.TextTransformer.Controls
 {
-    public partial class NumericFilter : BaseFilter
+    public partial class TextboxFilter : BaseFilter
     {
-        public NumericFilter()
+        public TextboxFilter()
         {
             InitializeComponent();
             panelWrapper.MouseDown += Filter_MouseDown;
@@ -31,6 +31,16 @@ namespace Tornado14Lab.TextTransformer.Controls
             {
                 labelDescription.Text = value;
                 base.Description = value;
+            }
+        }
+
+        public override List<object> Values
+        {
+            get
+            {
+                List<object> values = new List<object>();
+                values.Add(textBox1.Text);
+                return values;
             }
         }
 

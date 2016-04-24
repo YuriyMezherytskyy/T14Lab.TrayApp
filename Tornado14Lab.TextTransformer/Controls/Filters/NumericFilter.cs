@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tornado14Lab.TextTransformer.Controls
 {
-    public partial class TextboxFilter : BaseFilter
+    public partial class NumericFilter : BaseFilter
     {
-        public TextboxFilter()
+        public NumericFilter()
         {
             InitializeComponent();
             panelWrapper.MouseDown += Filter_MouseDown;
@@ -34,7 +34,15 @@ namespace Tornado14Lab.TextTransformer.Controls
             }
         }
 
-
+        public override List<object> Values
+        {
+            get
+            {
+                List<object> values = new List<object>();
+                values.Add(numericUpDown1.Value);
+                return values;
+            }
+        }
 
         private void Filter_MouseDown(object sender, MouseEventArgs e)
         {

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panelColumn1 = new System.Windows.Forms.Panel();
+            this.panelActiveFilter = new System.Windows.Forms.Panel();
             this.labelColumn1 = new System.Windows.Forms.Label();
             this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -58,7 +58,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
-            this.splitContainer2.Panel1.Controls.Add(this.panelColumn1);
+            this.splitContainer2.Panel1.Controls.Add(this.panelActiveFilter);
             this.splitContainer2.Panel1.Controls.Add(this.labelColumn1);
             this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(5);
             // 
@@ -72,20 +72,20 @@
             this.splitContainer2.SplitterDistance = 302;
             this.splitContainer2.TabIndex = 14;
             // 
-            // panelColumn1
+            // panelActiveFilter
             // 
-            this.panelColumn1.AllowDrop = true;
-            this.panelColumn1.AutoScroll = true;
-            this.panelColumn1.BackColor = System.Drawing.Color.Transparent;
-            this.panelColumn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelColumn1.Location = new System.Drawing.Point(5, 32);
-            this.panelColumn1.Margin = new System.Windows.Forms.Padding(2);
-            this.panelColumn1.Name = "panelColumn1";
-            this.panelColumn1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
-            this.panelColumn1.Size = new System.Drawing.Size(1046, 263);
-            this.panelColumn1.TabIndex = 3;
-            this.panelColumn1.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
-            this.panelColumn1.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
+            this.panelActiveFilter.AllowDrop = true;
+            this.panelActiveFilter.AutoScroll = true;
+            this.panelActiveFilter.BackColor = System.Drawing.Color.Transparent;
+            this.panelActiveFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelActiveFilter.Location = new System.Drawing.Point(5, 32);
+            this.panelActiveFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.panelActiveFilter.Name = "panelActiveFilter";
+            this.panelActiveFilter.Padding = new System.Windows.Forms.Padding(4, 0, 4, 1);
+            this.panelActiveFilter.Size = new System.Drawing.Size(1046, 263);
+            this.panelActiveFilter.TabIndex = 3;
+            this.panelActiveFilter.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
+            this.panelActiveFilter.DragEnter += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragEnter);
             // 
             // labelColumn1
             // 
@@ -137,7 +137,7 @@
             this.tabPageRemoveInLine.Location = new System.Drawing.Point(4, 29);
             this.tabPageRemoveInLine.Name = "tabPageRemoveInLine";
             this.tabPageRemoveInLine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRemoveInLine.Size = new System.Drawing.Size(395, 257);
+            this.tabPageRemoveInLine.Size = new System.Drawing.Size(1030, 257);
             this.tabPageRemoveInLine.TabIndex = 0;
             this.tabPageRemoveInLine.Text = "Remove In line";
             this.tabPageRemoveInLine.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
@@ -152,7 +152,7 @@
             this.tabPageRemoveLine.Location = new System.Drawing.Point(4, 29);
             this.tabPageRemoveLine.Name = "tabPageRemoveLine";
             this.tabPageRemoveLine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRemoveLine.Size = new System.Drawing.Size(395, 257);
+            this.tabPageRemoveLine.Size = new System.Drawing.Size(1030, 257);
             this.tabPageRemoveLine.TabIndex = 1;
             this.tabPageRemoveLine.Text = "Remove Line";
             this.tabPageRemoveLine.DragDrop += new System.Windows.Forms.DragEventHandler(this.flowLayoutPanel_DragDrop);
@@ -160,18 +160,20 @@
             // 
             // tabPageModifyLine
             // 
+            this.tabPageModifyLine.AllowDrop = true;
             this.tabPageModifyLine.AutoScroll = true;
             this.tabPageModifyLine.BackColor = System.Drawing.Color.White;
             this.tabPageModifyLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageModifyLine.Location = new System.Drawing.Point(4, 29);
             this.tabPageModifyLine.Name = "tabPageModifyLine";
             this.tabPageModifyLine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageModifyLine.Size = new System.Drawing.Size(395, 257);
+            this.tabPageModifyLine.Size = new System.Drawing.Size(1030, 257);
             this.tabPageModifyLine.TabIndex = 2;
             this.tabPageModifyLine.Text = "Modify line";
             // 
             // tabPageDuplicate
             // 
+            this.tabPageDuplicate.AllowDrop = true;
             this.tabPageDuplicate.AutoScroll = true;
             this.tabPageDuplicate.BackColor = System.Drawing.Color.White;
             this.tabPageDuplicate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,7 +217,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Panel panelColumn1;
         private System.Windows.Forms.Label labelColumn1;
         private System.Windows.Forms.Panel panelColumnAvailableFilter;
         private System.Windows.Forms.Label labelColumn2;
@@ -224,5 +225,6 @@
         private System.Windows.Forms.TabPage tabPageRemoveLine;
         private System.Windows.Forms.TabPage tabPageModifyLine;
         private System.Windows.Forms.TabPage tabPageDuplicate;
+        public System.Windows.Forms.Panel panelActiveFilter;
     }
 }
