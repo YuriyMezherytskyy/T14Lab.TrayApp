@@ -85,6 +85,117 @@ namespace Tornado14.WPFControls
                 PropertyChanged(this, new PropertyChangedEventArgs(p));
             }
         }
+
+        private void setTestText()
+        {
+            StringBuilder text = new StringBuilder();
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("Dropdown mit Suggestion für Additional Attributen {");
+            text.AppendLine("Ist Zustand:");
+            text.AppendLine("Momentan sind Normale Textboxen ");
+            text.AppendLine("-----");
+            text.AppendLine("Soll Zustand:");
+            text.AppendLine("Dropdrown mit Suggestion, die werte sind alle bischer eingegebenen Atributt");
+            text.AppendLine("-----");
+            text.AppendLine("Recherche:");
+            text.AppendLine("http://stackoverflow.com/questions/3177717/combobox-in-windows-forms-datagridview-control");
+            text.AppendLine("http://stackoverflow.com/questions/1089889/how-do-i-set-up-a-datagridview-comboboxcolumn-with-a-different-datasource-in-eac");
+            text.AppendLine("http://stackoverflow.com/questions/19042962/drop-down-combobox-inside-datagridview");
+            text.AppendLine("http://stackoverflow.com/questions/21323917/c-sharp-replace-default-textbox-in-datagridview-with-a-combobox");
+            text.AppendLine("http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/");
+            text.AppendLine("http://csharp.net-informations.coma/datagridview/csharp-datagridview-combobox.htm");
+            text.AppendLine("http://mycsharp.de/wbb2/thread.php%3Fpostid%3D3652075");
+            text.AppendLine("search word: \"winforms datagridview dropdown in cell\"");
+            text.AppendLine("-----");
+            text.AppendLine("Resultat: ");
+            text.AppendLine("Noch nicht Fertig");
+            text.AppendLine("}");
+            text.AppendLine("");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("Dropdown mit Suggestion für Additional Attributen {");
+            text.AppendLine("Ist:");
+            text.AppendLine("Momentan sind Normale Textboxen");
+            text.AppendLine("-----");
+            text.AppendLine("Soll:");
+            text.AppendLine("Dropdrown mit Suggestion, die werte sind alle bischer eingegebenen Atributt");
+            text.AppendLine("-----");
+            text.AppendLine("Recherche:");
+            text.AppendLine("http://stackoverflow.com/questions/3177717/combobox-in-windows-forms-datagridview-control");
+            text.AppendLine("http://stackoverflow.com/questions/1089889/how-do-i-set-up-a-datagridview-comboboxcolumn-with-a-different-datasource-in-eac");
+            text.AppendLine("http://stackoverflow.com/questions/19042962/drop-down-combobox-inside-datagridview");
+            text.AppendLine("http://stackoverflow.com/questions/21323917/c-sharp-replace-default-textbox-in-datagridview-with-a-combobox");
+            text.AppendLine("http://www.intertech.com/Blog/winforms-multi-column-combo-box-in-a-datagridview/");
+            text.AppendLine("http://csharp.net-informations.com/datagridview/csharp-datagridview-combobox.htm");
+            text.AppendLine("http://mycsharp.de/wbb2/thread.php%3Fpostid%3D3652075");
+            text.AppendLine("search word: \"winforms datagridview dropdown in cell\"");
+            text.AppendLine("-----");
+            text.AppendLine("Resultat: ");
+            text.AppendLine("Noch nicht Fertig");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 1 {");
+            text.AppendLine("Ist:");
+            text.AppendLine("ist Text");
+            text.AppendLine("-----");
+            text.AppendLine("Soll:");
+            text.AppendLine("soll Text");
+            text.AppendLine("-----");
+            text.AppendLine("Recherche:");
+            text.AppendLine("Recherche Text");
+            text.AppendLine("-----");
+            text.AppendLine("Resultat: ");
+            text.AppendLine("resultat Text");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 2 {");
+            text.AppendLine("Ist:");
+            text.AppendLine("ist Text");
+            text.AppendLine("-----");
+            text.AppendLine("Soll:");
+            text.AppendLine("soll Text");
+            text.AppendLine("-----");
+            text.AppendLine("Recherche:");
+            text.AppendLine("Recherche Text");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 3 {");
+            text.AppendLine("Ist:");
+            text.AppendLine("ist Text");
+            text.AppendLine("-----");
+            text.AppendLine("Soll:");
+            text.AppendLine("soll Text");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 4 {");
+            text.AppendLine("Ist:");
+            text.AppendLine("ist Text");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 5 {");
+            text.AppendLine("Ist:");
+            text.AppendLine("ist Text");
+            text.AppendLine("-----");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 6 {");
+            text.AppendLine("asdasd 1");
+            text.AppendLine("asdasd 2");
+            text.AppendLine("asdasd 3");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("test 7 {");
+            text.AppendLine("}");
+            Text2 = text.ToString();
+        }
+
         public TEditor()
         {
             InitializeComponent();
@@ -92,8 +203,10 @@ namespace Tornado14.WPFControls
             spellingErrorColorizer = new SpellingErrorColorizer();
             //textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
             textEditor.TextArea.LostFocus += TextArea_LostFocus;
+            var converter = new System.Windows.Media.BrushConverter();
+            textEditor.TextArea.TextView.LinkTextForegroundBrush = (Brush)converter.ConvertFromString("#007acc");
 
-
+            setTestText();
             // Load our custom highlighting definition
             IHighlightingDefinition customHighlighting = null;
             try

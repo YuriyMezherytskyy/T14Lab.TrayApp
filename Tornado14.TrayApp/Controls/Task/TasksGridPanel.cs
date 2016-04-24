@@ -33,6 +33,7 @@ namespace Tornado14.TrayApp.Controls.Task
             taskSearchPanel1.SetSprintBindingSource(sprintDataSource);
             taskSearchPanel1.SetTodoBindingSource(taskDataSource);
             taskEditor1.SetBindingSources(projectBindingSource, sprintBindingSource, taskDataSource);
+            taskSearchPanel1.TodoBindingSource.CurrentChanged += TodoBindingSource_CurrentItemChanged;
         }
 
 
@@ -49,6 +50,7 @@ namespace Tornado14.TrayApp.Controls.Task
             taskSearchPanel1.label1.Click += Label1_Click;
             todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged1;
             panel1.Height = 42;
+            BlackTheme.ApplyTheme(this);
         }
 
         private void Label1_Click(object sender, EventArgs e)

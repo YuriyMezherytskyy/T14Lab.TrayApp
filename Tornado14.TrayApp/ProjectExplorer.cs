@@ -57,10 +57,10 @@ namespace Tornado14.TrayApp
 
             SetBlackTheme();
 
-            tasksGridPanel1.Refresh();
-            tasksGridPanel1.Dock = DockStyle.Fill;
-            tasksGridPanel1.BringToFront();
-            SetActiveButton(toolStripButtonTask);
+            addTasks.Refresh();
+            addTasks.Dock = DockStyle.Fill;
+            addTasks.BringToFront();
+            SetActiveButton(toolStripButtonAddNewTasks);
             this.WindowState = FormWindowState.Maximized;
         }
 

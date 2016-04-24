@@ -118,6 +118,12 @@
     <Compile Include="Controls\Task\AddTasks.Designer.cs">
       <DependentUpon>AddTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Task\ConfirmTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Task\ConfirmTasks.Designer.cs">
+      <DependentUpon>ConfirmTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Task\EditTaskDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\AddTasks.resx">
       <DependentUpon>AddTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Task\ConfirmTasks.resx">
+      <DependentUpon>ConfirmTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Task\EditTaskDialog.resx">
       <DependentUpon>EditTaskDialog.cs</DependentUpon>

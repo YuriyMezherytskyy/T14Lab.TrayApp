@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0"?>
 <SyntaxDefinition name="Custom Highlighting" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
-	<Color name="Comment" foreground="#468966" />
-	<Color name="String" foreground="#FFF0A5" />
+	<Color name="Comment" foreground="#39904a" />
+	<Color name="String" foreground="#ababab" />
 	
 	<!-- This is the main ruleset. -->
 	<RuleSet>
-		<Span color="Comment" begin="//" />
+		<Span color="Comment" begin="////" />
 		<Span color="Comment" multiline="true" begin="/\*" end="\*/" />
-		
-		<Span color="String">
+
+    <Span color="String">
 			<Begin>"</Begin>
 			<End>"</End>
 			<RuleSet>
@@ -17,18 +17,19 @@
 			</RuleSet>
 		</Span>
 		
-		<Keywords fontWeight="bold" foreground="#79BD8F">
-			<Word>if</Word>
-			<Word>else</Word>
-			<!-- ... -->
-		</Keywords>
+		<Keywords fontWeight="bold" foreground="#686868">
+			<Word>Ist Zustand:</Word>
+      <Word>Soll Zustand:</Word>
+      <Word>Recherche:</Word>
+      <Word>Resultat:</Word>
+      <Word>Ist:</Word>
+      <Word>Soll:</Word>
+    </Keywords>
 		
-		<Keywords fontWeight="bold" fontStyle="italic" foreground="Red">
-			<Word>AvalonEdit</Word>
-		</Keywords>
+
 		
 		<!-- Digits -->
-		<Rule foreground="#046380">
+		<Rule foreground="#ababab">
             \b0[xX][0-9a-fA-F]+  # hex number
         |    \b
             (    \d+(\.[0-9]+)?   #number with optional floating point
@@ -36,5 +37,18 @@
             )
             ([eE][+-]?[0-9]+)? # optional exponent
         </Rule>
-	</RuleSet>
+    
+    <Rule foreground="#d7ab69">
+      .*{
+    </Rule>
+
+    <Keywords fontWeight="bold" foreground="#686868">
+      <Word>-----</Word>
+      <Word>{</Word>
+      <Word>}</Word>
+    </Keywords>
+
+  </RuleSet>
+
+
 </SyntaxDefinition>

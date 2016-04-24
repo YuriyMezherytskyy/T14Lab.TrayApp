@@ -29,6 +29,7 @@ namespace Tornado14.TrayApp.Controls.Task
     {
       this.todoBindingSource.DataSource = taskDataSource;
       this.sprintBindingSource.DataSource = sprintDataSource;
+
       sprintIdList = new List<string>();
       foreach (object obj in sprintBindingSource.List)
       {

@@ -61,13 +61,23 @@ namespace Tornado14.TrayApp.Controls
         public void FillComletionList(List<CompletionItem> completitionItemList)
         {
             Dictionary<string, List<string>> completitionDictionary = new Dictionary<string, List<string>>();
+            List<string> duplicates = new List<string>();
             foreach (CompletionItem item in completitionItemList)
             {
                 List<string> attributes = new List<string>();
                 attributes.Add(item.PopUpText);
                 attributes.Add(item.ReplacementText);
-                completitionDictionary.Add(item.DisplayText, attributes);
+                
+                if (item.DisplayText != null && !completitionDictionary.ContainsKey(item.DisplayText)) {
+                    completitionDictionary.Add(item.DisplayText, attributes);
+                } else
+                {
+                    
+                    duplicates.Add(item.DisplayText);
+                }
+                
             }
+            int a = 0;
             CustomEditor.FillCompletionData(completitionDictionary);
         }
 
