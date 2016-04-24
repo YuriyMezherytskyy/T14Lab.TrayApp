@@ -223,13 +223,10 @@ namespace Tornado14.TrayApp.Controls.Task
                                             resultat = item.Replace("Resultat:", string.Empty).Trim();
                                             break;
                                         default:
+                                            sollZustand = descriptionItems[0].Trim();
                                             break;
                                     }
                                 }
-                            }
-                            else if (descriptionItems.Length <= 1)
-                            {
-                                sollZustand = descriptionItems[0];
                             }
 
                             Todo newTodo = new Todo()
@@ -239,8 +236,8 @@ namespace Tornado14.TrayApp.Controls.Task
                                 ShortDescription = taskName,
                                 Description = sollZustand,
                                 CurrentState = istZustand,
-                                PublicText = recherche,
-                                Result = resultat,
+                                PublicText = resultat,
+                                Result = recherche,
                             };
                             string projectId = string.Empty;
                             string sprintId = string.Empty;

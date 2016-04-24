@@ -161,7 +161,7 @@ namespace Tornado14.WPFControls
             text.AppendLine("Recherche Text");
             text.AppendLine("}");
 
-            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("//// T14P-2 T14S-0");
             text.AppendLine("test 3 {");
             text.AppendLine("Ist:");
             text.AppendLine("ist Text");
@@ -170,20 +170,20 @@ namespace Tornado14.WPFControls
             text.AppendLine("soll Text");
             text.AppendLine("}");
 
-            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("//// T14P-2 T14S-1");
             text.AppendLine("test 4 {");
             text.AppendLine("Ist:");
             text.AppendLine("ist Text");
             text.AppendLine("}");
 
-            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("//// T14P-2 T14S-2");
             text.AppendLine("test 5 {");
             text.AppendLine("Ist:");
             text.AppendLine("ist Text");
             text.AppendLine("-----");
             text.AppendLine("}");
 
-            text.AppendLine("//// T14P-2 T14S-4");
+            text.AppendLine("//// T14P-2 T14S-3");
             text.AppendLine("test 6 {");
             text.AppendLine("asdasd 1");
             text.AppendLine("asdasd 2");
@@ -192,6 +192,19 @@ namespace Tornado14.WPFControls
 
             text.AppendLine("//// T14P-2 T14S-4");
             text.AppendLine("test 7 {");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-0");
+            text.AppendLine("test 8 {");
+            text.AppendLine("Soll:");
+            text.AppendLine("soll Text");
+            text.AppendLine("}");
+
+            text.AppendLine("//// T14P-2 T14S-0");
+            text.AppendLine("test 8 {");
+            text.AppendLine("Soll:");
+            text.AppendLine("soll Text");
+            text.AppendLine("-----");
             text.AppendLine("}");
             Text2 = text.ToString();
         }
@@ -206,7 +219,7 @@ namespace Tornado14.WPFControls
             var converter = new System.Windows.Media.BrushConverter();
             textEditor.TextArea.TextView.LinkTextForegroundBrush = (Brush)converter.ConvertFromString("#007acc");
 
-            setTestText();
+            //setTestText();
             // Load our custom highlighting definition
             IHighlightingDefinition customHighlighting = null;
             try
