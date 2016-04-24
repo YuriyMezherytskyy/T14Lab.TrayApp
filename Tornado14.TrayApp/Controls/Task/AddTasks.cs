@@ -41,10 +41,12 @@ namespace Tornado14.TrayApp.Controls.Task
             foreach (object obj in todoBindingSource.List)
             {
                 Todo task = (Todo)obj;
+
+
                 CompletionItem completionItem2 = new CompletionItem()
                 {
                     DisplayText = string.Format("{0} ({1})", task.Id, task.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", task.Description, task.ShortDescription, task.Id, task.Description),
+                    PopUpText = string.Format("{0} {1}\n\n-Ist Zustand:\n{2}\n\n-Soll Zustand:\n{3}\n\n-Recherche:\n{4}\n\n-Result:\n{5}", task.Id, task.ShortDescription, task.CurrentState, task.Description, task.PublicText, task.Result),
                     ReplacementText = task.Id
                 };
                 comletionList.Add(completionItem2);
@@ -52,8 +54,8 @@ namespace Tornado14.TrayApp.Controls.Task
                 CompletionItem completionItem = new CompletionItem()
                 {
                     DisplayText = string.Format("{1} ({0})", task.Id, task.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", task.Description, task.ShortDescription, task.Id, task.Description),
-                    ReplacementText = task.Description
+                    PopUpText = string.Format("{0} {1}\n\n-Ist Zustand:\n{2}\n\n-Soll Zustand:\n{3}\n\n-Recherche:\n{4}\n\n-Result:\n{5}", task.Id, task.ShortDescription, task.CurrentState, task.Description, task.PublicText, task.Result),
+                    ReplacementText = task.ShortDescription
                 };
                 comletionList.Add(completionItem);
 
@@ -65,7 +67,7 @@ namespace Tornado14.TrayApp.Controls.Task
                 CompletionItem completionItem2 = new CompletionItem()
                 {
                     DisplayText = string.Format("{0} ({1})", project.Id, project.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", project.Description, project.ShortDescription, project.Id, project.Description),
+                    PopUpText = string.Format("{0} {1}\n-----\n{2}", project.Id, project.ShortDescription, project.Description),
                     ReplacementText = project.Id
                 };
                 comletionList.Add(completionItem2);
@@ -73,10 +75,10 @@ namespace Tornado14.TrayApp.Controls.Task
                 CompletionItem completionItem = new CompletionItem()
                 {
                     DisplayText = string.Format("{1} ({0})", project.Id, project.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", project.Description, project.ShortDescription, project.Id, project.Description),
-                    ReplacementText = project.Description
+                    PopUpText = string.Format("{0} {1}\n-----\n{2}", project.Id, project.ShortDescription, project.Description),
+                    ReplacementText = project.ShortDescription
                 };
-                comletionList.Add(completionItem2);
+                comletionList.Add(completionItem);
 
             }
 
@@ -86,7 +88,7 @@ namespace Tornado14.TrayApp.Controls.Task
                 CompletionItem completionItem2 = new CompletionItem()
                 {
                     DisplayText = string.Format("{0} ({1})", sprint.Id, sprint.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", sprint.Description, sprint.ShortDescription, sprint.Id, sprint.Description),
+                    PopUpText = string.Format("{0} {1}\n{2}", sprint.Id, sprint.ShortDescription, sprint.ShortSummary),
                     ReplacementText = sprint.Id
                 };
                 comletionList.Add(completionItem2);
@@ -94,10 +96,10 @@ namespace Tornado14.TrayApp.Controls.Task
                 CompletionItem completionItem = new CompletionItem()
                 {
                     DisplayText = string.Format("{1} ({0})", sprint.Id, sprint.ShortDescription),
-                    PopUpText = string.Format("{3}\n{2}\n-----\n{1}\n-----\n{0}", sprint.Description, sprint.ShortDescription, sprint.Id, sprint.Description),
-                    ReplacementText = sprint.Description
+                    PopUpText = string.Format("{0} {1}\n{2}", sprint.Id, sprint.ShortDescription, sprint.ShortSummary),
+                    ReplacementText = sprint.ShortDescription
                 };
-                comletionList.Add(completionItem2);
+                comletionList.Add(completionItem);
 
             }
 

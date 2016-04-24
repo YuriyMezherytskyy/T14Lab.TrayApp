@@ -90,10 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\CompletitionItem.cs" />
-    <Compile Include="Controls\Task\AddNewTasks.cs">
+    <Compile Include="Controls\Task\Develop\AddNewTasks.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Task\AddNewTasks.Designer.cs">
+    <Compile Include="Controls\Task\Develop\AddNewTasks.Designer.cs">
       <DependentUpon>AddNewTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckList.cs">
@@ -285,7 +285,7 @@
       <DependentUpon>TaskItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="Controls\Task\AddNewTasks.resx">
+    <EmbeddedResource Include="Controls\Task\Develop\AddNewTasks.resx">
       <DependentUpon>AddNewTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckList.resx">

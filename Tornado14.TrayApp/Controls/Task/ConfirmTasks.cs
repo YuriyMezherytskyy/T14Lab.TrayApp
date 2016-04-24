@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using Tornado14.Task;
 using Tornado14Lab.Utils.DataGridViewHelper;
@@ -34,8 +35,6 @@ namespace Tornado14.TrayApp.Controls.Task
         public ConfirmTasks()
         {
             InitializeComponent();
-            this.Width = 800;
-            this.Height = 800;
             this.BackColor = BlackTheme.ColorDarkGray;
             this.ForeColor = BlackTheme.ColorText;
 
@@ -46,7 +45,8 @@ namespace Tornado14.TrayApp.Controls.Task
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 
-
+            this.Size = new System.Drawing.Size(Convert.ToInt32(SystemParameters.PrimaryScreenWidth) - 200, Convert.ToInt32(SystemParameters.PrimaryScreenHeight) - 200);
+            this.Location = new System.Drawing.Point(100, 100);
             // Apply Black Theme
             BlackTheme.ApplyTheme(this);
         }
