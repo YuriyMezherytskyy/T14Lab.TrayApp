@@ -163,6 +163,10 @@ namespace Tornado14Lab.TextTransformer.Controls
 
         #endregion
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            AddFilters();
+        }
     }
 
 }

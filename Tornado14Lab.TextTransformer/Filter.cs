@@ -101,7 +101,7 @@ namespace Tornado14Lab.TextTransformer
         }
 
         #region FilterMethods
-        //-
+
         public static FilterResult StartToStringFilter(FilterContext context)
         {
             string toText = (string)context.Parameters[0];
@@ -113,7 +113,7 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        int positionOftoText = line.IndexOf(toText);
+                        int positionOftoText = line.IndexOf(toText) + 1;
                         string newLine = line.Substring(positionOftoText);
                         resultWriter.WriteLine(newLine);
                     }
@@ -122,7 +122,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-        //-
+
         public static FilterResult StringToEndFilter(FilterContext context)
         {
             string toText = (string)context.Parameters[0];
@@ -143,9 +143,10 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-        //-
+
         public static FilterResult StartToCharNumberFilter(FilterContext context)
         {
+            int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]);
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -154,8 +155,7 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]);
-                        string newLine = line.Substring((line.Length > toPosition) ?toPosition : line.Length);
+                        string newLine = line.Substring((line.Length > toPosition) ? toPosition : line.Length);
                         resultWriter.WriteLine(newLine);
                     }
                 }
@@ -163,9 +163,10 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-        //-
+
         public static FilterResult CharNumberToEndFilter(FilterContext context)
         {
+            int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]) - 1;
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -174,8 +175,7 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]) - 1;
-                        string newLine = line.Substring(0, (line.Length >= toPosition)? toPosition : line.Length);
+                        string newLine = line.Substring(0, (line.Length >= toPosition) ? toPosition : line.Length);
                         resultWriter.WriteLine(newLine);
                     }
                 }
@@ -183,7 +183,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-        //-
+
         public static FilterResult BreaklineFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
@@ -214,8 +214,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!String.IsNullOrWhiteSpace(line))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -225,6 +227,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult StartsWithFilter(FilterContext context)
         {
+            string startsWith = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -233,8 +236,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!line.StartsWith(startsWith))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -244,6 +249,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult NotStartsWithFilter(FilterContext context)
         {
+            string startsWith = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -252,8 +258,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (line.StartsWith(startsWith))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -263,6 +271,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult EndsWidhFilter(FilterContext context)
         {
+            string endsWith = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -271,8 +280,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!line.EndsWith(endsWith))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -282,6 +293,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult NotEndsWidhFilter(FilterContext context)
         {
+            string endsWith = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -290,8 +302,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (line.EndsWith(endsWith))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -301,6 +315,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult ContainsFilter(FilterContext context)
         {
+            string containsText = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -309,8 +324,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!line.Contains(containsText))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -320,6 +337,7 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult NotContainsFilter(FilterContext context)
         {
+            string notContainsText = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -328,8 +346,10 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (line.Contains(notContainsText))
+                        {
+                            resultWriter.WriteLine(line);
+                        }
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -339,6 +359,8 @@ namespace Tornado14Lab.TextTransformer
 
         public static FilterResult GiveEachLineNoFilter(FilterContext context)
         {
+            int lineNoStep = Decimal.ToInt32((Decimal)context.Parameters[0]);
+            int lineCount = 0;
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -347,8 +369,12 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (lineCount == lineNoStep)
+                        {
+                            resultWriter.WriteLine(line);
+                            lineCount = 0;
+                        }
+                        lineCount++;
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -357,7 +383,7 @@ namespace Tornado14Lab.TextTransformer
         }
 
 
-        //-
+
         public static FilterResult AddAtStartAndAtEndFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
@@ -378,7 +404,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-        //-
+
         public static FilterResult SplitAndDuplicateFilter(FilterContext context)
         {
             string splitter = (string)context.Parameters[0];
@@ -399,61 +425,129 @@ namespace Tornado14Lab.TextTransformer
             return result;
         }
 
-
+        
         public static FilterResult GetDuplicateLinesFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
-            using (StringWriter resultWriter = new StringWriter())
+
+            List<string> inputTextLinesList = new List<string>();
+            List<string> dulicateLinesLineList = new List<string>();
+
+            using (StringReader sr = new StringReader(context.Text))
             {
-                using (StringReader sr = new StringReader(context.Text))
+                string line = String.Empty;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    string line = String.Empty;
-                    while ((line = sr.ReadLine()) != null)
+                    inputTextLinesList.Add(line);
+                }
+            }
+
+            inputTextLinesList.Sort();
+
+            for (int count = 0; count < inputTextLinesList.Count; count++)
+            {
+                int b = count;
+                if (count < inputTextLinesList.Count)
+                {
+                    b++;
+                }
+                if (inputTextLinesList.Count > b)
+                {
+                    if (inputTextLinesList[count] == inputTextLinesList[b])
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!dulicateLinesLineList.Contains(inputTextLinesList[count]))
+                        {
+                            dulicateLinesLineList.Add(inputTextLinesList[count]);
+                        }
                     }
                 }
-                result.Text = resultWriter.ToString();
             }
+
+            StringBuilder resultStringBuilder = new StringBuilder();
+            foreach (string line in dulicateLinesLineList)
+            {
+                resultStringBuilder.AppendLine(line);
+            }
+            result.Text = resultStringBuilder.ToString();
+
             return result;
         }
-
+        //-
         public static FilterResult GetNotDuplicateLinesFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
-            using (StringWriter resultWriter = new StringWriter())
+
+            List<string> inputTextLinesList = new List<string>();
+            List<string> dulicateLinesLineList = new List<string>();
+
+            using (StringReader sr = new StringReader(context.Text))
             {
-                using (StringReader sr = new StringReader(context.Text))
+                string line = String.Empty;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    string line = String.Empty;
-                    while ((line = sr.ReadLine()) != null)
+                    inputTextLinesList.Add(line);
+                }
+            }
+
+            inputTextLinesList.Sort();
+
+            for (int count = 0; count < inputTextLinesList.Count; count++)
+            {
+                int b = count;
+                if (count < inputTextLinesList.Count)
+                {
+                    b++;
+                }
+                if (inputTextLinesList.Count > b)
+                {
+                    if (inputTextLinesList[count] == inputTextLinesList[b])
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        if (!dulicateLinesLineList.Contains(inputTextLinesList[count]))
+                        {
+                            dulicateLinesLineList.Add(inputTextLinesList[count]);
+                        }
                     }
                 }
-                result.Text = resultWriter.ToString();
             }
+
+            StringBuilder resultStringBuilder = new StringBuilder();
+            foreach (string line in inputTextLinesList)
+            {
+                if (!dulicateLinesLineList.Contains(line))
+                {
+                    resultStringBuilder.AppendLine(line);
+                }
+            }
+            result.Text = resultStringBuilder.ToString();
+
             return result;
         }
-
+        //-
         public static FilterResult RemoveDuplicateLinesFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
-            using (StringWriter resultWriter = new StringWriter())
+
+            List<string> inputTextLinesList = new List<string>();
+
+            using (StringReader sr = new StringReader(context.Text))
             {
-                using (StringReader sr = new StringReader(context.Text))
+                string line = String.Empty;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    string line = String.Empty;
-                    while ((line = sr.ReadLine()) != null)
+                    if (!inputTextLinesList.Contains(line))
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        inputTextLinesList.Add(line);
                     }
                 }
-                result.Text = resultWriter.ToString();
             }
+
+            StringBuilder resultStringBuilder = new StringBuilder();
+            foreach (string line in inputTextLinesList)
+            {
+                resultStringBuilder.AppendLine(line);
+            }
+            result.Text = resultStringBuilder.ToString();
+
             return result;
         }
 

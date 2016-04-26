@@ -24,9 +24,17 @@ namespace Tornado14Lab.TextTransformer
             StringBuilder text = new StringBuilder();
             for (int count = 0; count < 20; count++)
             {
-                text.AppendLine(string.Format("-{0}-", count));
+                text.AppendLine(string.Format("{0}-{0}-{0}", count));
+                //text.AppendLine("");
+                //text.AppendLine(" ");
+                //text.AppendLine("  ");
+                //text.AppendLine("   ");
             }
-            string resultText = text.ToString();
+            text.AppendLine("3-3-3");
+            text.AppendLine("7-7-7");
+            richTextBox1.Text = text.ToString();
+            //string resultText = text.ToString();
+            string resultText = richTextBox1.Text;
             List<BaseFilter> controlList = new List<BaseFilter>();
             foreach (BaseFilter filter in scenarioSelector1.panelActiveFilter.Controls)
             {
@@ -45,7 +53,27 @@ namespace Tornado14Lab.TextTransformer
                 FilterResult filterResult = filterHelper.filterList[filter.Key].Invoke(filterContext);
                 resultText = filterResult.Text;
             }
-            textBox2.Text = resultText;
+            richTextBox2.Text = resultText;
+        }
+
+        private void toolStripButtonClearInput_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = string.Empty;
+        }
+
+        private void toolStripButtonClearResult_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = string.Empty;
+        }
+
+        private void toolStripButtonCopyInput_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(richTextBox1.Text, true);
+        }
+
+        private void toolStripButtonCopyResult_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject(richTextBox2.Text, true);
         }
     }
 }
