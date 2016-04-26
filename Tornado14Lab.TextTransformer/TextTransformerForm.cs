@@ -22,12 +22,19 @@ namespace Tornado14Lab.TextTransformer
         {
             FilterHelper filterHelper = new FilterHelper();
             StringBuilder text = new StringBuilder();
-            for (int count = 0; count < 500000; count++)
+            for (int count = 0; count < 20; count++)
             {
                 text.AppendLine(string.Format("-{0}-", count));
             }
             string resultText = text.ToString();
+            List<BaseFilter> controlList = new List<BaseFilter>();
             foreach (BaseFilter filter in scenarioSelector1.panelActiveFilter.Controls)
+            {
+                controlList.Add(filter);
+            }
+            controlList.Reverse();
+
+            foreach (BaseFilter filter in controlList)
             {
                 List<object> filterParameters = filter.Values;
                 FilterContext filterContext = new FilterContext()

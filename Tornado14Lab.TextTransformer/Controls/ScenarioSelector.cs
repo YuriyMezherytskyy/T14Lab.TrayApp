@@ -43,7 +43,7 @@ namespace Tornado14Lab.TextTransformer.Controls
             AddFilter(tabPageRemoveLine, Filter.GiveEachLineNo);
 
             AddFilter(tabPageModifyLine, Filter.AddAtStartAndAtEnd);
-            AddFilter(tabPageModifyLine, Filter.SplitAmdDuplicate);
+            AddFilter(tabPageModifyLine, Filter.SplitAndDuplicate);
 
             AddFilter(tabPageDuplicate, Filter.GetDuplicateLines);
             AddFilter(tabPageDuplicate, Filter.GetNotDuplicateLines);

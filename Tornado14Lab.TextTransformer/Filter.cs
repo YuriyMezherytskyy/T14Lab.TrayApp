@@ -31,7 +31,7 @@ namespace Tornado14Lab.TextTransformer
         GiveEachLineNo = 170,
 
         AddAtStartAndAtEnd = 200,
-        SplitAmdDuplicate = 210,
+        SplitAndDuplicate = 210,
 
         GetDuplicateLines = 300,
         GetNotDuplicateLines = 310,
@@ -45,7 +45,7 @@ namespace Tornado14Lab.TextTransformer
             { Filter.StartToString, new FilterInfo() { Description = "Remove in line from start to string", FilterType = typeof(TextboxFilter) } },
             { Filter.StringToEnd, new FilterInfo() { Description = "Remove in line from string to end", FilterType = typeof(TextboxFilter) }},
             { Filter.StartToCharNumber, new FilterInfo() { Description = "Remove in line from start to char number", FilterType = typeof(NumericFilter) }},
-            { Filter.CharNumberToEnd, new FilterInfo() { Description = "Remove in line from chart to end", FilterType = typeof(NumericFilter) } },
+            { Filter.CharNumberToEnd, new FilterInfo() { Description = "Remove in line from char to end", FilterType = typeof(NumericFilter) } },
             { Filter.Breakline, new FilterInfo() { Description = "Remove in line breaklines", FilterType = typeof(NoDataFilter) } },
 
 
@@ -58,8 +58,7 @@ namespace Tornado14Lab.TextTransformer
             { Filter.NotContains, new FilterInfo() { Description = "Remove lines not contains", FilterType = typeof(TextboxFilter) } },
             { Filter.GiveEachLineNo, new FilterInfo() { Description = "Give each line no", FilterType = typeof(NumericFilter) } },
             { Filter.AddAtStartAndAtEnd, new FilterInfo() { Description = "Add at start and at end, each line", FilterType = typeof(DoubleTextboxFiler) } },
-            { Filter.SplitAmdDuplicate, new FilterInfo() { Description = "Split amd duplicate lines", FilterType = typeof(TextboxFilter) } },
-
+            { Filter.SplitAndDuplicate, new FilterInfo() { Description = "Split and duplicate lines", FilterType = typeof(TextboxFilter) } },
 
             { Filter.GetDuplicateLines, new FilterInfo() { Description = "Get duplicates lines", FilterType = typeof(NoDataFilter) } },
             { Filter.GetNotDuplicateLines, new FilterInfo() { Description = "Get not duplicates lines", FilterType = typeof(NoDataFilter) } },
@@ -102,9 +101,10 @@ namespace Tornado14Lab.TextTransformer
         }
 
         #region FilterMethods
-
+        //-
         public static FilterResult StartToStringFilter(FilterContext context)
         {
+            string toText = (string)context.Parameters[0];
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
             {
@@ -113,7 +113,27 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string toText = (string)context.Parameters[0];
+                        int positionOftoText = line.IndexOf(toText);
+                        string newLine = line.Substring(positionOftoText);
+                        resultWriter.WriteLine(newLine);
+                    }
+                }
+                result.Text = resultWriter.ToString();
+            }
+            return result;
+        }
+        //-
+        public static FilterResult StringToEndFilter(FilterContext context)
+        {
+            string toText = (string)context.Parameters[0];
+            FilterResult result = new FilterResult();
+            using (StringWriter resultWriter = new StringWriter())
+            {
+                using (StringReader sr = new StringReader(context.Text))
+                {
+                    string line = String.Empty;
+                    while ((line = sr.ReadLine()) != null)
+                    {
                         int positionOftoText = line.IndexOf(toText);
                         string newLine = line.Substring(0, positionOftoText);
                         resultWriter.WriteLine(newLine);
@@ -123,47 +143,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-
-        public static FilterResult AddAtStartAndAtEndFilter(FilterContext context)
-        {
-            FilterResult result = new FilterResult();
-            using (StringWriter resultWriter = new StringWriter())
-            {
-                using (StringReader sr = new StringReader(context.Text))
-                {
-                    string line = String.Empty;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        string leftText = (string)context.Parameters[0];
-                        string rightText = (string)context.Parameters[1];
-                        string newLine = string.Format("{0}{1}{2}", leftText, line, rightText);
-                        resultWriter.WriteLine(newLine);
-                    }
-                }
-                result.Text = resultWriter.ToString();
-            }
-            return result;
-        }
-
-        public static FilterResult StringToEndFilter(FilterContext context)
-        {
-            FilterResult result = new FilterResult();
-            using (StringWriter resultWriter = new StringWriter())
-            {
-                using (StringReader sr = new StringReader(context.Text))
-                {
-                    string line = String.Empty;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
-                    }
-                }
-                result.Text = resultWriter.ToString();
-            }
-            return result;
-        }
-
+        //-
         public static FilterResult StartToCharNumberFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
@@ -174,7 +154,8 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
+                        int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]);
+                        string newLine = line.Substring((line.Length > toPosition) ?toPosition : line.Length);
                         resultWriter.WriteLine(newLine);
                     }
                 }
@@ -182,7 +163,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-
+        //-
         public static FilterResult CharNumberToEndFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
@@ -193,7 +174,8 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
+                        int toPosition = Decimal.ToInt32((Decimal)context.Parameters[0]) - 1;
+                        string newLine = line.Substring(0, (line.Length >= toPosition)? toPosition : line.Length);
                         resultWriter.WriteLine(newLine);
                     }
                 }
@@ -201,7 +183,7 @@ namespace Tornado14Lab.TextTransformer
             }
             return result;
         }
-
+        //-
         public static FilterResult BreaklineFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
@@ -212,8 +194,8 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
-                        resultWriter.WriteLine(newLine);
+                        string newLine = line.Replace(System.Environment.NewLine, string.Empty);
+                        resultWriter.Write(newLine);
                     }
                 }
                 result.Text = resultWriter.ToString();
@@ -375,7 +357,8 @@ namespace Tornado14Lab.TextTransformer
         }
 
 
-        public static FilterResult SplitAmdDuplicateFilter(FilterContext context)
+        //-
+        public static FilterResult AddAtStartAndAtEndFilter(FilterContext context)
         {
             FilterResult result = new FilterResult();
             using (StringWriter resultWriter = new StringWriter())
@@ -385,7 +368,29 @@ namespace Tornado14Lab.TextTransformer
                     string line = String.Empty;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string newLine = string.Format("{0}");
+                        string leftText = (string)context.Parameters[0];
+                        string rightText = (string)context.Parameters[1];
+                        string newLine = string.Format("{0}{1}{2}", leftText, line, rightText);
+                        resultWriter.WriteLine(newLine);
+                    }
+                }
+                result.Text = resultWriter.ToString();
+            }
+            return result;
+        }
+        //-
+        public static FilterResult SplitAndDuplicateFilter(FilterContext context)
+        {
+            string splitter = (string)context.Parameters[0];
+            FilterResult result = new FilterResult();
+            using (StringWriter resultWriter = new StringWriter())
+            {
+                using (StringReader sr = new StringReader(context.Text))
+                {
+                    string line = String.Empty;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string newLine = string.Format("{0}{1}{0}", line, splitter);
                         resultWriter.WriteLine(newLine);
                     }
                 }

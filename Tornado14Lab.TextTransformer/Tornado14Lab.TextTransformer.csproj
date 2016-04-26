@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fantasy_32px.ico" />
+    <Content Include="Old.txt" />
     <None Include="Resources\fantasy1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
