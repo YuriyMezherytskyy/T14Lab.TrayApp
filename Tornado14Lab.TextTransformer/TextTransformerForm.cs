@@ -32,7 +32,7 @@ namespace Tornado14Lab.TextTransformer
             }
             text.AppendLine("3-3-3");
             text.AppendLine("7-7-7");
-            richTextBox1.Text = text.ToString();
+            //richTextBox1.Text = text.ToString();
             //string resultText = text.ToString();
             string resultText = richTextBox1.Text;
             List<BaseFilter> controlList = new List<BaseFilter>();

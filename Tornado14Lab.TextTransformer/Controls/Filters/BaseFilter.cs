@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tornado14Lab.Utils.NativeTheme;
 
 namespace Tornado14Lab.TextTransformer.Controls
 {
@@ -37,7 +36,7 @@ namespace Tornado14Lab.TextTransformer.Controls
 
         protected override void OnGotFocus(EventArgs e)
         {
-            this.BackColor = BlackTheme.ColorLightGray2;
+            this.BackColor = Color.FromArgb(20,20,20);
             base.OnGotFocus(e);
         }
 
@@ -65,7 +64,7 @@ namespace Tornado14Lab.TextTransformer.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            this.BackColor = BlackTheme.ColorDarkGray2;
+            this.BackColor = Color.FromArgb(200,200,200);
             //this.textBoxShortDescription.BackColor = BlackTheme.ColorDarkGray2;
             if (!_isDragging)
             {

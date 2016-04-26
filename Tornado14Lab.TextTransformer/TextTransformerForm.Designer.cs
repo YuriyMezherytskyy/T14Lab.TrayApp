@@ -40,9 +40,9 @@
             this.toolStripButtonClearInput = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopyResult = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearResult = new System.Windows.Forms.ToolStripButton();
-            this.scenarioSelector1 = new Tornado14Lab.TextTransformer.Controls.ScenarioSelector();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.scenarioSelector1 = new Tornado14Lab.TextTransformer.Controls.ScenarioSelector();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,9 +83,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.toolStripButtonProcess,
             this.toolStripButtonCopyInput,
-            this.toolStripButtonClearInput});
+            this.toolStripButtonClearInput,
+            this.toolStripButtonProcess});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(493, 25);
@@ -126,6 +126,7 @@
             // 
             // toolStripButtonProcess
             // 
+            this.toolStripButtonProcess.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonProcess.Image = global::Tornado14Lab.TextTransformer.Properties.Resources.fantasy1;
             this.toolStripButtonProcess.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonProcess.Name = "toolStripButtonProcess";
@@ -169,14 +170,6 @@
             this.toolStripButtonClearResult.Text = "Clear";
             this.toolStripButtonClearResult.Click += new System.EventHandler(this.toolStripButtonClearResult_Click);
             // 
-            // scenarioSelector1
-            // 
-            this.scenarioSelector1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.scenarioSelector1.Location = new System.Drawing.Point(4, 4);
-            this.scenarioSelector1.Name = "scenarioSelector1";
-            this.scenarioSelector1.Size = new System.Drawing.Size(438, 608);
-            this.scenarioSelector1.TabIndex = 0;
-            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -190,6 +183,14 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(47, 22);
             this.toolStripLabel2.Text = "Output";
+            // 
+            // scenarioSelector1
+            // 
+            this.scenarioSelector1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.scenarioSelector1.Location = new System.Drawing.Point(4, 4);
+            this.scenarioSelector1.Name = "scenarioSelector1";
+            this.scenarioSelector1.Size = new System.Drawing.Size(438, 608);
+            this.scenarioSelector1.TabIndex = 0;
             // 
             // TextTransformerForm
             // 
