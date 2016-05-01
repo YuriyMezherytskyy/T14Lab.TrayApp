@@ -451,6 +451,12 @@
     <Content Include="icons\logoSmall32.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="icons\MyIcons\brush.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\MyIcons\phone_office.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="icons\t14lab_Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -504,6 +510,10 @@
     <Content Include="lib\sourceGrid\SourceGrid.dll" />
     <Content Include="lib\sourceGrid\SourceGrid.pdb" />
     <Content Include="lib\sourceGrid\SourceGrid.xml" />
+    <Content Include="profiles\Home.xml" />
+    <Content Include="profiles\Work.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="profiles\global.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

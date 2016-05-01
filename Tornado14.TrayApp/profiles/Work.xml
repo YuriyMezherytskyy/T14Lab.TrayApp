@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfProfileConfigItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+  <ProfileConfigItem>
+    <group>Adobe</group>
+    <icon>MyIcons\\brush.png</icon>
+    <displayName>Adobe</displayName>
+    <subItems>
+      <ProfileConfigItem>
+        <displayName>Photoshop</displayName>
+        <group>Adobe</group>
+        <app>C:\Program Files (x86)\Adobe\Adobe Photoshop CS5\Photoshop.exe</app>
+      </ProfileConfigItem>
+
+      <ProfileConfigItem>
+        <displayName>InDesign</displayName>
+        <group>Adobe</group>
+        <app>C:\Program Files (x86)\Adobe\Adobe InDesign CS5\InDesign.exe</app>
+      </ProfileConfigItem>
+
+    </subItems>
+  </ProfileConfigItem>
+  
+  <ProfileConfigItem>
+    <group>Office</group>
+    <icon>MyIcons\\phone_office.png</icon>
+    <displayName>Microsoft Office</displayName>
+    <subItems>
+      <ProfileConfigItem>
+        <displayName>Excel</displayName>
+        <group>Office</group>
+        <app>C:\Program Files (x86)\Microsoft Office\Office14\EXCEL.EXE</app>
+      </ProfileConfigItem>
+
+      <ProfileConfigItem>
+        <displayName>Word</displayName>
+        <group>Office</group>
+        <app>C:\Program Files (x86)\Microsoft Office\Office14\WINWORD.EXE</app>
+      </ProfileConfigItem>
+
+      <ProfileConfigItem>
+        <displayName>Outlook</displayName>
+        <group>Office</group>
+        <app>C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</app>
+      </ProfileConfigItem>
+
+      <ProfileConfigItem>
+        <displayName>PowerPoint</displayName>
+        <group>Office</group>
+        <app>C:\Program Files (x86)\Microsoft Office\Office14\POWERPNT.EXE</app>
+      </ProfileConfigItem>
+      
+    </subItems>
+  </ProfileConfigItem>
+
+  <ProfileConfigItem>
+    <displayName>Outlook</displayName>
+    <group>Office</group>
+    <app>C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</app>
+  </ProfileConfigItem>
+
+  <ProfileConfigItem>
+    <displayName>My Favorite Word File</displayName>
+    <group>My Documents</group>
+    <app>C:\Users\kiroy\Downloads\Kuendigungsschreiben_Yuriy_Mezherytskyy.doc</app>
+  </ProfileConfigItem>
+
+  <!-- App -->
+
+
+
+</ArrayOfProfileConfigItem>
+
