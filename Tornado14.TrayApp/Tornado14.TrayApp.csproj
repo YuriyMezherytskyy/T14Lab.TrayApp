@@ -254,6 +254,9 @@
     <Compile Include="Controls\WPFRichTextBox.xaml.cs">
       <DependentUpon>WPFRichTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WPFStarterComboBox.xaml.cs">
+      <DependentUpon>WPFStarterComboBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DAL.cs" />
     <Compile Include="GlobalHotkey.cs" />
     <Compile Include="ProcessIcon.cs" />
@@ -608,6 +611,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\WPFRichTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\WPFStarterComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

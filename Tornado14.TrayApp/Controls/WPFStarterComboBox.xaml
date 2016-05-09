@@ -1,0 +1,19 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tornado14.TrayApp.Controls"
+             xmlns:WPFControls="clr-namespace:Tornado14.WPFControls;assembly=Tornado14.WPFControls" x:Class="Tornado14.TrayApp.Controls.WPFStarterComboBox"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+  <UserControl.Resources>
+    <!-- For large content, better go for a Virtualizing StackPanel -->
+    <ItemsPanelTemplate x:Key="ItemsTemplate">
+      <VirtualizingStackPanel/>
+    </ItemsPanelTemplate>
+  </UserControl.Resources>
+  <Grid>
+    <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
+  </Grid>
+</UserControl>

@@ -66,6 +66,7 @@
     <Compile Include="Editor\MyCompletionData.cs" />
     <Compile Include="Editor\SpellCheckBehavior.cs" />
     <Compile Include="Editor\SpellingErrorColorizer.cs" />
+    <Compile Include="FilteredComboBox.cs" />
     <Compile Include="RichTextBoxHelper.cs" />
     <Page Include="Editor\Editor.xaml">
       <SubType>Designer</SubType>

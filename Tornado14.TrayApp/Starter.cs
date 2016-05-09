@@ -185,10 +185,24 @@ namespace Tornado14.TrayApp
       comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
       comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
 
+      wpfStarterComboBox1.Init(configTextList);
+      wpfStarterComboBox1.SelectionChanged += WpfStarterComboBox1_SelectionChanged;
+
+
       //this.BackColor = BlackTheme.ColorDarkGray;
       this.ForeColor = BlackTheme.ColorText;
       // Apply Black Theme
       //BlackTheme.ApplyTheme(this);
+    }
+
+    private void WpfStarterComboBox1_SelectionChanged(object selectedObject)
+    {
+      ProfileConfigItem selectedApp = (ProfileConfigItem)selectedObject;
+
+      if (selectedApp != null && selectedApp.app != null && selectedApp.app != string.Empty)
+      {
+        Utils.StartApp(selectedApp);
+      }
     }
 
     public void InitStarter(ProcessIcon pi)

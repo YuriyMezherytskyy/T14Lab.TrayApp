@@ -34,6 +34,8 @@
       this.listBox1 = new System.Windows.Forms.ListBox();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+      this.wpfStarterComboBox1 = new Tornado14.TrayApp.Controls.WPFStarterComboBox();
       this.panelStarter.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.panel1.SuspendLayout();
@@ -120,12 +122,22 @@
       // panel1
       // 
       this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+      this.panel1.Controls.Add(this.elementHost1);
       this.panel1.Controls.Add(this.pictureBox1);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel1.Location = new System.Drawing.Point(1, 1);
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(890, 73);
       this.panel1.TabIndex = 17;
+      // 
+      // elementHost1
+      // 
+      this.elementHost1.Location = new System.Drawing.Point(7, 14);
+      this.elementHost1.Name = "elementHost1";
+      this.elementHost1.Size = new System.Drawing.Size(638, 38);
+      this.elementHost1.TabIndex = 17;
+      this.elementHost1.Text = "elementHost1";
+      this.elementHost1.Child = this.wpfStarterComboBox1;
       // 
       // Starter
       // 
@@ -162,5 +174,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-    }
+    private System.Windows.Forms.Integration.ElementHost elementHost1;
+    private Controls.WPFStarterComboBox wpfStarterComboBox1;
+  }
 }
