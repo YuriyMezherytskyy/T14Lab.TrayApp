@@ -10,7 +10,7 @@
   <UserControl.Resources>
     <!-- For large content, better go for a Virtualizing StackPanel -->
     <ItemsPanelTemplate x:Key="ItemsTemplate">
-      <VirtualizingStackPanel/>
+      <VirtualizingStackPanel MouseLeftButtonUp="VirtualizingStackPanel_MouseLeftButtonUp" PreviewMouseLeftButtonUp="VirtualizingStackPanel_PreviewMouseLeftButtonUp"/>
     </ItemsPanelTemplate>
   </UserControl.Resources>
   <Grid>

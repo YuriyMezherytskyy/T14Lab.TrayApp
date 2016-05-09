@@ -516,6 +516,7 @@
     <Content Include="profiles\Home.xml" />
     <Content Include="profiles\Work.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="profiles\global.xml">
       <SubType>Designer</SubType>

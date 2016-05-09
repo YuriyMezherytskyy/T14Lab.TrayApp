@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DataFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">c:\trayData</Value>
+      <Value Profile="(Default)">y:\data</Value>
     </Setting>
     <Setting Name="backColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">30, 30, 30</Value>
