@@ -16,7 +16,7 @@ namespace Tornado14.TrayApp
 
     public override string ToString()
     {
-      return string.Format("{0} {1}", this.group, this.displayName);
+      return string.Format("{0} ({1})", this.displayName, this.group);
     }
 
   }
