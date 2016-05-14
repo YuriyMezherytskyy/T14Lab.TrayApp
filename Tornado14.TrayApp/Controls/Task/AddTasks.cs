@@ -37,6 +37,30 @@ namespace Tornado14.TrayApp.Controls.Task
 
 
             List<CompletionItem> comletionList = new List<CompletionItem>();
+            StringBuilder newTasltemplate = new StringBuilder();
+            newTasltemplate.AppendLine("////");
+            newTasltemplate.AppendLine("Taskname {");
+            newTasltemplate.AppendLine("Ist Zustand:");
+            newTasltemplate.AppendLine("");
+            newTasltemplate.AppendLine("-----");
+            newTasltemplate.AppendLine("Soll Zustand:");
+            newTasltemplate.AppendLine("");
+            newTasltemplate.AppendLine("-----");
+            newTasltemplate.AppendLine("Recherche:");
+            newTasltemplate.AppendLine("");
+            newTasltemplate.AppendLine("-----");
+            newTasltemplate.AppendLine("Resultat:");
+            newTasltemplate.AppendLine("");
+            newTasltemplate.AppendLine("}");
+
+
+            CompletionItem completionItemNewTaskTemplate = new CompletionItem()
+            {
+                DisplayText = "NewTask",
+                PopUpText = newTasltemplate.ToString(),
+                ReplacementText = newTasltemplate.ToString()
+            };
+            comletionList.Add(completionItemNewTaskTemplate);
 
             foreach (object obj in todoBindingSource.List)
             {
