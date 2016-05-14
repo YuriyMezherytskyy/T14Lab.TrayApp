@@ -47,12 +47,12 @@ namespace Tornado14.TrayApp.Controls
                 Debug.WriteLine(ex.Message);
             }
         }
-
         private void CustomEditor_TextChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(displayMember))
             {
-                this.data.GetType().GetProperty(displayMember).SetValue(this.data, this.Text);
+                WPFControls.TEditor.TextChangedEventArgs args = (WPFControls.TEditor.TextChangedEventArgs)e;
+                this.data.GetType().GetProperty(displayMember).SetValue(this.data, args.NewText);
             }
         }
 
@@ -81,21 +81,13 @@ namespace Tornado14.TrayApp.Controls
             CustomEditor.FillCompletionData(completitionDictionary);
         }
 
-
-        private void TextArea_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (this.displayMember != null)
-            {
-                this.data.GetType().GetProperty(displayMember).SetValue(this.data, this.Text);
-            }
-        }
-
         public WPFRichTextBox()
         {
             InitializeComponent();
             CustomEditor.TextChanged += CustomEditor_TextChanged;
             CustomEditor.HeaderClicked += CustomEditor_HeaderClicked;
         }
+
         public event EventHandler HeaderClicked;
         private void CustomEditor_HeaderClicked(object sender, EventArgs e)
         {

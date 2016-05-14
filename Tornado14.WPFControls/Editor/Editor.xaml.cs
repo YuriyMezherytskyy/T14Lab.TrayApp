@@ -77,6 +77,17 @@ namespace Tornado14.WPFControls
 
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public class TextChangedEventArgs : EventArgs
+        {
+            public TextChangedEventArgs(string text)
+            {
+                this.NewText = text;
+            }
+
+            public string NewText { get; private set; }
+        }
+
         void SetValueDp(DependencyProperty property, object value, [System.Runtime.CompilerServices.CallerMemberName] string p = null)
         {
             SetValue(property, value);
@@ -388,7 +399,7 @@ namespace Tornado14.WPFControls
         {
             if (TextChanged != null)
             {
-                TextChanged.Invoke(this, new EventArgs());
+                TextChanged.Invoke(this, new TextChangedEventArgs(this.textEditor.Text));
             }
         }
 
@@ -412,6 +423,7 @@ namespace Tornado14.WPFControls
 
         void textEditor_TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
+
             if (((KeyboardDevice)e.Device).Modifiers == ModifierKeys.Control)
             {
                 if (e.Text == " ")
@@ -553,15 +565,6 @@ namespace Tornado14.WPFControls
             textEditor.Text = "";
             textEditor.Text = temp + " ";
         }
-
-
-        private void tbrSpell__Click(object sender, RoutedEventArgs e)
-        {
-            textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
-            string temp = textEditor.Text;
-            textEditor.Text = "";
-            textEditor.Text = temp + " ";
-        }
         private void tbrSpellOff__Click(object sender, RoutedEventArgs e)
         {
 
@@ -647,6 +650,14 @@ namespace Tornado14.WPFControls
             }
         }
         public event EventHandler HeaderClicked;
+
+        private void tbrSpell__Click(object sender, RoutedEventArgs e)
+        {
+            textEditor.TextArea.TextView.LineTransformers.Add(spellingErrorColorizer);
+            string temp = textEditor.Text;
+            textEditor.Text = "";
+            textEditor.Text = temp + " ";
+        }
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             HeaderClicked.Invoke(this, new EventArgs());
