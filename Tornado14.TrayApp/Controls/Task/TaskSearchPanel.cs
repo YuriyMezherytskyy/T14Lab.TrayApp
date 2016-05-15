@@ -74,6 +74,19 @@ namespace Tornado14.TrayApp.Controls.Task
             todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged;
             dataGridViewTodos.SelectionChanged += DataGridViewTodos_SelectionChanged;
             dataGridViewTodos.CursorChanged += DataGridViewTodos_CursorChanged;
+            toolStrip1.AutoSize = true;
+            toolStrip1.Height = 25;
+            toolStrip1.BackColor = Color.Red;
+
+            idDataGridViewTextBoxColumn.Visible = false;
+            projectPidDataGridViewTextBoxColumn.Visible = false;
+            AdditionalField1.Visible = false;
+            AdditionalField2.Visible = false;
+            AdditionalField3.Visible = false;
+            AdditionalField4.Visible = false;
+            AdditionalField5.Visible = false;
+            statusDataGridViewTextBoxColumn.Visible = false;
+
         }
 
         #region GridEvents
@@ -145,13 +158,6 @@ namespace Tornado14.TrayApp.Controls.Task
 
         private void ReloadTaskGrid()
         {
-            projectPidDataGridViewTextBoxColumn.Visible = true;
-            statusDataGridViewTextBoxColumn.Visible = true;
-            AdditionalField1.Visible = true;
-            AdditionalField2.Visible = true;
-            AdditionalField3.Visible = true;
-            AdditionalField4.Visible = true;
-            AdditionalField5.Visible = true;
 
             SortableBindingList<Todo> filteredList = new SortableBindingList<Todo>();
             try
@@ -332,6 +338,7 @@ namespace Tornado14.TrayApp.Controls.Task
             additionalField5Filter.ComboBox.DataSource = allAdditionalField5Values;
 
         }
+
 
         private void FilterTextBoxTextChanged(object sender, EventArgs e)
         {
@@ -541,6 +548,60 @@ namespace Tornado14.TrayApp.Controls.Task
         private void labelColumn2_Click(object sender, EventArgs e)
         {
             splitContainer1.SplitterDistance = 400;
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonColumnId_CheckedChanged(object sender, EventArgs e)
+        {
+            ToolStripButton button = (ToolStripButton)sender;
+            idDataGridViewTextBoxColumn.Visible = button.Checked;
+            shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = CheckButtons();
+        }
+
+        private void toolStripButtonColumnProject_CheckedChanged(object sender, EventArgs e)
+        {
+            ToolStripButton button = (ToolStripButton)sender;
+            projectPidDataGridViewTextBoxColumn.Visible = button.Checked;
+            shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = CheckButtons();
+
+        }
+
+        private void toolStripButtonColumnAdditionalFields_CheckedChanged(object sender, EventArgs e)
+        {
+            ToolStripButton button = (ToolStripButton)sender;
+            AdditionalField1.Visible = button.Checked;
+            AdditionalField2.Visible = button.Checked;
+            AdditionalField3.Visible = button.Checked;
+            AdditionalField4.Visible = button.Checked;
+            AdditionalField5.Visible = button.Checked;
+            shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = CheckButtons();
+
+        }
+
+        private void toolStripButtonStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            ToolStripButton button = (ToolStripButton)sender;
+            statusDataGridViewTextBoxColumn.Visible = button.Checked;
+            shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = CheckButtons();
+
+        }
+
+        private DataGridViewAutoSizeColumnMode CheckButtons()
+        {
+            DataGridViewAutoSizeColumnMode result = DataGridViewAutoSizeColumnMode.None;
+            if (!toolStripButtonColumnId.Checked
+                && !toolStripButtonColumnProject.Checked
+                && toolStripButtonColumnAdditionalFields.Checked
+                && toolStripButtonStatus.Checked)
+            {
+                result = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            return result;
         }
     }
 }

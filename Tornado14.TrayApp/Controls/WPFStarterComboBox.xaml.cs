@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ using System.Windows.Shapes;
 
 namespace Tornado14.TrayApp.Controls
 {
+
     /// <summary>
     /// Interaction logic for WPFStarterComboBox.xaml
     /// </summary>
@@ -30,15 +33,29 @@ namespace Tornado14.TrayApp.Controls
         public delegate void ItemSelectedEventHandler(object selectedObject);
         public event ItemSelectedEventHandler SelectionChanged;
 
+
+        public List<ProfileConfigItem> SuggestionItems
+        {
+            get { return (List<ProfileConfigItem>)GetValue(SuggestionItemsProperty); }
+            set { SetValue(SuggestionItemsProperty, value); }
+        }
+
+
+        public static readonly DependencyProperty SuggestionItemsProperty =
+            DependencyProperty.Register("SuggestionItems", typeof(List<ProfileConfigItem>), typeof(WPFStarterComboBox), new UIPropertyMetadata(null));
+
+
+
         public void Init(IEnumerable suggestionItems)
         {
             filteredComboBox.IsEditable = true;
             filteredComboBox.IsTextSearchEnabled = false;
             //filteredComboBox.ItemsSource = typeof(Colors).GetProperties();
-            filteredComboBox.ItemsSource = suggestionItems;
+            //filteredComboBox.ItemsSource = suggestionItems;
+            SuggestionItems = (List<ProfileConfigItem>)suggestionItems;
             filteredComboBox.PreviewMouseLeftButtonUp += FilteredComboBox_PreviewMouseLeftButtonUp;
-            
-       }
+
+        }
 
         private void FilteredComboBox_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

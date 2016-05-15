@@ -47,7 +47,7 @@ namespace Tornado14.TrayApp.Controls.Task
 
             taskSearchPanel1.Grid.CellClick += Grid_CellClick;
             taskSearchPanel1.TodoBindingSource.CurrentChanged += TodoBindingSource_CurrentItemChanged;
-            taskSearchPanel1.label1.Click += Label1_Click;
+            
             todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged1;
             panel1.Height = 42;
             BlackTheme.ApplyTheme(this);

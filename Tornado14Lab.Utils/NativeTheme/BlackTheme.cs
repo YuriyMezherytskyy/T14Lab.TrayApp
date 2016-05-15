@@ -112,7 +112,7 @@ namespace Tornado14Lab.Utils.NativeTheme
                     Label label = (Label)control;
                     if (label.Font.Size > 11 && label.Font.Size < 13)
                     {
-                        label.ForeColor = BlueDark;
+                        label.ForeColor = Color.FromArgb(187,186,125);
                     }
                     else if (label.Font.Size >= 13)
                     {
@@ -177,8 +177,6 @@ namespace Tornado14Lab.Utils.NativeTheme
             toolStrip.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip.BackColor = ColorDarkGray;
             toolStrip.ForeColor = ColorText;
-            toolStrip.AutoSize = false;
-            toolStrip.Height = 40;
             toolStrip.Renderer = new MySR();
             toolStrip.Padding = new Padding(0, 0, 0, 0);
         }

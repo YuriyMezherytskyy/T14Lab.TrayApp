@@ -16,11 +16,14 @@ using System.Runtime.InteropServices;
 using Tornado14.TrayApp.Properties;
 using Tornado14Lab.Utils.Text;
 using Tornado14.TrayApp.Controls;
+using Hotkeys;
 
 namespace Tornado14.TrayApp
 {
     public partial class ProjectExplorer : Form
     {
+        private Hotkeys.GlobalHotkey projectExplorer = null;
+
         public static DirectoryInfo dataFolder = null;
         public static DirectoryInfo devFolder = null;
         public static DirectoryInfo devFolderLibs = null;
@@ -36,6 +39,7 @@ namespace Tornado14.TrayApp
         public ProjectExplorer()
         {
             InitializeComponent();
+            projectExplorer = new Hotkeys.GlobalHotkey(Constants.WIN, Keys.W, this);
             pictureBox1.Image = Image.FromFile(Path.Combine(iconsFolder.FullName, "logo.png"));
             SetPaths();
 
@@ -267,6 +271,50 @@ namespace Tornado14.TrayApp
             addTasks.Refresh();
             addTasks.BringToFront();
             SetActiveButton((ToolStripButton)sender);
+        }
+
+        private void ProjectExplorer_Load(object sender, EventArgs e)
+        {
+            if (projectExplorer != null && projectExplorer.Register());
+        }
+
+        private void ProjectExplorer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!projectExplorer.Unregiser())
+                MessageBox.Show("Hotkey failed tto unregister!)");
+        }
+
+
+        private void HandleHotkey(Message m)
+        {
+            if (m.LParam == (IntPtr)5701640)
+            {
+
+                if (this.WindowState == FormWindowState.Minimized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+
+                this.Activate();
+
+                this.Show();
+                this.Focus();
+                this.WindowState = FormWindowState.Maximized;
+
+                tasksGridPanel1.Refresh();
+                tasksGridPanel1.Dock = DockStyle.Fill;
+                tasksGridPanel1.BringToFront();
+                SetActiveButton((ToolStripButton)toolStripButtonTask);
+
+            }
+
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
+                HandleHotkey(m);
+            base.WndProc(ref m);
         }
     }
 }

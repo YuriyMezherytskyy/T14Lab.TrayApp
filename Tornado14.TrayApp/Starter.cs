@@ -21,7 +21,6 @@ namespace Tornado14.TrayApp
   {
 
     private Hotkeys.GlobalHotkey ghk;
-    private Hotkeys.GlobalHotkey projectExplorer = null;
     private ProcessIcon pi;
     private List<ProfileConfigItem> configTextList;
     private ImageList iconList = new ImageList();
@@ -272,8 +271,6 @@ namespace Tornado14.TrayApp
     {
       if (!ghk.Unregiser())
         MessageBox.Show("Hotkey failed to unregister!");
-      if (!projectExplorer.Unregiser())
-        MessageBox.Show("Hotkey failed tto unregister!)");
     }
 
     private void WriteLine(string text)
@@ -288,10 +285,6 @@ namespace Tornado14.TrayApp
       else
         WriteLine("Hotkey failed to register");
 
-      if (projectExplorer != null && projectExplorer.Register())
-        WriteLine("Hotkey registered.");
-      else
-        WriteLine("Hotkey failed to register");
     }
 
 

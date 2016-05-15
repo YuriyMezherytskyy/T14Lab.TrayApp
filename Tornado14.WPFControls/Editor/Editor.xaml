@@ -19,25 +19,25 @@
                 <Label FontSize="15" Height="26" Foreground="#bbba7d"
                        Padding="0" Margin="0,2,0,0" VerticalContentAlignment="Top" Content="{Binding HeaderText, Mode=TwoWay, NotifyOnSourceUpdated=True}" MouseDoubleClick="Label_MouseDoubleClick"></Label>
                 <Button Name="tbrClear" ToolTip="Clear" VerticalAlignment="Center" Click="tbrClear_Click" Padding="0" Margin="0,1,0,0" BorderThickness="0">
-                    <Label FontSize="11"  Foreground="White">DE</Label>
+                    <Label FontSize="11"  Foreground="#3e3e42">DE</Label>
                 </Button>
 
                 <Button Name="tbrClear_" Padding="0" Margin="0,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrClear__Click">
-                    <Label FontSize="11" Foreground="White">EN</Label>
+                    <Label FontSize="11" Foreground="#3e3e42">EN</Label>
                 </Button>
 
                 <Button Name="tbrWord" Padding="0" Margin="0,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrWord__ClickOff">
-                    <Label FontSize="11" Foreground="White">Word Spell</Label>
+                    <Label FontSize="11" Foreground="#3e3e42">Word Spell</Label>
                 </Button>
                 <Button Name="tbrMail" Padding="0" Margin="0,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrMail__Click">
-                    <Label FontSize="11" Foreground="White">Send Mail</Label>
+                    <Label FontSize="11" Foreground="#3e3e42">Send Mail</Label>
                 </Button>
                 
                 <Button Name="tbrSpell" Padding="0" Margin="30,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrSpell__Click">
-                    <Label FontSize="11" Foreground="White">Spell On</Label>
+                    <Label FontSize="11" Foreground="#3e3e42">Spell On</Label>
                 </Button>
                 <Button Name="tbrSpellOff" Padding="0" Margin="0,1,0,0" ToolTip="Clear" VerticalAlignment="Stretch" BorderThickness="0" VerticalContentAlignment="Center" Click="tbrSpell__ClickOff">
-                    <Label FontSize="11" Foreground="White">Spell Off</Label>
+                    <Label FontSize="11" Foreground="#3e3e42">Spell Off</Label>
                 </Button>
 
             </ToolBar>

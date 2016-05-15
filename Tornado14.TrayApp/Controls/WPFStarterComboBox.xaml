@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<UserControl Name="ucCountryCombo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,14 +6,38 @@
              xmlns:local="clr-namespace:Tornado14.TrayApp.Controls"
              xmlns:WPFControls="clr-namespace:Tornado14.WPFControls;assembly=Tornado14.WPFControls" x:Class="Tornado14.TrayApp.Controls.WPFStarterComboBox"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-  <UserControl.Resources>
-    <!-- For large content, better go for a Virtualizing StackPanel -->
-    <ItemsPanelTemplate x:Key="ItemsTemplate">
-      <VirtualizingStackPanel MouseLeftButtonUp="VirtualizingStackPanel_MouseLeftButtonUp" PreviewMouseLeftButtonUp="VirtualizingStackPanel_PreviewMouseLeftButtonUp"/>
-    </ItemsPanelTemplate>
-  </UserControl.Resources>
-  <Grid>
-    <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
-  </Grid>
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <UserControl.Resources>
+        <!-- For large content, better go for a Virtualizing StackPanel -->
+        <ItemsPanelTemplate x:Key="ItemsTemplate">
+            <VirtualizingStackPanel MouseLeftButtonUp="VirtualizingStackPanel_MouseLeftButtonUp" PreviewMouseLeftButtonUp="VirtualizingStackPanel_PreviewMouseLeftButtonUp"/>
+        </ItemsPanelTemplate>
+
+        <DataTemplate x:Key="cmbTemplate">
+            <WrapPanel Margin="0 5 0 5" Height="40" Background="Azure" Width="500" Name="root">
+                <Image Width="65" Height="65" Stretch="Fill" Source="{Binding icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
+                <TextBlock  Width="65" Text="{Binding displayName}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="Black"/>
+                <Label>gfhjfg</Label>
+            </WrapPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <!--
+        ItemTemplate="{StaticResource cmbTemplate}"
+        <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
+        -->
+
+        <WPFControls:FilteredComboBox x:Name="filteredComboBox"  ItemsSource="{Binding SuggestionItems}"
+                                      Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="5" Text="{Binding displayName}" Width="200"/>
+                        <Label>gfhjfg</Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>            
+        </WPFControls:FilteredComboBox>
+    </Grid>
 </UserControl>

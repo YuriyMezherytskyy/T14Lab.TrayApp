@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskSearchPanel));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panelColumn1 = new System.Windows.Forms.Panel();
@@ -36,10 +37,23 @@
             this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
             this.labelColumn2 = new System.Windows.Forms.Label();
             this.dataGridViewTodos = new System.Windows.Forms.DataGridView();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonColumnId = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonColumnProject = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonColumnAdditionalFields = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonStatus = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AdditionalField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdditionalField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdditionalField3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,14 +61,6 @@
             this.AdditionalField5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +91,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewTodos);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
             this.splitContainer1.Size = new System.Drawing.Size(1059, 674);
             this.splitContainer1.SplitterDistance = 200;
@@ -189,110 +196,97 @@
             this.dataGridViewTodos.DataSource = this.todoBindingSource;
             this.dataGridViewTodos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTodos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewTodos.Location = new System.Drawing.Point(5, 26);
+            this.dataGridViewTodos.Location = new System.Drawing.Point(5, 30);
             this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewTodos.Name = "dataGridViewTodos";
             this.dataGridViewTodos.RowTemplate.Height = 24;
             this.dataGridViewTodos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTodos.Size = new System.Drawing.Size(843, 641);
+            this.dataGridViewTodos.Size = new System.Drawing.Size(843, 637);
             this.dataGridViewTodos.TabIndex = 1;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // shortDescriptionDataGridViewTextBoxColumn
-            // 
-            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-            this.shortDescriptionDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // projectPidDataGridViewTextBoxColumn
-            // 
-            this.projectPidDataGridViewTextBoxColumn.DataPropertyName = "ProjectPid";
-            this.projectPidDataGridViewTextBoxColumn.DataSource = this.projectBindingSource;
-            this.projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
-            this.projectPidDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.projectPidDataGridViewTextBoxColumn.HeaderText = "Project";
-            this.projectPidDataGridViewTextBoxColumn.Name = "projectPidDataGridViewTextBoxColumn";
-            this.projectPidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
-            this.projectPidDataGridViewTextBoxColumn.Width = 300;
             // 
             // projectBindingSource
             // 
             this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
-            // 
-            // AdditionalField1
-            // 
-            this.AdditionalField1.DataPropertyName = "AdditionalField1";
-            this.AdditionalField1.HeaderText = "AdditionalField1";
-            this.AdditionalField1.Name = "AdditionalField1";
-            // 
-            // AdditionalField2
-            // 
-            this.AdditionalField2.DataPropertyName = "AdditionalField2";
-            this.AdditionalField2.HeaderText = "AdditionalField2";
-            this.AdditionalField2.Name = "AdditionalField2";
-            // 
-            // AdditionalField3
-            // 
-            this.AdditionalField3.DataPropertyName = "AdditionalField3";
-            this.AdditionalField3.HeaderText = "AdditionalField3";
-            this.AdditionalField3.Name = "AdditionalField3";
-            // 
-            // AdditionalField4
-            // 
-            this.AdditionalField4.DataPropertyName = "AdditionalField4";
-            this.AdditionalField4.HeaderText = "AdditionalField4";
-            this.AdditionalField4.Name = "AdditionalField4";
-            // 
-            // AdditionalField5
-            // 
-            this.AdditionalField5.DataPropertyName = "AdditionalField5";
-            this.AdditionalField5.HeaderText = "AdditionalField5";
-            this.AdditionalField5.Name = "AdditionalField5";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.statusDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // pIdDataGridViewTextBoxColumn
-            // 
-            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
-            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
-            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
-            this.pIdDataGridViewTextBoxColumn.Visible = false;
-            this.pIdDataGridViewTextBoxColumn.Width = 130;
             // 
             // todoBindingSource
             // 
             this.todoBindingSource.DataSource = typeof(Tornado14.Task.Todo);
             this.todoBindingSource.BindingComplete += new System.Windows.Forms.BindingCompleteEventHandler(this.todoBindingSource_BindingComplete);
             // 
-            // label1
+            // toolStrip1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(5, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Filtered data";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripButtonColumnId,
+            this.toolStripButtonColumnProject,
+            this.toolStripButtonColumnAdditionalFields,
+            this.toolStripButtonStatus});
+            this.toolStrip1.Location = new System.Drawing.Point(5, 5);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(843, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(186)))), ((int)(((byte)(125)))));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(102, 22);
+            this.toolStripLabel1.Text = "Filtered Tasks";
+            this.toolStripLabel1.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // toolStripButtonColumnId
+            // 
+            this.toolStripButtonColumnId.CheckOnClick = true;
+            this.toolStripButtonColumnId.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonColumnId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.toolStripButtonColumnId.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonColumnId.Image")));
+            this.toolStripButtonColumnId.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonColumnId.Name = "toolStripButtonColumnId";
+            this.toolStripButtonColumnId.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonColumnId.Text = "Id";
+            this.toolStripButtonColumnId.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonColumnId.CheckedChanged += new System.EventHandler(this.toolStripButtonColumnId_CheckedChanged);
+            // 
+            // toolStripButtonColumnProject
+            // 
+            this.toolStripButtonColumnProject.CheckOnClick = true;
+            this.toolStripButtonColumnProject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonColumnProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.toolStripButtonColumnProject.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonColumnProject.Image")));
+            this.toolStripButtonColumnProject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonColumnProject.Name = "toolStripButtonColumnProject";
+            this.toolStripButtonColumnProject.Size = new System.Drawing.Size(48, 22);
+            this.toolStripButtonColumnProject.Text = "Project";
+            this.toolStripButtonColumnProject.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonColumnProject.CheckedChanged += new System.EventHandler(this.toolStripButtonColumnProject_CheckedChanged);
+            // 
+            // toolStripButtonColumnAdditionalFields
+            // 
+            this.toolStripButtonColumnAdditionalFields.CheckOnClick = true;
+            this.toolStripButtonColumnAdditionalFields.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonColumnAdditionalFields.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.toolStripButtonColumnAdditionalFields.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonColumnAdditionalFields.Image")));
+            this.toolStripButtonColumnAdditionalFields.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonColumnAdditionalFields.Name = "toolStripButtonColumnAdditionalFields";
+            this.toolStripButtonColumnAdditionalFields.Size = new System.Drawing.Size(99, 22);
+            this.toolStripButtonColumnAdditionalFields.Text = "Additional Fields";
+            this.toolStripButtonColumnAdditionalFields.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonColumnAdditionalFields.CheckedChanged += new System.EventHandler(this.toolStripButtonColumnAdditionalFields_CheckedChanged);
+            // 
+            // toolStripButtonStatus
+            // 
+            this.toolStripButtonStatus.CheckOnClick = true;
+            this.toolStripButtonStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
+            this.toolStripButtonStatus.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStatus.Image")));
+            this.toolStripButtonStatus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonStatus.Name = "toolStripButtonStatus";
+            this.toolStripButtonStatus.Size = new System.Drawing.Size(43, 22);
+            this.toolStripButtonStatus.Text = "Status";
+            this.toolStripButtonStatus.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonStatus.CheckedChanged += new System.EventHandler(this.toolStripButtonStatus_CheckedChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -328,6 +322,87 @@
             // 
             this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // shortDescriptionDataGridViewTextBoxColumn
+            // 
+            this.shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
+            // 
+            // projectPidDataGridViewTextBoxColumn
+            // 
+            this.projectPidDataGridViewTextBoxColumn.DataPropertyName = "ProjectPid";
+            this.projectPidDataGridViewTextBoxColumn.DataSource = this.projectBindingSource;
+            this.projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
+            this.projectPidDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.projectPidDataGridViewTextBoxColumn.HeaderText = "Project";
+            this.projectPidDataGridViewTextBoxColumn.Name = "projectPidDataGridViewTextBoxColumn";
+            this.projectPidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
+            this.projectPidDataGridViewTextBoxColumn.Visible = false;
+            this.projectPidDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // AdditionalField1
+            // 
+            this.AdditionalField1.DataPropertyName = "AdditionalField1";
+            this.AdditionalField1.HeaderText = "AdditionalField1";
+            this.AdditionalField1.Name = "AdditionalField1";
+            this.AdditionalField1.Visible = false;
+            // 
+            // AdditionalField2
+            // 
+            this.AdditionalField2.DataPropertyName = "AdditionalField2";
+            this.AdditionalField2.HeaderText = "AdditionalField2";
+            this.AdditionalField2.Name = "AdditionalField2";
+            this.AdditionalField2.Visible = false;
+            // 
+            // AdditionalField3
+            // 
+            this.AdditionalField3.DataPropertyName = "AdditionalField3";
+            this.AdditionalField3.HeaderText = "AdditionalField3";
+            this.AdditionalField3.Name = "AdditionalField3";
+            this.AdditionalField3.Visible = false;
+            // 
+            // AdditionalField4
+            // 
+            this.AdditionalField4.DataPropertyName = "AdditionalField4";
+            this.AdditionalField4.HeaderText = "AdditionalField4";
+            this.AdditionalField4.Name = "AdditionalField4";
+            this.AdditionalField4.Visible = false;
+            // 
+            // AdditionalField5
+            // 
+            this.AdditionalField5.DataPropertyName = "AdditionalField5";
+            this.AdditionalField5.HeaderText = "AdditionalField5";
+            this.AdditionalField5.Name = "AdditionalField5";
+            this.AdditionalField5.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.statusDataGridViewTextBoxColumn.Visible = false;
+            this.statusDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // pIdDataGridViewTextBoxColumn
+            // 
+            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
+            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
+            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
+            this.pIdDataGridViewTextBoxColumn.Visible = false;
+            this.pIdDataGridViewTextBoxColumn.Width = 130;
+            // 
             // TaskSearchPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +424,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTodos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sprintBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -365,6 +442,18 @@
         private System.Windows.Forms.Panel panelColumnAvailableFilter;
         private System.Windows.Forms.Label labelColumn2;
         private System.Windows.Forms.DataGridView dataGridViewTodos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        public System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStatus;
+        private System.Windows.Forms.ToolStripButton toolStripButtonColumnId;
+        private System.Windows.Forms.ToolStripButton toolStripButtonColumnProject;
+        private System.Windows.Forms.ToolStripButton toolStripButtonColumnAdditionalFields;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shortDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn projectPidDataGridViewTextBoxColumn;
@@ -375,12 +464,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalField5;
         private System.Windows.Forms.DataGridViewComboBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
