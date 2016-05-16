@@ -17,7 +17,7 @@
         <DataTemplate x:Key="cmbTemplate">
             <WrapPanel Margin="0 5 0 5" Height="40" Background="Azure" Width="500" Name="root">
                 <Image Width="65" Height="65" Stretch="Fill" Source="{Binding icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
-                <TextBlock  Width="65" Text="{Binding displayName}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="Black"/>
+                <TextBlock  Width="65" Text="{Binding displayName}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Foreground="Black"/>
                 <Label>gfhjfg</Label>
             </WrapPanel>
         </DataTemplate>
@@ -25,7 +25,7 @@
     <Grid>
 
         <!--ItemTemplate="{StaticResource cmbTemplate}"-->
-        <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
+        <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="25" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
 
         <!--
         <WPFControls:FilteredComboBox x:Name="filteredComboBox"  ItemsSource="{Binding SuggestionItems}"

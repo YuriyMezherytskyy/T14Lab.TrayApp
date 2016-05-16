@@ -38,7 +38,7 @@ namespace Tornado14.TrayApp
       panel1.BackColor = Settings.Default.backColor;
       panelStarter.BackColor = Settings.Default.backColor;
 
-      pictureBox1.Image = Image.FromFile(Path.Combine(iconsFolder.FullName, "logo.png"));
+      //pictureBox1.Image = Image.FromFile(Path.Combine(iconsFolder.FullName, "logo.png"));
       iconList.ColorDepth = ColorDepth.Depth32Bit;
       iconList.ImageSize = new System.Drawing.Size(32, 32);
       listView1.LargeImageList = iconList;
