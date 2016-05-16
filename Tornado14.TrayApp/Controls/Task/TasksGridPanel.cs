@@ -49,7 +49,6 @@ namespace Tornado14.TrayApp.Controls.Task
             taskSearchPanel1.TodoBindingSource.CurrentChanged += TodoBindingSource_CurrentItemChanged;
             
             todoBindingSource.CurrentItemChanged += TodoBindingSource_CurrentItemChanged1;
-            panel1.Height = 42;
             BlackTheme.ApplyTheme(this);
         }
 
@@ -110,7 +109,6 @@ namespace Tornado14.TrayApp.Controls.Task
             if (todo != null)
             {
                 taskEditor1.BindingSource.Position = todoBindingSource.Position;
-                label1.Text = todo.ShortDescription;
             }
         }
 

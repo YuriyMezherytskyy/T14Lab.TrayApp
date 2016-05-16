@@ -595,8 +595,8 @@ namespace Tornado14.TrayApp.Controls.Task
             DataGridViewAutoSizeColumnMode result = DataGridViewAutoSizeColumnMode.None;
             if (!toolStripButtonColumnId.Checked
                 && !toolStripButtonColumnProject.Checked
-                && toolStripButtonColumnAdditionalFields.Checked
-                && toolStripButtonStatus.Checked)
+                && !toolStripButtonColumnAdditionalFields.Checked
+                && !toolStripButtonStatus.Checked)
             {
                 result = DataGridViewAutoSizeColumnMode.Fill;
             }

@@ -8,9 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using Tornado14Lab.Utils.DataGridViewHelper;
 using Tornado14.Task;
+using Tornado14.TrayApp.Properties;
 
 namespace Tornado14.TrayApp.Controls.Task
 {
+
     public partial class TaskEditor : UserControl
     {
         public BindingSource BindingSource
@@ -29,6 +31,7 @@ namespace Tornado14.TrayApp.Controls.Task
 
         internal void SetBindingSources(object projectDataSource, object sprintDataSource, object taskDataSource)
         {
+
             this.todoBindingSource.DataSource = taskDataSource;
             this.sprintBindingSource.DataSource = sprintDataSource;
 
@@ -139,13 +142,73 @@ namespace Tornado14.TrayApp.Controls.Task
             DescriptionField.SetDataBinding(todoBindingSource.Current, "Description");
             ResultField.SetDataBinding(todoBindingSource.Current, "Result");
             PublicTextField.SetDataBinding(todoBindingSource.Current, "PublicText");
+
+            if (todoBindingSource.Current is Todo)
+            {
+                Todo todo = (Todo)todoBindingSource.Current;
+                toolStripLabel1.Text = todo.ShortDescription.Truncate(50);
+                if (!string.IsNullOrEmpty(todo.CurrentState)) toolStripButtonIst.ForeColor = Color.White;
+                if (!string.IsNullOrEmpty(todo.Description)) toolStripButtonSoll.ForeColor = Color.White;
+                if (!string.IsNullOrEmpty(todo.Result)) toolStripButtonRecherche.ForeColor = Color.White;
+                if (!string.IsNullOrEmpty(todo.PublicText)) toolStripButtonResult.ForeColor = Color.White;
+            }
         }
 
         public TaskEditor()
         {
             InitializeComponent();
+            PanelsVisibility(panel2, toolStripButtonSoll);
+        }
 
 
+        private void PanelsVisibility(Panel activePanel, ToolStripButton button)
+        {
+            toolStripButtonIst.Checked = false;
+            toolStripButtonSoll.Checked = false;
+            toolStripButtonRecherche.Checked = false;
+            toolStripButtonResult.Checked = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            activePanel.Visible = true;
+            activePanel.Dock = DockStyle.Fill;
+            button.Checked = true;
+        }
+
+        private void toolStripButtonIst_Click(object sender, EventArgs e)
+        {
+            PanelsVisibility(panel1, toolStripButtonIst);
+            
+        }
+
+        private void toolStripButtonSoll_Click(object sender, EventArgs e)
+        {
+            PanelsVisibility(panel2, toolStripButtonSoll);
+        }
+
+        private void toolStripButtonRecherche_Click(object sender, EventArgs e)
+        {
+            PanelsVisibility(panel3, toolStripButtonRecherche);
+        }
+
+        private void toolStripButtonResult_Click(object sender, EventArgs e)
+        {
+            PanelsVisibility(panel4, toolStripButtonResult);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Todo currentTask = (Todo)todoBindingSource.Current;
+            currentTask.OpenFilesFolder(Settings.Default.DataFolder);
+        }
+    }
+    public static class StringExt
+    {
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength) + "...";
         }
     }
 }

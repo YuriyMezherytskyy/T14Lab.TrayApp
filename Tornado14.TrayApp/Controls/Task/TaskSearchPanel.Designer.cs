@@ -37,7 +37,17 @@
             this.panelColumnAvailableFilter = new System.Windows.Forms.Panel();
             this.labelColumn2 = new System.Windows.Forms.Label();
             this.dataGridViewTodos = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AdditionalField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalField5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -51,16 +61,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectPidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AdditionalField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdditionalField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdditionalField3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdditionalField4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdditionalField5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,7 +92,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewTodos);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Size = new System.Drawing.Size(1059, 674);
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 8;
@@ -196,17 +196,98 @@
             this.dataGridViewTodos.DataSource = this.todoBindingSource;
             this.dataGridViewTodos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTodos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridViewTodos.Location = new System.Drawing.Point(5, 30);
+            this.dataGridViewTodos.Location = new System.Drawing.Point(4, 29);
             this.dataGridViewTodos.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewTodos.Name = "dataGridViewTodos";
             this.dataGridViewTodos.RowTemplate.Height = 24;
             this.dataGridViewTodos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTodos.Size = new System.Drawing.Size(843, 637);
+            this.dataGridViewTodos.Size = new System.Drawing.Size(845, 639);
             this.dataGridViewTodos.TabIndex = 1;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // shortDescriptionDataGridViewTextBoxColumn
+            // 
+            this.shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
+            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
+            // 
+            // projectPidDataGridViewTextBoxColumn
+            // 
+            this.projectPidDataGridViewTextBoxColumn.DataPropertyName = "ProjectPid";
+            this.projectPidDataGridViewTextBoxColumn.DataSource = this.projectBindingSource;
+            this.projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
+            this.projectPidDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.projectPidDataGridViewTextBoxColumn.HeaderText = "Project";
+            this.projectPidDataGridViewTextBoxColumn.Name = "projectPidDataGridViewTextBoxColumn";
+            this.projectPidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
+            this.projectPidDataGridViewTextBoxColumn.Visible = false;
+            this.projectPidDataGridViewTextBoxColumn.Width = 300;
             // 
             // projectBindingSource
             // 
             this.projectBindingSource.DataSource = typeof(Tornado14.Task.Project);
+            // 
+            // AdditionalField1
+            // 
+            this.AdditionalField1.DataPropertyName = "AdditionalField1";
+            this.AdditionalField1.HeaderText = "AdditionalField1";
+            this.AdditionalField1.Name = "AdditionalField1";
+            this.AdditionalField1.Visible = false;
+            // 
+            // AdditionalField2
+            // 
+            this.AdditionalField2.DataPropertyName = "AdditionalField2";
+            this.AdditionalField2.HeaderText = "AdditionalField2";
+            this.AdditionalField2.Name = "AdditionalField2";
+            this.AdditionalField2.Visible = false;
+            // 
+            // AdditionalField3
+            // 
+            this.AdditionalField3.DataPropertyName = "AdditionalField3";
+            this.AdditionalField3.HeaderText = "AdditionalField3";
+            this.AdditionalField3.Name = "AdditionalField3";
+            this.AdditionalField3.Visible = false;
+            // 
+            // AdditionalField4
+            // 
+            this.AdditionalField4.DataPropertyName = "AdditionalField4";
+            this.AdditionalField4.HeaderText = "AdditionalField4";
+            this.AdditionalField4.Name = "AdditionalField4";
+            this.AdditionalField4.Visible = false;
+            // 
+            // AdditionalField5
+            // 
+            this.AdditionalField5.DataPropertyName = "AdditionalField5";
+            this.AdditionalField5.HeaderText = "AdditionalField5";
+            this.AdditionalField5.Name = "AdditionalField5";
+            this.AdditionalField5.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.statusDataGridViewTextBoxColumn.Visible = false;
+            this.statusDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // pIdDataGridViewTextBoxColumn
+            // 
+            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
+            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
+            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
+            this.pIdDataGridViewTextBoxColumn.Visible = false;
+            this.pIdDataGridViewTextBoxColumn.Width = 130;
             // 
             // todoBindingSource
             // 
@@ -221,9 +302,9 @@
             this.toolStripButtonColumnProject,
             this.toolStripButtonColumnAdditionalFields,
             this.toolStripButtonStatus});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 5);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 4);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(843, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(845, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -293,115 +374,39 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "AdditionalField1";
             this.dataGridViewTextBoxColumn1.HeaderText = "AdditionalField1";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "AdditionalField2";
             this.dataGridViewTextBoxColumn2.HeaderText = "AdditionalField2";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "AdditionalField3";
             this.dataGridViewTextBoxColumn3.HeaderText = "AdditionalField3";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Visible = false;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "AdditionalField4";
             this.dataGridViewTextBoxColumn4.HeaderText = "AdditionalField4";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Visible = false;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "AdditionalField5";
             this.dataGridViewTextBoxColumn5.HeaderText = "AdditionalField5";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
             // 
             // sprintBindingSource
             // 
             this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // shortDescriptionDataGridViewTextBoxColumn
-            // 
-            this.shortDescriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shortDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.HeaderText = "ShortDescription";
-            this.shortDescriptionDataGridViewTextBoxColumn.Name = "shortDescriptionDataGridViewTextBoxColumn";
-            // 
-            // projectPidDataGridViewTextBoxColumn
-            // 
-            this.projectPidDataGridViewTextBoxColumn.DataPropertyName = "ProjectPid";
-            this.projectPidDataGridViewTextBoxColumn.DataSource = this.projectBindingSource;
-            this.projectPidDataGridViewTextBoxColumn.DisplayMember = "ShortDescription";
-            this.projectPidDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.projectPidDataGridViewTextBoxColumn.HeaderText = "Project";
-            this.projectPidDataGridViewTextBoxColumn.Name = "projectPidDataGridViewTextBoxColumn";
-            this.projectPidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectPidDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.projectPidDataGridViewTextBoxColumn.ValueMember = "pId";
-            this.projectPidDataGridViewTextBoxColumn.Visible = false;
-            this.projectPidDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // AdditionalField1
-            // 
-            this.AdditionalField1.DataPropertyName = "AdditionalField1";
-            this.AdditionalField1.HeaderText = "AdditionalField1";
-            this.AdditionalField1.Name = "AdditionalField1";
-            this.AdditionalField1.Visible = false;
-            // 
-            // AdditionalField2
-            // 
-            this.AdditionalField2.DataPropertyName = "AdditionalField2";
-            this.AdditionalField2.HeaderText = "AdditionalField2";
-            this.AdditionalField2.Name = "AdditionalField2";
-            this.AdditionalField2.Visible = false;
-            // 
-            // AdditionalField3
-            // 
-            this.AdditionalField3.DataPropertyName = "AdditionalField3";
-            this.AdditionalField3.HeaderText = "AdditionalField3";
-            this.AdditionalField3.Name = "AdditionalField3";
-            this.AdditionalField3.Visible = false;
-            // 
-            // AdditionalField4
-            // 
-            this.AdditionalField4.DataPropertyName = "AdditionalField4";
-            this.AdditionalField4.HeaderText = "AdditionalField4";
-            this.AdditionalField4.Name = "AdditionalField4";
-            this.AdditionalField4.Visible = false;
-            // 
-            // AdditionalField5
-            // 
-            this.AdditionalField5.DataPropertyName = "AdditionalField5";
-            this.AdditionalField5.HeaderText = "AdditionalField5";
-            this.AdditionalField5.Name = "AdditionalField5";
-            this.AdditionalField5.Visible = false;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.statusDataGridViewTextBoxColumn.Visible = false;
-            this.statusDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // pIdDataGridViewTextBoxColumn
-            // 
-            this.pIdDataGridViewTextBoxColumn.DataPropertyName = "pId";
-            this.pIdDataGridViewTextBoxColumn.HeaderText = "pId";
-            this.pIdDataGridViewTextBoxColumn.Name = "pIdDataGridViewTextBoxColumn";
-            this.pIdDataGridViewTextBoxColumn.Visible = false;
-            this.pIdDataGridViewTextBoxColumn.Width = 130;
             // 
             // TaskSearchPanel
             // 

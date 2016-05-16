@@ -159,7 +159,7 @@ namespace Tornado14Lab.Utils.NativeTheme
             grid.DefaultCellStyle.BackColor = ColorDarkGray;
             grid.DefaultCellStyle.ForeColor = ColorText;
             grid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            grid.RowHeadersVisible = true;
+            grid.RowHeadersVisible = false;
             grid.RowHeadersDefaultCellStyle.BackColor = ColorDarkGray2;
             grid.BorderStyle = BorderStyle.None;
         }
