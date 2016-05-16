@@ -51,7 +51,7 @@ namespace Tornado14.TrayApp.Controls
             filteredComboBox.IsEditable = true;
             filteredComboBox.IsTextSearchEnabled = false;
             //filteredComboBox.ItemsSource = typeof(Colors).GetProperties();
-            //filteredComboBox.ItemsSource = suggestionItems;
+            filteredComboBox.ItemsSource = suggestionItems;
             SuggestionItems = (List<ProfileConfigItem>)suggestionItems;
             filteredComboBox.PreviewMouseLeftButtonUp += FilteredComboBox_PreviewMouseLeftButtonUp;
 

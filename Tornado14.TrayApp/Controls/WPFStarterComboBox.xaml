@@ -23,11 +23,11 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <!--
-        ItemTemplate="{StaticResource cmbTemplate}"
-        <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
-        -->
 
+        <!--ItemTemplate="{StaticResource cmbTemplate}"-->
+        <WPFControls:FilteredComboBox x:Name="filteredComboBox" ItemsPanel="{DynamicResource ItemsTemplate}"  Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" />
+
+        <!--
         <WPFControls:FilteredComboBox x:Name="filteredComboBox"  ItemsSource="{Binding SuggestionItems}"
                                       Margin="0,0,0,0" FontSize="18.667" SelectionChanged="filteredComboBox_SelectionChanged" KeyDown="filteredComboBox_KeyDown" >
             <ComboBox.ItemTemplate>
@@ -39,5 +39,6 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>            
         </WPFControls:FilteredComboBox>
+        -->
     </Grid>
 </UserControl>
