@@ -147,6 +147,13 @@ namespace Tornado14.TrayApp.Controls.Task
             {
                 Todo todo = (Todo)todoBindingSource.Current;
                 toolStripLabel1.Text = todo.ShortDescription.Truncate(50);
+
+
+                toolStripButtonIst.ForeColor = Color.FromArgb(62, 62, 66);
+                toolStripButtonSoll.ForeColor = Color.FromArgb(62, 62, 66);
+                toolStripButtonRecherche.ForeColor = Color.FromArgb(62, 62, 66);
+                toolStripButtonResult.ForeColor = Color.FromArgb(62, 62, 66); 
+
                 if (!string.IsNullOrEmpty(todo.CurrentState)) toolStripButtonIst.ForeColor = Color.White;
                 if (!string.IsNullOrEmpty(todo.Description)) toolStripButtonSoll.ForeColor = Color.White;
                 if (!string.IsNullOrEmpty(todo.Result)) toolStripButtonRecherche.ForeColor = Color.White;

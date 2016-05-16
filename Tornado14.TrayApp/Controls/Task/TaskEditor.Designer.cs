@@ -32,18 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskEditor));
             this.panelTaskDetails = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.elementHost4 = new System.Windows.Forms.Integration.ElementHost();
-            this.PublicTextField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
-            this.ResultField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.DescriptionField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.CurrentStateField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,12 +48,20 @@
             this.todoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sprintBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.CurrentStateField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
+            this.elementHost4 = new System.Windows.Forms.Integration.ElementHost();
+            this.PublicTextField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
+            this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
+            this.ResultField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.DescriptionField = new Tornado14.TrayApp.Controls.WPFRichTextBox();
             this.panelTaskDetails.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
@@ -93,84 +93,44 @@
             this.panel5.Size = new System.Drawing.Size(671, 585);
             this.panel5.TabIndex = 55;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.elementHost1);
+            this.panel1.Location = new System.Drawing.Point(47, 47);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(234, 150);
+            this.panel1.TabIndex = 51;
+            this.panel1.Visible = false;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.elementHost4);
             this.panel4.Location = new System.Drawing.Point(422, 435);
             this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.panel4.Size = new System.Drawing.Size(164, 139);
             this.panel4.TabIndex = 50;
             this.panel4.Visible = false;
-            // 
-            // elementHost4
-            // 
-            this.elementHost4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.elementHost4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost4.Location = new System.Drawing.Point(0, 0);
-            this.elementHost4.Name = "elementHost4";
-            this.elementHost4.Size = new System.Drawing.Size(164, 139);
-            this.elementHost4.TabIndex = 49;
-            this.elementHost4.Text = "elementHost4";
-            this.elementHost4.Child = this.PublicTextField;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.elementHost3);
             this.panel3.Location = new System.Drawing.Point(440, 285);
             this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.panel3.Size = new System.Drawing.Size(141, 126);
             this.panel3.TabIndex = 53;
             this.panel3.Visible = false;
-            // 
-            // elementHost3
-            // 
-            this.elementHost3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost3.Location = new System.Drawing.Point(0, 0);
-            this.elementHost3.Name = "elementHost3";
-            this.elementHost3.Size = new System.Drawing.Size(141, 126);
-            this.elementHost3.TabIndex = 47;
-            this.elementHost3.Text = "elementHost3";
-            this.elementHost3.Child = this.ResultField;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.elementHost2);
             this.panel2.Location = new System.Drawing.Point(519, 147);
             this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.panel2.Size = new System.Drawing.Size(141, 102);
             this.panel2.TabIndex = 52;
-            // 
-            // elementHost2
-            // 
-            this.elementHost2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(0, 0);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(141, 102);
-            this.elementHost2.TabIndex = 45;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.DescriptionField;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.elementHost1);
-            this.panel1.Location = new System.Drawing.Point(47, 47);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 150);
-            this.panel1.TabIndex = 51;
-            this.panel1.Visible = false;
-            // 
-            // elementHost1
-            // 
-            this.elementHost1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost1.Location = new System.Drawing.Point(0, 0);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(234, 150);
-            this.elementHost1.TabIndex = 43;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.CurrentStateField;
             // 
             // toolStrip1
             // 
@@ -279,6 +239,50 @@
             // 
             this.sprintBindingSource.DataSource = typeof(Tornado14.Task.Sprint);
             // 
+            // elementHost1
+            // 
+            this.elementHost1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost1.Location = new System.Drawing.Point(1, 0);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(233, 150);
+            this.elementHost1.TabIndex = 43;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.CurrentStateField;
+            // 
+            // elementHost4
+            // 
+            this.elementHost4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.elementHost4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost4.Location = new System.Drawing.Point(1, 0);
+            this.elementHost4.Name = "elementHost4";
+            this.elementHost4.Size = new System.Drawing.Size(163, 139);
+            this.elementHost4.TabIndex = 49;
+            this.elementHost4.Text = "elementHost4";
+            this.elementHost4.Child = this.PublicTextField;
+            // 
+            // elementHost3
+            // 
+            this.elementHost3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost3.Location = new System.Drawing.Point(1, 0);
+            this.elementHost3.Name = "elementHost3";
+            this.elementHost3.Size = new System.Drawing.Size(140, 126);
+            this.elementHost3.TabIndex = 47;
+            this.elementHost3.Text = "elementHost3";
+            this.elementHost3.Child = this.ResultField;
+            // 
+            // elementHost2
+            // 
+            this.elementHost2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(1, 0);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(140, 102);
+            this.elementHost2.TabIndex = 45;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.DescriptionField;
+            // 
             // TaskEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,10 +294,10 @@
             this.panelTaskDetails.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todoBindingSource)).EndInit();
