@@ -25,7 +25,7 @@ namespace Tornado14.TrayApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Y:\\Data")]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\trayData")]
         public string DataFolder {
             get {
                 return ((string)(this["DataFolder"]));

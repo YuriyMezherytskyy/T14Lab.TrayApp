@@ -34,7 +34,7 @@ namespace Tornado14.TrayApp
       InitializeComponent();
 
       // Design 
-      this.BackColor = Settings.Default.borderColor;
+      this.BackColor = Color.FromArgb(63,63, 63);
       panel1.BackColor = Settings.Default.backColor;
       panelStarter.BackColor = Settings.Default.backColor;
 
