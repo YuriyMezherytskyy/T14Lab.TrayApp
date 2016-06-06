@@ -22,12 +22,12 @@ namespace Tornado14Lab.StatusPublisherWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TaskList control.
+        /// TaskListPlanned control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TaskList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TaskListPlanned;
     }
 }

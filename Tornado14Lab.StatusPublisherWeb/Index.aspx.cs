@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Tornado14.Task;
 using Tornado14Lab.Utils.DataGridViewHelper;
+using Tornado14Lab.Utils.DateHelper;
 
 namespace Tornado14Lab.StatusPublisherWeb
 {
@@ -29,35 +31,40 @@ namespace Tornado14Lab.StatusPublisherWeb
       SortableBindingList<Todo> allTodos = SortableBindingListHelper.GetBindingListFromXmlFile<Todo>(todoXMLFilePath);
       SortableBindingList<Project> allProjects = SortableBindingListHelper.GetBindingListFromXmlFile<Project>(projectXMLFilePath);
 
-
-      string sprintFilter = null;
-      string projectFilter = null;
-      if (Page.RouteData.Values.ContainsKey("sprint") && Page.RouteData.Values.ContainsKey("project"))
-      {
-        sprintFilter = Page.RouteData.Values["sprint"].ToString();
-        projectFilter = Page.RouteData.Values["project"].ToString();
-        Guid projectId = allProjects.Where(p => p.Id == projectFilter).Single().pId;
-        RenderTasks(allSprints, allTodos, sprintFilter, projectId);
-      }
-      else
-      {
-        RenderSiteMap(allSprints, allTodos, allProjects);
-      }
-
+      RenderSiteMap(allSprints, allTodos, allProjects);
 
     }
 
     private void RenderSiteMap(SortableBindingList<Sprint> allSprints, SortableBindingList<Todo> allTodos, SortableBindingList<Project> allProjects)
     {
-      foreach (Sprint sprint in allSprints)
+      foreach (Sprint sprint in allSprints.Reverse())
       {
-        string sprintName = sprint.ShortDescription;
+        DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+        System.Globalization.Calendar cal = dfi.Calendar;
+        int tasksCount = 0;
+        if (sprint.Kanban != null)
+        {
+          tasksCount = sprint.Kanban.Count;
+        }
+        string period = string.Format("<span class='sprintName'>{0}    <span class='period'>{1}-{2}</span> <span class='kw'> K.W.:{3}-{4}</span> <span class='wd'>(Left:{5} from {6} W.D.)</span> <span class='tasks'>{7} Tasks</span>",
+        sprint.ShortDescription,
+        sprint.StartDate.ToString("dd.MM ddd"),
+        sprint.EndDate.ToString("dd.MM ddd"),
+        cal.GetWeekOfYear(sprint.StartDate, CalendarWeekRule.FirstDay, DayOfWeek.Monday),
+        cal.GetWeekOfYear(sprint.EndDate, CalendarWeekRule.FirstDay, DayOfWeek.Monday),
+        DateTimeHelper.GetBusinessDays(DateTime.Now, sprint.EndDate),
+        DateTimeHelper.GetBusinessDays(sprint.StartDate, sprint.EndDate),
+        tasksCount);
+
+
+        string sprintName = period;
         string sprintContent = "";//task.PublicText.Replace("\r\n", "<br />");
 
 
         StringBuilder sprintSubContentBuilder = new StringBuilder();
 
         List<Project> projectList = new List<Project>();
+        Dictionary<Project, List<Status>> projectStatusList = new Dictionary<Project, List<Status>>();
         foreach (KanbanPosition kanbanPosition in sprint.Kanban)
         {
           Todo task = allTodos.Where(t => t.pId == kanbanPosition.TaskPid).Single();
@@ -65,102 +72,29 @@ namespace Tornado14Lab.StatusPublisherWeb
           if (!projectList.Contains(project))
           {
             projectList.Add(project);
+            projectStatusList.Add(project, new List<Status>());
+            projectStatusList[project].Add(kanbanPosition.Status);
           }
         }
 
         string currentUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + ResolveUrl("~/");
 
+        sprintSubContentBuilder.AppendLine("<ul>");
         foreach (Project project in projectList)
         {
           string subContent = "";
           string level2Template = "";
-
           string link = $"{currentUrl}status/{sprint.Id}/{project.Id}";
-          string status = Status.Planned.ToString();
-          subContent += $"<a href=\"{link}\">{status}</a><br/>";
-
-          link = $"{currentUrl}status/{sprint.Id}/{project.Id}";
-          status = Status.Today.ToString();
-          subContent += $"<a href=\"{link}\">{status}</a><br/>";
-
-          link = $"{currentUrl}status/{sprint.Id}/{project.Id}";
-          status = Status.Progress.ToString();
-          subContent += $"<a href=\"{link}\">{status}</a><br/>";
-
-          link = $"{currentUrl}status/{sprint.Id}/{project.Id}";
-          status = Status.Test.ToString();
-          subContent += $"<a href=\"{link}\">{status}</a><br/>";
-
-          link = $"{currentUrl}status/{sprint.Id}/{project.Id}";
-          status = Status.Done.ToString();
-          subContent += $"<a href=\"{link}\">{status}</a><br/>";
-
-          level2Template = $"<ul class=\"cbp-ntsubaccordion\"><li><h4 class=\"cbp-nttrigger\">{project.ShortDescription}</h4><div class=\"cbp-ntcontent\"><p>{subContent}</p></div></li></ul>";
+          level2Template = $"<li><a href=\"{link}\">{project.ShortDescription}</a></li>";
           sprintSubContentBuilder.AppendLine(level2Template);
         }
+        sprintSubContentBuilder.AppendLine("</ul>");
 
 
 
         string sprintSubContent = sprintSubContentBuilder.ToString();
-        string level1Template = $"<li><h3 class=\"cbp-nttrigger\">{sprintName}</h3><div class=\"cbp-ntcontent\"><p>{sprintContent}</p>{sprintSubContent}</div></li>";
-        TaskList.InnerHtml += level1Template;
-      }
-    }
-
-    private void RenderTasks(SortableBindingList<Sprint> allSprints, SortableBindingList<Todo> allTodos, string sprintFilter, Guid projectFilter)
-    {
-      Sprint selectedSprint = allSprints.Where(s => s.Id == sprintFilter).Single();
-
-      foreach (KanbanPosition kanbanPosition in selectedSprint.Kanban)
-      {
-        Todo task = allTodos.Where(t => t.pId == kanbanPosition.TaskPid).Single();
-        if (task.ProjectPid == projectFilter)
-        {
-          string taskName = task.ShortDescription;
-          string taskContent = "";//task.PublicText.Replace("\r\n", "<br />");
-
-
-          StringBuilder taskSubContentBuilder = new StringBuilder();
-
-          string name = "";
-          string content = "";
-          string subContent = "";
-          string level2Template = "";
-
-          if (!string.IsNullOrEmpty(task.CurrentState))
-          {
-            name = "Ist zustand: ";
-            content = task.CurrentState.Replace("\r\n", "<br />");
-            level2Template = $"<ul class=\"cbp-ntsubaccordion\"><li><h4 class=\"cbp-nttrigger\">{name}</h4><div class=\"cbp-ntcontent\"><p>{content}</p>{subContent}</div></li></ul>";
-            taskSubContentBuilder.AppendLine(level2Template);
-          }
-          if (!string.IsNullOrEmpty(task.Description))
-          {
-            name = "Soll zustand: ";
-            content = task.Description.Replace("\r\n", "<br />");
-            level2Template = $"<ul class=\"cbp-ntsubaccordion\"><li><h4 class=\"cbp-nttrigger\">{name}</h4><div class=\"cbp-ntcontent\"><p>{content}</p>{subContent}</div></li></ul>";
-            taskSubContentBuilder.AppendLine(level2Template);
-          }
-          if (!string.IsNullOrEmpty(task.Result))
-          {
-            name = "Recherche: ";
-            content = task.Result.Replace("\r\n", "<br />");
-            level2Template = $"<ul class=\"cbp-ntsubaccordion\"><li><h4 class=\"cbp-nttrigger\">{name}</h4><div class=\"cbp-ntcontent\"><p>{content}</p>{subContent}</div></li></ul>";
-            taskSubContentBuilder.AppendLine(level2Template);
-          }
-          if (!string.IsNullOrEmpty(task.PublicText))
-          {
-            name = "Resultat: ";
-            content = task.PublicText.Replace("\r\n", "<br />");
-            level2Template = $"<ul class=\"cbp-ntsubaccordion\"><li><h4 class=\"cbp-nttrigger\">{name}</h4><div class=\"cbp-ntcontent\"><p>{content}</p>{subContent}</div></li></ul>";
-            taskSubContentBuilder.AppendLine(level2Template);
-          }
-
-
-          string taskSubContent = taskSubContentBuilder.ToString();
-          string level1Template = $"<li><h3 class=\"cbp-nttrigger\">{taskName}</h3><div class=\"cbp-ntcontent\"><p>{taskContent}</p>{taskSubContent}</div></li>";
-          TaskList.InnerHtml += level1Template;
-        }
+        string level1Template = $"<li><h3 class=\"cbp-nttrigger\">{sprintName}</h3><div class=\"cbp-ntcontent\">{sprintSubContent}</div></li>";
+        TaskListPlanned.InnerHtml += level1Template;
       }
     }
 

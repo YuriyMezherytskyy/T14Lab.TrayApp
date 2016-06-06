@@ -90,6 +90,7 @@ namespace Tornado14.Task
             }
         }
 
-        public List<KanbanPosition> Kanban { get; set; }
+
+    public List<KanbanPosition> Kanban { get; set; }
     }
 }

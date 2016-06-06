@@ -24,7 +24,7 @@ namespace Tornado14Lab.StatusPublisherWeb
       routes.MapPageRoute("",
           "", "~/index.aspx");
       routes.MapPageRoute("status",
-          "status/{sprint}/{project}", "~/index.aspx");
+          "status/{sprint}/{project}", "~/Kanban.aspx");
     }
 
     protected void Session_Start(object sender, EventArgs e)
