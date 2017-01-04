@@ -95,7 +95,6 @@ namespace Tornado14.TrayApp.Controls
         private void VirtualizingStackPanel_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             SelectionChanged.Invoke(filteredComboBox.SelectedItem);
-
         }
     }
 }

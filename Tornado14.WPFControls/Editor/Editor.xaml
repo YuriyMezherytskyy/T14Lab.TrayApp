@@ -59,10 +59,11 @@
             Foreground="#e6e6e6"
             WordWrap="True"
             ShowLineNumbers="True"
+              SyntaxHighlighting="XML"
             LineNumbersForeground="#3f3f46"
             x:Name="textEditor"
             FontFamily="Consolas"
-            SyntaxHighlighting="XML"
+            
             FontSize="10pt" ForceCursor="True">
                 <i:Interaction.Behaviors>
                     <local:AvalonEditBehaviour GiveMeTheText="{Binding Text2, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>

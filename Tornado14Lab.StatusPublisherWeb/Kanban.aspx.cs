@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Tornado14.Task;
+using Tornado14Lab.StatusPublisherWeb.Properties;
 using Tornado14Lab.Utils.DataGridViewHelper;
 
 namespace Tornado14Lab.StatusPublisherWeb
@@ -21,7 +22,7 @@ namespace Tornado14Lab.StatusPublisherWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-      dataFolder = new DirectoryInfo(Path.Combine(@"c:\trayData\", @"ProjectExplorer\"));
+      dataFolder = new DirectoryInfo(Path.Combine(Settings.Default.DataFolder, @"ProjectExplorer\"));
       sprintXMLFilePath = Path.Combine(dataFolder.FullName, "sprints.xml");
       todoXMLFilePath = Path.Combine(dataFolder.FullName, "todos.xml");
       projectXMLFilePath = Path.Combine(dataFolder.FullName, "projects.xml");
@@ -117,7 +118,7 @@ namespace Tornado14Lab.StatusPublisherWeb
           Todo task = allTodos.Where(t => t.pId == kanbanPosition.TaskPid).Single();
           if (task.ProjectPid == projectFilter)
           {
-            string taskName = task.ShortDescription;
+            string taskName = task.ShortDescription + "<span><</span>";
             string taskContent = "";
             string status = kanbanPosition.Status.ToString();
 
